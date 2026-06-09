@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --primary-light: #3B82F6;
+  --secondary: #7C3AED;
+  --secondary-dark: #6D28D9;
+  --secondary-light: #8B5CF6;
+  --accent: #F59E0B;
+  --bg-main: #FAFBFC;
+  --bg-card: #FFFFFF;
+  --bg-dark: #0D1117;
+  --text-primary: #1A1A2E;
+  --text-secondary: #6B7280;
+  --border: #E5E7EB;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.article-content h1 {
+  @apply text-2xl font-bold mt-8 mb-4;
+}
+.article-content h2 {
+  @apply text-xl font-bold mt-6 mb-3;
+}
+.article-content h3 {
+  @apply text-lg font-bold mt-5 mb-2;
+}
+.article-content p {
+  @apply mb-4 leading-relaxed;
+}
+.article-content ul, .article-content ol {
+  @apply mb-4 pl-6;
+}
+.article-content li {
+  @apply mb-2;
+}
+.article-content blockquote {
+  @apply border-l-4 border-primary pl-4 py-2 my-4 bg-blue-50 italic text-gray-600;
+}
+.article-content table {
+  @apply w-full border-collapse mb-6;
+}
+.article-content th, .article-content td {
+  @apply border border-gray-300 px-4 py-2 text-sm;
+}
+.article-content th {
+  @apply bg-gray-50 font-semibold;
+}
+.article-content a {
+  @apply text-primary hover:underline;
+}
+.article-content code {
+  @apply bg-gray-100 px-1 py-0.5 rounded text-sm;
+}
+.article-content pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+}
+.article-content pre code {
+  @apply bg-transparent px-0 py-0 text-inherit;
+}
