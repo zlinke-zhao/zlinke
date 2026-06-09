@@ -132,13 +132,48 @@ def get_today_topics():
     return result
 
 
+# 中文标题 → 英文slug映射表（防止URL中出现中文导致404）
+SLUG_MAP = {
+    "2026年最强AI编程工具评测：Cursor vs Copilot vs Windsurf": "cursor-vs-copilot-vs-windsurf",
+    "AI绘画工具终极对比：Midjourney vs DALL-E vs Stable Diffusion": "midjourney-vs-dalle-vs-sd",
+    "ChatGPT vs Claude vs 文心一言：中文写作谁最强？": "chatgpt-vs-claude-vs-wenxin",
+    "2026年最佳AI搜索引擎：Perplexity vs SearchGPT vs 秘塔": "perplexity-vs-searchgpt-vs-mita",
+    "Notion AI vs Obsidian AI：知识管理工具AI功能对比": "notion-ai-vs-obsidian-ai",
+    "AI视频生成工具评测：Runway vs Pika vs Kling": "runway-vs-pika-vs-kling",
+    "2026年免费AI工具Top 10：不花钱也能用好AI": "free-ai-tools-top10",
+    "AI客服机器人对比：Dify vs FastGPT vs Coze": "dify-vs-fastgpt-vs-coze",
+    "OpenAI发布GPT-5：推理能力大幅提升": "openai-gpt5-release",
+    "Google Gemini 2.0正式发布，多模态能力升级": "google-gemini2-release",
+    "Anthropic推出Claude 4：编程能力质的飞跃": "claude4-release",
+    "苹果Apple Intelligence全面集成Siri": "apple-intelligence-siri",
+    "Meta开源Llama 4：参数规模再创新高": "meta-llama4-open-source",
+    "微软Copilot+PC发布：AI原生操作系统时代来临": "microsoft-copilot-plus-pc",
+    "字节跳动豆包大模型API降价90%": "bytedance-doubao-price-cut",
+    "NVIDIA发布B300 GPU：AI训练速度提升3倍": "nvidia-b300-gpu",
+    "Sora正式开放使用：AI视频生成进入平民时代": "sora-public-access",
+    "中国AI芯片取得突破：华为昇腾910C量产": "huawei-ascend-910c",
+    "AI编程的下一步：从辅助工具到自主开发者": "ai-coding-future",
+    "2026年AI行业就业报告：哪些岗位正在消失？哪些在增长？": "ai-employment-report-2026",
+    "RAG技术全面解析：如何让AI拥有你的私有知识": "rag-technology-guide",
+    "AI Agent元年：从聊天机器人到自主智能体": "ai-agent-era-begins",
+    "大模型本地部署指南：保护数据隐私的AI方案": "local-llm-deployment-guide",
+    "AI创业避坑指南：2026年还有哪些机会？": "ai-startup-pitfalls-2026",
+}
+
+
 def generate_slug(title: str) -> str:
-    """将标题转为URL友好的slug"""
-    # 移除特殊字符，取前50字符
-    slug = re.sub(r'[^\w\s-]', '', title.lower())
-    slug = re.sub(r'[\s_]+', '-', slug)
+    """将标题转为URL友好的英文slug（避免中文URL导致404）"""
+    # 优先查映射表
+    if title in SLUG_MAP:
+        return SLUG_MAP[title]
+
+    # 对于未映射的标题，移除所有非ASCII字符，保留英文部分
+    slug = re.sub(r'[^\w\s-]', '', title)
+    # 只保留英文字母、数字、连字符
+    slug = re.sub(r'[^a-zA-Z0-9\s-]', '', slug)
+    slug = re.sub(r'[\s_]+', '-', slug.strip())
     slug = slug[:50].rstrip('-')
-    # 如果slug太短或为空，用时间戳
+    # 如果slug太短或为空（纯中文标题），用时间戳
     if len(slug) < 5:
         slug = f"article-{datetime.now(CST).strftime('%Y%m%d%H%M%S')}"
     return slug
@@ -243,13 +278,18 @@ def generate_review_body(title: str, tags: list, affiliates: list) -> str:
 
     comparison_table = ""
     if len(tools) >= 2:
-        header = "| 特性 |" + " | ".join(tools) + " |\n"
-        sep = "|------|" + "|".join(["------" for _ in tools]) + " |\n"
-        rows = ""
+        # 使用HTML表格，避免Markdown表格渲染混乱
+        comparison_table = '\n## 对比表格\n\n<table class="w-full text-sm border-collapse">\n<thead>\n<tr class="bg-gray-50">\n<th class="border px-3 py-2 text-left">特性</th>\n'
+        for tool in tools:
+            comparison_table += f'<th class="border px-3 py-2 text-center">{tool}</th>\n'
+        comparison_table += '</tr>\n</thead>\n<tbody>\n'
         for feature in ["易用性", "功能丰富度", "性价比", "中文支持", "API可用性"]:
-            stars = " | ".join(["★★★★☆" for _ in tools])
-            rows += f"| {feature} | {stars} |\n"
-        comparison_table = f"\n## 对比表格\n\n{header}{sep}{rows}"
+            comparison_table += '<tr>\n'
+            comparison_table += f'<td class="border px-3 py-2">{feature}</td>\n'
+            for _ in tools:
+                comparison_table += '<td class="border px-3 py-2 text-center">★★★★☆</td>\n'
+            comparison_table += '</tr>\n'
+        comparison_table += '</tbody>\n</table>\n'
 
     return f"""# {title}
 
