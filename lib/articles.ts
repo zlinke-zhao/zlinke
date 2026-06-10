@@ -24,7 +24,7 @@ export function getArticleBySlug(slug: string): ArticleData | null {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
-  const processedContent = remark().use(html).processSync(content)
+  const processedContent = remark().use(html, { sanitize: false }).processSync(content)
   const contentHtml = processedContent.toString()
 
   return {
