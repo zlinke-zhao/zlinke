@@ -38,13 +38,54 @@ affiliates:
 
 ## 对比表格
 
-| 特性 |Cursor | Copilot |
-|------|------|------ |
-| 易用性 | ★★★★☆ | ★★★★☆ |
-| 功能丰富度 | ★★★★☆ | ★★★★☆ |
-| 性价比 | ★★★★☆ | ★★★★☆ |
-| 中文支持 | ★★★★☆ | ★★★★☆ |
-| API可用性 | ★★★★☆ | ★★★★☆ |
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-gray-50">
+<th class="border px-3 py-2 text-left">特性</th>
+<th class="border px-3 py-2 text-center">Cursor</th>
+<th class="border px-3 py-2 text-center">GitHub Copilot</th>
+<th class="border px-3 py-2 text-center">Windsurf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border px-3 py-2">易用性</td>
+<td class="border px-3 py-2 text-center">★★★★★</td>
+<td class="border px-3 py-2 text-center">★★★★☆</td>
+<td class="border px-3 py-2 text-center">★★★★☆</td>
+</tr>
+<tr>
+<td class="border px-3 py-2">代码补全质量</td>
+<td class="border px-3 py-2 text-center">★★★★★</td>
+<td class="border px-3 py-2 text-center">★★★★★</td>
+<td class="border px-3 py-2 text-center">★★★★☆</td>
+</tr>
+<tr>
+<td class="border px-3 py-2">多文件编辑</td>
+<td class="border px-3 py-2 text-center">★★★★★</td>
+<td class="border px-3 py-2 text-center">★★★☆☆</td>
+<td class="border px-3 py-2 text-center">★★★★☆</td>
+</tr>
+<tr>
+<td class="border px-3 py-2">中文支持</td>
+<td class="border px-3 py-2 text-center">★★★★☆</td>
+<td class="border px-3 py-2 text-center">★★★★☆</td>
+<td class="border px-3 py-2 text-center">★★★☆☆</td>
+</tr>
+<tr>
+<td class="border px-3 py-2">免费额度</td>
+<td class="border px-3 py-2 text-center">有限免费</td>
+<td class="border px-3 py-2 text-center">学生免费</td>
+<td class="border px-3 py-2 text-center">有限免费</td>
+</tr>
+<tr>
+<td class="border px-3 py-2">Pro价格</td>
+<td class="border px-3 py-2 text-center">$20/月</td>
+<td class="border px-3 py-2 text-center">$10/月</td>
+<td class="border px-3 py-2 text-center">$15/月</td>
+</tr>
+</tbody>
+</table>
 
 ## 使用建议
 
