@@ -1,22 +1,43 @@
-export const categories = ['全部', 'AI写作', 'AI编程', 'AI绘画', 'AI对话', 'AI营销', 'AI设计']
+// ============================================================
+// ZLinke 智链 — AI工具分类体系 v2
+// 8个一级分类，覆盖主流AI工具场景
+// ============================================================
+
+// 一级分类（用于页面筛选导航）
+export const categories = [
+  '全部',
+  'AI对话助手',
+  'AI写作工具',
+  'AI编程开发',
+  'AI图像生成',
+  'AI视频创作',
+  'AI办公效率',
+  'AI搜索工具',
+  'AI音乐音频',
+] as const
 
 export interface Tool {
   id: string
   name: string
   description: string
-  category: string
+  category: string       // 一级分类
+  subCategory?: string   // 二级分类（可选，用于更细粒度分组）
   rating: number
   url: string
   price: string
-  features: string[]
+  features: string[]     // 功能标签
 }
 
 export const tools: Tool[] = [
+  // ========================
+  // 一、AI对话助手
+  // ========================
   {
     id: 'chatgpt',
     name: 'ChatGPT',
     description: 'OpenAI推出的AI对话助手，支持文本生成、代码编写、图像理解等多种能力，是目前使用最广泛的AI工具。',
-    category: 'AI对话',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
     rating: 4.8,
     url: 'https://chat.openai.com',
     price: '免费 / Plus $20/月',
@@ -26,80 +47,347 @@ export const tools: Tool[] = [
     id: 'claude',
     name: 'Claude',
     description: 'Anthropic推出的AI助手，在长文本处理和逻辑推理方面表现突出，特别适合学术写作和代码分析。',
-    category: 'AI对话',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
     rating: 4.7,
     url: 'https://claude.ai',
     price: '免费 / Pro $20/月',
     features: ['长文本处理', '逻辑推理', '学术写作', '代码分析'],
   },
   {
+    id: 'gemini',
+    name: 'Google Gemini',
+    description: 'Google推出的多模态AI助手，原生支持文本、图像、音频、视频理解，与Google生态深度整合。',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
+    rating: 4.5,
+    url: 'https://gemini.google.com',
+    price: '免费 / Advanced $18/月',
+    features: ['多模态理解', 'Google生态', '长上下文', '文件分析'],
+  },
+  {
+    id: 'kimi',
+    name: 'Kimi',
+    description: '月之暗面推出的国产AI助手，以超长上下文处理能力著称，可一次性处理20万字以上的内容。',
+    category: 'AI对话助手',
+    subCategory: '国产助手',
+    rating: 4.5,
+    url: 'https://kimi.moonshot.cn',
+    price: '免费',
+    features: ['超长上下文', '文件处理', '联网搜索', '中文优化'],
+  },
+  {
+    id: 'doubao',
+    name: '豆包',
+    description: '字节跳动推出的AI对话助手，集成在抖音、今日头条等产品中，支持多种创作场景。',
+    category: 'AI对话助手',
+    subCategory: '国产助手',
+    rating: 4.3,
+    url: 'https://www.doubao.com',
+    price: '免费',
+    features: ['中文对话', '内容创作', '多端同步', '语音交互'],
+  },
+  {
+    id: 'coze',
+    name: 'Coze（扣子）',
+    description: '字节跳动推出的AI Bot搭建平台，无需编程即可创建自定义AI助手，支持发布到多个平台。',
+    category: 'AI对话助手',
+    subCategory: 'Bot搭建',
+    rating: 4.4,
+    url: 'https://www.coze.com',
+    price: '免费',
+    features: ['Bot搭建', '工作流编排', '知识库', '多平台发布'],
+  },
+
+  // ========================
+  // 二、AI写作工具
+  // ========================
+  {
+    id: 'notion-ai',
+    name: 'Notion AI',
+    description: 'Notion内置的AI写作助手，支持摘要、翻译、头脑风暴、改写等功能，知识管理工作流的神器。',
+    category: 'AI写作工具',
+    subCategory: 'AI辅助写作',
+    rating: 4.4,
+    url: 'https://www.notion.so',
+    price: '免费 / Plus $10/月',
+    features: ['智能摘要', '翻译润色', '头脑风暴', '知识管理'],
+  },
+  {
+    id: 'jasper',
+    name: 'Jasper AI',
+    description: '专注营销内容创作的AI写作平台，支持博客、社交媒体、广告文案等多种内容类型，团队协作强大。',
+    category: 'AI写作工具',
+    subCategory: '营销文案',
+    rating: 4.2,
+    url: 'https://www.jasper.ai',
+    price: '$49/月起',
+    features: ['营销文案', '博客生成', '品牌语调', '多语言'],
+  },
+  {
+    id: 'grammarly',
+    name: 'Grammarly',
+    description: '全球最受欢迎的AI写作助手，专注英文语法检查、润色和风格优化，支持全平台集成。',
+    category: 'AI写作工具',
+    subCategory: '英文写作',
+    rating: 4.5,
+    url: 'https://www.grammarly.com',
+    price: '免费 / Premium $12/月',
+    features: ['语法检查', '风格优化', '查重检测', '全平台集成'],
+  },
+  {
+    id: 'xiezuocat',
+    name: '写作猫',
+    description: '秘塔科技推出的AI中文写作助手，专注学术写作和长文生成，支持论文大纲和全文生成。',
+    category: 'AI写作工具',
+    subCategory: '中文写作',
+    rating: 4.1,
+    url: 'https://xiezuocat.com',
+    price: '免费 / Pro ¥59/月',
+    features: ['中文写作', '学术论文', '大纲生成', '续写改写'],
+  },
+
+  // ========================
+  // 三、AI编程开发
+  // ========================
+  {
     id: 'cursor',
     name: 'Cursor',
-    description: 'AI驱动的代码编辑器，内置AI补全和对话功能，支持多种大模型，开发者效率提升利器。',
-    category: 'AI编程',
-    rating: 4.6,
+    description: 'AI驱动的代码编辑器，内置AI补全和对话功能，支持Claude和GPT-4等多模型，开发者效率提升利器。',
+    category: 'AI编程开发',
+    subCategory: 'AI编辑器',
+    rating: 4.7,
     url: 'https://cursor.sh',
     price: '免费 / Pro $20/月',
     features: ['AI代码补全', '对话式编程', '多模型支持', '代码重构'],
   },
   {
-    id: 'midjourney',
-    name: 'Midjourney',
-    description: '顶级AI绘画工具，生成高质量艺术风格图片，适合设计师和创意工作者。',
-    category: 'AI绘画',
-    rating: 4.5,
-    url: 'https://midjourney.com',
-    price: '$10/月起',
-    features: ['高质量出图', '艺术风格', '图片变体', '社区灵感'],
-  },
-  {
-    id: 'jasper',
-    name: 'Jasper AI',
-    description: 'AI营销内容创作平台，专为营销团队设计，支持博客、社交媒体、广告文案等多种内容类型。',
-    category: 'AI营销',
-    rating: 4.3,
-    url: 'https://jasper.ai',
-    price: '$49/月起',
-    features: ['营销文案', '博客生成', '品牌语调', '多语言'],
-  },
-  {
     id: 'copilot',
     name: 'GitHub Copilot',
-    description: '微软推出的AI编程助手，集成在VS Code等编辑器中，实时代码补全和建议，开发者必备工具。',
-    category: 'AI编程',
+    description: '微软推出的AI编程助手，深度集成VS Code等编辑器，支持代码补全、解释和测试生成。',
+    category: 'AI编程开发',
+    subCategory: 'AI编辑器',
     rating: 4.5,
     url: 'https://github.com/features/copilot',
     price: '免费 / Individual $10/月',
     features: ['实时代码补全', '多编辑器支持', '代码解释', '测试生成'],
   },
   {
-    id: 'canva-ai',
-    name: 'Canva AI',
-    description: 'Canva内置的AI设计功能，支持一键生成设计模板、图片编辑和品牌套件，设计小白也能出大片。',
-    category: 'AI设计',
+    id: 'windsurf',
+    name: 'Windsurf',
+    description: 'Codeium推出的AI原生IDE，首创Flow模式实现Agent式编程，理解项目上下文自动完成复杂任务。',
+    category: 'AI编程开发',
+    subCategory: 'AI编辑器',
     rating: 4.4,
-    url: 'https://canva.com',
-    price: '免费 / Pro $13/月',
-    features: ['AI设计生成', '模板库', '品牌套件', '团队协作'],
+    url: 'https://codeium.com/windsurf',
+    price: '免费 / Pro $15/月',
+    features: ['Flow模式', '项目理解', '多文件编辑', '终端集成'],
   },
   {
-    id: 'notion-ai',
-    name: 'Notion AI',
-    description: 'Notion内置的AI写作助手，支持摘要、翻译、头脑风暴等功能，知识管理工作流的神器。',
-    category: 'AI写作',
+    id: 'replit',
+    name: 'Replit',
+    description: '云端AI开发平台，浏览器内即可编写、运行和部署应用，内置AI编程助手GhostWriter。',
+    category: 'AI编程开发',
+    subCategory: '云端开发',
     rating: 4.3,
-    url: 'https://notion.so',
-    price: '免费 / Plus $10/月',
-    features: ['智能摘要', '翻译润色', '头脑风暴', '知识管理'],
+    url: 'https://replit.com',
+    price: '免费 / Pro $20/月',
+    features: ['云端IDE', '即时部署', '协作编辑', 'GhostWriter'],
+  },
+
+  // ========================
+  // 四、AI图像生成
+  // ========================
+  {
+    id: 'midjourney',
+    name: 'Midjourney',
+    description: '顶级AI绘画工具，通过Discord使用，以卓越的艺术风格和美学表现力著称，深受设计师喜爱。',
+    category: 'AI图像生成',
+    subCategory: 'AI绘画',
+    rating: 4.6,
+    url: 'https://midjourney.com',
+    price: '$10/月起',
+    features: ['高质量出图', '艺术风格', '图片变体', '社区灵感'],
+  },
+  {
+    id: 'dalle3',
+    name: 'DALL·E 3',
+    description: 'OpenAI推出的AI图像生成模型，集成在ChatGPT Plus中，以精准的文字理解和高质量输出见长。',
+    category: 'AI图像生成',
+    subCategory: 'AI绘画',
+    rating: 4.4,
+    url: 'https://openai.com/dall-e-3',
+    price: 'ChatGPT Plus $20/月',
+    features: ['文字理解', '高质量输出', 'ChatGPT集成', '编辑修复'],
   },
   {
     id: 'stable-diffusion',
     name: 'Stable Diffusion',
-    description: '开源AI绘画模型，支持本地部署和高度自定义，适合技术用户和有隐私需求的创作者。',
-    category: 'AI绘画',
-    rating: 4.2,
+    description: '开源AI绘画模型，支持本地部署和完全自定义，隐私安全，社区生态丰富。',
+    category: 'AI图像生成',
+    subCategory: 'AI绘画',
+    rating: 4.3,
     url: 'https://stability.ai',
     price: '免费（开源）',
     features: ['开源免费', '本地部署', '高度自定义', '模型丰富'],
+  },
+  {
+    id: 'canva-ai',
+    name: 'Canva AI',
+    description: 'Canva内置的AI设计功能，支持一键生成设计模板、AI图片编辑和品牌套件，设计小白也能出大片。',
+    category: 'AI图像生成',
+    subCategory: 'AI设计',
+    rating: 4.5,
+    url: 'https://www.canva.com',
+    price: '免费 / Pro $13/月',
+    features: ['AI设计生成', '模板库', '品牌套件', '团队协作'],
+  },
+  {
+    id: 'leonardo',
+    name: 'Leonardo.ai',
+    description: '专业的AI图像生成平台，提供丰富的模型选择和精细控制参数，适合游戏素材和概念设计。',
+    category: 'AI图像生成',
+    subCategory: 'AI绘画',
+    rating: 4.3,
+    url: 'https://leonardo.ai',
+    price: '免费 / Pro $10/月',
+    features: ['模型丰富', '精细控制', '游戏素材', '训练模型'],
+  },
+
+  // ========================
+  // 五、AI视频创作
+  // ========================
+  {
+    id: 'runway',
+    name: 'Runway Gen-3',
+    description: '领先的AI视频生成平台，支持文生视频、图生视频、视频编辑等多种功能，好莱坞级别的创作工具。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.5,
+    url: 'https://runwayml.com',
+    price: '免费 / Pro $15/月',
+    features: ['文生视频', '图生视频', '视频编辑', '绿幕抠像'],
+  },
+  {
+    id: 'pika',
+    name: 'Pika',
+    description: '新一代AI视频生成工具，操作简单，支持视频修改、扩展和风格转换，适合快速创作社交内容。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.2,
+    url: 'https://pika.art',
+    price: '免费 / Pro $10/月',
+    features: ['视频生成', '视频修改', '风格转换', '社交分享'],
+  },
+  {
+    id: 'heygen',
+    name: 'HeyGen',
+    description: 'AI数字人视频生成平台，上传文字即可生成逼真的数字人播报视频，支持多语言和多数字人形象。',
+    category: 'AI视频创作',
+    subCategory: '数字人',
+    rating: 4.4,
+    url: 'https://www.heygen.com',
+    price: '免费 / Pro $24/月',
+    features: ['数字人生成', '多语言', '口型同步', '模板丰富'],
+  },
+
+  // ========================
+  // 六、AI办公效率
+  // ========================
+  {
+    id: 'gamma',
+    name: 'Gamma',
+    description: 'AI驱动的PPT/文档/网页生成工具，输入主题即可自动生成精美演示文稿，告别排版烦恼。',
+    category: 'AI办公效率',
+    subCategory: 'AI生成PPT',
+    rating: 4.5,
+    url: 'https://gamma.app',
+    price: '免费 / Pro $10/月',
+    features: ['AI生成PPT', '精美模板', '一键排版', '团队协作'],
+  },
+  {
+    id: 'otter',
+    name: 'Otter.ai',
+    description: 'AI会议助理，自动记录、转录和总结会议内容，支持实时字幕和关键词提取。',
+    category: 'AI办公效率',
+    subCategory: '会议助手',
+    rating: 4.3,
+    url: 'https://otter.ai',
+    price: '免费 / Pro $16.99/月',
+    features: ['会议转录', '智能总结', '实时字幕', '关键词提取'],
+  },
+  {
+    id: 'xunfei-zhiwen',
+    name: '讯飞智文',
+    description: '科大讯飞推出的AI文档生成工具，支持一键生成PPT、Word文档，特别适合中文办公场景。',
+    category: 'AI办公效率',
+    subCategory: 'AI生成PPT',
+    rating: 4.2,
+    url: 'https://zw.xfyun.cn',
+    price: '免费 / Pro ¥99/月',
+    features: ['AI生成PPT', '中文优化', '语音输入', '模板丰富'],
+  },
+
+  // ========================
+  // 七、AI搜索工具
+  // ========================
+  {
+    id: 'perplexity',
+    name: 'Perplexity AI',
+    description: 'AI搜索引擎标杆产品，以对话形式返回搜索结果，附权威来源链接，替代传统搜索引擎的利器。',
+    category: 'AI搜索工具',
+    subCategory: 'AI搜索引擎',
+    rating: 4.6,
+    url: 'https://www.perplexity.ai',
+    price: '免费 / Pro $20/月',
+    features: ['对话搜索', '来源引用', '深度研究', '文件分析'],
+  },
+  {
+    id: 'mita-ai',
+    name: '秘塔AI搜索',
+    description: '国产AI搜索引擎，无广告、结构化展示搜索结果，支持深度研究和学术检索，体验流畅。',
+    category: 'AI搜索工具',
+    subCategory: 'AI搜索引擎',
+    rating: 4.5,
+    url: 'https://metaso.cn',
+    price: '免费',
+    features: ['无广告搜索', '结构化结果', '深度研究', '学术检索'],
+  },
+  {
+    id: 'devv',
+    name: 'Devv AI',
+    description: '面向开发者的AI搜索引擎，专注技术问题解答，索引GitHub、文档和Stack Overflow等优质技术源。',
+    category: 'AI搜索工具',
+    subCategory: '开发者搜索',
+    rating: 4.3,
+    url: 'https://devv.ai',
+    price: '免费',
+    features: ['技术搜索', 'GitHub索引', '代码示例', '文档查询'],
+  },
+
+  // ========================
+  // 八、AI音乐音频
+  // ========================
+  {
+    id: 'suno',
+    name: 'Suno',
+    description: 'AI音乐生成领域的领跑者，输入歌词和风格提示即可生成完整的歌曲，支持人声和多种音乐流派。',
+    category: 'AI音乐音频',
+    subCategory: 'AI音乐',
+    rating: 4.5,
+    url: 'https://suno.com',
+    price: '免费 / Pro $10/月',
+    features: ['文生音乐', '歌词生成', '多风格', '完整歌曲'],
+  },
+  {
+    id: 'elevenlabs',
+    name: 'ElevenLabs',
+    description: '最逼真的AI语音合成平台，支持文本转语音、语音克隆和配音，音质达到真人级水平。',
+    category: 'AI音乐音频',
+    subCategory: 'AI语音',
+    rating: 4.6,
+    url: 'https://elevenlabs.io',
+    price: '免费 / Pro $5/月',
+    features: ['语音合成', '语音克隆', '情感表达', '多语言'],
   },
 ]
