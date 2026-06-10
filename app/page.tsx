@@ -8,7 +8,15 @@ import { tools } from '@/lib/tools'
 export default function Home() {
   const articles = getAllArticles()
   const latestArticles = articles.slice(0, 3)
-  const featuredTools = tools.slice(0, 6)
+  // 从每个分类各取一款代表性工具，展示多样性
+  const featuredTools = [
+    tools.find(t => t.category === 'AI对话助手'),  // ChatGPT
+    tools.find(t => t.category === 'AI写作工具'),   // Notion AI
+    tools.find(t => t.category === 'AI编程开发'),   // Cursor
+    tools.find(t => t.category === 'AI图像生成'),   // Midjourney
+    tools.find(t => t.category === 'AI视频创作'),   // Runway
+    tools.find(t => t.category === 'AI搜索工具'),   // Perplexity
+  ].filter((t): t is NonNullable<typeof t> => t !== null)
 
   return (
     <>
