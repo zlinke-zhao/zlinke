@@ -18,6 +18,15 @@
   --border: #E5E7EB;
 }
 
+.dark {
+  --bg-main: #030712;
+  --bg-card: #111827;
+  --bg-dark: #030712;
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --border: #374151;
+}
+
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);
@@ -34,6 +43,7 @@ body {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
+/* ========== Article Content Styles ========== */
 .article-content h1 {
   @apply text-2xl font-bold mt-8 mb-4;
 }
@@ -53,26 +63,62 @@ body {
   @apply mb-2;
 }
 .article-content blockquote {
-  @apply border-l-4 border-primary pl-4 py-2 my-4 bg-blue-50 italic text-gray-600;
+  @apply border-l-4 border-primary pl-4 py-2 my-4 bg-blue-50 dark:bg-blue-950/30 dark:border-blue-500 italic text-gray-600 dark:text-gray-400;
 }
 .article-content table {
   @apply w-full border-collapse mb-6;
 }
 .article-content th, .article-content td {
-  @apply border border-gray-300 px-4 py-2 text-sm;
+  @apply border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm;
 }
 .article-content th {
-  @apply bg-gray-50 font-semibold;
+  @apply bg-gray-50 dark:bg-gray-800 font-semibold;
 }
 .article-content a {
   @apply text-primary hover:underline;
 }
 .article-content code {
-  @apply bg-gray-100 px-1 py-0.5 rounded text-sm;
+  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm;
 }
 .article-content pre {
   @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
 }
 .article-content pre code {
   @apply bg-transparent px-0 py-0 text-inherit;
+}
+
+/* ========== Hero Gradient Orbs ========== */
+.hero-orb-1 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+  top: -50px;
+  right: -50px;
+  pointer-events: none;
+}
+
+.hero-orb-2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, transparent 70%);
+  bottom: -30px;
+  left: -30px;
+  pointer-events: none;
+}
+
+/* ========== Smooth theme transition ========== */
+*, *::before, *::after {
+  transition-property: background-color, border-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Exclude transitions on interactive elements where it feels sluggish */
+button, a, input, textarea, select {
+  transition-property: background-color, border-color, color, opacity, box-shadow, transform;
+  transition-duration: 150ms;
 }

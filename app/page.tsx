@@ -20,25 +20,54 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="gradient-bg text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            发现最好的<span className="text-yellow-300">AI工具</span>
+      {/* Hero — 吸收设计稿布局元素 */}
+      <section className="gradient-bg text-white py-20 md:py-28 px-4 relative overflow-hidden">
+        <div className="hero-orb-1" />
+        <div className="hero-orb-2" />
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          {/* Value Proposition */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 backdrop-blur rounded-full text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            每日更新AI工具评测
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            选对AI工具的人<br />
+            <span className="text-yellow-300">先富起来</span>
           </h1>
-          <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            深度评测、真实对比、专业推荐 — 帮你在AI时代选对工具
+          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            深度评测、真实对比、专业推荐 — 不再在海量AI工具中迷失方向
           </p>
-          <div className="max-w-xl mx-auto relative">
-            <input
-              type="text"
-              placeholder="搜索AI工具、评测文章..."
-              className="w-full px-5 py-3 pr-12 rounded-xl text-gray-800 bg-white/95 backdrop-blur shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              readOnly
-            />
-            <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link
+              href="/tools"
+              className="px-8 py-3.5 bg-white text-primary font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+            >
+              探索工具库 →
+            </Link>
+            <Link
+              href="/articles"
+              className="px-8 py-3.5 bg-white/15 backdrop-blur text-white font-semibold rounded-xl border border-white/30 hover:bg-white/25 transition-colors"
+            >
+              阅读评测文章
+            </Link>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold">{tools.length}+</div>
+              <div className="text-sm text-blue-200 mt-1">AI工具</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold">{articles.length}+</div>
+              <div className="text-sm text-blue-200 mt-1">评测文章</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold">8</div>
+              <div className="text-sm text-blue-200 mt-1">工具分类</div>
+            </div>
           </div>
         </div>
       </section>
@@ -46,8 +75,8 @@ export default function Home() {
       {/* Latest Articles */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold">最新文章</h2>
-          <Link href="/articles" className="text-primary hover:text-primary-dark font-medium text-sm">
+          <h2 className="text-2xl font-bold dark:text-white">最新文章</h2>
+          <Link href="/articles" className="text-primary dark:text-blue-400 hover:text-primary-dark font-medium text-sm">
             查看全部 →
           </Link>
         </div>
@@ -59,11 +88,11 @@ export default function Home() {
       </section>
 
       {/* Featured Tools */}
-      <section className="bg-white py-16 px-4">
+      <section className="bg-white dark:bg-gray-900 py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold">热门AI工具</h2>
-            <Link href="/tools" className="text-primary hover:text-primary-dark font-medium text-sm">
+            <h2 className="text-2xl font-bold dark:text-white">热门AI工具</h2>
+            <Link href="/tools" className="text-primary dark:text-blue-400 hover:text-primary-dark font-medium text-sm">
               查看全部 →
             </Link>
           </div>

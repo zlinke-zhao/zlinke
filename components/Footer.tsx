@@ -3,7 +3,7 @@ import Newsletter from './Newsletter'
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-dark text-gray-400 py-12 px-4">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
