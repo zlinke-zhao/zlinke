@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
+import remarkGfm from 'remark-gfm'
 
 const articlesDirectory = path.join(process.cwd(), 'content/articles')
 
@@ -24,7 +25,7 @@ export function getArticleBySlug(slug: string): ArticleData | null {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
-  const processedContent = remark().use(html, { sanitize: false }).processSync(content)
+  const processedContent = remark().use(remarkGfm).use(html, { sanitize: false }).processSync(content)
   const contentHtml = processedContent.toString()
 
   return {
