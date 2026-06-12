@@ -4,6 +4,7 @@ import ToolCard from '@/components/ToolCard'
 import Newsletter from '@/components/Newsletter'
 import { getAllArticles } from '@/lib/articles'
 import { tools } from '@/lib/tools'
+import { hasReview } from '@/lib/tool-reviews'
 
 export default function Home() {
   const articles = getAllArticles()
@@ -98,7 +99,7 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
+              <ToolCard key={tool.id} tool={tool} hasReview={hasReview(tool.id)} />
             ))}
           </div>
         </div>
