@@ -182,7 +182,11 @@ pip install langchain langchain-openai langchain-community duckduckgo-search
 
 ```python
 import os
+
+# 如果下面这行报错，先执行: pip install langchainhub
+# 然后把导入改为: from langchainhub import hub
 from langchain import hub
+
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain_openai import ChatOpenAI
 from langchain_community.tools import DuckDuckGoSearchRun

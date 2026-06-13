@@ -176,7 +176,11 @@ pip install langchain langchain-openai langchain-community duckduckgo-search
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>2. 完整代码（DeepSeek版）</strong></p>
 <div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
 import os<br>
+<br>
+# 如果报错，先执行: pip install langchainhub<br>
+# 然后改为: from langchainhub import hub<br>
 from langchain import hub<br>
+<br>
 from langchain.agents import create_react_agent, AgentExecutor<br>
 from langchain_openai import ChatOpenAI<br>
 from langchain_community.tools import DuckDuckGoSearchRun<br>
