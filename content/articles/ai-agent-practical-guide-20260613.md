@@ -182,15 +182,11 @@ pip install langchain langchain-openai langchain-community duckduckgo-search
 
 ```python
 import os
-
-# 如果下面这行报错，先执行: pip install langchainhub
-# 然后把导入改为: from langchainhub import hub
-from langchain import hub
-
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain_openai import ChatOpenAI
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_core.tools import Tool
+from langchain.prompts import PromptTemplate
 
 # 1. 配置API（支持DeepSeek、OpenAI等兼容接口）
 os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"
@@ -216,8 +212,28 @@ llm = ChatOpenAI(
 # 如果用OpenAI，只需改为：
 # llm = ChatOpenAI(model="gpt-5", temperature=0.3)
 
-# 4. 加载ReAct提示模板
-prompt = hub.pull("hwchase17/react")
+# 4. ReAct提示模板（直接内置，无需外部hub依赖）
+react_template = """Answer the following questions as best you can. You have access to the following tools:
+
+{tools}
+
+Use the following format:
+
+Question: the input question you must answer
+Thought: you should always think about what to do
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I now know the final answer
+Final Answer: the final answer to the original input question
+
+Begin!
+
+Question: {input}
+Thought:{agent_scratchpad}"""
+
+prompt = PromptTemplate.from_template(react_template)
 
 # 5. 创建Agent
 agent = create_react_agent(llm, tools, prompt)

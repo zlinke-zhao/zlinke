@@ -176,15 +176,11 @@ pip install langchain langchain-openai langchain-community duckduckgo-search
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>2. 完整代码（DeepSeek版）</strong></p>
 <div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
 import os<br>
-<br>
-# 如果报错，先执行: pip install langchainhub<br>
-# 然后改为: from langchainhub import hub<br>
-from langchain import hub<br>
-<br>
 from langchain.agents import create_react_agent, AgentExecutor<br>
 from langchain_openai import ChatOpenAI<br>
 from langchain_community.tools import DuckDuckGoSearchRun<br>
 from langchain_core.tools import Tool<br>
+from langchain.prompts import PromptTemplate<br>
 <br>
 # 配置API（支持DeepSeek、OpenAI等兼容接口）<br>
 os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"<br>
@@ -204,8 +200,28 @@ llm = ChatOpenAI(<br>
 # 如果用OpenAI，只需改为：<br>
 # llm = ChatOpenAI(model="gpt-5", temperature=0.3)<br>
 <br>
-# 加载ReAct提示模板<br>
-prompt = hub.pull("hwchase17/react")<br>
+# ReAct提示模板（直接内置，无需外部hub）<br>
+react_template = """Answer the following questions as best you can. You have access to the following tools:<br>
+<br>
+{tools}<br>
+<br>
+Use the following format:<br>
+<br>
+Question: the input question you must answer<br>
+Thought: you should always think about what to do<br>
+Action: the action to take, should be one of [{tool_names}]<br>
+Action Input: the input to the action<br>
+Observation: the result of the action<br>
+... (this Thought/Action/Action Input/Observation can repeat N times)<br>
+Thought: I now know the final answer<br>
+Final Answer: the final answer to the original input question<br>
+<br>
+Begin!<br>
+<br>
+Question: {input}<br>
+Thought:{agent_scratchpad}"""<br>
+<br>
+prompt = PromptTemplate.from_template(react_template)<br>
 <br>
 # 创建Agent<br>
 agent = create_react_agent(llm, tools, prompt)<br>
