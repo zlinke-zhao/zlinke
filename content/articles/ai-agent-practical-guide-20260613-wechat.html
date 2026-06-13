@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent入门实战指南</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; max-width: 680px; margin: 0 auto; padding: 20px; background: #fff;">
+
+<p style="font-size: 15px; color: #666; text-align: center; margin-bottom: 30px;">📅 2026年6月13日 | ZLinke AI科技日报</p>
+
+<h1 style="font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 20px; line-height: 1.4;">AI Agent入门实战指南：从零搭建你的第一个智能体</h1>
+
+<div style="background: #f5f7fa; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0;">2026年上半年，AI行业最热的关键词不是"大模型"，而是"Agent"。</p>
+<p style="margin: 0 0 8px 0;">英伟达GTC 2026上，黄仁勋宣布"智能体AI时代"全面到来；阿里、腾讯先后发布高考志愿填报Agent；中国企业级AI智能体市场规模预计从2025年的212亿元飙升至2026年的449亿元——年复合增长率高达107%。</p>
+<p style="margin: 0 0 8px 0;">但Agent到底是什么？它和"让ChatGPT帮我写代码"有什么区别？普通人如何动手搭建一个？</p>
+<p style="margin: 0;">这篇文章，给你答案。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">一、Agent vs 大模型：根本区别是什么？</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">先说一个常见的误解：把任务丢给ChatGPT，它完成了，这就叫Agent。<strong>不是。</strong></p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 25%;">维度</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">大模型对话</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">AI Agent</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">交互方式</td>
+<td style="border: 1px solid #ddd; padding: 10px;">一问一答，被动响应</td>
+<td style="border: 1px solid #ddd; padding: 10px;">自主规划、主动执行多步任务</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">工具使用</td>
+<td style="border: 1px solid #ddd; padding: 10px;">无，仅靠内置知识</td>
+<td style="border: 1px solid #ddd; padding: 10px;">可调用搜索引擎、数据库、API等外部工具</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">记忆能力</td>
+<td style="border: 1px solid #ddd; padding: 10px;">单轮或有限上下文</td>
+<td style="border: 1px solid #ddd; padding: 10px;">长期记忆，能记住用户偏好和历史交互</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">任务复杂度</td>
+<td style="border: 1px solid #ddd; padding: 10px;">单次简单任务</td>
+<td style="border: 1px solid #ddd; padding: 10px;">多步骤、跨系统、需决策的复杂任务</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>核心区别</strong>：大模型是"大脑"，Agent是"大脑+双手"。Agent以大模型为推理引擎，但给它配上了<strong>工具</strong>（搜索、计算、发邮件）、<strong>记忆</strong>（记住你是谁、你要什么）、<strong>规划</strong>（把复杂任务拆成步骤自主执行）。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">二、2026年：为什么叫"Agent元年"？</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">Agent不是新概念，但2026年确实不一样。</p>
+
+<p style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin: 20px 0 12px 0;">三个里程碑</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>1. 技术成熟：推理能力质变</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">GPT-5、Claude Opus 4.8、DeepSeek V4-Pro等大模型在2026年的推理能力已足够支撑复杂任务拆解。早期Agent经常"陷入循环"或"胡编乱造"，现在大幅改善。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>2. 基础设施完善</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">MCP协议成为行业标准；各大云平台推出Agent托管服务；低代码平台涌现（Dify、Coze），非程序员也能搭Agent。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>3. 商业验证</strong></p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">公司</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Agent产品/动态</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">阿里</td>
+<td style="border: 1px solid #ddd; padding: 10px;">千问高考志愿填报Agent</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">腾讯</td>
+<td style="border: 1px solid #ddd; padding: 10px;">元宝高考通</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">Salesforce</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Einstein Agent已处理超5000万次客户服务交互</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">微软</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Copilot Studio已接入数万家企业</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>数据说话</strong>：中国企业级AI智能体市场2025年212亿元，预计2026年增至449亿元，2029年有望突破3320亿元。Agent相关专利申请量在2025年暴涨143%。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">三、Agent核心架构拆解</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">一个完整的Agent系统，由四个核心模块组成：</p>
+
+<div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; font-size: 14px; font-family: 'Courier New', monospace; line-height: 1.6; color: #333;">
+用户输入（Goal）<br>
+&nbsp;&nbsp;↓<br>
+感知（Perception）— 理解用户意图、提取关键参数<br>
+&nbsp;&nbsp;↓<br>
+规划（Planning）— 任务拆解、步骤排序、失败重试策略<br>
+&nbsp;&nbsp;↓<br>
+行动（Action）— 调用工具、执行代码、与外部系统交互<br>
+&nbsp;&nbsp;↓<br>
+记忆（Memory）— 短期记忆 + 长期记忆 + 向量数据库存储
+</div>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>ReAct模式（当前最流行）</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">让模型在"思考"和"行动"之间交替：先思考需要什么信息，再行动去获取，观察结果后继续思考下一步——循环往复直到完成任务。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>多Agent协作</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">复杂任务可以由多个专精Agent分工完成：数据采集Agent → 分析Agent → 写作Agent → 审核Agent。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">四、主流开发框架对比</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">框架</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">定位</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">上手难度</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">适合场景</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">LangChain/LangGraph</td>
+<td style="border: 1px solid #ddd; padding: 8px;">底层框架+编排引擎</td>
+<td style="border: 1px solid #ddd; padding: 8px;">中等</td>
+<td style="border: 1px solid #ddd; padding: 8px;">复杂工作流、企业级</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">CrewAI</td>
+<td style="border: 1px solid #ddd; padding: 8px;">多角色协作框架</td>
+<td style="border: 1px solid #ddd; padding: 8px;">较易</td>
+<td style="border: 1px solid #ddd; padding: 8px;">团队协作任务、研报生成</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">AutoGen</td>
+<td style="border: 1px solid #ddd; padding: 8px;">多Agent对话框架</td>
+<td style="border: 1px solid #ddd; padding: 8px;">较难</td>
+<td style="border: 1px solid #ddd; padding: 8px;">研究/模拟多智能体</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">Dify</td>
+<td style="border: 1px solid #ddd; padding: 8px;">低代码可视化平台</td>
+<td style="border: 1px solid #ddd; padding: 8px;">极易</td>
+<td style="border: 1px solid #ddd; padding: 8px;">快速原型、业务应用</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">OpenAI Agents SDK</td>
+<td style="border: 1px solid #ddd; padding: 8px;">官方SDK</td>
+<td style="border: 1px solid #ddd; padding: 8px;">较易</td>
+<td style="border: 1px solid #ddd; padding: 8px;">OpenAI生态深度整合</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">五、实战：搭建一个"研究助手Agent"</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">用 <strong>Python + LangChain</strong> 搭建一个能自主完成研究任务的Agent。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>功能目标</strong>：输入一个话题（如"2026年AI视频生成工具市场格局"），Agent自动搜索信息、分析整理、生成一份结构化的研究报告。</p>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong>1. 环境准备</strong></p>
+<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
+pip install langchain langchain-openai langchain-community duckduckgo-search
+</div>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong>2. 完整代码</strong></p>
+<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
+import os<br>
+from langchain import hub<br>
+from langchain.agents import create_react_agent, AgentExecutor<br>
+from langchain_openai import ChatOpenAI<br>
+from langchain_community.tools import DuckDuckGoSearchRun<br>
+from langchain_core.tools import Tool<br>
+<br>
+# 配置API<br>
+os.environ["OPENAI_API_KEY"] = "your-api-key"<br>
+<br>
+# 定义工具<br>
+search = DuckDuckGoSearchRun()<br>
+tools = [Tool(name="web_search", func=search.run,<br>
+&nbsp;&nbsp;description="用于搜索互联网上的实时信息")]<br>
+<br>
+# 初始化大模型<br>
+llm = ChatOpenAI(model="gpt-5", temperature=0.3)<br>
+<br>
+# 加载ReAct提示模板<br>
+prompt = hub.pull("hwchase17/react")<br>
+<br>
+# 创建Agent<br>
+agent = create_react_agent(llm, tools, prompt)<br>
+agent_executor = AgentExecutor(<br>
+&nbsp;&nbsp;agent=agent, tools=tools,<br>
+&nbsp;&nbsp;verbose=True,<br>
+&nbsp;&nbsp;max_iterations=10,<br>
+&nbsp;&nbsp;handle_parsing_errors=True<br>
+)<br>
+<br>
+# 运行<br>
+result = agent_executor.invoke({"input": "请研究'2026年AI视频生成工具市场格局'"})
+</div>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong>3. 运行效果</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">Agent会自动进行多轮搜索，分析各工具特点，最终输出一份包含市场概览、主流工具对比表、格局分析的结构化报告。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">六、常见陷阱与最佳实践</h2>
+
+<p style="font-size: 15px; margin-bottom: 12px; color: #c0392b;"><strong>❌ 陷阱1：以为Agent无所不能</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">Agent的智商上限取决于底层大模型。<strong>选对模型比选对框架更重要。</strong></p>
+
+<p style="font-size: 15px; margin-bottom: 12px; color: #c0392b;"><strong>❌ 陷阱2：工具越多越好</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">给Agent配20个工具，它反而不知道该用哪个。建议每个Agent专注3-5个核心工具。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px; color: #c0392b;"><strong>❌ 陷阱3：忽略错误处理</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">Agent调用外部API可能失败、搜索可能返回无关结果。<strong>必须设计重试机制和人工审核节点。</strong></p>
+
+<p style="font-size: 15px; margin-bottom: 12px; color: #27ae60;"><strong>✅ 最佳实践</strong></p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">实践</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">说明</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">提示工程优先</td>
+<td style="border: 1px solid #ddd; padding: 10px;">在加工具之前，先优化系统提示词</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">任务原子化</td>
+<td style="border: 1px solid #ddd; padding: 10px;">复杂任务拆成多个小Agent，每个只做一件事</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">人工在环</td>
+<td style="border: 1px solid #ddd; padding: 10px;">关键环节设置人工确认（如发送邮件前）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">日志全记录</td>
+<td style="border: 1px solid #ddd; padding: 10px;">记录每一步思考和行动，便于审计调试</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">成本控制</td>
+<td style="border: 1px solid #ddd; padding: 10px;">设置Token上限，防止"思考"过度烧光预算</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">七、给你的行动清单</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">如果你想真正掌握Agent开发，建议按这个顺序动手：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 15%;">步骤</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">行动</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 20%;">时间</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">第1步</td>
+<td style="border: 1px solid #ddd; padding: 10px;">在Dify上拖拽搭建一个简单Agent</td>
+<td style="border: 1px solid #ddd; padding: 10px;">30分钟</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">第2步</td>
+<td style="border: 1px solid #ddd; padding: 10px;">用本文代码，运行第一个LangChain Agent</td>
+<td style="border: 1px solid #ddd; padding: 10px;">1小时</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">第3步</td>
+<td style="border: 1px solid #ddd; padding: 10px;">给Agent增加一个自定义工具</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2小时</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">第4步</td>
+<td style="border: 1px solid #ddd; padding: 10px;">尝试CrewAI，搭建多角色协作任务</td>
+<td style="border: 1px solid #ddd; padding: 10px;">半天</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">第5步</td>
+<td style="border: 1px solid #ddd; padding: 10px;">用LangGraph实现带状态管理的复杂工作流</td>
+<td style="border: 1px solid #ddd; padding: 10px;">1-2天</td>
+</tr>
+</table>
+
+<div style="background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 28px 0;">
+<p style="font-size: 15px; margin: 0 0 10px 0; font-weight: bold; color: #1a1a1a;">最后说几句</p>
+<p style="font-size: 15px; margin: 0 0 10px 0;">Agent不是魔法，也不是噱头。它是大模型能力落地到真实世界的<strong>最后一公里</strong>。</p>
+<p style="font-size: 15px; margin: 0;">2023年我们讨论"大模型能做什么"，2026年我们讨论"Agent能帮我做什么"。这个转变本身，就说明技术正在从"炫技"走向"实用"。</p>
+</div>
+
+<p style="font-size: 14px; color: #888; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+📌 <strong>阅读原文</strong>：获取完整代码和更多资源 → <a href="https://zlinke.top/articles/ai-agent-practical-guide-20260613" style="color: #4a90d9; text-decoration: none;">https://zlinke.top/articles/ai-agent-practical-guide-20260613</a><br><br>
+🔔 关注「ZLinke」公众号，每日获取AI科技前沿资讯与实战指南
+</p>
+
+</body>
+</html>
