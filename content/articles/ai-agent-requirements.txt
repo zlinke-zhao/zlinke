@@ -5,11 +5,10 @@
 # 核心框架（锁定0.2.x版本，确保代码兼容性）
 langchain>=0.2.0,<0.3.0
 langchain-openai>=0.1.0,<0.3.0
-langchain-community>=0.2.0,<0.3.0
 
-# 搜索工具
-duckduckgo-search>=3.0
+# HTTP请求库（用于调用和风天气API）
+requests>=2.28.0
 
 # 注意：如果你已安装 langchain 1.x 版本，请先卸载：
-#   pip uninstall langchain langchain-core langchain-openai langchain-community -y
+#   pip uninstall langchain langchain-core langchain-openai -y
 # 然后再执行上面的安装命令。

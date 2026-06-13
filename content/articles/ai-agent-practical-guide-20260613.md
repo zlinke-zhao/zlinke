@@ -158,76 +158,129 @@ Agent回复：北京明天晴，28°C，空气质量良，适合外出～
 
 ---
 
-## 五、实战：搭建一个"研究助手Agent"
+## 五、实战：搭建一个"天气助手Agent"
 
-接下来，我们用 **Python + LangChain** 搭建一个能自主完成研究任务的Agent。
+接下来，我们用 **Python + LangChain** 搭建一个能查询实时天气的Agent——和第三节讲的 ReAct 天气例子完全一致。
 
-**功能目标**：输入一个话题（如"2026年AI视频生成工具市场格局"），Agent自动搜索信息、分析整理、生成一份结构化的研究报告。
+**功能目标**：用户问"深圳今天天气怎么样？适合外出跑步吗？"，Agent 自己决定调用天气 API 获取实时数据，然后分析并给出建议。大模型本身不知道实时天气，**必须通过工具获取**——这正是 Agent 的核心价值。
 
 ### 环境准备
 
 **⚠️ 重要：版本兼容性**
 
-本文代码基于 LangChain **0.2.x** 版本编写。由于 LangChain 1.x（2026年最新版）API 已大幅变更，直接安装最新版会导致代码报错。
-
-**推荐安装方式（锁定兼容版本）：**
+本文代码基于 LangChain **0.2.x** 版本编写。LangChain 1.x API 已大幅变更，直接安装最新版会导致代码报错。
 
 ```bash
-# 第一步：如果已安装高版本，先卸载
-pip uninstall langchain langchain-core langchain-openai langchain-community -y
+# 如果已安装高版本，先卸载
+pip uninstall langchain langchain-core langchain-openai -y
 
-# 第二步：安装兼容版本
-pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" "langchain-community>=0.2.0,<0.3.0" duckduckgo-search
+# 安装兼容版本
+pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" requests
 ```
 
-或者下载 [requirements.txt](./ai-agent-requirements.txt) 后执行：
-```bash
-pip install -r requirements.txt
-```
+或下载 [requirements.txt](./ai-agent-requirements.txt) 后执行 `pip install -r requirements.txt`。
 
-> 💡 **为什么选择 DeepSeek？**  
-> 本文示例使用 DeepSeek API，原因有三：
-> 1. **价格更低**：DeepSeek 的 API 价格约为 GPT-4 的 1/10
-> 2. **中文更强**：在中文理解和生成上表现优异
-> 3. **完全兼容**：DeepSeek API 采用 OpenAI 兼容格式，无需额外学习成本
->
-> 如果你已有 OpenAI API Key，只需将代码中的 `model` 和 `base_url` 两行注释掉或替换即可。
+> 💡 **为什么选择 DeepSeek？**
+> 价格更低（约 GPT-4 的 1/10）、中文更强、API 完全兼容 OpenAI 格式。
+> 如果你已有 OpenAI API Key，把 `model` 和 `base_url` 两行替换即可。
+
+### 获取天气 API Key（免费，30 秒搞定）
+
+本文使用**和风天气**（国内最大的天气数据服务商）：
+
+1. 访问 [dev.qweather.com](https://dev.qweather.com)
+2. 注册账号 → 创建应用 → 选择"免费订阅"
+3. 拿到 **API Key**
+4. 免费版每天 1000 次调用，足够学习使用
 
 ### 完整代码
 
 ```python
 import os
+import requests
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain_openai import ChatOpenAI
-from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_core.tools import Tool
 from langchain.prompts import PromptTemplate
 
-# 1. 配置API（支持DeepSeek、OpenAI等兼容接口）
+# 1. 配置大模型 API（DeepSeek）
 os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"
 
-# 2. 定义工具
-search = DuckDuckGoSearchRun()
+# 2. 配置天气 API（和风天气，dev.qweather.com 免费注册）
+os.environ["QWEATHER_API_KEY"] = "your-qweather-api-key"
 
+# 3. 定义天气查询工具
+QWEATHER_KEY = os.environ.get("QWEATHER_API_KEY", "")
+
+def get_weather(city: str) -> str:
+    """
+    查询指定城市的实时天气。
+    输入：城市名称，如 '深圳'、'北京'、'上海'
+    输出：温度、天气状况、风向风力、湿度等
+    """
+    if not QWEATHER_KEY or QWEATHER_KEY == "your-qweather-api-key":
+        return ("请先注册和风天气（dev.qweather.com），"
+                "获取免费 API Key 后填入 QWEATHER_API_KEY")
+
+    try:
+        # 第一步：城市名称 → 城市ID
+        geo_url = (
+            "https://geoapi.qweather.com/v2/city/lookup"
+            f"?location={city}&key={QWEATHER_KEY}"
+        )
+        geo_data = requests.get(geo_url, timeout=10).json()
+
+        if geo_data.get("code") != "200" or not geo_data.get("location"):
+            return f"未找到城市'{city}'，请检查城市名"
+
+        city_id = geo_data["location"][0]["id"]
+        city_name = geo_data["location"][0]["name"]
+
+        # 第二步：城市ID → 实时天气
+        weather_url = (
+            "https://devapi.qweather.com/v7/weather/now"
+            f"?location={city_id}&key={QWEATHER_KEY}"
+        )
+        weather_data = requests.get(weather_url, timeout=10).json()
+
+        if weather_data.get("code") != "200":
+            return f"查询失败：{weather_data.get('message', '未知错误')}"
+
+        now = weather_data["now"]
+        return (
+            f"城市：{city_name}\n"
+            f"天气：{now['text']}\n"
+            f"温度：{now['temp']}°C（体感 {now['feelsLike']}°C）\n"
+            f"风向：{now['windDir']} {now['windScale']}级\n"
+            f"湿度：{now['humidity']}%"
+        )
+    except Exception as e:
+        return f"查询出错：{str(e)}"
+
+# 4. 注册工具
 tools = [
     Tool(
-        name="web_search",
-        func=search.run,
-        description="用于搜索互联网上的实时信息。输入应为搜索关键词。"
+        name="get_weather",
+        func=get_weather,
+        description=(
+            "查询中国城市的实时天气，返回温度、天气状况、"
+            "体感温度、风向风力、湿度。输入应为城市名称，"
+            "如'深圳'、'北京'、'上海'。"
+        )
     ),
 ]
 
-# 3. 初始化大模型（DeepSeek版）
+# 5. 初始化大模型（DeepSeek版）
 llm = ChatOpenAI(
     model="deepseek-chat",
     temperature=0.3,
-    base_url="https://api.deepseek.com/v1"  # DeepSeek API端点
+    base_url="https://api.deepseek.com/v1"
 )
 
-# 如果用OpenAI，只需改为：
+# 如果用 OpenAI，注释上面三行，取消下面这行：
 # llm = ChatOpenAI(model="gpt-5", temperature=0.3)
 
-# 4. ReAct提示模板（直接内置，无需外部hub依赖）
+# 6. ReAct 提示模板（内置，零外部依赖）
 react_template = """Answer the following questions as best you can. You have access to the following tools:
 
 {tools}
@@ -250,23 +303,19 @@ Thought:{agent_scratchpad}"""
 
 prompt = PromptTemplate.from_template(react_template)
 
-# 5. 创建Agent
+# 7. 创建 Agent
 agent = create_react_agent(llm, tools, prompt)
 agent_executor = AgentExecutor(
     agent=agent,
     tools=tools,
-    verbose=True,  # 打印思考过程
-    max_iterations=10,  # 防止无限循环
+    verbose=True,      # 打印完整思考链
+    max_iterations=10, # 防止无限循环
     handle_parsing_errors=True
 )
 
-# 6. 运行
+# 8. 运行
 result = agent_executor.invoke({
-    "input": """请研究"2026年AI视频生成工具市场格局"，完成以下任务：
-    1. 搜索当前主流AI视频生成工具（至少5款）
-    2. 整理每款工具的核心特点、优势和适用场景
-    3. 分析市场格局（谁领先、谁追赶、差异化在哪）
-    4. 输出一份结构化的简要研究报告"""
+    "input": "深圳今天天气怎么样？适合外出跑步吗？"
 })
 
 print(result["output"])
@@ -277,48 +326,51 @@ print(result["output"])
 ```
 > Entering new AgentExecutor chain...
 
-我需要研究2026年AI视频生成工具的市场格局。首先搜索相关信息。
+用户想了解深圳今天的天气，并判断是否适合外出跑步。
+我需要先调用天气工具查询深圳的实时天气。
 
-Action: web_search
-Action Input: 2026年AI视频生成工具 Sora Runway 可灵 市场格局
+Action: get_weather
+Action Input: 深圳
 
-Observation: [搜索结果...]
+Observation:
+城市：深圳
+天气：多云
+温度：32°C（体感 35°C）
+风向：东南风 3级
+湿度：78%
 
-Thought: 已获取初步信息，需要进一步搜索各工具的具体特点...
-
-Action: web_search
-Action Input: Runway Gen-4 2026 新功能 特点
-
-...（多轮搜索与推理）...
+Thought: 已获得深圳实时天气数据。现在分析是否适合跑步：
+- 温度32°C，体感35°C，偏热
+- 湿度78%，闷热感明显
+- 东南风3级，有微风
+- 多云，无直射阳光
+综合来看，温度偏高、湿度大，户外长跑体验不佳。
 
 Final Answer:
 
-# 2026年AI视频生成工具市场格局研究报告
+🏃 深圳今日天气与跑步建议
 
-## 一、市场概览
-2026年AI视频生成市场经历重大洗牌...
+📍 实时天气
+• 天气状况：多云
+• 温度：32°C（体感 35°C）
+• 风向：东南风 3级
+• 湿度：78%
 
-## 二、主流工具对比
-| 工具 | 核心优势 | 适用场景 | 价格定位 |
-|---|---|---|---|
-| 可灵3.0 | 中文理解最佳，运动控制强 | 短视频、电商 | 国产性价比 |
-| Runway Gen-4 | 电影级画质，导演工具完善 | 影视制作 | 高端订阅 |
-| Pika 2.0 | 生成速度快，特效丰富 | 社交媒体 | 中端 |
-| Veo 3.1 | 物理模拟准确，Google生态 | 广告、教育 | 中端 |
-| 即梦AI | 字节生态整合，易上手 | 抖音创作 | 免费+增值 |
-
-## 三、格局分析
-...
+💡 跑步建议
+今天不太适合户外长跑。体感35°C + 78%湿度，运动中容易中暑。
+建议选择：
+  • 早晨 6-7 点或傍晚 19 点后
+  • 或改为室内跑步机 / 游泳
 ```
 
 ### 关键代码解读
 
 | 组件 | 作用 |
 |---|---|
-| `create_react_agent` | 创建遵循ReAct模式的Agent |
-| `DuckDuckGoSearchRun` | 搜索工具，Agent用它获取实时信息 |
-| `verbose=True` | 打印完整思考链，便于调试和理解 |
-| `max_iterations=10` | 安全限制，防止Agent陷入无限循环 |
+| `get_weather` | 自定义工具，调用和风天气 API 获取**实时**数据 |
+| `create_react_agent` | 创建遵循 ReAct 模式的 Agent |
+| `verbose=True` | 打印完整思考链（Thought → Action → Observation） |
+| `max_iterations=10` | 安全限制，防止 Agent 陷入无限循环 |
 | `handle_parsing_errors=True` | 自动处理模型输出格式错误 |
 
 ---
