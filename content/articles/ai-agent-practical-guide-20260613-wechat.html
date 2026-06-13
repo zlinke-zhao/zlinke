@@ -174,18 +174,14 @@
 
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>1. 环境准备</strong></p>
 
-<div style="background: #fff8f0; border-left: 4px solid #e67e22; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #555;">
-<p style="margin: 0 0 8px 0; font-weight: bold;">⚠️ 重要：版本兼容性</p>
-<p style="margin: 0 0 6px 0;">本文代码基于 LangChain <strong>0.2.x</strong> 版本。LangChain 1.x API 已大幅变更，直接安装最新版会导致代码报错。</p>
+<div style="background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0; font-weight: bold;">💡 环境说明</p>
+<p style="margin: 0 0 6px 0;">本文代码基于 <strong>LangChain 1.x + LangGraph</strong> 编写。Agent 功能已迁移至独立的 <code>langgraph</code> 包，安装更简单。</p>
 <p style="margin: 0 0 4px 0;"><strong>安装命令：</strong></p>
 </div>
 
 <div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
-pip uninstall langchain langchain-core langchain-openai -y
-</div>
-
-<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
-pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" requests
+pip install langgraph langchain-openai requests
 </div>
 
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>2. 获取天气 API Key</strong>（免费，30秒搞定）</p>
@@ -195,7 +191,7 @@ pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" requests
 <p style="margin: 0 0 4px 0;">1. 访问 <strong>dev.qweather.com</strong> → 注册账号</p>
 <p style="margin: 0 0 4px 0;">2. 创建应用 → 选择"免费订阅"</p>
 <p style="margin: 0 0 4px 0;">3. 拿到 <strong>API Key</strong></p>
-<p style="margin: 0;">4. 免费版每天 1000 次，足够学习使用</p>
+<p style="margin: 0;">4. 免费版 GeoAPI 每天 50000 次、天气 API 每天 1000 次，足够学习使用</p>
 </div>
 
 <div style="background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #555;">
@@ -295,26 +291,22 @@ for chunk in agent.stream(<br>
 
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>4. 运行效果示例</strong></p>
 
-<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 18px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.7; margin: 16px 0;">
-<span style="color: #608b4e;">&gt; Entering new AgentExecutor chain...</span><br><br>
-用户想了解深圳今天的天气，并判断是否适合外出跑步。<br>
-我需要先调用天气工具查询深圳的实时天气。<br><br>
-<span style="color: #ce9178;">Action:</span> get_weather<br>
-<span style="color: #ce9178;">Action Input:</span> 深圳<br><br>
-<span style="color: #608b4e;">Observation:</span><br>
+<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 18px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.7; margin: 16px 0; overflow-x: auto;">
+<span style="color: #9cdcfe;">================================ Human Message =================================</span><br>
+深圳今天天气怎么样？适合外出跑步吗？<br><br>
+<span style="color: #9cdcfe;">================================== Ai Message ==================================</span><br>
+<span style="color: #ce9178;">Tool Calls:</span><br>
+&nbsp;&nbsp;get_weather (call_abc123)<br>
+&nbsp;&nbsp;<span style="color: #ce9178;">Args:</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;city: 深圳<br><br>
+<span style="color: #9cdcfe;">================================= Tool Message =================================</span><br>
 城市：深圳<br>
 天气：多云<br>
 温度：32°C（体感 35°C）<br>
 风向：东南风 3级<br>
- humidity：78%<br><br>
-<span style="color: #dcdcaa;">Thought:</span> 已获得深圳实时天气数据。<br>
-分析是否适合跑步：<br>
-- 温度32°C，体感35°C，偏热<br>
-- 湿度78%，闷热感明显<br>
-- 东南风3级，有微风<br>
-综合来看，户外长跑体验不佳。<br><br>
-<span style="color: #dcdcaa;">Final Answer:</span><br><br>
-<span style="color: #9cdcfe;">🏃 深圳今日天气与跑步建议</span><br><br>
+湿度：78%<br><br>
+<span style="color: #9cdcfe;">================================== Ai Message ==================================</span><br><br>
+<span style="color: #dcdcaa;">🏃 深圳今日天气与跑步建议</span><br><br>
 <span style="color: #dcdcaa;">📍 实时天气</span><br>
 • 天气状况：多云<br>
 • 温度：32°C（体感 35°C）<br>
@@ -326,6 +318,9 @@ for chunk in agent.stream(<br>
 建议选择早晨或傍晚，或改为室内跑步机 / 游泳。
 </div>
 
+<p style="font-size: 13px; color: #888; margin-top: 8px;">💡 <strong>看不懂输出？</strong> <code>pretty_print()</code> 会自动格式化消息类型：<br>
+<span style="color: #9cdcfe;">• Human Message</span> = 用户输入 &nbsp;&nbsp; <span style="color: #ce9178;">• Ai Message</span> = 模型思考（含工具调用） &nbsp;&nbsp; <span style="color: #9cdcfe;">• Tool Message</span> = 工具返回结果</p>
+
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>5. 关键代码解读</strong></p>
 <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0;">
 <tr style="background: #f0f4f8;">
@@ -333,16 +328,24 @@ for chunk in agent.stream(<br>
 <td style="border: 1px solid #ddd; padding: 8px;">作用</td>
 </tr>
 <tr>
-<td style="border: 1px solid #ddd; padding: 8px; font-family: 'Courier New';"><code>get_weather</code></td>
-<td style="border: 1px solid #ddd; padding: 8px;">自定义工具，调用和风天气 API 获取<strong>实时</strong>数据</td>
+<td style="border: 1px solid #ddd; padding: 8px; font-family: 'Courier New';"><code>@tool</code></td>
+<td style="border: 1px solid #ddd; padding: 8px;">装饰器，将普通函数转为 LangChain 工具（<strong>自动提取 docstring</strong>作为工具描述）</td>
 </tr>
 <tr style="background: #fafbfc;">
 <td style="border: 1px solid #ddd; padding: 8px; font-family: 'Courier New';"><code>create_react_agent</code></td>
-<td style="border: 1px solid #ddd; padding: 8px;">创建遵循 ReAct 模式的 Agent</td>
+<td style="border: 1px solid #ddd; padding: 8px;">LangGraph 预构建函数，<strong>一行创建 ReAct Agent</strong>（无需手写提示模板！）</td>
 </tr>
 <tr>
-<td style="border: 1px solid #ddd; padding: 8px; font-family: 'Courier New';"><code>verbose=True</code></td>
-<td style="border: 1px solid #ddd; padding: 8px;">打印完整思考链（Thought → Action → Observation）</td>
+<td style="border: 1px solid #ddd; padding: 8px; font-family: 'Courier New';"><code>agent.stream()</code></td>
+<td style="border: 1px solid #ddd; padding: 8px;">流式执行 Agent，<code>stream_mode="values"</code> 查看每一步累积状态</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-family: 'Courier New';"><code>pretty_print()</code></td>
+<td style="border: 1px solid #ddd; padding: 8px;">自动格式化输出 <code>HumanMessage</code> / <code>AIMessage</code> / <code>ToolMessage</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-family: 'Courier New';"><code>prompt=</code></td>
+<td style="border: 1px solid #ddd; padding: 8px;">传入系统提示词（字符串），Agent 会自动遵循</td>
 </tr>
 </table>
 
