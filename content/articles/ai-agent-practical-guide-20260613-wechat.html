@@ -165,7 +165,15 @@
 pip install langchain langchain-openai langchain-community duckduckgo-search
 </div>
 
-<p style="font-size: 15px; margin-bottom: 8px;"><strong>2. 完整代码</strong></p>
+<div style="background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0; font-weight: bold;">💡 为什么选择 DeepSeek？</p>
+<p style="margin: 0 0 6px 0;">本文示例使用 DeepSeek API，原因有三：</p>
+<p style="margin: 0 0 4px 0;">1. <strong>价格更低</strong>：约为 GPT-4 的 1/10</p>
+<p style="margin: 0 0 4px 0;">2. <strong>中文更强</strong>：中文理解和生成表现优异</p>
+<p style="margin: 0;">3. <strong>完全兼容</strong>：采用 OpenAI 兼容格式，零学习成本</p>
+</div>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong>2. 完整代码（DeepSeek版）</strong></p>
 <div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
 import os<br>
 from langchain import hub<br>
@@ -174,16 +182,23 @@ from langchain_openai import ChatOpenAI<br>
 from langchain_community.tools import DuckDuckGoSearchRun<br>
 from langchain_core.tools import Tool<br>
 <br>
-# 配置API<br>
-os.environ["OPENAI_API_KEY"] = "your-api-key"<br>
+# 配置API（支持DeepSeek、OpenAI等兼容接口）<br>
+os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"<br>
 <br>
 # 定义工具<br>
 search = DuckDuckGoSearchRun()<br>
 tools = [Tool(name="web_search", func=search.run,<br>
 &nbsp;&nbsp;description="用于搜索互联网上的实时信息")]<br>
 <br>
-# 初始化大模型<br>
-llm = ChatOpenAI(model="gpt-5", temperature=0.3)<br>
+# 初始化大模型（DeepSeek版）<br>
+llm = ChatOpenAI(<br>
+&nbsp;&nbsp;model="deepseek-chat",<br>
+&nbsp;&nbsp;temperature=0.3,<br>
+&nbsp;&nbsp;base_url="https://api.deepseek.com/v1"<br>
+)<br>
+<br>
+# 如果用OpenAI，只需改为：<br>
+# llm = ChatOpenAI(model="gpt-5", temperature=0.3)<br>
 <br>
 # 加载ReAct提示模板<br>
 prompt = hub.pull("hwchase17/react")<br>

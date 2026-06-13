@@ -170,6 +170,14 @@ Agent回复：北京明天晴，28°C，空气质量良，适合外出～
 pip install langchain langchain-openai langchain-community duckduckgo-search
 ```
 
+> 💡 **为什么选择 DeepSeek？**  
+> 本文示例使用 DeepSeek API，原因有三：
+> 1. **价格更低**：DeepSeek 的 API 价格约为 GPT-4 的 1/10
+> 2. **中文更强**：在中文理解和生成上表现优异
+> 3. **完全兼容**：DeepSeek API 采用 OpenAI 兼容格式，无需额外学习成本
+>
+> 如果你已有 OpenAI API Key，只需将代码中的 `model` 和 `base_url` 两行注释掉或替换即可。
+
 ### 完整代码
 
 ```python
@@ -180,8 +188,8 @@ from langchain_openai import ChatOpenAI
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_core.tools import Tool
 
-# 1. 配置API（需提前设置环境变量）
-os.environ["OPENAI_API_KEY"] = "your-api-key"
+# 1. 配置API（支持DeepSeek、OpenAI等兼容接口）
+os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"
 
 # 2. 定义工具
 search = DuckDuckGoSearchRun()
@@ -194,8 +202,15 @@ tools = [
     ),
 ]
 
-# 3. 初始化大模型
-llm = ChatOpenAI(model="gpt-5", temperature=0.3)
+# 3. 初始化大模型（DeepSeek版）
+llm = ChatOpenAI(
+    model="deepseek-chat",
+    temperature=0.3,
+    base_url="https://api.deepseek.com/v1"  # DeepSeek API端点
+)
+
+# 如果用OpenAI，只需改为：
+# llm = ChatOpenAI(model="gpt-5", temperature=0.3)
 
 # 4. 加载ReAct提示模板
 prompt = hub.pull("hwchase17/react")
