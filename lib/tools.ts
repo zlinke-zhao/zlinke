@@ -98,6 +98,17 @@ export const tools: Tool[] = [
     price: '免费',
     features: ['Bot搭建', '工作流编排', '知识库', '多平台发布'],
   },
+  {
+    id: 'poe',
+    name: 'Poe',
+    description: 'Quora推出的AI模型聚合平台，在一个界面中访问ChatGPT、Claude、Gemini等主流模型，支持自定义Bot。',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
+    rating: 4.3,
+    url: 'https://poe.com',
+    price: '免费 / Pro $19.99/月',
+    features: ['多模型聚合', '自定义Bot', '跨模型对比', '知识库'],
+  },
 
   // ========================
   // 二、AI写作工具
@@ -253,6 +264,17 @@ export const tools: Tool[] = [
     price: '免费 / Pro $10/月',
     features: ['模型丰富', '精细控制', '游戏素材', '训练模型'],
   },
+  {
+    id: 'ideogram',
+    name: 'Ideogram',
+    description: '文字渲染最强的AI图像生成工具，支持在图片中精准嵌入文字，适合Logo、海报和社媒素材设计。',
+    category: 'AI图像生成',
+    subCategory: 'AI绘画',
+    rating: 4.2,
+    url: 'https://ideogram.ai',
+    price: '免费 / Pro $8/月',
+    features: ['文字渲染', '高质量出图', '风格多样', '创意设计'],
+  },
 
   // ========================
   // 五、AI视频创作
@@ -289,6 +311,17 @@ export const tools: Tool[] = [
     url: 'https://www.heygen.com',
     price: '免费 / Pro $24/月',
     features: ['数字人生成', '多语言', '口型同步', '模板丰富'],
+  },
+  {
+    id: 'kling-ai',
+    name: 'Kling AI（可灵）',
+    description: '快手推出的专业AI视频生成工具，支持文生视频、图生视频，电影级画质，国内AI视频标杆产品。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.5,
+    url: 'https://klingai.com',
+    price: '免费 / Pro ¥66/月',
+    features: ['文生视频', '图生视频', '电影画质', '多镜头编辑'],
   },
 
   // ========================
@@ -389,5 +422,16 @@ export const tools: Tool[] = [
     url: 'https://elevenlabs.io',
     price: '免费 / Pro $5/月',
     features: ['语音合成', '语音克隆', '情感表达', '多语言'],
+  },
+  {
+    id: 'udio',
+    name: 'Udio',
+    description: 'AI音乐生成工具，支持多种风格和人声，音质出色，Suno最强竞品，适合音乐创作者和内容制作者。',
+    category: 'AI音乐音频',
+    subCategory: 'AI音乐',
+    rating: 4.3,
+    url: 'https://udio.com',
+    price: '免费 / Pro $10/月',
+    features: ['文生音乐', '多风格', '高质量人声', 'Stem分离'],
   },
 ]
