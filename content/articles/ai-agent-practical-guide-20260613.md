@@ -190,14 +190,15 @@ pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" requests
 
 1. 访问 [dev.qweather.com](https://dev.qweather.com)
 2. 注册账号 → 创建应用 → 选择"免费订阅"
-3. 拿到 **API Key**
-4. 免费版每天 1000 次调用，足够学习使用
+3. 拿到 **API Key** 和 **API Host**（在「控制台 → 设置」中查看你的专属 Host）
+4. 免费版 GeoAPI 每天 50000 次、天气 API 每天 1000 次调用，足够学习使用
 
 ### 完整代码
 
 ```python
 import os
 import requests
+import urllib.parse
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain_openai import ChatOpenAI
 from langchain_core.tools import Tool
@@ -207,7 +208,9 @@ from langchain.prompts import PromptTemplate
 os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"
 
 # 2. 配置天气 API（和风天气，dev.qweather.com 免费注册）
+#    注意：API Host 请到控制台「设置」中获取你的专属地址
 os.environ["QWEATHER_API_KEY"] = "your-qweather-api-key"
+QWEATHER_HOST = "https://your-host.re.qweatherapi.com"  # <-- 替换为你的专属 Host
 
 # 3. 定义天气查询工具
 QWEATHER_KEY = os.environ.get("QWEATHER_API_KEY", "")
@@ -223,10 +226,11 @@ def get_weather(city: str) -> str:
                 "获取免费 API Key 后填入 QWEATHER_API_KEY")
 
     try:
-        # 第一步：城市名称 → 城市ID
+        # 第一步：城市名称 → 城市ID（中文需URL编码）
+        encoded_city = urllib.parse.quote(city)
         geo_url = (
-            "https://geoapi.qweather.com/v2/city/lookup"
-            f"?location={city}&key={QWEATHER_KEY}"
+            f"{QWEATHER_HOST}/geo/v2/city/lookup"
+            f"?location={encoded_city}&key={QWEATHER_KEY}"
         )
         geo_data = requests.get(geo_url, timeout=10).json()
 
@@ -238,7 +242,7 @@ def get_weather(city: str) -> str:
 
         # 第二步：城市ID → 实时天气
         weather_url = (
-            "https://devapi.qweather.com/v7/weather/now"
+            f"{QWEATHER_HOST}/v7/weather/now"
             f"?location={city_id}&key={QWEATHER_KEY}"
         )
         weather_data = requests.get(weather_url, timeout=10).json()

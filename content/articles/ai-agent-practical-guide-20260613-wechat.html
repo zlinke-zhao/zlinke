@@ -219,7 +219,9 @@ from langchain.prompts import PromptTemplate<br>
 os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"<br>
 <br>
 # 2. 配置天气 API（和风天气）<br>
+#    API Host 请到控制台「设置」中获取你的专属地址<br>
 os.environ["QWEATHER_API_KEY"] = "your-qweather-api-key"<br>
+QWEATHER_HOST = "https://your-host.re.qweatherapi.com"<br>
 <br>
 QWEATHER_KEY = os.environ.get("QWEATHER_API_KEY", "")<br>
 <br>
@@ -231,13 +233,14 @@ def get_weather(city: str) -> str:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"获取免费 API Key 后填入 QWEATHER_API_KEY")<br>
 &nbsp;&nbsp;&nbsp;&nbsp;try:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 城市名称 -> 城市ID<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geo_url = (f"https://geoapi.qweather.com/v2/city/lookup"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"?location={city}&key={QWEATHER_KEY}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import urllib.parse<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geo_url = (f"{QWEATHER_HOST}/geo/v2/city/lookup"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"?location={urllib.parse.quote(city)}&key={QWEATHER_KEY}")<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;city_id = requests.get(geo_url, timeout=10).json()<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["location"][0]["id"]<br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 城市ID -> 实时天气<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weather_url = (f"https://devapi.qweather.com/v7/weather/now"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weather_url = (f"{QWEATHER_HOST}/v7/weather/now"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"?location={city_id}&key={QWEATHER_KEY}")<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = requests.get(weather_url, timeout=10).json()["now"]<br>
 <br>
