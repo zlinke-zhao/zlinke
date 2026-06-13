@@ -168,17 +168,11 @@ Agent回复：北京明天晴，28°C，空气质量良，适合外出～
 
 **⚠️ 重要：版本兼容性**
 
-本文代码基于 LangChain **0.2.x** 版本编写。LangChain 1.x API 已大幅变更，直接安装最新版会导致代码报错。
+本文代码基于 **LangChain 1.x + LangGraph** 编写。LangChain 1.x 起，Agent 功能已迁移至独立的 `langgraph` 包，安装更简单。
 
 ```bash
-# 如果已安装高版本，先卸载
-pip uninstall langchain langchain-core langchain-openai -y
-
-# 安装兼容版本
-pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" requests
+pip install langgraph langchain-openai requests
 ```
-
-或下载 [requirements.txt](./ai-agent-requirements.txt) 后执行 `pip install -r requirements.txt`。
 
 > 💡 **为什么选择 DeepSeek？**
 > 价格更低（约 GPT-4 的 1/10）、中文更强、API 完全兼容 OpenAI 格式。
@@ -199,10 +193,9 @@ pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" requests
 import os
 import requests
 import urllib.parse
-from langchain.agents import create_react_agent, AgentExecutor
 from langchain_openai import ChatOpenAI
-from langchain_core.tools import Tool
-from langchain.prompts import PromptTemplate
+from langchain_core.tools import tool
+from langgraph.prebuilt import create_react_agent
 
 # 1. 配置大模型 API（DeepSeek）
 os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"
@@ -212,21 +205,23 @@ os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"
 os.environ["QWEATHER_API_KEY"] = "your-qweather-api-key"
 QWEATHER_HOST = "https://your-host.re.qweatherapi.com"  # <-- 替换为你的专属 Host
 
-# 3. 定义天气查询工具
-QWEATHER_KEY = os.environ.get("QWEATHER_API_KEY", "")
-
+# 3. 定义天气查询工具（@tool 装饰器，更简洁）
+@tool
 def get_weather(city: str) -> str:
+    """查询指定城市的实时天气。
+
+    Args:
+        city: 城市名称，如 '深圳'、'北京'、'上海'
+
+    Returns:
+        包含温度、天气状况、风向风力、湿度的字符串
     """
-    查询指定城市的实时天气。
-    输入：城市名称，如 '深圳'、'北京'、'上海'
-    输出：温度、天气状况、风向风力、湿度等
-    """
+    QWEATHER_KEY = os.environ.get("QWEATHER_API_KEY", "")
     if not QWEATHER_KEY or QWEATHER_KEY == "your-qweather-api-key":
-        return ("请先注册和风天气（dev.qweather.com），"
-                "获取免费 API Key 后填入 QWEATHER_API_KEY")
+        return "请先注册和风天气（dev.qweather.com），获取免费 API Key"
 
     try:
-        # 第一步：城市名称 → 城市ID（中文需URL编码）
+        # 第一步：城市名称 → 城市ID（中文需 URL 编码）
         encoded_city = urllib.parse.quote(city)
         geo_url = (
             f"{QWEATHER_HOST}/geo/v2/city/lookup"
@@ -252,105 +247,61 @@ def get_weather(city: str) -> str:
 
         now = weather_data["now"]
         return (
-            f"城市：{city_name}\n"
-            f"天气：{now['text']}\n"
-            f"温度：{now['temp']}°C（体感 {now['feelsLike']}°C）\n"
-            f"风向：{now['windDir']} {now['windScale']}级\n"
+            f"城市：{city_name}
+"
+            f"天气：{now['text']}
+"
+            f"温度：{now['temp']}°C（体感 {now['feelsLike']}°C）
+"
+            f"风向：{now['windDir']} {now['windScale']}级
+"
             f"湿度：{now['humidity']}%"
         )
     except Exception as e:
         return f"查询出错：{str(e)}"
 
-# 4. 注册工具
-tools = [
-    Tool(
-        name="get_weather",
-        func=get_weather,
-        description=(
-            "查询中国城市的实时天气，返回温度、天气状况、"
-            "体感温度、风向风力、湿度。输入应为城市名称，"
-            "如'深圳'、'北京'、'上海'。"
-        )
-    ),
-]
-
-# 5. 初始化大模型（DeepSeek版）
+# 4. 初始化大模型（DeepSeek 版）
 llm = ChatOpenAI(
     model="deepseek-chat",
     temperature=0.3,
     base_url="https://api.deepseek.com/v1"
 )
 
-# 如果用 OpenAI，注释上面三行，取消下面这行：
-# llm = ChatOpenAI(model="gpt-5", temperature=0.3)
+# 如果用 OpenAI，注释上面三行，取消下面这两行：
+# llm = ChatOpenAI(model="gpt-4o", temperature=0.3)
 
-# 6. ReAct 提示模板（内置，零外部依赖）
-react_template = """Answer the following questions as best you can. You have access to the following tools:
-
-{tools}
-
-Use the following format:
-
-Question: the input question you must answer
-Thought: you should always think about what to do
-Action: the action to take, should be one of [{tool_names}]
-Action Input: the input to the action
-Observation: the result of the action
-... (this Thought/Action/Action Input/Observation can repeat N times)
-Thought: I now know the final answer
-Final Answer: the final answer to the original input question
-
-Begin!
-
-Question: {input}
-Thought:{agent_scratchpad}"""
-
-prompt = PromptTemplate.from_template(react_template)
-
-# 7. 创建 Agent
-agent = create_react_agent(llm, tools, prompt)
-agent_executor = AgentExecutor(
-    agent=agent,
-    tools=tools,
-    verbose=True,      # 打印完整思考链
-    max_iterations=10, # 防止无限循环
-    handle_parsing_errors=True
+# 5. 创建 Agent（LangGraph 一行搞定，无需手写 ReAct 模板！）
+agent = create_react_agent(
+    model=llm,
+    tools=[get_weather],
+    prompt="你是一个有用的 AI 助手，请用中文回答。"
 )
 
-# 8. 运行
-result = agent_executor.invoke({
-    "input": "深圳今天天气怎么样？适合外出跑步吗？"
-})
+# 6. 运行（stream 模式查看完整思考链）
+for chunk in agent.stream(
+    {"messages": [("user", "深圳今天天气怎么样？适合外出跑步吗？")]},
+    stream_mode="values"
+):
+    chunk["messages"][-1].pretty_print()
 
-print(result["output"])
-```
 
 ### 运行效果示例
 
 ```
-> Entering new AgentExecutor chain...
-
-用户想了解深圳今天的天气，并判断是否适合外出跑步。
-我需要先调用天气工具查询深圳的实时天气。
-
-Action: get_weather
-Action Input: 深圳
-
-Observation:
+================================ Human Message =================================
+深圳今天天气怎么样？适合外出跑步吗？
+================================== Ai Message ==================================
+Tool Calls:
+  get_weather (call_abc123)
+  Args:
+    city: 深圳
+================================= Tool Message =================================
 城市：深圳
 天气：多云
 温度：32°C（体感 35°C）
 风向：东南风 3级
 湿度：78%
-
-Thought: 已获得深圳实时天气数据。现在分析是否适合跑步：
-- 温度32°C，体感35°C，偏热
-- 湿度78%，闷热感明显
-- 东南风3级，有微风
-- 多云，无直射阳光
-综合来看，温度偏高、湿度大，户外长跑体验不佳。
-
-Final Answer:
+================================== Ai Message ==================================
 
 🏃 深圳今日天气与跑步建议
 
@@ -367,15 +318,20 @@ Final Answer:
   • 或改为室内跑步机 / 游泳
 ```
 
+> **看不懂输出？** `pretty_print()` 会自动格式化消息类型：
+> - `Human Message` = 用户输入
+> - `AI Message` = 模型思考（含工具调用）
+> - `Tool Message` = 工具返回结果
+
 ### 关键代码解读
 
 | 组件 | 作用 |
 |---|---|
-| `get_weather` | 自定义工具，调用和风天气 API 获取**实时**数据 |
-| `create_react_agent` | 创建遵循 ReAct 模式的 Agent |
-| `verbose=True` | 打印完整思考链（Thought → Action → Observation） |
-| `max_iterations=10` | 安全限制，防止 Agent 陷入无限循环 |
-| `handle_parsing_errors=True` | 自动处理模型输出格式错误 |
+| `@tool` | 装饰器，将普通函数转为 LangChain 工具（**自动提取 docstring 作为工具描述**） |
+| `create_react_agent` | LangGraph 预构建函数，**一行创建 ReAct Agent**（无需手写提示模板！） |
+| `agent.stream()` | 流式执行 Agent，`stream_mode="values"` 查看每一步累积状态 |
+| `pretty_print()` | 自动格式化输出 `HumanMessage` / `AIMessage` / `ToolMessage` |
+| `prompt=` | 传入系统提示词（字符串），Agent 会自动遵循 |
 
 ---
 

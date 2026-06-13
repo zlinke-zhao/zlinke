@@ -210,75 +210,87 @@ pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" requests
 <div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 11px; line-height: 1.6; margin: 12px 0; overflow-x: auto;">
 import os<br>
 import requests<br>
-from langchain.agents import create_react_agent, AgentExecutor<br>
+import urllib.parse<br>
 from langchain_openai import ChatOpenAI<br>
-from langchain_core.tools import Tool<br>
-from langchain.prompts import PromptTemplate<br>
+from langchain_core.tools import tool<br>
+from langgraph.prebuilt import create_react_agent<br>
 <br>
 # 1. 配置大模型 API（DeepSeek）<br>
 os.environ["OPENAI_API_KEY"] = "your-deepseek-api-key"<br>
 <br>
 # 2. 配置天气 API（和风天气）<br>
-#    API Host 请到控制台「设置」中获取你的专属地址<br>
 os.environ["QWEATHER_API_KEY"] = "your-qweather-api-key"<br>
 QWEATHER_HOST = "https://your-host.re.qweatherapi.com"<br>
 <br>
-QWEATHER_KEY = os.environ.get("QWEATHER_API_KEY", "")<br>
-<br>
-# 3. 定义天气查询工具<br>
+# 3. 定义天气查询工具（@tool 装饰器，更简洁）<br>
+@tool<br>
 def get_weather(city: str) -> str:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"""查询指定城市的实时天气"""<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if not QWEATHER_KEY or QWEATHER_KEY == "your-qweather-api-key":<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return ("请先注册和风天气 dev.qweather.com，"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"获取免费 API Key 后填入 QWEATHER_API_KEY")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 城市名称 -> 城市ID<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import urllib.parse<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geo_url = (f"{QWEATHER_HOST}/geo/v2/city/lookup"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"?location={urllib.parse.quote(city)}&key={QWEATHER_KEY}")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;city_id = requests.get(geo_url, timeout=10).json()<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["location"][0]["id"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"""查询指定城市的实时天气。<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 城市ID -> 实时天气<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;city: 城市名称，如 '深圳'、'北京'、'上海'<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;包含温度、天气状况、风向风力、湿度的字符串<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"""<br>
+&nbsp;&nbsp;&nbsp;&nbsp;QWEATHER_KEY = os.environ.get("QWEATHER_API_KEY", "")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if not QWEATHER_KEY or QWEATHER_KEY == "your-qweather-api-key":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "请先注册和风天气（dev.qweather.com），获取免费 API Key"<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encoded_city = urllib.parse.quote(city)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geo_url = (f"{QWEATHER_HOST}/geo/v2/city/lookup"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"?location={encoded_city}&key={QWEATHER_KEY}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geo_data = requests.get(geo_url, timeout=10).json()<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if geo_data.get("code") != "200" or not geo_data.get("location"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f"未找到城市'{city}'，请检查城市名"<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;city_id = geo_data["location"][0]["id"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;city_name = geo_data["location"][0]["name"]<br>
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weather_url = (f"{QWEATHER_HOST}/v7/weather/now"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"?location={city_id}&key={QWEATHER_KEY}")<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = requests.get(weather_url, timeout=10).json()["now"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weather_data = requests.get(weather_url, timeout=10).json()<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (f"城市：{city}\n天气：{data['text']}\n"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"温度：{data['temp']}°C（体感{data['feelsLike']}°C）\n"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"风向：{data['windDir']} {data['windScale']}级\n"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"湿度：{data['humidity']}%")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if weather_data.get("code") != "200":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f"查询失败：{weather_data.get('message', '未知错误')}"<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now = weather_data["now"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"城市：{city_name}
+"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"天气：{now['text']}
+"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"温度：{now['temp']}°C（体感 {now['feelsLike']}°C）
+"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"风向：{now['windDir']} {now['windScale']}级
+"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"湿度：{now['humidity']}%"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;except Exception as e:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f"查询出错：{str(e)}"<br>
 <br>
-# 4. 注册工具<br>
-tools = [Tool(<br>
-&nbsp;&nbsp;&nbsp;&nbsp;name="get_weather", func=get_weather,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;description="查询中国城市的实时天气，返回温度、"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"天气状况、体感温度、风向风力、湿度。"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"输入应为城市名，如'深圳'、'北京'。"<br>
-)]<br>
+# 4. 初始化大模型（DeepSeek 版）<br>
+llm = ChatOpenAI(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;model="deepseek-chat",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;temperature=0.3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;base_url="https://api.deepseek.com/v1"<br>
+)<br>
 <br>
-# 5. 初始化大模型（DeepSeek）<br>
-llm = ChatOpenAI(model="deepseek-chat", temperature=0.3,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;base_url="https://api.deepseek.com/v1")<br>
+# 5. 创建 Agent（LangGraph 一行搞定！）<br>
+agent = create_react_agent(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;model=llm,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tools=[get_weather],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prompt="你是一个有用的 AI 助手，请用中文回答。"<br>
+)<br>
 <br>
-# 6. ReAct 提示模板（内置，零依赖）<br>
-react_template = """Answer the following questions...<br>
-[完整模板内容见网站文章]<br>
-Question: {input}<br>
-Thought:{agent_scratchpad}"""<br>
-prompt = PromptTemplate.from_template(react_template)<br>
-<br>
-# 7. 创建并运行 Agent<br>
-agent = create_react_agent(llm, tools, prompt)<br>
-agent_executor = AgentExecutor(agent=agent, tools=tools,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;verbose=True, max_iterations=10,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;handle_parsing_errors=True)<br>
-result = agent_executor.invoke({<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"input": "深圳今天天气怎么样？适合跑步吗？"<br>
-})<br>
-print(result["output"])
+# 6. 运行（stream 模式查看完整思考链）<br>
+for chunk in agent.stream(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"messages": [("user", "深圳今天天气怎么样？适合外出跑步吗？")]},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stream_mode="values"<br>
+):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chunk["messages"][-1].pretty_print()<br>
 </div>
 
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>4. 运行效果示例</strong></p>
