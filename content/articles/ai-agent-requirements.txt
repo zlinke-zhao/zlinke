@@ -1,0 +1,15 @@
+# AI Agent入门实战指南 - 依赖版本锁定
+# 使用方法：将此文件保存为 requirements.txt，然后执行：
+#   pip install -r requirements.txt
+
+# 核心框架（锁定0.2.x版本，确保代码兼容性）
+langchain>=0.2.0,<0.3.0
+langchain-openai>=0.1.0,<0.3.0
+langchain-community>=0.2.0,<0.3.0
+
+# 搜索工具
+duckduckgo-search>=3.0
+
+# 注意：如果你已安装 langchain 1.x 版本，请先卸载：
+#   pip uninstall langchain langchain-core langchain-openai langchain-community -y
+# 然后再执行上面的安装命令。

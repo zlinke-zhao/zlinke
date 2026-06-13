@@ -166,8 +166,23 @@ Agent回复：北京明天晴，28°C，空气质量良，适合外出～
 
 ### 环境准备
 
+**⚠️ 重要：版本兼容性**
+
+本文代码基于 LangChain **0.2.x** 版本编写。由于 LangChain 1.x（2026年最新版）API 已大幅变更，直接安装最新版会导致代码报错。
+
+**推荐安装方式（锁定兼容版本）：**
+
 ```bash
-pip install langchain langchain-openai langchain-community duckduckgo-search
+# 第一步：如果已安装高版本，先卸载
+pip uninstall langchain langchain-core langchain-openai langchain-community -y
+
+# 第二步：安装兼容版本
+pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" "langchain-community>=0.2.0,<0.3.0" duckduckgo-search
+```
+
+或者下载 [requirements.txt](./ai-agent-requirements.txt) 后执行：
+```bash
+pip install -r requirements.txt
 ```
 
 > 💡 **为什么选择 DeepSeek？**  

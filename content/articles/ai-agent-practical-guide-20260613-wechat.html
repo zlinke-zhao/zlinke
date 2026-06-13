@@ -161,8 +161,20 @@
 <p style="font-size: 15px; margin-bottom: 12px;"><strong>功能目标</strong>：输入一个话题（如"2026年AI视频生成工具市场格局"），Agent自动搜索信息、分析整理、生成一份结构化的研究报告。</p>
 
 <p style="font-size: 15px; margin-bottom: 8px;"><strong>1. 环境准备</strong></p>
-<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
-pip install langchain langchain-openai langchain-community duckduckgo-search
+
+<div style="background: #fff8f0; border-left: 4px solid #e67e22; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0; font-weight: bold;">⚠️ 重要：版本兼容性</p>
+<p style="margin: 0 0 6px 0;">本文代码基于 LangChain <strong>0.2.x</strong> 版本。LangChain 1.x（2026年最新版）API 已大幅变更，直接安装最新版会导致代码报错。</p>
+<p style="margin: 0 0 4px 0;"><strong>推荐安装方式（锁定兼容版本）：</strong></p>
+<p style="margin: 0 0 4px 0;">如果已安装高版本，先卸载：</p>
+</div>
+
+<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
+pip uninstall langchain langchain-core langchain-openai langchain-community -y
+</div>
+
+<div style="background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; overflow-x: auto;">
+pip install "langchain>=0.2.0,<0.3.0" "langchain-openai>=0.1.0,<0.3.0" "langchain-community>=0.2.0,<0.3.0" duckduckgo-search
 </div>
 
 <div style="background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #555;">
