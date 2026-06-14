@@ -45,6 +45,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1019611632171859"
           crossOrigin="anonymous"
         />
+        {/* Google Analytics 4 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DGJEW18B8B"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DGJEW18B8B');
+            `,
+          }}
+        />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col bg-surface-main text-text-primary dark:bg-gray-950 dark:text-gray-100 transition-colors">
         <ThemeProvider>

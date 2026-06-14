@@ -17,5 +17,15 @@
 - 中文城市名调用 API 时必须做 urllib.parse.quote() URL 编码
 - 公众号 HTML 代码块存在 NBSP（U+00A0）污染风险，从 .md 源文件复制更可靠
 
+## SEO & 变现状态
+- Google Search Console: ✅ 已验证通过（2026-06-14）
+- sitemap.xml: ✅ 已上线（50 URLs）
+- robots.txt: ✅ 已上线
+- Google AdSense: ✅ 已审核通过，广告代码已接入
+  - Ad client: ca-pub-1019611632171859
+  - Ad slot: 8367513551（自动广告 + 展示广告单元）
+  - 广告位：article-top, article-bottom, sidebar-top, sidebar-bottom, review-top, review-bottom
+- Bing Webmaster: ❌ 未提交
+
 ## 已发布文章
 - AI Agent 入门实战指南 (2026-06-13): LangChain 1.x + LangGraph + 和风天气 API
