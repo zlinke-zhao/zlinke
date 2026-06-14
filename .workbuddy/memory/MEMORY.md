@@ -25,6 +25,7 @@
   - Ad client: ca-pub-1019611632171859
   - Ad slot: 8367513551（自动广告 + 展示广告单元）
   - 广告位：article-top, article-bottom, sidebar-top, sidebar-bottom, review-top, review-bottom
+- Google Analytics 4: ✅ 已接入（G-DGJEW18B8B），2026-06-14
 - Bing Webmaster: ❌ 未提交
 
 ## 已发布文章
