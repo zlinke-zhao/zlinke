@@ -1,13 +1,36 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+
 export default function AdSlot({ position }: { position: string }) {
+  const adRef = useRef<HTMLModElement>(null)
+  const pushed = useRef(false)
+
+  useEffect(() => {
+    // Avoid pushing the same ad twice in React strict-mode / re-renders
+    if (pushed.current) return
+    pushed.current = true
+
+    try {
+      // @ts-expect-error adsbygoogle is injected by the script in layout.tsx
+      const adsbygoogle = window.adsbygoogle || []
+      adsbygoogle.push({})
+    } catch (e) {
+      console.error('AdSense push error:', e)
+    }
+  }, [])
+
   return (
-    <div
-      className="my-6"
-      data-ad-position={position}
-    >
-      {/* AdSense广告位 - 后续替换为真实广告代码 */}
-      <div className="bg-gray-50 dark:bg-gray-800/50 border border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-4 text-center text-xs text-gray-400 dark:text-gray-500">
-        广告位 ({position})
-      </div>
+    <div className="my-6" data-ad-position={position}>
+      <ins
+        ref={adRef}
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-1019611632171859"
+        data-ad-slot="8367513551"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     </div>
   )
 }
