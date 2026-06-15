@@ -109,6 +109,17 @@ export const tools: Tool[] = [
     price: '免费 / Pro $19.99/月',
     features: ['多模型聚合', '自定义Bot', '跨模型对比', '知识库'],
   },
+  {
+    id: 'deepseek',
+    name: 'DeepSeek（深度求索）',
+    description: '国产开源AI大模型标杆，V4版本推理性能世界顶级，Agent能力大幅提升，支持网页/App/API三端使用。',
+    category: 'AI对话助手',
+    subCategory: '国产助手',
+    rating: 4.8,
+    url: 'https://www.deepseek.com',
+    price: '免费 / API按量付费',
+    features: ['开源模型', '超强推理', 'Agent能力', '代码生成'],
+  },
 
   // ========================
   // 二、AI写作工具
@@ -204,6 +215,28 @@ export const tools: Tool[] = [
     url: 'https://replit.com',
     price: '免费 / Pro $20/月',
     features: ['云端IDE', '即时部署', '协作编辑', 'GhostWriter'],
+  },
+  {
+    id: 'bolt-new',
+    name: 'Bolt.new',
+    description: 'StackBlitz推出的AI全栈应用构建工具，通过自然语言对话即可生成完整Web应用，内置数据库、认证和部署。',
+    category: 'AI编程开发',
+    subCategory: '云端开发',
+    rating: 4.5,
+    url: 'https://bolt.new',
+    price: '免费 / Pro $20/月',
+    features: ['全栈应用生成', 'Figma导入', '一键部署', '设计系统集成'],
+  },
+  {
+    id: 'coderabbit',
+    name: 'CodeRabbit',
+    description: '全球安装量最大的AI代码审查工具，自动审查PR并发现缺陷，支持GitHub/GitLab/Bitbucket，被NVIDIA等15000+企业采用。',
+    category: 'AI编程开发',
+    subCategory: 'AI代码审查',
+    rating: 4.5,
+    url: 'https://www.coderabbit.ai',
+    price: '免费 / Pro $12/月',
+    features: ['PR自动审查', '一键修复', '代码总结', '持续学习'],
   },
 
   // ========================
@@ -359,6 +392,17 @@ export const tools: Tool[] = [
     url: 'https://zw.xfyun.cn',
     price: '免费 / Pro ¥99/月',
     features: ['AI生成PPT', '中文优化', '语音输入', '模板丰富'],
+  },
+  {
+    id: 'chatppt',
+    name: 'ChatPPT',
+    description: '必优科技推出的AI PPT生成工具，一句话即可生成完整PPT，支持智能排版和大纲生成，国内AI PPT赛道领跑者。',
+    category: 'AI办公效率',
+    subCategory: 'AI生成PPT',
+    rating: 4.3,
+    url: 'https://www.chatppt.cn',
+    price: '免费 / Pro ¥99/月',
+    features: ['一句话生成PPT', '智能排版', '大纲生成', '模板丰富'],
   },
 
   // ========================
