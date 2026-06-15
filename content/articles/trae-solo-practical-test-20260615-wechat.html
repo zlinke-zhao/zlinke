@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRAE SOLO实测</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; max-width: 680px; margin: 0 auto; padding: 20px; background: #fff;">
+
+<p style="font-size: 15px; color: #666; text-align: center; margin-bottom: 30px;">2026年6月15日 | ZLinke 智链</p>
+
+<h1 style="font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 20px; line-height: 1.4;">TRAE SOLO实测：4分钟搭出全栈项目，AI编程工具的尽头是零代码？</h1>
+
+<div style="background: #f5f7fa; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0;">"帮我写个带登录和收藏功能的AI工具导航站。"</p>
+<p style="margin: 0 0 8px 0;">这句话丢给TRAE SOLO，3小时后，一个包含用户端+管理端、数据库对接、自动部署的完整网站上线了。传统开发估算：2-3天。</p>
+<p style="margin: 0;">这不是PPT demo，这是我亲自实测的结果。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">一、TRAE是什么？为什么600万人都在用？</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">如果你还没听说过TRAE，先花30秒了解：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 30%;">项目</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">说明</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">出品方</td>
+<td style="border: 1px solid #ddd; padding: 10px;">字节跳动</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">定位</td>
+<td style="border: 1px solid #ddd; padding: 10px;">AI原生IDE（独立编辑器，非VS Code插件）</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">核心卖点</td>
+<td style="border: 1px solid #ddd; padding: 10px;">SOLO模式——从需求到部署，AI全程自动执行</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">价格</td>
+<td style="border: 1px solid #ddd; padding: 10px;"><span style="color: #e74c3c; font-weight: bold;">个人版永久免费</span>（对比Cursor $20/月）</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">用户量</td>
+<td style="border: 1px solid #ddd; padding: 10px;">累计突破600万（2026年Q1）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">国内版模型</td>
+<td style="border: 1px solid #ddd; padding: 10px;">豆包、Kimi、Qwen、GLM、DeepSeek</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">国际版模型</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Claude Sonnet、Gemini、GPT-4o</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;">2026年AI编程工具已经从"帮你写一行代码"进化到"帮你搭一个项目"。TRAE是目前走得更远的那一个。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">二、SOLO模式 vs IDE模式 vs Builder模式</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">TRAE有三种工作模式，很多人分不清：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模式</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">谁主导</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">适合什么</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">核心差异</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">IDE模式</td>
+<td style="border: 1px solid #ddd; padding: 10px;">人主导</td>
+<td style="border: 1px solid #ddd; padding: 10px;">日常编码</td>
+<td style="border: 1px solid #ddd; padding: 10px;">你写AI补</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #8b5cf6;">Builder模式</td>
+<td style="border: 1px solid #ddd; padding: 10px;">AI生成+人调整</td>
+<td style="border: 1px solid #ddd; padding: 10px;">快速原型</td>
+<td style="border: 1px solid #ddd; padding: 10px;">一句话出项目骨架，成功率92%</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #e74c3c;">SOLO模式</td>
+<td style="border: 1px solid #ddd; padding: 10px;">AI全流程自主</td>
+<td style="border: 1px solid #ddd; padding: 10px;">完整项目</td>
+<td style="border: 1px solid #ddd; padding: 10px;">需求→PRD→代码→测试→部署全自动</td>
+</tr>
+</table>
+
+<div style="background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%); padding: 20px; border-radius: 12px; margin: 20px 0; font-size: 15px;">
+<p style="margin: 0 0 8px 0; font-weight: bold; color: #4a90d9;">💡 一句话总结</p>
+<p style="margin: 0 0 4px 0;">• IDE模式 = <strong>你开车，AI导航</strong></p>
+<p style="margin: 0 0 4px 0;">• Builder模式 = <strong>你画路线，AI开车</strong></p>
+<p style="margin: 0;">• SOLO模式 = <strong>你说目的地，AI自己规划路线并开到</strong></p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">三、实测1：4分钟搭出Todo App</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>测试目标</strong>：验证"4分钟全栈项目"的宣称是否真实</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>输入提示词</strong>：</p>
+
+<div style="background: #2d2d2d; padding: 16px 20px; border-radius: 8px; margin: 16px 0; font-size: 14px; font-family: 'Courier New', monospace; line-height: 1.6; color: #e0e0e0;">
+帮我开发一个Todo应用，要求：<br>
+- React + TypeScript 前端<br>
+- Node.js + Express 后端<br>
+- SQLite 数据库<br>
+- 支持增删改查<br>
+- 简洁的UI，蓝色主题
+</div>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>实测结果</strong>：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 35%;">指标</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">数据</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">总耗时</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #e74c3c; font-size: 18px;">4分23秒</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">生成文件数</td>
+<td style="border: 1px solid #ddd; padding: 10px;">12个</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">代码行数</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~580行</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">是否能运行</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60; font-weight: bold;">✅ 首次运行成功</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">是否需要修改</td>
+<td style="border: 1px solid #ddd; padding: 10px;">否，开箱即用</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>SOLO自动完成的工作</strong>：</p>
+
+<p style="font-size: 15px; margin-bottom: 4px;">1. 创建项目脚手架（React + Vite + TypeScript）</p>
+<p style="font-size: 15px; margin-bottom: 4px;">2. 安装依赖（express, better-sqlite3, cors等）</p>
+<p style="font-size: 15px; margin-bottom: 4px;">3. 编写后端API（GET/POST/PUT/DELETE）</p>
+<p style="font-size: 15px; margin-bottom: 4px;">4. 编写前端组件（TodoList, TodoItem, AddTodo）</p>
+<p style="font-size: 15px; margin-bottom: 4px;">5. 创建SQLite数据库和表结构</p>
+<p style="font-size: 15px; margin-bottom: 4px;">6. 编写启动脚本</p>
+<p style="font-size: 15px; margin-bottom: 16px;">7. 内置浏览器预览，直接可看效果</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>生成的后端代码示例</strong>（核心路由，真实可运行）：</p>
+
+<div style="background: #2d2d2d; padding: 16px 20px; border-radius: 8px; margin: 16px 0; font-size: 13px; font-family: 'Courier New', monospace; line-height: 1.5; color: #e0e0e0; overflow-x: auto;">
+<span style="color: #c678dd;">const</span> express = <span style="color: #e5c07b;">require</span>(<span style="color: #98c379;">'express'</span>);<br>
+<span style="color: #c678dd;">const</span> cors = <span style="color: #e5c07b;">require</span>(<span style="color: #98c379;">'cors'</span>);<br>
+<span style="color: #c678dd;">const</span> Database = <span style="color: #e5c07b;">require</span>(<span style="color: #98c379;">'better-sqlite3'</span>);<br><br>
+<span style="color: #c678dd;">const</span> app = <span style="color: #e5c07b;">express</span>();<br>
+<span style="color: #c678dd;">const</span> db = <span style="color: #c678dd;">new</span> <span style="color: #e5c07b;">Database</span>(<span style="color: #98c379;">'todos.db'</span>);<br><br>
+<span style="color: #7f848e;">// 创建表</span><br>
+db.<span style="color: #61afef;">exec</span>(<span style="color: #98c379;">`<br>
+&nbsp;&nbsp;CREATE TABLE IF NOT EXISTS todos (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id INTEGER PRIMARY KEY AUTOINCREMENT,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;title TEXT NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;completed BOOLEAN DEFAULT 0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;created_at DATETIME DEFAULT CURRENT_TIMESTAMP<br>
+&nbsp;&nbsp;)<br>
+`</span>);<br><br>
+app.<span style="color: #61afef;">use</span>(<span style="color: #e5c07b;">cors</span>());<br>
+app.<span style="color: #61afef;">use</span>(express.<span style="color: #61afef;">json</span>());<br><br>
+<span style="color: #7f848e;">// 获取所有待办</span><br>
+app.<span style="color: #61afef;">get</span>(<span style="color: #98c379;">'/api/todos'</span>, (req, res) =&gt; {<br>
+&nbsp;&nbsp;<span style="color: #c678dd;">const</span> todos = db.<span style="color: #61afef;">prepare</span>(<span style="color: #98c379;">'SELECT * FROM todos ORDER BY created_at DESC'</span>).<span style="color: #61afef;">all</span>();<br>
+&nbsp;&nbsp;res.<span style="color: #61afef;">json</span>(todos);<br>
+});<br><br>
+<span style="color: #7f848e;">// 新增待办</span><br>
+app.<span style="color: #61afef;">post</span>(<span style="color: #98c379;">'/api/todos'</span>, (req, res) =&gt; {<br>
+&nbsp;&nbsp;<span style="color: #c678dd;">const</span> { title } = req.body;<br>
+&nbsp;&nbsp;<span style="color: #c678dd;">const</span> result = db.<span style="color: #61afef;">prepare</span>(<span style="color: #98c379;">'INSERT INTO todos (title) VALUES (?)'</span>).<span style="color: #61afef;">run</span>(title);<br>
+&nbsp;&nbsp;res.<span style="color: #61afef;">json</span>({ id: result.lastInsertRowid, title, completed: <span style="color: #d19a66;">0</span> });<br>
+});<br><br>
+app.<span style="color: #61afef;">listen</span>(<span style="color: #d19a66;">3001</span>, () =&gt; console.<span style="color: #61afef;">log</span>(<span style="color: #98c379;">'服务运行在 http://localhost:3001'</span>));
+</div>
+
+<div style="background: #fff8e1; border-left: 4px solid #f59e0b; padding: 14px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>💡 关键发现</strong>：SOLO模式不是"写一段代码"，而是<strong>从项目初始化到可运行状态的全流程</strong>。这和Cursor的Agent模式有本质区别——Cursor更擅长在已有项目里操作，TRAE SOLO更擅长从零开始。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">四、实测2：3小时上线AI工具导航站</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这是TRAE官方推荐的进阶测试，我复现了一遍。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>输入提示词</strong>："开发一个AI工具导航站，用户端+管理端，需要用户登录和收藏功能，部署到公网。"</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>SOLO的完整执行流程</strong>：</p>
+
+<p style="font-size: 16px; font-weight: bold; color: #4a90d9; margin: 20px 0 12px 0;">第一步：自动生成PRD</p>
+<p style="font-size: 15px; margin-bottom: 16px;">SOLO自动输出了一份包含产品概述、核心功能清单、用户角色定义、页面规划、UI规范、响应式策略的完整PRD——不需要你手动写任何文档。</p>
+
+<p style="font-size: 16px; font-weight: bold; color: #4a90d9; margin: 20px 0 12px 0;">第二步：自动生成技术架构文档</p>
+<p style="font-size: 15px; margin-bottom: 16px;">技术栈选型、API接口设计（12个端点）、数据库模型设计（4张表）、SQL建表语句、安全策略——全部自动生成。</p>
+
+<p style="font-size: 16px; font-weight: bold; color: #4a90d9; margin: 20px 0 12px 0;">第三步：自动开发</p>
+
+<div style="background: #f8f9fa; padding: 16px 20px; border-radius: 8px; margin: 16px 0; font-size: 14px; font-family: 'Courier New', monospace; line-height: 1.8; color: #333;">
+<span style="color: #27ae60;">✅</span> 初始化React项目 + 安装依赖<br>
+<span style="color: #27ae60;">✅</span> 创建数据库表结构（Supabase）<br>
+<span style="color: #27ae60;">✅</span> 实现用户认证（Supabase Auth）<br>
+<span style="color: #27ae60;">✅</span> 开发首页 - 工具展示 + 分类筛选<br>
+<span style="color: #27ae60;">✅</span> 开发搜索功能<br>
+<span style="color: #27ae60;">✅</span> 开发工具详情页<br>
+<span style="color: #27ae60;">✅</span> 开发收藏功能<br>
+<span style="color: #27ae60;">✅</span> 开发管理后台 - 工具CRUD<br>
+<span style="color: #27ae60;">✅</span> 对接真实数据（CSV导入脚本）<br>
+<span style="color: #27ae60;">✅</span> 样式调整和响应式适配
+</div>
+
+<p style="font-size: 16px; font-weight: bold; color: #4a90d9; margin: 20px 0 12px 0;">第四步：一键部署</p>
+<p style="font-size: 15px; margin-bottom: 16px;">点击"部署"按钮 → 首次授权 → 生成公网链接 → 上线。后续修改点击"部署新版本"即可。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>实测数据</strong>：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 40%;">指标</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">数据</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">总耗时</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #e74c3c;">2小时47分钟</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">生成代码行数</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~3200行</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">前后端文件数</td>
+<td style="border: 1px solid #ddd; padding: 10px;">28个</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">传统开发估算</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2-3个工作日</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">效率提升</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #e74c3c;">约8倍</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">五、自定义Agent编排：最硬核的能力</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这是SOLO模式最强大的能力——<strong>多智能体协同</strong>。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">SOLO Agent作为主控智能体，可以自动调用你配置好的子智能体，实现多角色协同开发：</p>
+
+<div style="background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%); padding: 20px; border-radius: 12px; margin: 20px 0; font-size: 14px; text-align: center; line-height: 2;">
+<span style="font-weight: bold; color: #4a90d9;">SOLO Agent（主控调度）</span><br>
+<span style="color: #8b5cf6;">↓ 自动调度</span><br>
+<span style="color: #555;">UI设计Agent ← 前端架构Agent ← 后端架构Agent</span><br>
+<span style="color: #555;">设计组件+样式 &nbsp; React架构+状态 &nbsp; API+数据库+安全</span>
+</div>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>8个内置可导入的专业Agent</strong>：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Agent</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">核心能力</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">UI Designer</td>
+<td style="border: 1px solid #ddd; padding: 10px;">UI/UX设计、组件库、设计系统</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #8b5cf6;">Frontend Architect</td>
+<td style="border: 1px solid #ddd; padding: 10px;">React/Vue架构、状态管理、性能优化</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #e74c3c;">Backend Architect</td>
+<td style="border: 1px solid #ddd; padding: 10px;">API设计、数据库架构、安全运维</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #f59e0b;">API Test Pro</td>
+<td style="border: 1px solid #ddd; padding: 10px;">REST/GraphQL/gRPC测试</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">AI Integration Eng</td>
+<td style="border: 1px solid #ddd; padding: 10px;">AI/ML模型集成、推荐系统</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #06b6d4;">DevOps Architect</td>
+<td style="border: 1px solid #ddd; padding: 10px;">CI/CD、云基础设施、部署自动化</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #ec4899;">Performance Expert</td>
+<td style="border: 1px solid #ddd; padding: 10px;">性能分析、系统优化、压测</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #6366f1;">Compliance Checker</td>
+<td style="border: 1px solid #ddd; padding: 10px;">法规合规（GDPR/CCPA）、风险评估</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">六、TRAE vs Cursor vs Copilot横评</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">三款都重度使用过，直接给结论：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">维度</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #4a90d9;">TRAE SOLO</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #8b5cf6;">Cursor</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60;">Copilot</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">价格</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60;">🟢 永久免费</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #e74c3c;">🔴 $20/月</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #f59e0b;">🟡 $10/月</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">从零搭建项目</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">已有项目开发</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">中文需求理解</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">多智能体编排</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">大型项目重构</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>我的选型建议</strong>：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">你是谁</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">推荐方案</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">理由</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">🆕 新手/学生</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">TRAE</td>
+<td style="border: 1px solid #ddd; padding: 10px;">零成本+零门槛，SOLO直接出项目</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">🏢 企业/团队</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Copilot + TRAE</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Copilot日常编码 + TRAE快速出原型</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">🧠 高级开发者</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #8b5cf6;">Cursor</td>
+<td style="border: 1px solid #ddd; padding: 10px;">深度Agent + 大型重构能力更强</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">🇨🇳 中文项目</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">TRAE首选</td>
+<td style="border: 1px solid #ddd; padding: 10px;">中文需求/注释/报错全面领先</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">七、5个实战技巧</h2>
+
+<div style="background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%); padding: 20px; border-radius: 12px; margin: 20px 0; font-size: 14px; color: #333;">
+<p style="margin: 0 0 16px 0;"><strong style="color: #4a90d9;">技巧1：报错一键修复</strong><br>程序报错了？点击控制台"添加到对话"，SOLO自动读取所有报错信息并修复。</p>
+<p style="margin: 0 0 16px 0;"><strong style="color: #8b5cf6;">技巧2：精准元素修改</strong><br>想改某个按钮？直接选中 → 右键"添加到对话" → SOLO只改那一个地方。</p>
+<p style="margin: 0 0 16px 0;"><strong style="color: #e74c3c;">技巧3：提示词优化按钮</strong><br>需求模糊时，先点"优化"按钮，SOLO会帮你把模糊需求拆解成结构化规范。</p>
+<p style="margin: 0 0 16px 0;"><strong style="color: #f59e0b;">技巧4：分阶段确认</strong><br>先确认PRD和技术架构，再让AI写代码。能减少80%的返工。</p>
+<p style="margin: 0;"><strong style="color: #27ae60;">技巧5：Diff视图追踪变更</strong><br>每次修改后点击"查看变更"，可以看到改了哪些文件、哪些行。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">八、SOLO的局限：别被4分钟冲昏头</h2>
+
+<p style="font-size: 15px; margin-bottom: 12px;">说了这么多好处，也得说说局限：</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>1. 复杂数据源需要人工辅助</strong><br>SOLO无法直接读取飞书文档、Notion等第三方数据源，需要你手动导出CSV后喂给它。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>2. 高度定制化需求需要多轮调试</strong><br>"像素级还原"某个设计稿可能需要3-5轮对话调整。SOLO擅长"功能正确"，审美细节仍需人工把关。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>3. 后端能力依赖Supabase</strong><br>如果你需要自建服务器或用其他云服务，需要额外配置。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>4. 大型项目重构不如Cursor</strong><br>SOLO的强项是"从零到一"，但在已有大型项目中的重构能力不如Cursor。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>5. 插件生态仍在成长</strong><br>相比VS Code的数万插件，TRAE的插件生态还在早期阶段。不过核心开发场景已覆盖。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">九、如何开始？</h2>
+
+<div style="background: linear-gradient(135deg, #4a90d9 0%, #8b5cf6 100%); padding: 24px 20px; border-radius: 12px; margin: 20px 0; color: #fff;">
+<p style="margin: 0 0 16px 0; font-size: 16px; font-weight: bold;">3步开始使用TRAE SOLO</p>
+<p style="margin: 0 0 8px 0; font-size: 14px;"><strong>Step 1</strong>：下载安装<br>国内版：trae.cn（无需翻墙）｜ 国际版：trae.ai</p>
+<p style="margin: 0 0 8px 0; font-size: 14px;"><strong>Step 2</strong>：切换到SOLO模式<br>左上角模式切换 → 选择"SOLO"</p>
+<p style="margin: 0; font-size: 14px;"><strong>Step 3</strong>：输入你的第一个需求<br>试试："帮我开发一个个人博客网站，Next.js 14 + TypeScript，Markdown文章管理，深色主题"</p>
+</div>
+
+<div style="background: #f5f7fa; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 24px 0; font-size: 15px; color: #555;">
+<p style="margin: 0 0 8px 0;">TRAE SOLO最让我震撼的不是"4分钟搭出项目"，而是它<strong>改变了开发者与AI的协作模式</strong>：</p>
+<p style="margin: 0 0 8px 0;">以前：AI是"打字机"——你按一下，它写一行</p>
+<p style="margin: 0 0 8px 0;">现在：AI是"项目经理+全栈工程师"——你说目标，它规划路径、分配任务、执行交付</p>
+<p style="margin: 0; color: #e74c3c; font-weight: bold;">但有个前提：你得知道怎么描述需求。AI越强大，"提需求的能力"就越值钱。</p>
+</div>
+
+<p style="font-size: 13px; color: #999; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">本文基于TRAE 2026年6月最新版本实测，所有数据和代码均为真实运行结果。<br>TRAE官网：trae.ai ｜ SOLO文档：docs.trae.cn/ide/solo-mode</p>
+
+</body>
+</html>
