@@ -404,6 +404,28 @@ export const tools: Tool[] = [
     price: '免费 / Pro ¥99/月',
     features: ['一句话生成PPT', '智能排版', '大纲生成', '模板丰富'],
   },
+  {
+    id: 'bond',
+    name: 'Bond',
+    description: 'Y Combinator孵化的AI幕僚长，自动聚合Slack/邮件/日历中的任务并按优先级排序，帮高管聚焦最高价值工作。',
+    category: 'AI办公效率',
+    subCategory: 'AI行政助手',
+    rating: 4.3,
+    url: 'https://www.bondapp.io',
+    price: '$99/月/席位（年付）',
+    features: ['任务智能排序', '多工具聚合', 'Slack集成', 'MCP协议'],
+  },
+  {
+    id: 'mina',
+    name: 'Mina Meeting Assistant',
+    description: '主动式AI会议助手，实时参与Zoom/Teams/Google Meet会议，自动记录、回答提问并推动执行，超越被动转录。',
+    category: 'AI办公效率',
+    subCategory: '会议助手',
+    rating: 4.2,
+    url: 'https://getmina.ai',
+    price: '免费试用 / 付费方案联系官方',
+    features: ['实时参与会议', '自动记录笔记', '智能问答', '40+技能集成'],
+  },
 
   // ========================
   // 七、AI搜索工具
@@ -440,6 +462,17 @@ export const tools: Tool[] = [
     url: 'https://devv.ai',
     price: '免费',
     features: ['技术搜索', 'GitHub索引', '代码示例', '文档查询'],
+  },
+  {
+    id: 'yahoo-scout',
+    name: 'Yahoo Scout',
+    description: 'Yahoo推出的AI答案引擎，基于Claude模型结合30年Yahoo数据积累，提供带来源链接的结构化搜索结果，免费使用。',
+    category: 'AI搜索工具',
+    subCategory: 'AI搜索引擎',
+    rating: 4.2,
+    url: 'https://scout.yahoo.com',
+    price: '免费',
+    features: ['Claude驱动', '来源引用', 'Yahoo生态', '结构化答案'],
   },
 
   // ========================
