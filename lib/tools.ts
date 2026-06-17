@@ -238,6 +238,17 @@ export const tools: Tool[] = [
     price: '免费 / Pro $12/月',
     features: ['PR自动审查', '一键修复', '代码总结', '持续学习'],
   },
+  {
+    id: 'opencode',
+    name: 'OpenCode',
+    description: '开源AI编程代理标杆，160K+ GitHub Star，登顶LogRocket 2026年6月AI开发工具实力榜第一，支持75+模型和任意编辑器。',
+    category: 'AI编程开发',
+    subCategory: 'AI编辑器',
+    rating: 4.6,
+    url: 'https://opencode.ai',
+    price: '免费 / Zen服务付费',
+    features: ['开源免费', '多模型支持', '终端+IDE+桌面', 'LSP智能集成'],
+  },
 
   // ========================
   // 四、AI图像生成
@@ -425,6 +436,39 @@ export const tools: Tool[] = [
     url: 'https://getmina.ai',
     price: '免费试用 / 付费方案联系官方',
     features: ['实时参与会议', '自动记录笔记', '智能问答', '40+技能集成'],
+  },
+  {
+    id: 'goldfish',
+    name: 'Goldfish',
+    description: 'Mac本地AI记忆助手，一键用你的语气回复所有消息，按Option即可在任何输入位置调用，Y Combinator等知名企业用户背书。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.3,
+    url: 'https://goldfish.sh',
+    price: 'Alpha阶段免费',
+    features: ['语气模仿', '上下文感知', '全局快捷键', '本地运行'],
+  },
+  {
+    id: 'honen',
+    name: 'Honen',
+    description: 'AI课程自动生成平台，将文档/录音/主题转化为交互式课程，内置AI导师，与NVIDIA合作开展25万高中生AI教育计划。',
+    category: 'AI办公效率',
+    subCategory: 'AI教育培训',
+    rating: 4.2,
+    url: 'https://honen.com',
+    price: '免费 / 付费方案联系官方',
+    features: ['AI课程生成', '交互式学习', 'AI导师', '自适应学习'],
+  },
+  {
+    id: 'slashy',
+    name: 'Slashy',
+    description: 'Y Combinator孵化的AI邮件客户端，被称为"邮件界的Cursor"，自动起草回复、分类收件箱、追踪跟进，周均节省10+小时。',
+    category: 'AI办公效率',
+    subCategory: 'AI邮件助手',
+    rating: 4.3,
+    url: 'https://www.slashy.com',
+    price: '候补名单 / 定价待公布',
+    features: ['AI起草回复', '收件箱分类', '跟进追踪', '会议准备'],
   },
 
   // ========================
