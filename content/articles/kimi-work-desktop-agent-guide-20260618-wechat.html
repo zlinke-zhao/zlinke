@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimi Work 桌面端深度解析</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; max-width: 680px; margin: 0 auto; padding: 20px; background: #fff;">
+
+<p style="font-size: 15px; color: #666; text-align: center; margin-bottom: 30px;">2026年6月18日 | 召阳科技观察 · 雄关漫道</p>
+
+<h1 style="font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 20px; line-height: 1.4;">Kimi Work 桌面端深度解析：一句话调度300个AI Agent，国产桌面Agent平台开箱指南</h1>
+
+<div style="background:#fef9e7;border-left:4px solid #f39c12;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#555;">
+📍 本文首发于 <strong style="color:#4a90d9;">ZLinke · AI赚钱飞轮</strong>，一个持续更新 AI 工具实测与赚钱思路的独立站点。<br>
+<a href="https://zlinke.top" style="color:#4a90d9;font-weight:bold;">免费订阅 → zlinke.top</a>
+</div>
+
+<div style="background: #f5f7fa; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0;">"帮我把这个文件夹里的47份市场调研PDF整理成一份报告，做成PPT发到我的邮箱。"</p>
+<p style="margin: 0;">这句话丢给 Kimi Work，30分钟后，一份128页的市场分析报告 + 排版精美的PPT，静静地躺在你的桌面上。这不是科幻，是2026年6月3日刚刚公测的现实。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">引子：Agent 从云端坠落到你的桌面</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">过去两年，AI Agent 一直悬在云端。你在网页上跟它聊天，它在服务器上运行，数据要来回传，文件要手动上传下载。Agent 很聪明，但始终隔着一层"云"。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>Kimi Work 要做的是把 Agent 搬到你电脑上。</strong>不是网页里那个会聊天的 Kimi，而是一个能<strong>读懂你的本地文件</strong>、<strong>操控你的浏览器</strong>、<strong>在你的电脑上自主干活</strong>的桌面助手。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">6月3日，月之暗面（Moonshot AI）发布 Kimi Work 公测版，Mac 和 Windows 双平台同步上线。内核是已获十几万日活验证的 Kimi Code，底层驱动是开源模型 Kimi K2.6——支持最多 <strong>300 个子 Agent 并行协作</strong>、<strong>连续工作 13 小时</strong>、<strong>4000+ 次自主工具调用</strong>。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">一、Kimi Work 到底是什么？</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 30%;"></th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Kimi 网页版</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Kimi Work 桌面端</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">定位</td>
+<td style="border: 1px solid #ddd; padding: 10px;">对话式 AI 助手</td>
+<td style="border: 1px solid #ddd; padding: 10px;">桌面智能体工作台</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">文件处理</td>
+<td style="border: 1px solid #ddd; padding: 10px;">手动上传/下载</td>
+<td style="border: 1px solid #ddd; padding: 10px;">直接读写本地文件夹</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">浏览器</td>
+<td style="border: 1px solid #ddd; padding: 10px;">无法直接操控</td>
+<td style="border: 1px solid #ddd; padding: 10px;">WebBridge 自主操控浏览器</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">任务模式</td>
+<td style="border: 1px solid #ddd; padding: 10px;">一问一答</td>
+<td style="border: 1px solid #ddd; padding: 10px;">长周期自主执行 + 定时任务</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Agent 协作</td>
+<td style="border: 1px solid #ddd; padding: 10px;">单个 Agent</td>
+<td style="border: 1px solid #ddd; padding: 10px;">最多 300 个子 Agent 并行</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">交付物</td>
+<td style="border: 1px solid #ddd; padding: 10px;">文本回复</td>
+<td style="border: 1px solid #ddd; padding: 10px;">文档、表格、PPT、代码、数据看板</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">数据安全</td>
+<td style="border: 1px solid #ddd; padding: 10px;">数据上传到云端</td>
+<td style="border: 1px solid #ddd; padding: 10px;">本地执行，数据不出设备</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">二、技术硬核：三大支柱撑起桌面Agent</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">2.1 Kimi K2.6：专为Agent编排设计</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">K2.6 是月之暗面 4月开源的旗舰模型，1T 参数 MoE 架构（32B 激活参数），256K 上下文。</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">能力</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">数据</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">不间断编码</td>
+<td style="border: 1px solid #ddd; padding: 10px;">13 小时连续，4000+ 行代码</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">工具调用</td>
+<td style="border: 1px solid #ddd; padding: 10px;">4000+ 次自主调用（浏览器/API/本地命令）</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">Agent 集群</td>
+<td style="border: 1px solid #ddd; padding: 10px;">300 个子 Agent 并行协作</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">多模态</td>
+<td style="border: 1px solid #ddd; padding: 10px;">原生支持图片+视频输入</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;">关键区别：K2.6 在设计时就以 "Agent 编排" 为目标，<strong>不是事后拼凑的 tool-calling 方案</strong>。底层架构就是为多智能体设计的，所以能稳定支撑 300 个 Agent 同时跑。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">2.2 Agent 集群：300 个 AI 同时为你干活</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">传统 Agent 是"想一步、做一步、看结果、再想一步"的串行流程。Kimi Work 打破了这种模式：</p>
+
+<div style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 16px; margin: 20px 0; font-size: 13px; font-family: 'Courier New', monospace; line-height: 1.6;">
+用户：分析2026年新能源汽车市场，生成投研报告<br><br>
+Kimi Work 自动拆解：<br>
+├─ Agent 1~10：数据采集组<br>
+│ &#160; ├─ 同花顺抓取A股新能源板块<br>
+│ &#160; ├─ Yahoo Finance 抓美股数据<br>
+│ &#160; └─ 电商平台抓取销量评论<br>
+├─ Agent 11~20：数据分析组<br>
+│ &#160; ├─ 比亚迪财报分析<br>
+│ &#160; └─ 特斯拉财报对比<br>
+├─ Agent 21~25：报告撰写组<br>
+│ &#160; ├─ 行业总览 + 竞争格局<br>
+│ &#160; └─ 投资建议章节<br>
+└─ Agent 26~30：质量审核组<br>
+&#160; &#160; ├─ 数据校验 + 格式排版<br>
+&#160; &#160; └─ PPT 生成
+</div>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">2.3 WebBridge：让 AI 真的会"上网"</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">大部分 AI 工具只能通过 API 访问网页，Kimi Work 的 WebBridge 可以像人类一样操控浏览器——点击、滚动、填表。据社区实测，Claude Code 的 Chrome 插件在处理公众号后台这类动态渲染页面时会直接报错，而 Kimi Work 可以正常处理。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">三、三步上手：从下载到第一个任务</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>Step 1：下载安装</strong></p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">平台</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">要求</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">下载</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">macOS</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Apple 芯片（M系列），macOS 12+</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Kimi 官网下载</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">Windows</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Windows 10/11</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Kimi 官网下载</td>
+</tr>
+</table>
+
+<p style="font-size: 14px; color: #e74c3c; margin-bottom: 16px;">⚠️ 注意：macOS 必须 Apple 芯片（M 系列），Intel Mac 暂不支持。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>Step 2：切换 Work 模式</strong></p>
+<p style="font-size: 15px; margin-bottom: 16px;">安装完成后打开 Kimi 客户端，在左侧导航栏从 <strong>「Chat」</strong> 切换到 <strong>「Work」</strong> 标签页——界面立刻从"聊天框"变成"项目管理面板"。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>Step 3：创建第一个任务</strong></p>
+
+<div style="background: #f5f7fa; border-left: 4px solid #8e44ad; padding: 16px 20px; margin: 16px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;">"帮我调研过去一周 AI 领域的重大新闻，整理成一份 10 页的市场简报 PPT。注意：重点关注国内大模型和 Agent 方向。"</p>
+</div>
+
+<p style="font-size: 15px; margin-bottom: 16px;">Kimi Work 会自动：拆解任务 → 通过 WebBridge 访问新闻网站 → 筛选重点 → 整理分析 → 调用内置 Skill 生成 PPT → 保存到本地文件夹。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">四、核心功能一览</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left; width: 30%;">功能</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">说明</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">📁 本地文件处理</td>
+<td style="border: 1px solid #ddd; padding: 10px;">直接读写本地文件夹，批量整理、提取、生成文档</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">🌐 WebBridge</td>
+<td style="border: 1px solid #ddd; padding: 10px;">像人类一样操控浏览器：点击、滚动、翻页、填表</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">🤖 Agent 集群</td>
+<td style="border: 1px solid #ddd; padding: 10px;">300 子 Agent 并行，自动拆解+调度+收拢结果</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">⏰ 定时任务</td>
+<td style="border: 1px solid #ddd; padding: 10px;">7×24 Cron 引擎，支持自动生成日报、数据监控</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">📊 Skill 系统</td>
+<td style="border: 1px solid #ddd; padding: 10px;">预置建站/PPT/金融分析/数据分析技能，可自定义</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">📈 专业数据库</td>
+<td style="border: 1px solid #ddd; padding: 10px;">同花顺/天眼查/iFind/Yahoo Finance 原生接入</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">🔒 安全护栏</td>
+<td style="border: 1px solid #ddd; padding: 10px;">文件操作前弹窗确认，数据不出本地设备</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">五、定价：免费能玩，集群要掏钱</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">Kimi 采用统一额度池（按 token 消耗计算，所有功能共享额度）。</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">套餐</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">月费</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Agent用量</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">集群</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">推荐人群</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Adagio</td>
+<td style="border: 1px solid #ddd; padding: 10px;"><span style="color: #27ae60; font-weight: bold;">¥0</span></td>
+<td style="border: 1px solid #ddd; padding: 10px;">~6个</td>
+<td style="border: 1px solid #ddd; padding: 10px;">❌</td>
+<td style="border: 1px solid #ddd; padding: 10px;">体验尝鲜</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Andante</td>
+<td style="border: 1px solid #ddd; padding: 10px;">¥49</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~30个</td>
+<td style="border: 1px solid #ddd; padding: 10px;">❌</td>
+<td style="border: 1px solid #ddd; padding: 10px;">轻度办公</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Moderato</td>
+<td style="border: 1px solid #ddd; padding: 10px;">¥99</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~60个</td>
+<td style="border: 1px solid #ddd; padding: 10px;">❌</td>
+<td style="border: 1px solid #ddd; padding: 10px;">日常深度使用</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Allegretto</td>
+<td style="border: 1px solid #ddd; padding: 10px;"><span style="color: #e67e22; font-weight: bold;">¥199</span></td>
+<td style="border: 1px solid #ddd; padding: 10px;">~150个</td>
+<td style="border: 1px solid #ddd; padding: 10px;">✅ 50次</td>
+<td style="border: 1px solid #ddd; padding: 10px;"><strong>专业用户首选</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Allegro</td>
+<td style="border: 1px solid #ddd; padding: 10px;">¥699</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~360个</td>
+<td style="border: 1px solid #ddd; padding: 10px;">✅ 120次</td>
+<td style="border: 1px solid #ddd; padding: 10px;">重度/团队</td>
+</tr>
+</table>
+
+<div style="background: #fef9e7; border-left: 4px solid #f39c12; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>关键结论：</strong></p>
+<p style="margin: 8px 0 0 0;">1. <strong>免费版可以用</strong>：Adagio 免费套餐含 6 个 Agent 任务 + 200 次专业数据库调用<br>
+2. <strong>Agent 集群要 ¥199/月起</strong>：这是 Kimi Work 最核心的差异化能力<br>
+3. <strong>¥49 的 Andante 最实用</strong>：处理本地文件、做 PPT、写报告，不要集群的话足够了</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">六、横向对比：三大桌面Agent产品</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;"></th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Kimi Work</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Claude Cowork</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">OpenClaw</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">定位</td>
+<td style="border: 1px solid #ddd; padding: 10px;">知识工作者通用</td>
+<td style="border: 1px solid #ddd; padding: 10px;">开发者编码</td>
+<td style="border: 1px solid #ddd; padding: 10px;">极客开源框架</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">交互</td>
+<td style="border: 1px solid #ddd; padding: 10px;">GUI 图形界面</td>
+<td style="border: 1px solid #ddd; padding: 10px;">终端/对话混合</td>
+<td style="border: 1px solid #ddd; padding: 10px;">CLI 命令行</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Agent集群</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60; font-weight: bold;">✅ 300子Agent</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #e74c3c;">❌ 单Agent</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #e74c3c;">❌ 单Agent</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">浏览器操控</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60;">WebBridge 极强</td>
+<td style="border: 1px solid #ddd; padding: 10px;">有限</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60;">深度系统访问</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">专业数据库</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60;">同花顺/天眼查等</td>
+<td style="border: 1px solid #ddd; padding: 10px;">需手动配置</td>
+<td style="border: 1px solid #ddd; padding: 10px;">需手动配置</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">价格</td>
+<td style="border: 1px solid #ddd; padding: 10px;">¥49-699/月</td>
+<td style="border: 1px solid #ddd; padding: 10px;">$20/月 + API费</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60;">免费开源</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">中文支持</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60;">⭐⭐⭐⭐⭐ 原生</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">六·B：真实对决——Kimi Work vs WorkBuddy</h2>
+
+<div style="background: #eef2ff; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>看到这里你可能已经注意到了——这篇文章本身就是用 WorkBuddy 写的。</strong></p>
+<p style="margin: 8px 0 0 0;">没错，我正在用腾讯的桌面AI搭档 WorkBuddy 来评测月之暗面的桌面Agent平台 Kimi Work。两个产品都在争夺你的桌面，但路径完全不同——这场对比，比任何横评都真实。</p>
+</div>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong>核心定位差异</strong></p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;"></th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Kimi Work</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">WorkBuddy</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">出品</td>
+<td style="border: 1px solid #ddd; padding: 10px;">月之暗面（Moonshot AI）</td>
+<td style="border: 1px solid #ddd; padding: 10px;">腾讯（CodeBuddy 同源架构）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">定位</td>
+<td style="border: 1px solid #ddd; padding: 10px;">通用型工作Agent</td>
+<td style="border: 1px solid #ddd; padding: 10px;">AI 打工搭子 / 桌面智能体工作台</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">发布</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026年6月3日公测</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026年3月9日国内 / 5月28日国际</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">核心理念</td>
+<td style="border: 1px solid #ddd; padding: 10px;">"一句话调度300个Agent"</td>
+<td style="border: 1px solid #ddd; padding: 10px;">"有性格的数字搭档陪你打工"</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong>功能硬对比</strong></p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">功能</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Kimi Work</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">WorkBuddy</th>
+<th style="border: 1px solid #ddd; padding: 8px; text-align: left;">更强方</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">Agent集群</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 300子Agent并行</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 多Agent + 100+专家团</td>
+<td style="border: 1px solid #ddd; padding: 8px;">各有侧重</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">本地文件</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 读写/整理</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 读写/编辑/Shell全操作</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9;">WB</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">浏览器操控</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ WebBridge</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ Playwright + browser Skill</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #8e44ad;">Kimi</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">IM远程控制</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #e74c3c;">❌</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 微信/企微/飞书/钉钉</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9; font-weight: bold;">WB独家</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">办公平台</td>
+<td style="border: 1px solid #ddd; padding: 8px;">⚠️ 金融数据为主</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 30+ MCP连接器</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9; font-weight: bold;">WB独家</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">金融数据</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 同花顺/天眼查/iFind</td>
+<td style="border: 1px solid #ddd; padding: 8px;">⚠️ 需MCP配置</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #8e44ad; font-weight: bold;">Kimi独家</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">Skills生态</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ PPT/建站/金融</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 100+ Skills + 专家市场</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9;">WB</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">定时任务</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ Cron引擎</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ Cron + 自动化记录</td>
+<td style="border: 1px solid #ddd; padding: 8px;">持平</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">模型切换</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #e74c3c;">❌ 仅K2.6</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 混元/DeepSeek/5+模型</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9;">WB</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">人设/记忆</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #e74c3c;">❌ 无</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ SOUL + 3层记忆</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9;">WB</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">多模态</td>
+<td style="border: 1px solid #ddd; padding: 8px;">⚠️ 图片视频输入</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 文生图/视频/3D</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9;">WB</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">企业安全</td>
+<td style="border: 1px solid #ddd; padding: 8px;">⚠️ 弹窗确认</td>
+<td style="border: 1px solid #ddd; padding: 8px;">✅ 企业沙箱+审计留痕</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #4a90d9;">WB</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">专业版价格</td>
+<td style="border: 1px solid #ddd; padding: 8px;">¥199/月</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #27ae60; font-weight: bold;">¥58/月</td>
+<td style="border: 1px solid #ddd; padding: 8px; color: #27ae60;">WB更便宜</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong>选谁？看你是什么人</strong></p>
+
+<div style="background: #f5f7fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 16px; margin: 20px 0; font-size: 14px; line-height: 1.8;">
+<p style="margin: 0 0 6px 0;">📌 <strong>金融分析师/投研</strong> → <span style="color: #8e44ad;">Kimi Work ✅</span> 金融数据库杀手锏，Agent集群拆研报效率爆表</p>
+<p style="margin: 0 0 6px 0;">📌 <strong>多项目管理</strong> → <span style="color: #4a90d9;">WorkBuddy ✅</span> IM远程控制+办公平台接入，不离办公生态</p>
+<p style="margin: 0 0 6px 0;">📌 <strong>创业者/自媒体</strong> → <span style="color: #4a90d9;">WorkBuddy ✅</span> ¥58/月 vs ¥199/月，100+专家团覆盖全场景</p>
+<p style="margin: 0 0 6px 0;">📌 <strong>科研人员</strong> → <span style="color: #8e44ad;">Kimi Work ✅</span> Agent集群并行跑数据清洗更快</p>
+<p style="margin: 0;">📌 <strong>开发者</strong> → <span style="color: #4a90d9;">WorkBuddy ✅</span> CodeBuddy同源架构，编程场景深耕</p>
+</div>
+
+<div style="background: #fef9e7; border-left: 4px solid #f39c12; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>我的真实体验：</strong>这篇 Kimi Work 评测文章就是 WorkBuddy 的活广告——从搜索热点、查阅官方文档、整理定价方案到生成公众号HTML，全程一个对话窗口搞定。你正在读的每一个字，都是 WorkBuddy 写的。</p>
+<p style="margin: 8px 0 0 0;">但公平地说，Kimi Work的 <strong>Agent集群</strong> 能力是 WorkBuddy 目前没有的。300个子Agent并行拆解复杂研报——这种规模的并行编排，WorkBuddy的专家团模式做不到同样级别的"暴力并行"。</p>
+<p style="margin: 8px 0 0 0;"><strong>结论：不是谁替代谁，而是谁更适合你的场景。</strong> 金融数据需求重选 Kimi Work，办公生态需求重选 WorkBuddy。两个都装——没冲突，各取所长。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">七、优势与槽点</h2>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong style="color: #27ae60;">✅ 五大优势</strong></p>
+<p style="font-size: 14px; margin: 0 0 16px 0; color: #555;">
+1. 零门槛 GUI，不用写代码<br>
+2. Agent 集群独一份：300 子 Agent 并行<br>
+3. WebBridge 杀手锏：动态渲染页面也能抓<br>
+4. 专业数据生态：同花顺/天眼查原生接入<br>
+5. 本地安全：数据不出设备
+</p>
+
+<p style="font-size: 15px; margin-bottom: 8px;"><strong style="color: #e74c3c;">⚠️ 四个槽点</strong></p>
+<p style="font-size: 14px; margin: 0 0 16px 0; color: #555;">
+1. Agent 集群门槛高：¥199/月起<br>
+2. Beta 阶段稳定性待验证<br>
+3. macOS 仅支持 M 系列芯片<br>
+4. 92% AI 生成代码，Bug 概率可能更高
+</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">八、谁该上车？</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">人群</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">核心场景</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">推荐套餐</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">金融分析师</td>
+<td style="border: 1px solid #ddd; padding: 10px;">研报生成、持仓分析、盘面监控</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Allegretto ¥199</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">科研人员</td>
+<td style="border: 1px solid #ddd; padding: 10px;">数据清洗、论文辅助、文献综述</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Moderato ¥99</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">市场/运营</td>
+<td style="border: 1px solid #ddd; padding: 10px;">竞品分析、舆情监控、日报生成</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Andante ¥49</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">产品经理</td>
+<td style="border: 1px solid #ddd; padding: 10px;">PRD辅助、用户评论分析、市场调研</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Moderato ¥99</td>
+</tr>
+</table>
+
+<div style="background: #fef9e7; border-left: 4px solid #f39c12; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>🤔 可以观望：</strong>纯开发者（有 Claude Code/Cursor） | 轻度用户（Kimi 网页版/ChatGPT 已够用） | 预算敏感（先免费版体验）</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">结语：Agent 的"iPhone 时刻"</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">2026年3月，黄仁勋在 GTC 上说："未来计算机不运行应用程序，只运行 AI Agent。"</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">三个月后，Kimi Work 把它做出来了。你不再打开 Word 写报告、打开 Excel 做分析、打开浏览器查数据——你只打开 Kimi Work，跟它说一句话，它替你完成这一切。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>当然，Kimi Work 还不是 iPhone。</strong>它更像是 iPhone 刚发布时——惊艳，但不完美。Bug 有，稳定性待打磨，Agent 集群要掏钱。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">但方向是对的。AI 从"陪你聊天"到"替你干活"，桌面 Agent 是不可避免的一站。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>要不要现在就上车？</strong>如果你是需要处理大量信息的金融/科研/分析从业者，<span style="color: #27ae60; font-weight: bold;">值得</span>——¥199/月换来每周省下20小时。如果你是偶尔用 AI 的轻度用户，先用免费版 Adagio 体验就好。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px; color: #888;">建议亲自下载试一下——免费版有 6 个 Agent 任务额度，足够体验核心能力。不点一下鼠标，永远不知道 AI 替你干活的快感。</p>
+
+<div style="background:#f5f7fa;border-radius:10px;padding:22px;margin:32px 0;text-align:center;">
+  <p style="font-size:15px;font-weight:bold;color:#333;margin:0 0 12px 0;">📚 更多 AI 工具深度实测</p>
+  <p style="font-size:13px;color:#666;margin:0 0 4px 0;">· <a href="https://zlinke.top/articles/claude-fable5-deep-review-20260617" style="color:#4a90d9;">Claude Fable 5 深度实测：2小时写出完整Obsidian插件</a></p>
+  <p style="font-size:13px;color:#666;margin:0 0 4px 0;">· <a href="https://zlinke.top/articles/trae-solo-practical-test-20260615" style="color:#4a90d9;">TRAE SOLO 实测：4分钟搭出全栈项目</a></p>
+  <p style="font-size:13px;color:#666;margin:0 0 4px 0;">· <a href="https://zlinke.top/articles/ai-agent-practical-guide-20260613" style="color:#4a90d9;">AI Agent 入门实战指南：从零搭建你的第一个智能体</a></p>
+  <hr style="border:none;border-top:1px solid #e0e0e0;margin:16px 0;">
+  <p style="font-size:14px;color:#555;margin:0;">
+    🔍 <strong>发现更多 AI 工具</strong> → <a href="https://zlinke.top" style="color:#4a90d9;font-weight:bold;">zlinke.top</a>
+  </p>
+  <p style="font-size:12px;color:#bbb;margin:8px 0 0 0;">每周更新 AI 实测文章，不吹不黑，只看实际效果</p>
+</div>
+
+<hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;">
+
+<p style="font-size: 13px; color: #999; text-align: center; margin: 16px 0;">—— END ——</p>
+<p style="font-size: 12px; color: #bbb; text-align: center;">召阳科技观察 · 只写真实可运行的 AI 实战</p>
+
+</body>
+</html>
