@@ -120,6 +120,17 @@ export const tools: Tool[] = [
     price: '免费 / API按量付费',
     features: ['开源模型', '超强推理', 'Agent能力', '代码生成'],
   },
+  {
+    id: 'typingmind',
+    name: 'TypingMind',
+    description: '最佳LLM聚合聊天前端，自带API Key即可同时使用ChatGPT、Claude、Gemini等主流模型，买断制无月费，支持插件生态和AI Agent构建。',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
+    rating: 4.4,
+    url: 'https://typingmind.com',
+    price: '买断制 $39起 / 自带API Key',
+    features: ['多模型聚合', '自带APIKey', '买断制', '插件生态'],
+  },
 
   // ========================
   // 二、AI写作工具
@@ -248,6 +259,17 @@ export const tools: Tool[] = [
     url: 'https://opencode.ai',
     price: '免费 / Zen服务付费',
     features: ['开源免费', '多模型支持', '终端+IDE+桌面', 'LSP智能集成'],
+  },
+  {
+    id: 'swytchcode',
+    name: 'Swytchcode',
+    description: 'AI代理API执行层，为Cursor/Claude等AI编码助手提供可靠的API调用运行时，自动处理认证、重试和策略控制，覆盖2000+ API。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.2,
+    url: 'https://www.swytchcode.com',
+    price: '免费 / Pro $29/月',
+    features: ['API执行层', '策略控制', '2000+集成', 'MCP支持'],
   },
 
   // ========================
@@ -469,6 +491,17 @@ export const tools: Tool[] = [
     url: 'https://www.slashy.com',
     price: '候补名单 / 定价待公布',
     features: ['AI起草回复', '收件箱分类', '跟进追踪', '会议准备'],
+  },
+  {
+    id: 'asmi-ai',
+    name: 'Asmi AI',
+    description: 'AI个人语音助理，通过真实电话帮用户处理日常事务——预约医生、比价维修、账单协商、问候家人，支持50+语言，无需下载APP。',
+    category: 'AI办公效率',
+    subCategory: 'AI行政助手',
+    rating: 4.3,
+    url: 'https://www.asmiai.com',
+    price: '免费 / 付费方案联系官方',
+    features: ['AI语音电话', '日常事务处理', '50+语言', '无需APP'],
   },
 
   // ========================
