@@ -19,7 +19,7 @@
 
 ## SEO & 变现状态
 - Google Search Console: ✅ 已验证通过（2026-06-14）
-- sitemap.xml: ✅ 已上线（50 URLs）
+- sitemap.xml: ✅ 已上线（52 URLs，2026-06-15 更新）
 - robots.txt: ✅ 已上线
 - Google AdSense: ✅ 已审核通过，广告代码已接入
   - Ad client: ca-pub-1019611632171859
@@ -29,6 +29,7 @@
 - Bing Webmaster: ❌ 未提交
 
 ## 已发布文章
+- TRAE SOLO 实测 (2026-06-15): 字节TRAE SOLO模式3个实测案例 + vs Cursor/Copilot横评
 - 618 AI购物助手实测对比 (2026-06-14): 千问/豆包/京言/拼多多四大AI购物助手实测
 - AI Agent 入门实战指南 (2026-06-13): LangChain 1.x + LangGraph + 和风天气 API
 
