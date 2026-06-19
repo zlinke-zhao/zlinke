@@ -271,6 +271,28 @@ export const tools: Tool[] = [
     price: '免费 / Pro $29/月',
     features: ['API执行层', '策略控制', '2000+集成', 'MCP支持'],
   },
+  {
+    id: 'vokal',
+    name: 'Vokal',
+    description: 'AI Agent协作工作空间，让团队与AI Agent在共享频道中协作开发，支持Claude Code/Codex/Cursor等，20+预设角色，Product Hunt日榜第2名。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.3,
+    url: 'https://vokal.team',
+    price: '免费 / 付费方案联系官方',
+    features: ['Agent协作空间', '多Agent管理', '共享上下文', '20+预设角色'],
+  },
+  {
+    id: 'browserbase',
+    name: 'Browserbase',
+    description: '为AI Agent提供可靠的Web自动化基础设施，让Agent像人类一样浏览和操作网页，10,000+企业使用，Product Hunt日榜第2名。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.3,
+    url: 'https://browserbase.com',
+    price: '免费 / 按量付费',
+    features: ['浏览器自动化', 'Agent Web访问', 'Search API', 'Fetch API'],
+  },
 
   // ========================
   // 四、AI图像生成
@@ -502,6 +524,28 @@ export const tools: Tool[] = [
     url: 'https://www.asmiai.com',
     price: '免费 / 付费方案联系官方',
     features: ['AI语音电话', '日常事务处理', '50+语言', '无需APP'],
+  },
+  {
+    id: 'upstream',
+    name: 'Upstream',
+    description: 'YC孵化的AI原生邮件客户端，AI自动分类邮件、起草回复和智能跟进，让收件箱变轻，Product Hunt日榜第1名，获$300万融资。',
+    category: 'AI办公效率',
+    subCategory: 'AI邮件助手',
+    rating: 4.3,
+    url: 'https://upstream.do',
+    price: '免费 / 付费方案联系官方',
+    features: ['AI邮件分类', 'AI起草回复', '智能跟进', '语气学习'],
+  },
+  {
+    id: 'makersclaw',
+    name: 'MakersClaw',
+    description: 'AI员工部署平台，一键部署专业AI Agent到Slack/Telegram/Teams，预配置客服/销售/SEO等角色，24/7运行，Product Hunt日榜第3名。',
+    category: 'AI办公效率',
+    subCategory: 'AI行政助手',
+    rating: 4.2,
+    url: 'https://makersclaw.com',
+    price: '免费 / 按工具调用付费',
+    features: ['AI员工部署', '多渠道集成', '持久记忆', '预配置角色'],
   },
 
   // ========================
