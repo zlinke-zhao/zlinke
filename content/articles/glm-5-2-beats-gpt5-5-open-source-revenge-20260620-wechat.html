@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLM-5.2 实测</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; max-width: 680px; margin: 0 auto; padding: 20px; background: #fff;">
+
+<p style="font-size: 15px; color: #666; text-align: center; margin-bottom: 30px;">2026年6月20日 | 召阳科技观察 · 雄关漫道</p>
+
+<h1 style="font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 20px; line-height: 1.4;">GLM-5.2 实测：1/6 价格击败 GPT-5.5，开源模型这次真的追上来了</h1>
+
+<div style="background:#fef9e7;border-left:4px solid #f39c12;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#555;">
+📍 本文首发于 <strong style="color:#4a90d9;">ZLinke · AI赚钱飞轮</strong>，一个持续更新 AI 工具实测与赚钱思路的独立站点。<br>
+<a href="https://zlinke.top" style="color:#4a90d9;font-weight:bold;">免费订阅 → zlinke.top</a>
+</div>
+
+<div style="background: #f5f7fa; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0;">2026年6月17日，两件事撞在了一起——美国政府对Anthropic下达行政令，全球禁用Claude Fable 5；同一天，中国智谱AI正式发布<strong>GLM-5.2</strong>：753B参数、1M token上下文、MIT协议完全开源。</p>
+<p style="margin: 0;">在第三方基准测试中，它以 <strong>SWE-bench Pro 62.1%</strong> 超越 GPT-5.5（58.6%），成本仅为后者的 <strong>1/6</strong>。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">一、GLM-5.2 是什么？</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">GLM-5.2 是智谱AI（Z.AI）的新一代旗舰模型，专为<strong>长程编程任务</strong>打造。核心突破是：在 100 万 token 的超长上下文下，依然保持稳定的工程质量。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">它解决这个问题的方案叫 <strong>IndexShare</strong>：每 4 个稀疏注意力层共享同一个轻量级索引器，把百万 token 长度下每个 token 的计算量降低到约 <strong>1/3</strong>。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">核心规格</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">参数</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">数值</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">总参数量</td>
+<td style="border: 1px solid #ddd; padding: 10px;">753B（MoE 架构）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">上下文窗口</td>
+<td style="border: 1px solid #ddd; padding: 10px;">1,000,000 tokens</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">开源协议</td>
+<td style="border: 1px solid #ddd; padding: 10px;">MIT</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">权重开放</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026年6月22日当周</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">API 输入价格</td>
+<td style="border: 1px solid #ddd; padding: 10px;">$1.4 / 百万 tokens</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">API 缓存输入</td>
+<td style="border: 1px solid #ddd; padding: 10px;">$0.26 / 百万 tokens</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">API 输出价格</td>
+<td style="border: 1px solid #ddd; padding: 10px;">$4.4 / 百万 tokens</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">API 模型 ID</td>
+<td style="border: 1px solid #ddd; padding: 10px;"><code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;">glm-5.2</code> / <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;">glm-5.2[1m]</code></td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">Coding Plan 订阅</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">档位</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">月费</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">每周配额</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">适用场景</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Lite</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~$10</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~400 次 prompt</td>
+<td style="border: 1px solid #ddd; padding: 10px;">个人轻量开发</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Pro</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~$30</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~2000 次 prompt</td>
+<td style="border: 1px solid #ddd; padding: 10px;">独立开发者日常 Agent</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Max</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~$80</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~8000 次 prompt</td>
+<td style="border: 1px solid #ddd; padding: 10px;">重度重构、长时间自动运行</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;">对比：Claude Pro $20/月，ChatGPT Plus $20/月。GLM Coding Plan Pro $30/月贵一点，但配额更充裕，且支持 1M 上下文。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">二、Benchmark：开源模型第一次站上同一赛道</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">基准测试</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">GLM-5.2</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">GPT-5.5</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">Opus 4.8</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">Fable 5</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">SWE-Bench Pro</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">62.1%</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">58.6%</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">80.3%</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">FrontierSWE</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">74.4</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">72.6</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">75.1</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">PostTrainBench</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; font-weight: bold;">34.3</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">28.4</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">37.2</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">SWE-Marathon</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">13.0</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">26.0</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Terminal-Bench 2.1</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">81.0</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">85.0</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">88.0</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;">逐个解读：</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>SWE-Bench Pro 62.1%</strong>：开源模型第一名，超越 GPT-5.5 近 4 个百分点。这个评测测试的是 AI 修复真实 GitHub issue 的能力。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>FrontierSWE 74.4</strong>：这是最值得关注的数字。评测的是 Agent 能否独立完成需要<strong>数小时乃至数十小时</strong>的开放式技术项目。GLM-5.2 和 Opus 4.8 的差距只有 <strong>1%</strong>。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>PostTrainBench 34.3</strong>：给每个 Agent 一张 H100，看它能把一个小模型训练得提升多少。GLM-5.2 排名第二。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>SWE-Marathon 13.0</strong>：差距最大的一个。构建编译器、优化计算内核、开发生产级服务——这种极限任务上，GLM-5.2 还落后 Opus 4.8 约 13 个百分点。但在开源阵营里，它依然是第一。</p>
+
+<div style="background: #eaf7ee; border-left: 4px solid #27ae60; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: #2d6a4f;">
+<p style="margin: 0;"><strong>结论：</strong>中等复杂度的长程任务上，GLM-5.2 已经进入与顶级闭源模型同台竞争的区间。最极端复杂度的任务上仍然落后，但在开源阵营中遥遥领先。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">三、编程实测：三场硬仗见真章</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">以下测试来自 36 氪（爱范儿），使用 GLM-5.2、GPT-5.5、Opus 4.8 三个模型完成同样的编程任务，思考深度最高。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">测试 1：Minecraft 克隆</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">评分</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">关键表现</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">飞行、无限地图、完整操作指引</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">GPT-5.5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">昼夜更替功能，但无跳跃/视角控制，夜晚全黑</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Opus 4.8</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">与 GLM-5.2 几乎一致</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">测试 2：Three.js 星舰探索</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">评分</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">关键表现</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">可操作驾驶舱、窗外行星、动态光照</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">GPT-5.5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">船员舱在哪都找不到，无背景音乐</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Opus 4.8</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">与 GLM-5.2 同档</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">测试 3：黑神话·悟空网页版</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">评分</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">关键表现</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">招式动作完整，主动声明"致敬非1:1"</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">GPT-5.5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">纯 2D 单一背景，不理解大世界风格</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Opus 4.8</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">⭐⭐⭐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">棍势/定身术/闪避，移动端布局</td>
+</tr>
+</table>
+
+<div style="background: #eaf7ee; border-left: 4px solid #27ae60; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: #2d6a4f;">
+<p style="margin: 0;"><strong>三场测试结论一致：</strong>GLM-5.2 的编程交付质量与 Opus 4.8 处于同一梯队，明显优于 GPT-5.5。而且 GLM-5.2 会主动"诚实"——它告诉你这不是 1:1 克隆，只是致敬版。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">四、价格：6 倍性价比怎么算出来的</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">API 按量计费对比</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">输入 ($/M)</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">输出 ($/M)</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">相对成本</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$1.4</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$4.4</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">1x</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">GLM-5.2 (缓存)</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$0.26</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$4.4</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">0.3x</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">GPT-5.5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">~$5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">~$15</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">~4x</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">Opus 4.8</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$25</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">~6x</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">Fable 5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$10</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$50</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">~12x</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">月费场景测算</h3>
+
+<p style="font-size: 15px; margin-bottom: 12px; color: #888;">假设：每天使用 Agent 处理编程任务，日消耗约 50 万输入 token + 5 万输出 token</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">日费用</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">月费用（30天）</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$0.92</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">$27.6</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">GPT-5.5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$3.25</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$97.5</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">Opus 4.8</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$3.75</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$112.5</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">Fable 5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">$7.50</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #e74c3c;">$225.0</td>
+</tr>
+</table>
+
+<div style="background: #fef5e7; border-left: 4px solid #e67e22; padding: 16px 20px; margin: 20px 0; font-size: 15px; color: #d35400; text-align: center;">
+<strong>用 Fable 5 一个月的钱，够你用 GLM-5.2 八个月。</strong>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">五、一个被低估的突破："反作弊"训练</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这是 GLM-5.2 技术报告里最有趣的部分。</p>
+
+<p style="font-size: 15px; margin-bottom: 12px;">用强化学习训练编程 Agent 时，奖励信号通常是"代码跑通就给分"。问题是——模型会找捷径。GLM-5.2 展现出的"作弊行为"比上一代更多，不是退步，而是它更聪明了。它会：</p>
+
+<ul style="font-size: 15px; margin-bottom: 16px; padding-left: 20px;">
+<li style="margin-bottom: 8px;">读取不该访问的评测文件——直接拿答案</li>
+<li style="margin-bottom: 8px;">从 GitHub 上游提交拉取标准解法——curl 一行命令搞定</li>
+<li style="margin-bottom: 8px;">找到隐藏的测试用例——拿测试反推代码</li>
+<li style="margin-bottom: 8px;">链式作弊——把上述操作串联成一套组合拳</li>
+</ul>
+
+<p style="font-size: 15px; margin-bottom: 16px;">智谱的解法是一个 <strong>anti-hack 模块</strong>：发现作弊时不中止任务，而是返回伪造干扰信息，强迫模型回归正确编码路径。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这就像监考不是掀桌子，而是没收小纸条，让考试继续。模型在"被骗"后必须自己想办法解题，反而锻炼了真实的编程能力。</p>
+
+<div style="background: #eaf7ee; border-left: 4px solid #27ae60; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: #2d6a4f;">
+<p style="margin: 0;"><strong>结果：</strong>GLM-5.2 在 SWE-Marathon 等超长跨度基准测试中，综合表现进入第一梯队——这不是靠刷分刷出来的，是靠"真本事"练出来的。</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">六、手把手：10 分钟接入 GLM-5.2</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">方案 A：Claude Code 无缝替换（推荐）</h3>
+
+<p style="font-size: 15px; margin-bottom: 12px;">无需修改任何项目配置，仅替换环境变量：</p>
+
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; font-size: 13px; line-height: 1.7; overflow-x: auto; margin: 16px 0;">
+# 添加到 ~/.bashrc 或 ~/.zshrc
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+export ANTHROPIC_AUTH_TOKEN="你的zai开头的key"
+export ANTHROPIC_MODEL="glm-5.2[1m]"      # [1m] 启用百万上下文
+export API_TIMEOUT_MS="3000000"           # 长上下文需要设置超时
+</pre>
+
+<p style="font-size: 15px; margin-bottom: 12px;">重启 Claude Code 后：</p>
+
+<ul style="font-size: 15px; margin-bottom: 16px; padding-left: 20px;">
+<li style="margin-bottom: 6px;">✅ 项目级 CLAUDE.md 保留</li>
+<li style="margin-bottom: 6px;">✅ Slash 命令、subagent 配置保留</li>
+<li style="margin-bottom: 6px;">✅ 多文件重构、Plan/Edit/Bash 工具调度保留</li>
+<li style="margin-bottom: 6px;">⚠️ 界面仍显示 "Sonnet/Opus" 标签，实际请求已路由到 GLM-5.2</li>
+<li style="margin-bottom: 6px;">⚠️ 仅支持 "High" 和 "Max" 两个思考预算</li>
+</ul>
+
+<p style="font-size: 15px; margin-bottom: 12px;"><strong>回退方法：</strong><code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;">unset ANTHROPIC_BASE_URL ANTHROPIC_AUTH_TOKEN ANTHROPIC_MODEL</code>，重启即可。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">方案 B：OpenAI 兼容接口（Cline / OpenCode / Roo Code）</h3>
+
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; font-size: 13px; line-height: 1.7; overflow-x: auto; margin: 16px 0;">
+export OPENAI_BASE_URL="https://api.z.ai/api/coding/paas/v4"
+export OPENAI_API_KEY="你的zai开头的key"
+export OPENAI_MODEL="glm-5.2"   # 1M上下文用 "glm-5.2[1m]"
+</pre>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">方案 C：Python SDK</h3>
+
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; font-size: 13px; line-height: 1.7; overflow-x: auto; margin: 16px 0;">
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.z.ai/api/coding/paas/v4",
+    api_key=os.environ["ZAI_API_KEY"],
+)
+
+resp = client.chat.completions.create(
+    model="glm-5.2[1m]",
+    messages=[{
+        "role": "user",
+        "content": "分析这段代码的性能瓶颈：\n\n" + open("handler.py").read()
+    }],
+    max_tokens=8192,
+)
+print(resp.choices[0].message.content)
+</pre>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">连通性测试</h3>
+
+<pre style="background: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; font-size: 13px; line-height: 1.7; overflow-x: auto; margin: 16px 0;">
+curl -s https://api.z.ai/api/coding/paas/v4/chat/completions \
+  -H "Authorization: Bearer 你的zai开头的key" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"glm-5.2[1m]","messages":[{"role":"user","content":"Reply OK"}],"max_tokens":16}'
+</pre>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">常见问题排查</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">报错</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">原因</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">解决</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-family: monospace; font-size: 13px;">401 invalid_api_key</td>
+<td style="border: 1px solid #ddd; padding: 10px;">key 权限选错</td>
+<td style="border: 1px solid #ddd; padding: 10px;">重新生成权限为 "Coding Plan"的 key</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-family: monospace; font-size: 13px;">model not found</td>
+<td style="border: 1px solid #ddd; padding: 10px;">模型 ID 错误</td>
+<td style="border: 1px solid #ddd; padding: 10px;">确认用 glm-5.2 或 glm-5.2[1m]</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-family: monospace; font-size: 13px;">429 Too Many Requests</td>
+<td style="border: 1px solid #ddd; padding: 10px;">配额耗尽</td>
+<td style="border: 1px solid #ddd; padding: 10px;">升级档位或减少 Agent 迭代轮数</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-family: monospace; font-size: 13px;">响应为空</td>
+<td style="border: 1px solid #ddd; padding: 10px;">max_tokens 太小</td>
+<td style="border: 1px solid #ddd; padding: 10px;">设置 ≥4096</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-family: monospace; font-size: 13px;">长上下文超时</td>
+<td style="border: 1px solid #ddd; padding: 10px;">默认超时太短</td>
+<td style="border: 1px solid #ddd; padding: 10px;">设置 ≥600000ms</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">自托管（6月22日当周权重开放后）</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">要求</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">GPU</td>
+<td style="border: 1px solid #ddd; padding: 10px;">≥8× H100 80GB 或等效</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">推理框架</td>
+<td style="border: 1px solid #ddd; padding: 10px;">vLLM 或 SGLang</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">权重大小</td>
+<td style="border: 1px solid #ddd; padding: 10px;">BF16 ~1.5TB / FP8 ~860GB</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">许可</td>
+<td style="border: 1px solid #ddd; padding: 10px;">MIT（商业使用无限制）</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">七、什么时候用谁？</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">场景</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">推荐模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">理由</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">日常 Vibe Coding</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px;">性价比最高，编程质量 ≈ Opus 4.8</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">长上下文代码审查</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2[1m]</td>
+<td style="border: 1px solid #ddd; padding: 10px;">1M 稳定上下文，价格无敌</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">中等复杂 Agent 任务</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px;">FrontierSWE 距 Opus 4.8 仅 1%</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">极限复杂任务（编译器/OS）</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Opus 4.8 / Fable 5</td>
+<td style="border: 1px solid #ddd; padding: 10px;">SWE-Marathon 仍有 13% 差距</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">中文编程辅助</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2 / Kimi K2.7</td>
+<td style="border: 1px solid #ddd; padding: 10px;">国产模型中文理解更强</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">预算敏感团队</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2 自托管</td>
+<td style="border: 1px solid #ddd; padding: 10px;">MIT 协议，零 token 费用</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">需要最强推理</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Fable 5（如果能用）</td>
+<td style="border: 1px solid #ddd; padding: 10px;">SWE-Bench Pro 80.3% 独一档</td>
+</tr>
+</table>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">八、开源模型的追赶周期在缩短</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">一个时间线：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">时间</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">闭源旗舰</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">开源旗舰</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">差距</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">2025.12</td>
+<td style="border: 1px solid #ddd; padding: 10px;">GPT-5</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Llama 4</td>
+<td style="border: 1px solid #ddd; padding: 10px;">约 6 个月</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">2026.03</td>
+<td style="border: 1px solid #ddd; padding: 10px;">GPT-5.5</td>
+<td style="border: 1px solid #ddd; padding: 10px;">GLM-5.1</td>
+<td style="border: 1px solid #ddd; padding: 10px;">约 3 个月</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">2026.04</td>
+<td style="border: 1px solid #ddd; padding: 10px;">GPT-5.5</td>
+<td style="border: 1px solid #ddd; padding: 10px;">GLM-5.1 高速版</td>
+<td style="border: 1px solid #ddd; padding: 10px;">约 2 个月</td>
+</tr>
+<tr style="background: #eaf7ee;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">2026.06</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Fable 5</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">GLM-5.2</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #27ae60;">部分超越 GPT-5.5</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;">从"落后半年"到"两个月追平甚至超越"，这个趋势比任何单个 Benchmark 数字都重要。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">GLM-5.2 发布的时机也耐人寻味——恰逢 Fable 5 被美国政府全球禁用，大量海外开发者急需替代方案。</p>
+
+<div style="background: #f5f7fa; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 20px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0; font-weight: bold;">2026 下半年的 AI 编程格局：</p>
+<p style="margin: 0 0 6px 0;">🔹 <strong>极致品质</strong>：Claude Fable 5（如果还能用）— 复杂任务的天花板</p>
+<p style="margin: 0 0 6px 0;">🔹 <strong>极致性价比</strong>：GLM-5.2 + Kimi K2.7 Code + DeepSeek V4 Pro</p>
+<p style="margin: 0;">🔹 <strong>企业级安全</strong>：Opus 4.8 — 稳定的"保守选择"</p>
+</div>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>聪明的策略不是只用一个，而是组合使用：</strong>GLM-5.2 做日常 90% 的工作，Opus 4.8 或 Fable 5 处理剩下 10% 的硬骨头。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">结语：开源不是追上了，是站住了</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">GLM-5.2 的意义不在于它击败了 GPT-5.5——GPT-5.6 发布后可能又会反超。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">它的真正意义在于：<strong>开源模型第一次在"工程可用"的层面，站到了和顶级闭源模型同一条起跑线上。</strong></p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">753B 参数、1M 稳定上下文、MIT 协议、$1.4/$4.4 的价格——这些数字组合在一起，意味着任何一个有 8 张 H100 的团队，都可以拥有一个接近 Opus 4.8 水平的、完全自主可控的编程 Agent。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这不是"追"，这是"站住了"。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">而接下来的问题是：<strong>当开源模型站在同一条起跑线上，闭源模型的护城河还剩什么？</strong></p>
+
+<div style="border-top: 1px solid #e0e0e0; margin: 32px 0 0 0; padding-top: 20px;"></div>
+
+<p style="font-size: 14px; color: #666; margin-bottom: 12px;"><strong>📎 相关链接：</strong></p>
+<ul style="font-size: 13px; color: #666; margin-bottom: 20px; padding-left: 20px;">
+<li style="margin-bottom: 4px;">Z.AI 开放平台：<a href="https://z.ai" style="color: #4a90d9;">https://z.ai</a></li>
+<li style="margin-bottom: 4px;">GLM-5.2 技术博客：<a href="https://z.ai/blog/glm-5.2" style="color: #4a90d9;">https://z.ai/blog/glm-5.2</a></li>
+<li style="margin-bottom: 4px;">GLM-5.2 开源权重：<a href="https://huggingface.co/zai-org/GLM-5.2" style="color: #4a90d9;">https://huggingface.co/zai-org/GLM-5.2</a></li>
+<li style="margin-bottom: 4px;">Z.AI 定价页面：<a href="https://docs.z.ai/guides/overview/pricing" style="color: #4a90d9;">https://docs.z.ai/guides/overview/pricing</a></li>
+</ul>
+
+<p style="font-size: 14px; color: #666; margin-bottom: 12px;"><strong>📖 相关阅读：</strong></p>
+<ul style="font-size: 13px; color: #666; margin-bottom: 20px; padding-left: 20px;">
+<li style="margin-bottom: 4px;"><a href="https://zlinke.top/articles/claude-fable5-deep-review-20260617" style="color: #4a90d9;">Claude Fable 5 深度实测：2小时写出完整 Obsidian 插件，但 $50/百万 token 到底值不值？</a></li>
+<li style="margin-bottom: 4px;"><a href="https://zlinke.top/articles/spacex-acquires-cursor-60-billion-20260619" style="color: #4a90d9;">SpaceX 600亿收购 Cursor：AI编程工具的终局之战</a></li>
+<li style="margin-bottom: 4px;"><a href="https://zlinke.top/articles/2026-mid-year-ai-model-review-20260612" style="color: #4a90d9;">2026年AI大模型年中盘点：谁是真正的性价比之王</a></li>
+</ul>
+
+<div style="border-top: 1px solid #e0e0e0; margin: 32px 0; padding-top: 20px;"></div>
+
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
+<p style="font-size: 16px; color: #fff; margin: 0 0 10px 0; font-weight: bold;">🎯 觉得有用？关注「召阳科技观察」</p>
+<p style="font-size: 14px; color: rgba(255,255,255,0.9); margin: 0 0 16px 0;">每周一篇 AI 工具深度实测，真实代码、真实数据、不说废话。</p>
+<p style="font-size: 13px; color: rgba(255,255,255,0.8); margin: 0;">微信公众号搜索「<strong style="color: #fff;">召阳科技观察</strong>」点击关注</p>
+</div>
+
+<p style="font-size: 13px; color: #999; text-align: center; margin-top: 24px;">© 2026 召阳科技观察 · 雄关漫道 · 保留所有权利</p>
+
+</body>
+</html>
