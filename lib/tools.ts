@@ -411,6 +411,17 @@ export const tools: Tool[] = [
     price: '免费 / Pro ¥66/月',
     features: ['文生视频', '图生视频', '电影画质', '多镜头编辑'],
   },
+  {
+    id: 'vaani',
+    name: 'Vaani',
+    description: 'AI口型同步配音平台，支持40+语言的视频本地化，保留原声语调与节奏，唇形精准同步，创作者/品牌/工作室的专业级AI配音工具。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.2,
+    url: 'https://vaani.media',
+    price: '免费试用 / $49/月起',
+    features: ['口型同步配音', '40+语言', '声音克隆', '广播级混音'],
+  },
 
   // ========================
   // 六、AI办公效率
@@ -546,6 +557,39 @@ export const tools: Tool[] = [
     url: 'https://makersclaw.com',
     price: '免费 / 按工具调用付费',
     features: ['AI员工部署', '多渠道集成', '持久记忆', '预配置角色'],
+  },
+  {
+    id: 'respan',
+    name: 'Respan',
+    description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.4,
+    url: 'https://www.respan.ai',
+    price: '免费 / 按量付费',
+    features: ['AI网关', 'LLM可观测性', '自动评估', '500+模型'],
+  },
+  {
+    id: 'spotlight-backplanes',
+    name: 'Spotlight by Backplanes',
+    description: 'AI Agent会话监控工具，自动捕获Claude Code/Codex会话，生成安全审计和工程复盘报告，由Google/Twilio前员工打造，个人和团队免费。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.2,
+    url: 'https://www.backplanes.com',
+    price: '免费（个人/团队）',
+    features: ['会话监控', '安全审计', '工程复盘', 'Claude Code集成'],
+  },
+  {
+    id: 'zerogpu',
+    name: 'ZeroGPU',
+    description: 'AI推理计算效率层，用专用小模型+全球边缘网络处理高流量结构化任务，降本50%+提速10倍，OpenAI兼容API即插即用。',
+    category: 'AI编程开发',
+    subCategory: 'AI基础设施',
+    rating: 4.2,
+    url: 'https://zerogpu.ai',
+    price: '免费 / 按量付费',
+    features: ['推理降本50%+', '边缘推理网络', 'OpenAI兼容', '专用小模型'],
   },
 
   // ========================
