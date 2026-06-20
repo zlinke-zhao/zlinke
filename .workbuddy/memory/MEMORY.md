@@ -29,6 +29,10 @@
 - Bing Webmaster: ❌ 未提交
 
 ## 已发布文章
+- GLM-5.2 深度实测 (2026-06-20): GLM-5.2以1/6成本击败GPT-5.5，FrontierSWE距Opus 4.8仅1%，含完整API接入教程+价格测算
+- SpaceX 600亿收购Cursor (2026-06-19): 交易深度解读+AI编程工具终局分析
+- Kimi K2.7 工作台Agent指南 (2026-06-18): Kimi桌面端Agent实操教程
+- Claude Fable 5 深度实测 (2026-06-17): 2h写Obsidian插件实测+$50/M token性价比分析
 - TRAE SOLO 实测 (2026-06-15): 字节TRAE SOLO模式3个实测案例 + vs Cursor/Copilot横评
 - 618 AI购物助手实测对比 (2026-06-14): 千问/豆包/京言/拼多多四大AI购物助手实测
 - AI Agent 入门实战指南 (2026-06-13): LangChain 1.x + LangGraph + 和风天气 API
