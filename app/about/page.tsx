@@ -46,7 +46,7 @@ export default function AboutPage() {
             有任何问题或合作需求，欢迎通过以下方式联系：
           </p>
           <p className="text-sm mt-2">
-            邮箱：<span className="text-primary dark:text-blue-400">hello@zlinke.top</span>
+            邮箱：<span className="text-primary dark:text-blue-400">zlinke001@gmail.com</span>
           </p>
         </div>
       </div>

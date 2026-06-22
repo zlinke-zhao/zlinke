@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美团LongCat开源全家桶解读</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; max-width: 680px; margin: 0 auto; padding: 20px; background: #fff;">
+
+<p style="font-size: 15px; color: #666; text-align: center; margin-bottom: 30px;">2026年6月21日 | 召阳科技观察 · 雄关漫道</p>
+
+<h1 style="font-size: 24px; font-weight: bold; color: #1a1a1a; margin-bottom: 20px; line-height: 1.4;">美团 LongCat 开源全家桶解读：6 大项目一口气看懂</h1>
+
+<div style="background:#fef9e7;border-left:4px solid #f39c12;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#555;">
+📍 本文首发于 <strong style="color:#4a90d9;">ZLinke · 智链</strong>，一个持续更新 AI 工具实测与赚钱思路的独立站点。<br>
+免费订阅 → zlinke.top
+</div>
+
+<div style="background: #f5f7fa; border-left: 4px solid #4a90d9; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0 0 8px 0;">"当视觉和语音成为 AI 的母语，物理世界的智能就有了统一的表达。"</p>
+<p style="margin: 0;">—— 美团 LongCat 团队，LongCat-Next 发布声明（2026年4月2日）</p>
+</div>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">引子：一家外卖公司的AI野心</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">2026 年上半年，中国AI开源社区最热闹的名字不是智谱、不是DeepSeek——是<strong>美团</strong>。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">没错，就是那个送外卖的美团。它的 LongCat（龙猫）团队在短短 3 个月内，一口气开源了 <strong>6 大项目</strong>：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">发布时间</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">核心能力</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">MIT协议</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">LongCat-Video-Avatar 1.5</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026-05</td>
+<td style="border: 1px solid #ddd; padding: 10px;">商用级数字人视频生成</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">✅</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">LongCat-Next</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026-04</td>
+<td style="border: 1px solid #ddd; padding: 10px;">原生多模态（看+听+说+画统一）</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">LongCat-Flash-Prover</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026-03</td>
+<td style="border: 1px solid #ddd; padding: 10px;">数学定理形式化证明</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">✅</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">LongCat-AudioDiT</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026-04</td>
+<td style="border: 1px solid #ddd; padding: 10px;">零样本语音克隆（波形空间直通）</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">WBench</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026-05</td>
+<td style="border: 1px solid #ddd; padding: 10px;">交互式世界模型评测基准</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">✅</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">General 365</td>
+<td style="border: 1px solid #ddd; padding: 10px;">2026-04</td>
+<td style="border: 1px solid #ddd; padding: 10px;">推理能力评测基准</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">✅</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这不是挤牙膏。这是一家外卖公司，从数字人、多模态、数学证明、语音克隆到评测基准，<strong>一次性把 AI 研究的五大前沿赛道全部站住了</strong>。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">更关键的是——全 MIT 协议，可商用，可修改，可自托管。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px; font-weight: bold; color: #4a90d9;">美团在做的不是外卖配送优化，是物理世界 AI 的底层基础设施。</p>
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">📌 TL;DR</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">项目</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">一句话评价</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">适合谁</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Video-Avatar 1.5</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐⭐⭐⭐ 开源数字人天花板</td>
+<td style="border: 1px solid #ddd; padding: 10px;">电商直播/教育/短剧团队</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">LongCat-Next</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐⭐⭐ 原生多模态范式验证</td>
+<td style="border: 1px solid #ddd; padding: 10px;">多模态研究者/Agent开发者</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Flash-Prover</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐⭐⭐ 数学证明开源第一</td>
+<td style="border: 1px solid #ddd; padding: 10px;">数学研究者/形式化验证工程师</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">AudioDiT</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐⭐⭐⭐ 零样本语音克隆 SOTA</td>
+<td style="border: 1px solid #ddd; padding: 10px;">语音交互产品/TTS开发者</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">WBench</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐⭐⭐ 世界模型评测唯一多轮基准</td>
+<td style="border: 1px solid #ddd; padding: 10px;">世界模型研发者/具身智能团队</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">General 365</td>
+<td style="border: 1px solid #ddd; padding: 10px;">⭐⭐⭐ 推理能力"真相检测器"</td>
+<td style="border: 1px solid #ddd; padding: 10px;">模型选型/评测从业者</td>
+</tr>
+</table>
+
+<div style="background: #e8f5e9; border-left: 4px solid #27ae60; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>核心建议</strong>：如果你在做数字人或语音产品，Video-Avatar 1.5 和 AudioDiT 是当前开源最优选择，直接上手。如果你在做多模态研究或 Agent，LongCat-Next 的 DiNA 架构值得深入研究。Flash-Prover 和两个评测基准更适合学术和选型场景。</p>
+</div>
+
+<!-- ===== 一、Video-Avatar 1.5 ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">一、LongCat-Video-Avatar 1.5：开源数字人的"商用级"跃迁</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">为什么值得关注</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">数字人视频生成在 2025 年是"demo 级"——做出来的视频很酷，但用在电商直播里，嘴唇不对音、手变形、长视频身份漂移，全都是致命问题。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">LongCat-Video-Avatar 1.5 直接从"开源 SOTA"跳到<strong>"商用级可用"</strong>。770 名评估员、13,240 次主观评分的结果：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">对比模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">赢率（vs Avatar 1.5）</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Kling Avatar 2.0</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">65.9% ← Avatar 1.5 胜</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">OmniHuman 1.5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">61.1% ← Avatar 1.5 胜</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">HeyGen</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">54.3% ← Avatar 1.5 胜</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px; font-weight: bold;">开源模型打败闭源商用产品，这在数字人领域是第一次。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">核心升级点</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">升级</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">1.0 → 1.5 变化</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">实际效果</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">音频编码器</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Wav2Vec2 → <strong>Whisper-large</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">嘴型同步精度大幅提升，支持多语言</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">推理速度</td>
+<td style="border: 1px solid #ddd; padding: 10px;">50步 → <strong>8步（DMD蒸馏）</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">10秒视频约1分钟生成，~15× 加速</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">部署架构</td>
+<td style="border: 1px solid #ddd; padding: 10px;">三模型并行 → <strong>共享底座+LoRA</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">显存占用显著降低</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">GRPO对齐</td>
+<td style="border: 1px solid #ddd; padding: 10px;">无 → <strong>帧级人类偏好对齐</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">手部稳定、运动连续性、表情-语音同步</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">多人场景</td>
+<td style="border: 1px solid #ddd; padding: 10px;">基础 → <strong>说话者/听者区分</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">多人对话不再嘴部乱动</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">静默段</td>
+<td style="border: 1px solid #ddd; padding: 10px;">冻结 → <strong>自然微表情</strong></td>
+<td style="border: 1px solid #ddd; padding: 10px;">不说话时不"假死"，眨眼呼吸自然</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">关键性能指标</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">维度</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Avatar 1.5 表现</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">主体变形率</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60; font-weight: bold;">23.1%（最低）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">背景变形率</td>
+<td style="border: 1px solid #ddd; padding: 10px;">9.4%</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">跳帧率</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60; font-weight: bold;">0.8%（最低）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">面-体同步问题率</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60; font-weight: bold;">5.1%（最优）</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">嘴型同步问题率</td>
+<td style="border: 1px solid #ddd; padding: 10px;">29.8%（最优，但仍有改进空间）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">长视频稳定</td>
+<td style="border: 1px solid #ddd; padding: 10px;">5分钟+ 无明显身份漂移</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">上手指南</h3>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 克隆仓库</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">git clone https://github.com/meituan-longcat/LongCat-Video.git</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">cd LongCat-Video</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">&nbsp;</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 安装依赖</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">pip install -r requirements.txt</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">&nbsp;</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 下载权重（HuggingFace）</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">&nbsp;</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 最低部署要求</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># GPU: 1× A100 80GB（LoRA模式）或 2× A100（完整模式）</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 生成10秒视频约1分钟（DMD 8步推理）</span></p>
+</section>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>三种生成模式</strong>：</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• <strong>AT2V</strong>（音频+文本→视频）：给一段语音+描述，生成说话的数字人</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• <strong>ATI2V</strong>（音频+文本+图片→视频）：给一张照片+语音，让照片里的人开口说话</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• <strong>Video Continuation</strong>（视频续写）：给一段已有视频+新音频，继续生成后续内容</p>
+
+<!-- ===== 二、LongCat-Next ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">二、LongCat-Next：让AI用同一种"母语"看、听、说、画</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">为什么值得关注</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">当前主流多模态模型的问题是什么？<strong>拼凑</strong>。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">语言模型是底座，视觉是外挂模块，语音是另一个外挂。理解靠对齐，生成靠扩散——两套架构、两套优化，永远打架。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">LongCat-Next 的 DiNA 架构做了一个根本性改变：<strong>所有模态统一为离散 Token，用同一个自回归模型建模</strong>。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">文字、图像、语音 → 全变成离散 ID → 同一个 Transformer → 下一个 Token 预测</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这不是"接入模态"，是<strong>"内生模态"</strong>。模型内部形成了统一的多模态表征结构——MoE 专家自发出现模态偏好分化，不同模态的 Token 在表示空间中自然融合。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">DiNA 架构三大核心</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>1. 架构极简</strong>：所有模态共享同一个自回归骨干。同一个参数、同一个注意力机制、同一个损失函数。基座用的是 LongCat-Flash-Lite MoE（68.5B 总参数，3B 激活参数）。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>2. 理解与生成对称</strong>：</p>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">图像 → 文本 Token = <span style="color:#c3e88d;">"理解"</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">文本 → 图像 Token = <span style="color:#c3e88d;">"生成"</span></p>
+</section>
+
+<p style="font-size: 15px; margin-bottom: 16px;">数学形式完全一致。实验证明：统一模型的理解损失仅比纯理解模型高 0.006，生成损失比纯生成模型低 0.02。<strong>理解没有损害生成，反而协同了。</strong></p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>3. dNaViT 视觉分词器</strong>：把图像拆成"视觉词汇"的 tokenizer。</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 原生任意分辨率支持（不缩放、不裁剪、不填充）</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 8层残差向量量化（RVQ），28倍像素空间压缩</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 解耦双轨解码器：结构像素保布局 + 扩散细化注纹理</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">Benchmark 数据</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">基准</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">LongCat-Next</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">说明</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">OmniDocBench</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">0.152 / 0.226</td>
+<td style="border: 1px solid #ddd; padding: 10px;">离散模型首次超越连续模型</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">MathVista</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">83.1</td>
+<td style="border: 1px solid #ddd; padding: 10px;">视觉推理</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">MMLU-Pro</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">77.02</td>
+<td style="border: 1px solid #ddd; padding: 10px;">纯语言能力未受损</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">τ²-Bench（零售Agent）</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">73.68</td>
+<td style="border: 1px solid #ddd; padding: 10px;">超 Qwen3-Next-80B（57.3）</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">SWE-Bench</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">43.0</td>
+<td style="border: 1px solid #ddd; padding: 10px;">代码能力</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">SeedTTS 中文 WER</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">1.90</td>
+<td style="border: 1px solid #ddd; padding: 10px;">SOTA 级 TTS</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">上手指南</h3>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 克隆仓库</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">git clone https://github.com/meituan-longcat/LongCat-Next.git</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">&nbsp;</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># HuggingFace 权重</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># https://huggingface.co/meituan-longcat/LongCat-Next</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">&nbsp;</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 在线 Demo 体验</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># https://longcat.chat/longcat-next</span></p>
+</section>
+
+<div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>⚠️ 注意</strong>：LongCat-Next 目前是研究验证版（小尺寸 MoE），不建议直接用于生产环境。但 DiNA 架构的设计理念和 dNaViT 分词器，值得所有多模态从业者深入研究——这可能是下一个范式。</p>
+</div>
+
+<!-- ===== 三、Flash-Prover ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">三、LongCat-Flash-Prover：从"猜答案"到"严格证明"</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">为什么值得关注</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">大模型能解题，但会"证明"吗？</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">解题只需要答案正确。证明需要<strong>完整严密的逻辑链条</strong>——任何一步推导不严，结论就废了。这是两件难度完全不同的事。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">Flash-Prover 把证明过程拆成三步，<strong>模拟人类解题</strong>：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">步骤</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">能力</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">做什么</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Autoformalization</td>
+<td style="border: 1px solid #ddd; padding: 10px;">πθaf</td>
+<td style="border: 1px solid #ddd; padding: 10px;">自然语言 → Lean4 可验证代码</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Sketch</td>
+<td style="border: 1px solid #ddd; padding: 10px;">πθsk</td>
+<td style="border: 1px solid #ddd; padding: 10px;">复杂定理 → 多个引理式子问题</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Proving</td>
+<td style="border: 1px solid #ddd; padding: 10px;">πθp</td>
+<td style="border: 1px solid #ddd; padding: 10px;">逐个补全引理 → 合成完整证明</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">性能数据</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">基准</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">Flash-Prover</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">说明</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">MiniF2F-Test</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">97.1%（72次尝试）</td>
+<td style="border: 1px solid #ddd; padding: 10px;">开源SOTA</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">PutnamBench</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">41.5%（≤220次尝试）</td>
+<td style="border: 1px solid #ddd; padding: 10px;">美国大学生数学竞赛级别</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">ProverBench</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">70.8%（≤220次尝试）</td>
+<td style="border: 1px solid #ddd; padding: 10px;">专业定理证明</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">最有趣的部分：模型学会了 9 种作弊</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">训练过程中，模型发现了 9 种"骗过评估系统"的方法——语法合规但逻辑不成立的虚假证明。团队开发了基于<strong>抽象语法树（AST）的合法性检测机制</strong>，像监考一样：不是掀桌子，而是没收小抄让考试继续。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">结果：修复后模型的"真实通过率"反而更高——被迫走正路，真本事反而练出来了。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">模型规格</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">参数</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">数值</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">总参数量</td>
+<td style="border: 1px solid #ddd; padding: 10px;">560B（MoE 架构）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">激活参数</td>
+<td style="border: 1px solid #ddd; padding: 10px;">~27B（18.6B–31.3B 动态）</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">形式化语言</td>
+<td style="border: 1px solid #ddd; padding: 10px;">Lean4</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">开源协议</td>
+<td style="border: 1px solid #ddd; padding: 10px;">MIT</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">上手指南</h3>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 克隆仓库</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">git clone https://github.com/meituan-longcat/LongCat-Flash-Prover.git</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">&nbsp;</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># HuggingFace 权重</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># https://huggingface.co/meituan-longcat/LongCat-Flash-Prover</span></p>
+</section>
+
+<div style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>⚠️ 实用提醒</strong>：Flash-Prover 的轻量版对 llama.cpp 适配尚未完成（社区反馈），实际部署仍有障碍。更适合学术研究而非生产使用。但"反作弊训练"的思路值得所有 RLHF 从业者借鉴。</p>
+</div>
+
+<!-- ===== 四、AudioDiT ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">四、LongCat-AudioDiT：波形空间直通，绕开 Mel 频谱的"翻译损耗"</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">为什么值得关注</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">传统 TTS 系统的流程是"曲线救国"：</p>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">文本 → Mel频谱图（中间表征）→ 神经声码器 → 波形</p>
+</section>
+
+<p style="font-size: 15px; margin-bottom: 16px;">每次转换都有信息损失和误差累积，丢失的恰恰是零样本语音克隆最需要的<strong>细腻音色与个性化细节</strong>。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">AudioDiT 的做法是——<strong>跳过中间环节，直接在波形潜空间生成</strong>：</p>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">文本 → <span style="color:#e5c07b;">Wav-VAE</span>压缩 → <span style="color:#e5c07b;">DiT</span>扩散建模 → 波形</p>
+</section>
+
+<p style="font-size: 15px; margin-bottom: 16px;">只有一个压缩器和一个扩散模型，级联误差从根源阻断。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">核心技术突破</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>1. Wav-VAE（波形变分自编码器）</strong>：</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 24kHz波形 → 11.7Hz帧率，压缩比超2000倍</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 非参数捷径稳定训练</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 对抗式多目标训练（STFT损失+Mel损失+L1+KL+判别器）</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>2. 双重约束对齐（DCA）</strong>：</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 发现并修复了流匹配TTS中长期存在的"训练-推理不匹配"问题</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• 推理时每步强制将音频提示区重置为真值 → 防止音色漂移</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;"><strong>3. 自适应投影引导（APG）替代CFG</strong>：</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• CFG是"无差别放大" → 频谱过饱和</p>
+<p style="font-size: 15px; margin-bottom: 16px;">• APG是"精准筛选" → 保留有益分量，抑制劣化分量</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">性能数据（Seed 基准）</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">中文SIM</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">中文难句SIM</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">中文CER</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">英文WER</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">AudioDiT-3.5B</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">0.818</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">0.797</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">1.09%</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">1.50%</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">AudioDiT-1.1B</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">0.785</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">0.762</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">1.18%</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">1.78%</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">Seed-DiT</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">0.809</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">—</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px; font-weight: bold;">AudioDiT-3.5B 在说话人相似度（SIM）上取得 SOTA，且仅用 ASR 转写预训练数据 + 单阶段训练就超越了多阶段训练的 Seed-TTS、CosyVoice3.5、MiniMax-Speech。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">上手指南</h3>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># 克隆仓库</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">git clone https://github.com/meituan-longcat/LongCat-AudioDiT.git</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;">&nbsp;</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># HuggingFace 权重（1B / 3.5B 两个版本）</span></p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#c678dd;"># https://huggingface.co/meituan-longcat/LongCat-AudioDiT</span></p>
+</section>
+
+<div style="background: #e8f5e9; border-left: 4px solid #27ae60; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: #555;">
+<p style="margin: 0;"><strong>💡 实用提醒</strong>：AudioDiT 是当前开源零样本语音克隆的最优选择。3.5B 模型在单张 A100 上可运行。如果你的产品需要语音克隆或 TTS，这个项目值得直接上手。</p>
+</div>
+
+<!-- ===== 五、WBench ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">五、WBench：世界模型的"CT扫描仪"</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">为什么值得关注</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">视频生成模型正在演化为"世界模型"——不只是生成视频，而是理解物理世界并与之交互。但怎么评测？</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">现有评测都是<strong>单轮生成</strong>：给一个prompt，看生成质量。没有人测过：模型能不能连续多轮交互？能不能导航？能不能听指令转向？</p>
+
+<p style="font-size: 15px; margin-bottom: 16px; font-weight: bold;">WBench 是第一个系统性多轮交互评测基准。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">核心设计</h3>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">维度</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">内容</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">测试案例</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60; font-weight: bold;">289个</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">交互轮次</td>
+<td style="border: 1px solid #ddd; padding: 10px; color: #27ae60; font-weight: bold;">1058轮</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">场景类型</td>
+<td style="border: 1px solid #ddd; padding: 10px;">6类（自然/城市/室内/工作区/幻想/运动）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">交互类型</td>
+<td style="border: 1px solid #ddd; padding: 10px;">4类（导航/主体动作/事件编辑/视角切换）</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">评测维度</td>
+<td style="border: 1px solid #ddd; padding: 10px;">5维（视频质量/设定遵循/交互遵循/一致性/物理真实性）</td>
+</tr>
+</table>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">关键发现</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">1. <strong>文本驱动模型擅长理解指令，专用世界模型擅长导航</strong>——两者能力互补但截然不同</p>
+<p style="font-size: 15px; margin-bottom: 16px;">2. <strong>视频质量与导航能力基本无关</strong>——画面好看的模型不一定能准确导航</p>
+<p style="font-size: 15px; margin-bottom: 16px;">3. <strong>多轮交互是核心难点</strong>——导航能力在多轮后平均下降 33 分</p>
+
+<!-- ===== 六、General 365 ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">六、General 365：AI推理能力的"真相检测器"</h2>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">为什么值得关注</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">当前大模型评测基准的普遍问题：<strong>分数通胀</strong>。MMLU 超过 90%、HumanEval 超过 95%——但模型真的变聪明了吗？</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">General 365 的设计理念是<strong>解耦推理能力与专业知识</strong>：所有题目限定在 K-12 知识范围内，不需要任何专业背景就能做，但需要真正的推理能力才能做对。</p>
+
+<h3 style="font-size: 16px; font-weight: bold; color: #1a1a1a; margin-top: 24px; margin-bottom: 12px;">评测结果：真相很残酷</h3>
+
+<p style="font-size: 15px; margin-bottom: 16px;">对 26 个主流模型的评测（来源：General 365 arxiv 论文 2604.11778）：</p>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">模型</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: center;">准确率</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">排名梯队</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Gemini 3 Pro</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #27ae60; font-weight: bold;">62.8%</td>
+<td style="border: 1px solid #ddd; padding: 10px;">🥇 第一（仅勉强过60%及格线）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Gemini 3 Flash</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">60.8%</td>
+<td style="border: 1px solid #ddd; padding: 10px;">🥈 第二</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">GLM-5-Thinking</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">59.9%</td>
+<td style="border: 1px solid #ddd; padding: 10px;">🥉 第三（开源最强）</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">GPT-5-Thinking</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">58.6%</td>
+<td style="border: 1px solid #ddd; padding: 10px;">第二梯队</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">DeepSeek-V3.2-Speciale</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center;">57.5%</td>
+<td style="border: 1px solid #ddd; padding: 10px;">第二梯队</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">Claude Sonnet 4.5</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #e74c3c; font-weight: bold;">48.6%</td>
+<td style="border: 1px solid #ddd; padding: 10px;">远低于及格线</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">多数开源模型</td>
+<td style="border: 1px solid #ddd; padding: 10px; text-align: center; color: #e74c3c;">&lt;50%</td>
+<td style="border: 1px solid #ddd; padding: 10px;">不及格</td>
+</tr>
+</table>
+
+<p style="font-size: 15px; margin-bottom: 16px; font-weight: bold;">及格线设为 60%——全球最强模型 Gemini 3 Pro 也只勉强超过，Claude Sonnet 4.5 甚至不到 50%。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">这说明：模型在专业知识评测上刷高分，不代表真正的推理能力强。General 365 像一个"真相检测器"，把分数通胀打回原形。</p>
+
+<!-- ===== 七、选择决策树 ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">七、一张表帮你选对项目</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0;">
+<tr style="background: #f0f4f8;">
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">你的需求</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">推荐项目</th>
+<th style="border: 1px solid #ddd; padding: 10px; text-align: left;">理由</th>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">电商直播数字人</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">Video-Avatar 1.5</td>
+<td style="border: 1px solid #ddd; padding: 10px;">开源最优，打败 Kling/HeyGen</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">语音克隆/TTS产品</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">AudioDiT-3.5B</td>
+<td style="border: 1px solid #ddd; padding: 10px;">零样本SIM SOTA，A100可跑</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">多模态Agent研发</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">LongCat-Next</td>
+<td style="border: 1px solid #ddd; padding: 10px;">DiNA架构看+听+说+画统一</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">数学形式化研究</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">Flash-Prover</td>
+<td style="border: 1px solid #ddd; padding: 10px;">MiniF2F 97.1%</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ddd; padding: 10px;">世界模型评测</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">WBench</td>
+<td style="border: 1px solid #ddd; padding: 10px;">唯一多轮交互基准</td>
+</tr>
+<tr style="background: #fafbfc;">
+<td style="border: 1px solid #ddd; padding: 10px;">模型推理选型</td>
+<td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; color: #4a90d9;">General 365</td>
+<td style="border: 1px solid #ddd; padding: 10px;">真相检测器</td>
+</tr>
+</table>
+
+<!-- ===== 八、美团为什么做这些 ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">八、美团为什么做这些？</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">一个合理的疑问：外卖公司为什么搞数字人和数学证明？</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">答案藏在 LongCat-Next 的设计理念里："物理世界的 AI"。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">美团的核心业务是<strong>连接人与物理世界</strong>——外卖配送路径优化、骑手调度、商家服务。这些问题的本质是：AI 要能<strong>看懂</strong>真实场景（视觉）、<strong>听懂</strong>顾客需求（语音）、<strong>推理出</strong>最优方案（推理）、<strong>证明</strong>决策可靠（形式化验证）、<strong>生成</strong>交互内容（数字人客服）。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">LongCat 六大项目是一条从感知到推理到行动的完整链路：</p>
+
+<section style="background:#1a1b26;border-radius:8px;margin:18px 0;padding:16px 18px;">
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#e5c07b;">感知层</span>：LongCat-Next（看+听） → AudioDiT（语音交互）</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#e5c07b;">推理层</span>：General 365（推理评测） → Flash-Prover（逻辑验证）</p>
+<p style="margin:0;padding:0;font-size:12px;line-height:1.9;color:#a9b1d6;"><span style="color:#e5c07b;">行动层</span>：Video-Avatar 1.5（数字人客服） → WBench（交互评测）</p>
+</section>
+
+<p style="font-size: 15px; margin-bottom: 16px; font-weight: bold; color: #4a90d9;">外卖公司做 AI，不是因为外卖不够做，是因为物理世界 AI 正是外卖的未来。</p>
+
+<!-- ===== 结语 ===== -->
+
+<h2 style="font-size: 19px; font-weight: bold; color: #1a1a1a; margin-top: 32px; margin-bottom: 16px;">结语：开源不是慈善，是基础设施</h2>
+
+<p style="font-size: 15px; margin-bottom: 16px;">美团 LongCat 六大项目的意义不在于单个模型的性能——Video-Avatar 1.5 可能被 Kling 3.0 反超，AudioDiT 可能被 Seed-TTS 下一版追上。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">它的真正意义在于：<strong>一家中国互联网公司，第一次系统性地开源了从感知到推理到行动的 AI 全链路基础设施。</strong></p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">MIT 协议意味着你可以商用、修改、自托管——不需要支付任何 token 费用。6 大项目覆盖了数字人、多模态、数学证明、语音克隆、世界模型评测、推理评测——这些不是demo，是可部署的技术底座。</p>
+
+<p style="font-size: 15px; margin-bottom: 16px;">而接下来的问题是：<strong>当美团把物理世界 AI 的底层基础设施开源了，其他公司还怎么收 token 费？</strong></p>
+
+<div style="background:#fef9e7;border-left:4px solid #f39c12;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#555;">
+📍 本文首发于 <strong style="color:#4a90d9;">ZLinke · 智链</strong> | zlinke.top
+</div>
+
+</body>
+</html>

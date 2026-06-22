@@ -24,6 +24,7 @@ export default function Footer() {
               <Link href="/articles" className="block hover:text-white transition-colors">文章</Link>
               <Link href="/tools" className="block hover:text-white transition-colors">AI工具库</Link>
               <Link href="/about" className="block hover:text-white transition-colors">关于我们</Link>
+              <Link href="/privacy-policy" className="block hover:text-white transition-colors">隐私政策</Link>
             </div>
           </div>
 

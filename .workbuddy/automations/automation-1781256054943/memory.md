@@ -1,5 +1,27 @@
 # ZLinke 每日工具评测 - 执行记录
 
+## 2026-06-21: Kimi 深度评测
+- **工具**: Kimi (月之暗面 Moonshot AI)
+- **评级**: 4.3/5.0
+- **文件**: content/tool-reviews/kimi.md
+- **字数**: ~2300字
+- **Git提交**: 4781614 - "review: Kimi深度评测"
+- **核心发现**: Kimi是国产长文本处理标杆，K2.6（2026年4月开源）1T参数MoE+256K上下文+300子Agent集群实现从对话工具到Agent OS的进化，SWE-Bench Pro 58.6超越GPT-5.4。中文写作母语级体验无可匹敌。但MAU从3600万峰值断崖跌至约834万（连续四季度下滑），免费版Agent仅约6个/月严重鸡肋，最低付费¥49/月起跳导致价格敏感用户流失。K2.6代码基准测试亮眼但实际开发中仍不如DeepSeek/Claude，多模态只进不出（不支持图像/视频生成）是内容创作场景的硬伤。最佳策略是组合使用而非单独依赖。
+- **定价**: Adagio ¥0（Agent约6个/月）/ Andante ¥49/月（30个/月）/ Moderato ¥99/月 / Allegretto ¥199/月 / Allegro ¥699/月；API K2.6 $0.95/$4.00/1M tokens（输入/输出）
+- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi
+- **下一步**: doubao (国产AI助手，第一批次第三位，1.59亿MAU字节系产品)
+
+## 2026-06-20: Suno AI音乐生成器深度评测
+- **工具**: Suno (Suno, Inc.)
+- **评级**: 4.5/5.0
+- **文件**: content/tool-reviews/suno.md
+- **字数**: ~2300字
+- **Git提交**: 3f556b5 - "review: Suno AI音乐生成器深度评测"
+- **核心发现**: Suno是全球最快最易用的AI音乐生成器，1亿+用户+200万付费订阅+$300M ARR+$54亿估值。v5.5人声首次突破恐怖谷，5分钟从创意到完整歌曲。Pro $8/月含商业权利+全模型+12轨分轨。但黑箱生成(无法控制调性/BPM/曲式)是专业用户致命短板，Suno Studio仍处半成品状态，UMG+Sony诉讼未了结导致商业发行存在法律风险，ToS已从"你拥有它"软化为"用户通常不被视为内容拥有者"。vs Udio对比4-2胜出(工作流/定价/编辑/商业权利领先，人声/曲风覆盖落败)。
+- **定价**: Free $0 (50积分/天，v4.5-all) / Pro $10/月 $8年付 (2,500积分/月，全模型，商业权利) / Premier $30/月 $24年付 (10,000积分/月，全模型+Studio)
+- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno
+- **下一步**: kimi (国产AI助手，第一批次第二位)
+
 ## 2026-06-19: Perplexity AI 深度评测
 - **工具**: Perplexity AI (Perplexity AI, Inc.)
 - **评级**: 4.5/5.0
