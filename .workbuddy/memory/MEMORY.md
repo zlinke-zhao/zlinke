@@ -30,7 +30,9 @@
   - Ad slot: 8367513551（自动广告 + 展示广告单元）
   - 广告位：article-top, article-bottom, sidebar-top, sidebar-bottom, review-top, review-bottom
   - 已修复 2026-06-22：①创建 /privacy-policy 页面（含 GA/AdSense/Vercel 第三方披露） ②下架 gpt5-announcement 短文（重命名为 .md.draft 隐藏） ③修复横评文章场景三的逻辑漏洞
-  - 仍待办：补 Contact 页面、扩充 About 内容、保持每周 2-3 篇节奏拉长时间跨度
+  - 已修复 2026-06-23：④新增 /contact 页面（双邮箱+4种合作类型+FAQ） ⑤扩充 /about 页面（数据统计+团队介绍+5步编辑流程+信任承诺）
+  - 联系邮箱：451085427@qq.com（QQ）+ zlinke001@gmail.com（Gmail）
+  - 仍待办：保持每周 2-3 篇节奏拉长时间跨度
 - Google Analytics 4: ✅ 已接入（G-DGJEW18B8B），2026-06-14
 - Bing Webmaster: ❌ 未提交
 
@@ -46,4 +48,4 @@
 - AI Agent 入门实战指南 (2026-06-13): LangChain 1.x + LangGraph + 和风天气 API
 
 ## 自动化任务
-- "ZLinke每日运营助手" (automation-1781011611147): 每天8:00 网站健康检查 + 文章方向建议
+- "ZLinke每周运营助手" (automation-1781011611147): 每周一8:00 网站健康检查 + 文章方向建议 + 本周工具评测推荐（2026-06-23从每日改为每周）
