@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllArticles } from '@/lib/articles'
+import { hasReview } from '@/lib/tool-reviews'
 import { tools } from '@/lib/tools'
 
 const BASE_URL = 'https://zlinke.top'
@@ -31,6 +32,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    },
   ]
 
   // Article pages
@@ -42,13 +55,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  // Tool pages
-  const toolPages: MetadataRoute.Sitemap = tools.map((tool) => ({
-    url: `${BASE_URL}/tools/${tool.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  // Tool pages — 只包含有真实评测的工具，避免空页面被 Google 判为内容农场
+  const toolPages: MetadataRoute.Sitemap = tools
+    .filter((tool) => hasReview(tool.id))
+    .map((tool) => ({
+      url: `${BASE_URL}/tools/${tool.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }))
 
   return [...staticPages, ...articlePages, ...toolPages]
 }
