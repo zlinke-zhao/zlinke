@@ -363,6 +363,17 @@ export const tools: Tool[] = [
     price: '免费 / Pro $8/月',
     features: ['文字渲染', '高质量出图', '风格多样', '创意设计'],
   },
+  {
+    id: 'openart',
+    name: 'OpenArt',
+    description: '1000万+创作者使用的AI全栈创作平台，集图像生成、视频导演（Director）、角色一致性、3D世界构建于一体，支持Veo 3/Sora 2/Kling 3.0等顶级模型，年收入$7000万。',
+    category: 'AI图像生成',
+    subCategory: 'AI绘画',
+    rating: 4.4,
+    url: 'https://openart.ai',
+    price: '免费试用 / Pro $14/月起',
+    features: ['AI图像+视频', '角色一致性', 'Vibe Direct导演模式', '多模型聚合'],
+  },
 
   // ========================
   // 五、AI视频创作
@@ -700,6 +711,28 @@ export const tools: Tool[] = [
     url: 'https://zaro.ai',
     price: '免费 / 5000免费积分',
     features: ['上下文共享层', 'Agent工作空间', '文档生成应用', '多模型智能路由'],
+  },
+  {
+    id: 'elentaria',
+    name: 'Elentaria',
+    description: 'AI驱动的B2B GTM运营系统，自动分析22个营销渠道匹配度，制定全渠道计划并自动化执行，配备资深GTM专家审核，Product Hunt月榜第8名。',
+    category: 'AI办公效率',
+    subCategory: 'AI营销工具',
+    rating: 4.2,
+    url: 'https://elentaria.ai',
+    price: '预约演示 / 定价联系官方',
+    features: ['22渠道GTM分析', '自动化执行', '人类专家审核', '全渠道绩效监控'],
+  },
+  {
+    id: 'cotypist',
+    name: 'Cotypist',
+    description: 'Mac端AI智能输入补全工具，本地运行保护隐私，学习个人写作风格后在任意App中预测下一个词句，减少50%键盘输入，Apple Silicon原生支持。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.1,
+    url: 'https://cotypist.app',
+    price: '免费 / Pro $8/月',
+    features: ['本地AI补全', '个人风格学习', '全App支持', 'Apple Silicon原生'],
   },
   {
     id: 'respan',
