@@ -903,6 +903,28 @@ export const tools: Tool[] = [
     price: '免费',
     features: ['Claude驱动', '来源引用', 'Yahoo生态', '结构化答案'],
   },
+  {
+    id: 'felo',
+    name: 'Felo',
+    description: '日本团队打造的多语言AI搜索引擎，支持学术检索、日文专长和PPT一键生成，跨语言信息检索能力突出。',
+    category: 'AI搜索工具',
+    subCategory: 'AI搜索引擎',
+    rating: 4.2,
+    url: 'https://felo.ai',
+    price: '免费 / Pro $8/月',
+    features: ['多语言搜索', '学术检索', 'PPT生成', '日文专长'],
+  },
+  {
+    id: 'consensus',
+    name: 'Consensus',
+    description: '专注科学研究的AI搜索引擎，检索2.2亿+同行评审论文，用Consensus Meter展示学界态度，杜绝AI幻觉。',
+    category: 'AI搜索工具',
+    subCategory: 'AI搜索引擎',
+    rating: 4.3,
+    url: 'https://consensus.app',
+    price: '免费 / Premium $8.99/月',
+    features: ['论文检索', 'Consensus Meter', '引用导出', '循证决策'],
+  },
 
   // ========================
   // 八、AI音乐音频
@@ -939,5 +961,16 @@ export const tools: Tool[] = [
     url: 'https://udio.com',
     price: '免费 / Pro $10/月',
     features: ['文生音乐', '多风格', '高质量人声', 'Stem分离'],
+  },
+  {
+    id: 'aiva',
+    name: 'AIVA',
+    description: 'AI古典与电影配乐作曲工具，支持250+音乐风格、MIDI导出和DAW编辑，Pro版拥有完整版权，适合专业作曲和影视配乐。',
+    category: 'AI音乐音频',
+    subCategory: 'AI音乐',
+    rating: 4.2,
+    url: 'https://www.aiva.ai',
+    price: '免费 / Pro €33/月（完整版权）',
+    features: ['管弦乐配乐', '250+风格', 'MIDI导出', '完整版权'],
   },
 ]
