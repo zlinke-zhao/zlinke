@@ -131,6 +131,17 @@ export const tools: Tool[] = [
     price: '买断制 $39起 / 自带API Key',
     features: ['多模型聚合', '自带APIKey', '买断制', '插件生态'],
   },
+  {
+    id: 'discode-ai',
+    name: 'discode.ai',
+    description: '100+ AI模型聚合平台，智能选择最佳模型回答每个问题，独创CO₂足迹追踪、本地敏感数据检测和数据匿名化，支持多模型幻觉交叉检查。',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
+    rating: 4.2,
+    url: 'https://discode.ai',
+    price: '免费 / Pro定价联系官方',
+    features: ['100+模型聚合', '智能模型选择', 'CO₂可持续追踪', '多模型幻觉检查'],
+  },
 
   // ========================
   // 二、AI写作工具
@@ -444,6 +455,17 @@ export const tools: Tool[] = [
     price: '免费试用 / $29/月起',
     features: ['AI自动剪辑', '智能静音移除', '99+语言字幕', 'Claude AI驱动'],
   },
+  {
+    id: 'vebeai',
+    name: 'VebeAI',
+    description: 'AI短视频生产工作空间，将想法/链接/文件/音频转为可编辑视频草稿，AI自动生成脚本、场景、字幕和节奏规划，支持TikTok/Reels/Shorts/广告多格式导出。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.1,
+    url: 'https://vebe.ai',
+    price: '免费 / Pro定价待公布',
+    features: ['多源生成视频', 'AI脚本+场景+字幕', '多模型支持', '团队协作工作空间'],
+  },
 
   // ========================
   // 六、AI办公效率
@@ -735,6 +757,17 @@ export const tools: Tool[] = [
     features: ['本地AI补全', '个人风格学习', '全App支持', 'Apple Silicon原生'],
   },
   {
+    id: 'intelli',
+    name: 'Intelli',
+    description: 'AI原生B2C客户互动平台，统一WhatsApp/Web/FB/IG/Mail多渠道收件箱，AI销售助手自动跟进线索和客服，可视化对话流构建+低代码WhatsApp API集成。',
+    category: 'AI办公效率',
+    subCategory: 'AI行政助手',
+    rating: 4.2,
+    url: 'https://www.intelliconcierge.com',
+    price: '免费试用 / $15/月起',
+    features: ['多渠道统一收件箱', 'AI WhatsApp助手', '可视化流程构建', '营销广播+分析'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -854,6 +887,17 @@ export const tools: Tool[] = [
     url: 'https://www.oxlo.ai',
     price: '免费 / Pro $80/月（按次定价）',
     features: ['45+模型接入', '按次定价', '隐私零留存', 'Agent工具调用'],
+  },
+  {
+    id: 'qapilot-cowork',
+    name: 'QApilot CoWork',
+    description: 'AI辅助移动测试自动化平台，将Jira/TestRail/CSV中现有测试用例转为可执行自动化，人机协同重规划、真实设备执行，支持iOS/Android/Flutter，Product Hunt日榜第2名。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.3,
+    url: 'https://qapilot.io/product/cowork',
+    price: '免费规划 / 付费方案联系官方',
+    features: ['测试用例自动激活', '人机协同重规划', '真实设备执行', '跨平台测试'],
   },
 
   // ========================
