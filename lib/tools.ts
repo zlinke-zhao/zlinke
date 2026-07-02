@@ -834,6 +834,17 @@ export const tools: Tool[] = [
     features: ['AI COO角色', '多平台消息集成', '自然语言自动化', '项目风险预警'],
   },
   {
+    id: 'macuse',
+    name: 'Macuse',
+    description: 'macOS原生MCP工具，让Claude/Cursor等AI直接操控日历/邮件/备忘录等系统应用，支持任意App的Computer Use自动化，数据纯本地运行，一次性买断制。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.1,
+    url: 'https://macuse.app',
+    price: '免费 / 终身买断制',
+    features: ['MCP协议集成', '系统应用操控', 'Computer Use', '本地隐私保护'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -964,6 +975,17 @@ export const tools: Tool[] = [
     url: 'https://qapilot.io/product/cowork',
     price: '免费规划 / 付费方案联系官方',
     features: ['测试用例自动激活', '人机协同重规划', '真实设备执行', '跨平台测试'],
+  },
+  {
+    id: 'modelence',
+    name: 'Modelence',
+    description: 'YC投资的AI全栈应用构建器，自然语言描述即可生成含认证/数据库/监控的生产级Web+移动App，开放源码无供应商锁定，本周新增原生移动端构建支持。',
+    category: 'AI编程开发',
+    subCategory: '云端开发',
+    rating: 4.2,
+    url: 'https://modelence.com',
+    price: '免费 / 付费方案联系官方',
+    features: ['全栈应用生成', '移动端构建', '一键生产部署', 'YC投资开源框架'],
   },
 
   // ========================
