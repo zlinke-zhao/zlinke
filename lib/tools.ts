@@ -466,6 +466,17 @@ export const tools: Tool[] = [
     price: '免费 / Pro定价待公布',
     features: ['多源生成视频', 'AI脚本+场景+字幕', '多模型支持', '团队协作工作空间'],
   },
+  {
+    id: 'ciaro-pro',
+    name: 'Ciaro Pro',
+    description: '一站式AI影视制作平台，覆盖剧本创作→角色设计→分镜→AI视频生成→专业剪辑全流程，支持4K输出和Premiere Pro/DaVinci集成，Product Hunt 7月月榜上榜。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.3,
+    url: 'https://ciaro.pro',
+    price: '免费 / Indie $19/月 / Pro $49/月',
+    features: ['剧本→成片全流程', '角色一致性', '4K视频输出', 'Premiere/Resolve集成'],
+  },
 
   // ========================
   // 六、AI办公效率
@@ -845,6 +856,28 @@ export const tools: Tool[] = [
     features: ['MCP协议集成', '系统应用操控', 'Computer Use', '本地隐私保护'],
   },
   {
+    id: 'acti',
+    name: 'Acti',
+    description: '全球首款Agentic键盘，将手机键盘变为AI命令层，在任何文本框长按即可调用AI执行搜索、创建、分享等任务，入选Google AI Startups，TechCrunch/Digital Trends报道。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.3,
+    url: 'https://www.openacti.com',
+    price: '免费',
+    features: ['AI手机键盘', '任意文本域调用', 'Agent命令层', 'iOS+Android'],
+  },
+  {
+    id: 'macro',
+    name: 'Macro',
+    description: '开源AI一体化工作空间，将邮件、聊天、文档、任务、通话和CRM统一到一个App，AI Agent共享记忆自动处理工作，Product Hunt日榜第6名。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.3,
+    url: 'https://macro.com',
+    price: '免费（个人） / Team $40/座/月',
+    features: ['邮件+聊天+文档一体', 'AI Agent共享记忆', '开源GitHub', '统一工作空间'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -986,6 +1019,17 @@ export const tools: Tool[] = [
     url: 'https://modelence.com',
     price: '免费 / 付费方案联系官方',
     features: ['全栈应用生成', '移动端构建', '一键生产部署', 'YC投资开源框架'],
+  },
+  {
+    id: 'clusy',
+    name: 'Clusy',
+    description: 'Agent原生ML/数据科学笔记本平台，用自然语言描述需求即可在云端CPU/GPU上端到端执行数据分析和模型训练，支持分支实验对比，Product Hunt日榜上榜。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.2,
+    url: 'https://www.clusy.io',
+    price: '免费 / Plus $30/月 / Pro $90/月',
+    features: ['Agent原生笔记本', '端到端ML工作流', '云端GPU执行', '分支实验对比'],
   },
 
   // ========================
