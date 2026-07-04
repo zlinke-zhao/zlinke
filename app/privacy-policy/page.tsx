@@ -1,6 +1,9 @@
 export const metadata = {
   title: '隐私政策',
   description: 'ZLinke 智链隐私政策 - 了解我们如何收集、使用和保护您的数据',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 }
 
 export default function PrivacyPolicyPage() {

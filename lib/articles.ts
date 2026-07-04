@@ -45,7 +45,12 @@ export function getAllArticles(): ArticleData[] {
 
   const fileNames = fs.readdirSync(articlesDirectory)
   const articles = fileNames
-    .filter((name) => name.endsWith('.md'))
+    .filter((name) => {
+      // 只读取真正的 Web 文章，排除 WeChat 版本和草稿文件
+      if (!name.endsWith('.md')) return false
+      if (name.includes('-wechat')) return false
+      return true
+    })
     .map((name) => {
       const slug = name.replace(/\.md$/, '')
       const fullPath = path.join(articlesDirectory, name)
@@ -62,6 +67,10 @@ export function getAllArticles(): ArticleData[] {
         affiliates: data.affiliates || [],
         contentHtml: '', // Skip HTML conversion for list pages
       }
+    })
+    .filter((article) => {
+      // 过滤掉没有 frontmatter 的无效文章（如纯内容文件）
+      return article.title && article.date && article.category
     })
 
   return articles.sort((a, b) => (a.date > b.date ? -1 : 1))

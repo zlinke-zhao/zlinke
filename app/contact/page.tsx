@@ -1,6 +1,9 @@
 export const metadata = {
   title: '联系我们',
   description: '联系 ZLinke 智链 - 内容合作、商务合作、工具推荐、问题反馈',
+  alternates: {
+    canonical: '/contact',
+  },
 }
 
 export default function ContactPage() {

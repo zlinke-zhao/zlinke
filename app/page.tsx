@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import ArticleCard from '@/components/ArticleCard'
 import ToolCard from '@/components/ToolCard'
@@ -5,6 +6,12 @@ import Newsletter from '@/components/Newsletter'
 import { getAllArticles } from '@/lib/articles'
 import { tools } from '@/lib/tools'
 import { hasReview } from '@/lib/tool-reviews'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+}
 
 export default function Home() {
   const articles = getAllArticles()

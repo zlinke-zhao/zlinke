@@ -1,6 +1,9 @@
 export const metadata = {
   title: '关于',
   description: 'ZLinke 智链 - 你的AI工具发现站。深度评测、真实对比、专业推荐。',
+  alternates: {
+    canonical: '/about',
+  },
 }
 
 export default function AboutPage() {

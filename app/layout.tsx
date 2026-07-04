@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import ThemeProvider from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://zlinke.top'),
   title: {
     default: 'ZLinke 智链 - 发现最好的AI工具',
     template: '%s | ZLinke 智链',

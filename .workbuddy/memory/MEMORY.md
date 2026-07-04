@@ -23,20 +23,22 @@
 
 ## SEO & 变现状态
 - Google Search Console: ✅ 已验证通过（2026-06-14）
-- sitemap.xml: ✅ 已上线（52 URLs，2026-06-15 更新）
+- sitemap.xml: ✅ 已上线（42 URLs，2026-06-27 更新，修复工具URL从77→17）
 - robots.txt: ✅ 已上线
-- Google AdSense: ⚠️ 审核待调整（2026-06-22收到"只需稍作调整"邮件，核心原因：内容不足或质量欠佳）
+- Google AdSense: ⚠️ 二次被拒（2026-06-26再次收到"只需稍作调整"邮件）
   - Ad client: ca-pub-1019611632171859
   - Ad slot: 8367513551（自动广告 + 展示广告单元）
   - 广告位：article-top, article-bottom, sidebar-top, sidebar-bottom, review-top, review-bottom
   - 已修复 2026-06-22：①创建 /privacy-policy 页面（含 GA/AdSense/Vercel 第三方披露） ②下架 gpt5-announcement 短文（重命名为 .md.draft 隐藏） ③修复横评文章场景三的逻辑漏洞
   - 已修复 2026-06-23：④新增 /contact 页面（双邮箱+4种合作类型+FAQ） ⑤扩充 /about 页面（数据统计+团队介绍+5步编辑流程+信任承诺）
+  - 已修复 2026-06-27：✅⑥sitemap.xml 工具URL从77个降至17个（仅含真实评测页），消除Google内容农场判定 → 待重新提交审核
   - 联系邮箱：451085427@qq.com（QQ）+ zlinke001@gmail.com（Gmail）
   - 仍待办：保持每周 2-3 篇节奏拉长时间跨度
 - Google Analytics 4: ✅ 已接入（G-DGJEW18B8B），2026-06-14
 - Bing Webmaster: ❌ 未提交
 
 ## 已发布文章
+- Canva AI 深度评测 (2026-06-27): Magic Studio全功能实测，265M用户平台AI能力真的够用吗？
 - 国产大模型免费API横评 (2026-06-22): 智谱GLM/豆包/DeepSeek/通义千问四大免费API全面对比+代码实测+选型决策树+避坑指南
 - 美团LongCat开源全家桶解读 (2026-06-21): 6大项目（Video-Avatar 1.5/Next(DiNA)/Flash-Prover/AudioDiT/WBench/General 365）逐个拆解+上手指南+选择决策树
 - GLM-5.2 深度实测 (2026-06-20): GLM-5.2以1/6成本击败GPT-5.5，FrontierSWE距Opus 4.8仅1%，含完整API接入教程+价格测算

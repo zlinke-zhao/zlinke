@@ -5,6 +5,9 @@ import AdSlot from '@/components/AdSlot'
 export const metadata = {
   title: '文章',
   description: 'AI工具评测、科技新闻、深度分析 — ZLinke智链文章列表',
+  alternates: {
+    canonical: '/articles',
+  },
 }
 
 const categories = ['全部', '新闻', '评测', '深度']
