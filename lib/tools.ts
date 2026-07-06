@@ -385,6 +385,17 @@ export const tools: Tool[] = [
     price: '免费试用 / Pro $14/月起',
     features: ['AI图像+视频', '角色一致性', 'Vibe Direct导演模式', '多模型聚合'],
   },
+  {
+    id: 'zawa',
+    name: 'Zawa',
+    description: 'AI品牌创意Agent平台（原X-Design），一键生成Logo/海报/社媒素材/产品图，支持AI产品摄影和视频生成，全新Image Remix功能可克隆热门图片构图并替换自家产品，GlobeNewswire 7月3日报道。',
+    category: 'AI图像生成',
+    subCategory: 'AI设计',
+    rating: 4.2,
+    url: 'https://zawa.ai',
+    price: '免费 / 付费方案',
+    features: ['AI品牌设计', 'Logo生成', '图像翻拍', '社媒素材'],
+  },
 
   // ========================
   // 五、AI视频创作
@@ -911,6 +922,28 @@ export const tools: Tool[] = [
     features: ['Agent共享上下文', '知识图谱', '主动自动化', 'MEME基准领先'],
   },
   {
+    id: 'mentiondrop',
+    name: 'MentionDrop',
+    description: '品牌监测MCP工具，连接Claude/Cursor等AI Agent实时追踪品牌提及、竞品动态和客户反馈，AI分析情感并建议回复/跟进/忽略，Product Hunt 7月6日日榜第1名。',
+    category: 'AI办公效率',
+    subCategory: 'AI营销工具',
+    rating: 4.2,
+    url: 'https://www.mentiondrop.com',
+    price: '免费试用 / 付费方案联系官方',
+    features: ['品牌监测', 'MCP Agent集成', '情感分析', '竞品追踪'],
+  },
+  {
+    id: 'docsalot',
+    name: 'DocsAlot',
+    description: '面向人类和AI Agent双端的文档管理平台，将散落的产品知识转化为llms.txt/skill.md/MCP就绪文档，内置AI可见性审计确保Agent正确引用，Product Hunt 7月6日日榜第2名。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.1,
+    url: 'https://docsalot.dev',
+    price: 'Startup $39/月 / Team $99/月',
+    features: ['AI可读文档', 'llms.txt/skill.md', 'MCP集成', 'AI可见性审计'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -1118,6 +1151,17 @@ export const tools: Tool[] = [
     url: 'https://scritty.dev',
     price: '免费试用 / Personal $19.99/月 / Pro $249.99/月',
     features: ['Agent对话捕获', '跨供应商搜索', '本地加密存储', 'MCP记忆反馈'],
+  },
+  {
+    id: 'trycase',
+    name: 'TryCase',
+    description: 'AI编程Agent一次性测试环境，为Claude/Cursor等Agent提供可销毁Linux桌面运行和测试应用，自动返回截图、录屏和日志作为验证证明，Product Hunt 7月6日日榜第6名。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.2,
+    url: 'https://www.trycase.dev',
+    price: '测试期免费 / 付费方案联系官方',
+    features: ['Agent测试环境', '浏览器自动化', '截图录屏验证', 'CLI+Skills集成'],
   },
 
   // ========================
