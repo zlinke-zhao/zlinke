@@ -488,6 +488,17 @@ export const tools: Tool[] = [
     price: '免费 / Indie $19/月 / Pro $49/月',
     features: ['剧本→成片全流程', '角色一致性', '4K视频输出', 'Premiere/Resolve集成'],
   },
+  {
+    id: 'stanley-studio',
+    name: 'Stanley Studio',
+    description: 'AI视频编辑器，上传原始素材后用自然语言描述想要的剪辑效果，AI自动完成裁剪、字幕、BGM和特效，像雇了一个真人剪辑师，Product Hunt 7月7日日榜第8名。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.2,
+    url: 'https://studio.getstanley.ai',
+    price: '免费',
+    features: ['自然语言剪辑', '自动字幕+特效', '智能BGM匹配', '多种视频格式'],
+  },
 
   // ========================
   // 六、AI办公效率
@@ -944,6 +955,17 @@ export const tools: Tool[] = [
     features: ['AI可读文档', 'llms.txt/skill.md', 'MCP集成', 'AI可见性审计'],
   },
   {
+    id: 'airkaren',
+    name: 'AirKaren',
+    description: 'AI消费者维权助手，输入航班延误/行李丢失等问题后自动引用法规、填写申诉、持续跟进直到获得赔偿，Harvard/Northwestern学生团队打造，Beta期完全免费，Product Hunt 7月7日日榜第7名。',
+    category: 'AI办公效率',
+    subCategory: 'AI行政助手',
+    rating: 4.1,
+    url: 'https://airkaren.com',
+    price: 'Beta免费 / 后续按成功收费',
+    features: ['AI自动维权', '法规引用', '持续跟进', '补偿追索'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -1162,6 +1184,28 @@ export const tools: Tool[] = [
     url: 'https://www.trycase.dev',
     price: '测试期免费 / 付费方案联系官方',
     features: ['Agent测试环境', '浏览器自动化', '截图录屏验证', 'CLI+Skills集成'],
+  },
+  {
+    id: 'anysearch',
+    name: 'AnySearch',
+    description: '专为AI Agent打造的搜索基础设施，提供过滤、去重和结构化搜索结果API，原生支持MCP和Skill集成，每日1000次免费调用，PR Newswire 5月专题报道。',
+    category: 'AI编程开发',
+    subCategory: 'AI基础设施',
+    rating: 4.2,
+    url: 'https://www.anysearch.com',
+    price: '免费 / 按量付费',
+    features: ['Agent搜索API', '结构化数据输出', 'MCP协议支持', '垂直领域搜索'],
+  },
+  {
+    id: 'circlechat',
+    name: 'CircleChat',
+    description: '开源AI Agent协作工作空间，给Agent配备Slack式频道+看板+审批流程，Agent自主认领任务、互相协作并由独立审查者验证输出，MIT协议自托管免费，Product Hunt日榜第6名。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.2,
+    url: 'https://circlechat.co',
+    price: '自托管免费 / Cloud $29/月',
+    features: ['Agent看板管理', '任务自动路由', '独立审查验证', '开源MIT协议'],
   },
 
   // ========================
