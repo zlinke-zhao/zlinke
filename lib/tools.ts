@@ -499,6 +499,17 @@ export const tools: Tool[] = [
     price: '免费',
     features: ['自然语言剪辑', '自动字幕+特效', '智能BGM匹配', '多种视频格式'],
   },
+  {
+    id: 'glideo',
+    name: 'Glideo',
+    description: 'macOS免费录屏工具，自动根据点击轨迹运镜缩放、平滑光标，零手动剪辑产出演示视频。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.1,
+    url: 'https://glideo.app',
+    price: '免费（个人）/ 企业合同',
+    features: ['自动运镜缩放', '光标平滑', '4K导出', '完全本地私密'],
+  },
 
   // ========================
   // 六、AI办公效率
@@ -999,6 +1010,17 @@ export const tools: Tool[] = [
     features: ['面对面会议转录', 'AI说话人分离', '自然语言查询', 'Apple Watch支持'],
   },
   {
+    id: 'lemonlime',
+    name: 'LemonLime',
+    description: '一句话自动化工作流的AI平台，连接现有工具构建知识图谱并自创专属部门Agent。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.0,
+    url: 'https://lemonlime.ai',
+    price: 'Pro $29/月（无免费档）',
+    features: ['一句话自动化', '知识图谱', '自创部门Agent', '多工具集成'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -1251,6 +1273,17 @@ export const tools: Tool[] = [
     price: '7天免费试用 / 付费方案',
     features: ['iPhone远程Agent', '实时Diff审查', '端到端加密', '锁屏Live Activity'],
   },
+  {
+    id: 'agents-cli',
+    name: 'Agents CLI (Google)',
+    description: 'Google开源CLI与技能包，让编码Agent在Google Cloud上构建、评估并部署AI智能体。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.2,
+    url: 'https://google.github.io/agents-cli/',
+    price: '免费开源',
+    features: ['AI Agent构建', 'Google Cloud部署', '编码Agent协同', 'ADK集成评估'],
+  },
 
   // ========================
   // 七、AI搜索工具
@@ -1368,5 +1401,16 @@ export const tools: Tool[] = [
     url: 'https://www.aiva.ai',
     price: '免费 / Pro €33/月（完整版权）',
     features: ['管弦乐配乐', '250+风格', 'MIDI导出', '完整版权'],
+  },
+  {
+    id: 'willow-voice',
+    name: 'Willow Voice',
+    description: '跨Mac/Windows/iPhone的AI语音听写工具，3倍准确率、200ms低延迟、自动格式化文本。',
+    category: 'AI音乐音频',
+    subCategory: 'AI语音',
+    rating: 4.3,
+    url: 'https://willowvoice.com',
+    price: '免费下载 / Pro付费',
+    features: ['AI语音听写', '跨平台支持', '自动格式化', '100+语言'],
   },
 ]
