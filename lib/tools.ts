@@ -142,6 +142,17 @@ export const tools: Tool[] = [
     price: '免费 / Pro定价联系官方',
     features: ['100+模型聚合', '智能模型选择', 'CO₂可持续追踪', '多模型幻觉检查'],
   },
+  {
+    id: 'asi-one',
+    name: 'ASI:One',
+    description: 'Fetch.ai打造的个人AI助手，具备短/中/长期记忆，可学习用户偏好并与其他AI协作、自动规划执行任务，连接Agentverse数百万智能体。',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
+    rating: 4.0,
+    url: 'https://asi1.ai',
+    price: '免费 / 付费方案联系官方',
+    features: ['长期记忆', 'AI协作规划', 'Agentverse生态', '个性化人格'],
+  },
 
   // ========================
   // 二、AI写作工具
@@ -509,6 +520,17 @@ export const tools: Tool[] = [
     url: 'https://glideo.app',
     price: '免费（个人）/ 企业合同',
     features: ['自动运镜缩放', '光标平滑', '4K导出', '完全本地私密'],
+  },
+  {
+    id: 'focusee',
+    name: 'FocuSee 2.0',
+    description: 'iMobie推出的自动剪辑录屏工具，录制屏幕后AI自动生成精修演示/教程视频，含AI字幕、背景移除、语音增强、数字人和智能运镜。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.0,
+    url: 'https://focusee.imobie.com',
+    price: '免费试用 / 买断制（含60天退款）',
+    features: ['AI自动剪辑', 'AI字幕生成', '语音增强降噪', '数字人讲解'],
   },
 
   // ========================
@@ -1021,6 +1043,17 @@ export const tools: Tool[] = [
     features: ['一句话自动化', '知识图谱', '自创部门Agent', '多工具集成'],
   },
   {
+    id: 'toyo',
+    name: 'Toyo',
+    description: '活在iMessage/Telegram里的AI行政助理，自动分类邮件、起草回复、安排会议、电话跟进，连接Gmail/Calendar/Slack等工具全天候主动工作。',
+    category: 'AI办公效率',
+    subCategory: 'AI行政助手',
+    rating: 4.0,
+    url: 'https://toyo.ai',
+    price: 'EA $29/月 / 团队方案联系官方',
+    features: ['iMessage原生', '邮件自动分类', 'AI电话跟进', '会议准备与提醒'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -1283,6 +1316,17 @@ export const tools: Tool[] = [
     url: 'https://google.github.io/agents-cli/',
     price: '免费开源',
     features: ['AI Agent构建', 'Google Cloud部署', '编码Agent协同', 'ADK集成评估'],
+  },
+  {
+    id: 'magic-patterns',
+    name: 'Magic Patterns Agent 2.0',
+    description: '面向产品团队的AI设计Agent，从想法生成匹配设计系统的可交互UI原型，并导出生产级代码，支持Skills/Connectors/MCP 2.0，SOC 2与ISO 27001认证。',
+    category: 'AI编程开发',
+    subCategory: 'AI设计',
+    rating: 4.0,
+    url: 'https://www.magicpatterns.com',
+    price: '免费 / Starter $20/座/月',
+    features: ['想法转UI原型', '设计系统匹配', '生产级代码导出', 'MCP 2.0集成'],
   },
 
   // ========================
