@@ -532,6 +532,17 @@ export const tools: Tool[] = [
     price: '免费试用 / 买断制（含60天退款）',
     features: ['AI自动剪辑', 'AI字幕生成', '语音增强降噪', '数字人讲解'],
   },
+  {
+    id: 'chatcut',
+    name: 'ChatCut',
+    description: '对话式AI视频编辑器，用提示词自动剪辑口播素材，智能删除填充词、提取高光、生成动态图形与字幕，浏览器即用。',
+    category: 'AI视频创作',
+    subCategory: 'AI视频生成',
+    rating: 4.2,
+    url: 'https://chatcut.io',
+    price: '免费 / Plus $25/月',
+    features: ['对话式剪辑', '智能去填充词', 'AI动态图形', '100+语言字幕'],
+  },
 
   // ========================
   // 六、AI办公效率
@@ -1087,6 +1098,28 @@ export const tools: Tool[] = [
     features: ['多Agent编排', '跨系统读写', '人机协同审批', '200+集成/MCP'],
   },
   {
+    id: 'scarlett',
+    name: 'Scarlett.',
+    description: '活在Slack和iMessage里的AI同事，连接3000+工具自动起草PPT、写代码、建仪表盘并定时推送业务简报，Powered by Claude。',
+    category: 'AI办公效率',
+    subCategory: 'AI行政助手',
+    rating: 4.2,
+    url: 'https://tryscarlett.ai',
+    price: '$50免费额度 / $29/月起',
+    features: ['Slack/iMessage原生', '3000+工具集成', '端到端工作流', '定时业务简报'],
+  },
+  {
+    id: 'connectmachine',
+    name: 'ConnectMachine 2.0',
+    description: '隐私优先的AI联系人管理与数字名片工具，扫描名片、记录对话，AI管家用自然语言回忆"在某某会议见过谁、为何重要"，支持CRM同步。',
+    category: 'AI办公效率',
+    subCategory: 'AI效率工具',
+    rating: 4.1,
+    url: 'https://connectmachine.ai',
+    price: '免费 / Individual $5.99/月',
+    features: ['AI数字名片', '名片OCR扫描', 'AI关系回忆', 'CRM同步'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -1371,6 +1404,17 @@ export const tools: Tool[] = [
     url: 'https://auravcs.com',
     price: '免费（开源 Apache-2.0）',
     features: ['多Agent统一引擎', 'AST语义级Diff', '目标↔提交证明', '完全开源'],
+  },
+  {
+    id: 'prometheus-firecrawl',
+    name: 'Prometheus by Firecrawl',
+    description: 'Firecrawl推出的"前线城市部署Agent"，用自然语言生成可验证、可自修复的TypeScript网页采集器，支持定时部署与API输出。',
+    category: 'AI编程开发',
+    subCategory: 'AI基础设施',
+    rating: 4.3,
+    url: 'https://www.firecrawl.dev/prometheus',
+    price: '免费 / 按Firecrawl积分计费（$16/月起）',
+    features: ['自然语言转采集器', '代码可验证自修复', '定时+API部署', 'HTTP/CLI/MCP集成'],
   },
 
   // ========================
