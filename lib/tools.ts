@@ -153,6 +153,17 @@ export const tools: Tool[] = [
     price: '免费 / 付费方案联系官方',
     features: ['长期记忆', 'AI协作规划', 'Agentverse生态', '个性化人格'],
   },
+  {
+    id: 'osaurus',
+    name: 'Osaurus',
+    description: 'macOS原生本地AI助手，模型完全在Apple Silicon芯片上离线运行，支持自建模Agent、共享记忆与MCP，数据不出本机。',
+    category: 'AI对话助手',
+    subCategory: '通用助手',
+    rating: 4.2,
+    url: 'https://osaurus.ai',
+    price: '免费（开源 MIT）',
+    features: ['本地离线运行', '自建Agent', '共享记忆', 'MCP服务器'],
+  },
 
   // ========================
   // 二、AI写作工具
@@ -1120,6 +1131,17 @@ export const tools: Tool[] = [
     features: ['AI数字名片', '名片OCR扫描', 'AI关系回忆', 'CRM同步'],
   },
   {
+    id: 'bono-ai',
+    name: 'Bono AI',
+    description: 'AI内容策略师，通过10分钟语音访谈提取你的观点与语气，自动生成博客、社交媒体帖文和新闻通讯并多平台分发。',
+    category: 'AI办公效率',
+    subCategory: 'AI营销工具',
+    rating: 4.0,
+    url: 'https://heybono.ai',
+    price: '免费 / $29/月起',
+    features: ['语音访谈式创作', '多平台分发', '品牌语调学习', '博客+社媒+简报'],
+  },
+  {
     id: 'respan',
     name: 'Respan',
     description: 'LLM工程平台，统一API网关+可观测性+评估，支持500+模型路由、故障转移和语义缓存，处理超80万亿Token，获$500万种子轮融资。',
@@ -1415,6 +1437,28 @@ export const tools: Tool[] = [
     url: 'https://www.firecrawl.dev/prometheus',
     price: '免费 / 按Firecrawl积分计费（$16/月起）',
     features: ['自然语言转采集器', '代码可验证自修复', '定时+API部署', 'HTTP/CLI/MCP集成'],
+  },
+  {
+    id: 'agentkey',
+    name: 'AgentKey',
+    description: 'Chainbase Labs出品的Agent数据接入层，一个Key让Claude Code/Cursor等AI Agent访问搜索、社媒、链上、金融等实时数据，自动故障转移。',
+    category: 'AI编程开发',
+    subCategory: 'AI工具链',
+    rating: 4.2,
+    url: 'https://agentkey.app',
+    price: '免费 / 按次计费（无月费）',
+    features: ['Agent实时数据', 'MCP插件', '多源故障转移', '40+Agent客户端'],
+  },
+  {
+    id: 'opper-ai',
+    name: 'Opper AI',
+    description: '欧洲（斯德哥尔摩）托管的AI网关，一个OpenAI兼容API接入300+模型，GDPR合规、自动故障转移与全量审计，专为Agent设计。',
+    category: 'AI编程开发',
+    subCategory: 'AI基础设施',
+    rating: 4.2,
+    url: 'https://opper.ai',
+    price: '免费 / 按量付费（GDPR合规）',
+    features: ['300+模型网关', 'EU数据驻留', '自动故障转移', '全量审计追踪'],
   },
 
   // ========================
