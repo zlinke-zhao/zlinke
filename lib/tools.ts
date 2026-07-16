@@ -1649,4 +1649,15 @@ export const tools: Tool[] = [
     price: '免费 / 积分制',
     features: ['对话生成桌面应用', '20+内置技能', 'Kro Browser Bridge', '应用一键分享'],
   },
+  {
+    id: 'fellou',
+    name: 'Fellou',
+    description: '全球首款代理式AI浏览器（Agentic Browser），桌面端自动规划并执行跨网站与本地任务，内置Computer Use与Agentic Memory。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://www.fellou.ai/',
+    price: 'CE版免费 / Plus $19·Pro $39.9 月',
+    features: ['Agentic浏览器', '先规划后执行', 'Computer Use本地操控', 'Agentic Memory', '跨站深研报告', '可实时介入'],
+  },
 ]
