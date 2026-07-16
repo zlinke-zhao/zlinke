@@ -29,7 +29,8 @@
   - Ad client: ca-pub-1019611632171859（当前主账号，zlinke.top 已配置ads.txt，建议保留此号）
   - Ad slot: 8367513551（自动广告 + 展示广告单元）
   - 广告位：article-top, article-bottom, sidebar-top, sidebar-bottom, review-top, review-bottom
-  - 根因（2026-07-16 赵生截图确认）：Google 拒绝页显示"重复账号"，即赵生名下已存在另一 AdSense 账号（可能早年注册 / AdMob / YouTube变现 / Blogger / 其他域名）。AdSense 政策禁止一人多账号。解法是排查所有 Gmail、关闭重复账号后重新申请复核
+  - 根因（2026-07-16确认 + 赵生排除5种常见重复场景）：申请邮箱 zlinke001@gmail.com。Google 拒绝页显示"重复账号"。赵生明确排除早年注册/YouTube变现/AdMob/Blogger等其他域名/帮人申请——故"重复账号"**极大概率是 zlinke001@gmail.com 自身此前申请的账号（被拒/停用状态仍留存于Google系统），而非外部老账号**。关键误解：被拒≠账号消失，残留账号再次发起申请即报"重复"。⚠️ 解法不是"关掉重开"（同一身份会再判重复），而是登录原账号走【申诉/申请复核】
+  - 待赵生确认：①登录 zlinke001@gmail.com 的 AdSense 看实际状态（后台/申请页/被拒）②转发 Google 拒绝邮件原文（含关联 pub-ID 与隐去邮箱）③查 myaccount.google.com 的 AdSense 关联
   - 已修复 2026-06-22：①创建 /privacy-policy 页面（含 GA/AdSense/Vercel 第三方披露） ②下架 gpt5-announcement 短文（重命名为 .md.draft 隐藏） ③修复横评文章场景三的逻辑漏洞
   - 已修复 2026-06-23：④新增 /contact 页面（双邮箱+4种合作类型+FAQ） ⑤扩充 /about 页面（数据统计+团队介绍+5步编辑流程+信任承诺）
   - 已修复 2026-06-27：⑥sitemap.xml 工具URL从77个降至17个（仅含真实评测页），消除Google内容农场判定
