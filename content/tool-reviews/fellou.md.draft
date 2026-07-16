@@ -1,0 +1,87 @@
+---
+id: fellou
+title: "Fellou 深度评测：全球首款 Agentic Browser，把浏览器变成会自己干活的智能体"
+date: "2026-07-16"
+category: "AI工作台"
+rating: 4.4
+price: "免费下载 / 订阅制（官网未公开具体档位，需注册后查看）"
+subtitle: "以完整浏览器客户端为底座的桌面智能体：Deep Action 跨 App 自动执行 + Computer Use 操控本地应用 + Agentic Memory 记住你的上下文"
+url: "https://fellou.ai"
+pros:
+  - "Agentic Browser 形态独树一帜：不是 CLI 套壳，而是完整浏览器客户端，自带 Deep Action 跨 App 自动执行"
+  - "Deep Search 穿透登录态：能自动抓 X / Reddit / Salesforce 等已登录站点的数据，生成带可验证来源的深度报告"
+  - "Computer Use 系统级操控：授权后可操作本地 App 和文件，从「对话」升级为「系统级 Agent」"
+  - "Agentic Memory + Eko 2.0 开源框架：自动学习浏览器/笔记上下文，还能用自然语言+JS 自定义 Agent"
+cons:
+  - "价格不透明：官网 FAQ 未披露具体订阅档位，成本控制需注册实测"
+  - "重云端执行：以云端 Agent 工作区为主，离线/私有化部署能力未明确，敏感数据需谨慎授权"
+  - "浏览器形态对纯 IDE/代码场景不如 Cursor；与已收录的 Kimi Work / KroWork 桌面智能体定位有重叠"
+  - "「亲测」步骤需站长（赵生）补入真实操作记录后再正式发布，避免编造"
+alternatives:
+  - { name: "Kimi Work", slug: "kimi-work", reason: "同为桌面智能体，Kimi 以对话入口+WebBridge 为主，256K 长文本基因强；Fellou 以浏览器为整个产品形态，深度搜索更彻底" }
+  - { name: "KroWork", slug: "krowork", reason: "国产桌面 Agent，对话生成可分享应用 + Kro Browser Bridge，本地化更彻底；Fellou 国际化、跨登录态搜索更强" }
+  - { name: "AutoClaw（澳龙）", slug: "autoclaw", reason: "智谱一键安装版 OpenClaw 套壳，50+ 预置技能；Fellou 是独立商业产品，非开源套壳" }
+  - { name: "ArkClaw", slug: "arkclaw", reason: "火山引擎云端托管版，7×24 在线免部署，飞书深度集成；Fellou 偏本地浏览器客户端形态" }
+---
+
+## 一句话总结
+
+Fellou 是「把浏览器本身变成智能体」的尝试——核心不是又一个聊天框，而是 **Agentic Browser**：先用 Deep Action 把你的目标拆解成可审阅的执行计划，再跨 App（含已登录的 X / Reddit / Salesforce）自动跑完，还能用 Computer Use 操控本地 App 和文件。**适合每天泡在网页信息流、要做竞品分析/深度研究/跨平台搬运的分析师与运营；但价格不透明、重云端执行，且和 Kimi Work / KroWork 桌面智能体存在定位重叠，建议先当「会自己上网干活的浏览器」试用。**
+
+> ⚠️ **评测说明**：本文「产品能力」部分基于 Fellou 官网（fellou.ai）公开信息与 FAQ 撰写；**「亲测」部分的真实操作步骤需站长（赵生）补入实际测试记录后再正式发布**，避免编造。文章先以草稿形态存档，待亲测素材到位后替换标注段落并发布。
+
+## 核心定位一览
+
+<table>
+  <tr><td style="width:140px;font-weight:bold">产品形态</td><td>Agentic Browser（代理式浏览器，完整客户端）</td></tr>
+  <tr><td style="font-weight:bold">核心能力</td><td>Deep Action 跨 App 自动执行 + Deep Search 穿透登录态 + Computer Use 系统级操控 + Agentic Memory</td></tr>
+  <tr><td style="font-weight:bold">差异化引擎</td><td>Eko 2.0 开源框架（自然语言 + JavaScript 自定义 Agent）</td></tr>
+  <tr><td style="font-weight:bold">支持平台</td><td>macOS / Windows（官网提供 Download）</td></tr>
+  <tr><td style="font-weight:bold">调度能力</td><td>支持定时 / 循环任务（New Schedule）</td></tr>
+  <tr><td style="font-weight:bold">实时可控</td><td>展示完整执行计划，随时编辑 / 批准 / 中途介入</td></tr>
+  <tr><td style="font-weight:bold">价格</td><td>免费下载；订阅档位官网未公开，需注册查看</td></tr>
+</table>
+
+## 与已收录桌面智能体 / OpenClaw 系的差异点
+
+| 维度 | Fellou | Kimi Work / KroWork | OpenClaw 套壳（AutoClaw / ArkClaw） |
+| --- | --- | --- | --- |
+| 产品形态 | 完整浏览器客户端（Agentic Browser） | 对话入口 + 浏览器桥接（WebBridge） | 开源框架一键安装套壳 |
+| 最大卖点 | Deep Search 穿透登录态生成可溯源报告 | 长文本基因 / 本地化应用生成 | 预置技能市场 + 模型 API |
+| 本地 App 操控 | ✅ Computer Use 系统级 | ✅ 各有 Browser Bridge | ⚠️ 依赖模型/插件能力 |
+| 自定义 Agent | ✅ Eko 2.0 开源框架（NL+JS） | ⚠️ 技能生态早期 | ✅ Skill 商店 |
+| 是否独立商业产品 | 是 | 是 | 开源套壳 |
+
+**结论**：Fellou 区别于 OpenClaw 系「套壳」，是**真·桌面 Agent（浏览器 + 本地 App 操控）**；区别于 Kimi Work / KroWork 的「对话 + 桥接」形态，Fellou 以**浏览器为整个产品底座**，深度搜索穿透登录态站点（X / Reddit / Salesforce）是其稀缺能力。
+
+## 解决的问题
+
+1. **竞品分析 / 深度研究自动化**：一条指令让 Agent 自动识别关键玩家、抓定价、比对功能、生成带来源的市场定位报告，省去自己开十几个标签页。
+2. **跨登录态数据搬运**：能操作已登录账号（X、Reddit、Salesforce），把一处数据拉到另一处（如 LinkedIn → Notion），比纯 API 工具更贴近真实网页。
+3. **系统级琐事代理**：Computer Use 授权后可操作本地 App 与文件，从「AI 给建议」升级为「AI 直接办事」。
+4. **上下文记忆**：Agentic Memory 从浏览器历史 / 笔记学习，问一句就能召回过往工作，不用反复喂上下文。
+
+## 优势与短板
+
+**优势：**
+- 形态新颖且闭环完整：规划 → 执行 → 报告 → 记忆，单产品内跑通。
+- 穿透登录态的深度搜索是稀缺差异化，报告带可验证来源。
+- 实时干预机制降低「黑箱焦虑」，用户始终有控制权。
+
+**短板：**
+- 价格不透明，订阅成本需实测。
+- 重云端 Agent 工作区，离线 / 私有化能力未明确，敏感数据授权需谨慎。
+- 与 Kimi Work / KroWork 定位重叠，纯 IDE 场景不如 Cursor 顺手。
+- 官网宣称「3.1x faster than OpenAI」「crushed them」等营销话术需独立验证，不宜直接采信。
+
+## 最终推荐
+
+**适合：** 每天做竞品分析、深度调研、跨平台信息搬运的分析师 / 运营 / 研究者；想让浏览器替自己跑腿的重度网页用户。
+
+**不建议依赖：** 需要离线 / 私有化部署的敏感场景；纯代码 IDE 内重构；预算敏感且不愿先注册看价的用户。
+
+**组合建议**：把 Fellou 当「会自己上网干活的浏览器」做研究与搬运；本地长文档分析交给 Kimi Work；IDE 重构用 Cursor——各司其职。
+
+---
+
+**评测声明**：本文基于 Fellou 官网（fellou.ai）公开产品信息与 FAQ 撰写，差异化对比基于与本库已收录桌面智能体 / OpenClaw 系工具的能力梳理。所有营销性表述（如速度对比）均需独立验证，本文不含付费推广。「亲测」操作记录待站长（赵生）补入后发布正式版。

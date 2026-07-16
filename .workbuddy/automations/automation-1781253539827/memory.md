@@ -226,5 +226,5 @@
 - **工具总数**: 144 → 145
 - **搜索来源**: WebSearch (Fellou AI agentic browser / Manus / Flowith / OpenClaw competitor)
 - **安全验证**: 1候选 → 1通过 (HTTPS, safe=true, risk_level=low, 0 warnings)；WebFetch确认官网真实内容（Agentic Browser定位、Deep Action、Computer Use、跨App自动化）
-- **说明**: 降频聚焦后首条（1款/天），按新方向优先收桌面智能体；Fellou 区别于OpenClaw套壳，是"真·桌面Agent"（浏览器+本地App操控）。未生成评测草稿（月瑶未亲测，仅入库+来源事实）
-- **Git**: 待 commit + push
+- **说明**: 降频聚焦后首条（1款/天），按新方向优先收桌面智能体；Fellou 区别于OpenClaw套壳，是"真·桌面Agent"（浏览器+本地App操控）。初版仅入库+来源事实、未附体验笔记；2026-07-16 二次巡检补 fellou.md.draft（差异点笔记，标注待站长亲测）
+- **Git**: 已 commit + push（commit 5fe42ea，本地 main 与 origin/main 同步）
