@@ -14,6 +14,7 @@ export const categories = [
   'AI办公效率',
   'AI搜索工具',
   'AI音乐音频',
+  'AI工作台',
 ] as const
 
 export interface Tool {
@@ -1588,5 +1589,64 @@ export const tools: Tool[] = [
     url: 'https://willowvoice.com',
     price: '免费下载 / Pro付费',
     features: ['AI语音听写', '跨平台支持', '自动格式化', '100+语言'],
+  },
+
+  // ========================
+  // 九、AI工作台（桌面智能体 / Agent 工作台）
+  // ========================
+  {
+    id: 'autoclaw',
+    name: 'AutoClaw（澳龙）',
+    description: '智谱AI一键安装版OpenClaw桌面智能体，下载双击1分钟本地部署，内置Pony-Alpha-2模型与50+技能，支持AutoGLM浏览器自动化与飞书集成。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://autoclaws.org',
+    price: '免费体验 / 积分付费',
+    features: ['一键本地部署', 'Pony-Alpha-2模型', '50+预置技能', 'AutoGLM浏览器自动化'],
+  },
+  {
+    id: 'arkclaw',
+    name: 'ArkClaw',
+    description: '火山引擎（字节）云端托管版OpenClaw智能体，零门槛7×24小时在线运行，深度集成飞书，搭配方舟Coding Plan低成本使用。',
+    category: 'AI工作台',
+    subCategory: '云端智能体',
+    rating: 4.2,
+    url: 'https://www.volcengine.com/product/arkclaw',
+    price: '绑定方舟Coding Plan（免费试用）',
+    features: ['云端免部署', '7×24在线运行', '飞书深度集成', 'Skill Hub技能市场'],
+  },
+  {
+    id: 'kimi-work',
+    name: 'Kimi Work',
+    description: '月之暗面推出的桌面AI智能体，本地运行、WebBridge自主操控浏览器，自然语言驱动办公自动化与本地文件处理。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://kimi.com/work',
+    price: '免费 / 会员增值',
+    features: ['桌面智能体', 'WebBridge浏览器操控', '本地文件处理', '长文本优势'],
+  },
+  {
+    id: 'qoderwork',
+    name: 'QoderWork',
+    description: 'Qoder团队（阿里系）推出的桌面AI助手，基于Qoder CLI Coding Agent，自主规划+本地文件操作+技能市场，Mac/Win双端。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://qoder.com/qoderwork',
+    price: 'Pro $19/月（邀请制beta）',
+    features: ['自主任务规划', '本地文件操作', 'Skill技能市场', 'MCP集成'],
+  },
+  {
+    id: 'krowork',
+    name: 'KroWork',
+    description: '国产桌面AI智能体，对话即可生成可分享的本地Agent应用，内置20+技能、Kro Browser Bridge自主网页操控，支持飞书/Slack/Telegram远程触发。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://krowork.com',
+    price: '免费 / 积分制',
+    features: ['对话生成桌面应用', '20+内置技能', 'Kro Browser Bridge', '应用一键分享'],
   },
 ]
