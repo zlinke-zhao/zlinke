@@ -1,0 +1,88 @@
+---
+id: rowboat
+title: "Rowboat 深度评测：本地优先的开源 AI 同事，用知识图谱把邮件/会议变成可复用的记忆"
+date: "2026-07-17"
+category: "AI工作台"
+rating: 4.3
+price: "开源免费（Apache-2.0）/ 自带模型或 API Key（GPT·Claude·Gemini 或 Ollama/LM Studio 本地模型）"
+subtitle: "不是又一个聊天框，而是把你的工作沉淀成一张长期演进的知识图谱：邮件自动起草、会议实时纪要、后台 Agent 按事件/定时跑、还能用自然语言拼出住在本地的小应用"
+url: "https://www.rowboatlabs.com"
+pros:
+  - "记忆机制独树一帜：邮件/会议/Slack/对话被蒸馏成 Obsidian 式双向链接 Markdown 知识图谱，上下文随工作自动累积，而非每次冷启动"
+  - "本地优先 + 开源（Apache-2.0）：数据全在本地磁盘明文 Markdown，可读可改可备份，无云端锁定；可自带模型完全离线跑"
+  - "工作「面」而非纯对话：内置邮件客户端、会议笔记、浏览器、代码模式，7月新增 Work Surfaces——描述工作流即生成住在本地的小应用"
+  - "后台 Agent 真能干活：按事件（新邮件/会议结束）或定时（每天8点）触发，联网/驱动浏览器/连工具/写代码，输出可审阅"
+  - "社区验证扎实：GitHub 16.5k+ stars，2026 年两登 Hacker News 首页（CLI 131、Knowledge 205、Work Surfaces 218），YC 背书"
+cons:
+  - "重桌面客户端形态：需下载 Windows/Mac/Linux 客户端并连接 Gmail/Calendar 等账号，配置门槛高于纯网页 Agent"
+  - "模型成本外置：本体开源免费，但调用 GPT/Claude/Gemini 或本地跑模型需自备 API Key 或算力，隐性成本取决于用量"
+  - "与已收录 Kimi Work / KroWork / Fellou 桌面智能体定位部分重叠，差异在「记忆图谱」而非「浏览器操控」或「应用生成」"
+  - "「亲测」步骤需站长（赵生）补入真实操作记录后再正式发布，避免编造"
+alternatives:
+  - { name: "Fellou", slug: "fellou", reason: "Fellou 以浏览器为产品底座、主打穿透登录态深度搜索；Rowboat 以本地知识图谱记忆为核心，不抢浏览器操控赛道" }
+  - { name: "Kimi Work", slug: "kimi-work", reason: "Kimi Work 对话入口+WebBridge+长文本基因；Rowboat 强在跨邮件/会议的长期记忆与可自建工作应用，不依赖单一大模型" }
+  - { name: "KroWork", slug: "krowork", reason: "KroWork 对话生成可分享应用+Kro Browser Bridge；Rowboat 的 Apps 类似但更偏本地、且记忆层是核心差异" }
+  - { name: "AutoClaw（澳龙）", slug: "autoclaw", reason: "AutoClaw 是智谱一键安装版 OpenClaw 套壳，重任务执行+技能市场；Rowboat 是独立开源产品，重记忆与工作面" }
+---
+
+## 一句话总结
+
+Rowboat 是「把你的工作变成一张会自己长大的知识图谱」的本地优先 AI 同事——它不是又一个聊天框，而是把邮件、会议、Slack、对话持续蒸馏成 Obsidian 式双向链接的 Markdown 笔记（人/项目/决策成为图谱节点），并基于这张图谱帮你起草邮件、做会议简报、跑后台 Agent，甚至用一句话拼出住在本地的小应用。**适合被「反复喂背景、上下文冷启动」折磨的知识工作者与创业者；但它重桌面客户端、模型成本外置，且与 Kimi Work / KroWork / Fellou 桌面智能体存在定位重叠，建议先当「带记忆的第二大脑」试用。**
+
+> ⚠️ **评测说明**：本文「产品能力」部分基于 Rowboat 官网（rowboatlabs.com）、GitHub 仓库（rowboatlabs/rowboat）及 Hacker News 社区反馈撰写；**「亲测」部分的真实操作步骤需站长（赵生）补入实际测试记录后再正式发布**，避免编造。文章先以草稿形态存档，待亲测素材到位后替换标注段落并发布。
+
+## 核心定位一览
+
+<table>
+  <tr><td style="width:140px;font-weight:bold">产品形态</td><td>本地优先开源桌面 AI 同事（Windows / Mac / Linux 客户端）</td></tr>
+  <tr><td style="font-weight:bold">核心能力</td><td>知识图谱记忆（Brain）+ 邮件自动起草 + 会议实时纪要 + 后台 Agent + 代码模式 + 可自建工作应用（Work Surfaces）</td></tr>
+  <tr><td style="font-weight:bold">差异化引擎</td><td>长期演进的本地知识图谱：邮件/会议/Slack/对话蒸馏为可编辑的 Markdown 双向链接节点</td></tr>
+  <tr><td style="font-weight:bold">支持平台</td><td>Windows / macOS / Linux（官网提供 Download，GitHub Releases 分发）</td></tr>
+  <tr><td style="font-weight:bold">数据归属</td><td>本地优先：全部存本地明文 Markdown，可读可改可备份；支持 Ollama/LM Studio 完全离线</td></tr>
+  <tr><td style="font-weight:bold">模型</td><td>自带 GPT / Claude / Gemini，或本地模型；MCP 接入外部工具（Slack / Linear / GitHub / Exa 等）</td></tr>
+  <tr><td style="font-weight:bold">价格</td><td>开源免费（Apache-2.0）；模型/API 成本自付</td></tr>
+</table>
+
+## 与已收录桌面智能体 / OpenClaw 系的差异点
+
+| 维度 | Rowboat | Fellou | Kimi Work / KroWork | OpenClaw 套壳（AutoClaw / ArkClaw） |
+| --- | --- | --- | --- | --- |
+| 核心卖点 | 知识图谱长期记忆 + 本地工作「面」 | 浏览器为底座、穿透登录态深搜 | 对话入口 + 浏览器桥接 / 应用生成 | 预置技能市场 + 模型 API |
+| 记忆机制 | ✅ 自动累积、可编辑的本地图谱 | ⚠️ Agentic Memory（浏览器/笔记） | ⚠️ 各有记忆层早期 | ⚠️ 依赖插件/上下文 |
+| 本地 App 操控 | ⚠️ 重数据/文件，非系统级键鼠 | ✅ Computer Use 系统级 | ✅ 各有 Browser Bridge | ⚠️ 依赖模型/插件 |
+| 自建应用 | ✅ Work Surfaces（自然语言拼本地小应用） | ⚠️ 偏研究/报告 | ✅ KroWork 应用分享 | ✅ Skill 商店 |
+| 开源/本地优先 | ✅ Apache-2.0 全本地 | ⚠️ 重云端工作区 | ⚠️ 各有本地化 | ✅ 开源套壳 |
+
+**结论**：Rowboat 区别于本库已收录的桌面智能体——它不是「会操控浏览器的 Agent」（Fellou），也不是「对话生成应用」（KroWork），而是**以「记忆」为第一性原理的本地工作 OS**：所有上下文先沉淀成可检视、可编辑的知识图谱，再据此干活。对反复被「冷启动、重喂背景」折磨的用户，这是最稀缺的差异点。
+
+## 解决的问题
+
+1. **上下文冷启动**：多数 AI 工具每次会话从零开始；Rowboat 把人/项目/决策变成长期节点，问一句即召回过往，「记忆会累积复利」而非「每次检索都从冷启动」。
+2. **邮件/会议信息孤岛**：自动把邮件分诊、按你的语境起草回复，会议结束即时出纪要+行动项并回写图谱，省去手动搬运。
+3. **重复性脑力活自动化**：后台 Agent 按事件/定时触发（如每天8点生成语音简报、每周投资人更新），人在做别的事时它已跑完。
+4. **数据主权与可移植**：全部本地明文 Markdown，无云端锁定、可 Git 版本管理、可完全离线，适合隐私敏感场景。
+
+## 优势与短板
+
+**优势：**
+- 记忆机制是真实的产品哲学，而非营销词——HN 社区评价「memory + actual work surfaces around it，正合我想要」。
+- 本地优先 + 开源，数据主权清晰，模型可自带，隐私场景友好。
+- 工作「面」覆盖邮件/会议/浏览器/代码/自建应用，单体可用性高。
+
+**短板：**
+- 重桌面客户端，需连接 Gmail/Calendar 等账号，配置门槛高于纯网页 Agent。
+- 模型成本外置，高频调用的隐性开销取决于所选模型与用量。
+- 与 Kimi Work / KroWork / Fellou 桌面智能体定位重叠，选型时按「要记忆还是要浏览器操控」区分。
+- 官网营销性表述（如「16,500+ stars」）可核验，但功能细节需实际安装体验确认。
+
+## 最终推荐
+
+**适合：** 被反复喂背景、上下文冷启动折磨的知识工作者、创业者、投资人、研究者；重视数据主权、想完全本地/离线跑 AI 的用户。
+
+**不建议依赖：** 纯浏览器操控/跨登录态深搜场景（交给 Fellou）；纯 IDE 重构（交给 Cursor / Kimi Work）；不愿配置桌面客户端与账号的用户。
+
+**组合建议**：把 Rowboat 当「带记忆的第二大脑」管邮件/会议/知识沉淀；Fellou 做穿透登录态的深度研究；KroWork 拼可分享小应用——各取所长。
+
+---
+
+**评测声明**：本文基于 Rowboat 官网（rowboatlabs.com）、GitHub 仓库（rowboatlabs/rowboat，Apache-2.0）及 Hacker News 社区反馈撰写，差异化对比基于与本库已收录桌面智能体 / OpenClaw 系工具的能力梳理。所有功能细节需实际安装体验确认，本文不含付费推广。「亲测」操作记录待站长（赵生）补入后发布正式版。

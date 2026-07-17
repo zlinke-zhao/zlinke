@@ -1660,4 +1660,15 @@ export const tools: Tool[] = [
     price: 'CE版免费 / Plus $19·Pro $39.9 月',
     features: ['Agentic浏览器', '先规划后执行', 'Computer Use本地操控', 'Agentic Memory', '跨站深研报告', '可实时介入'],
   },
+  {
+    id: 'rowboat',
+    name: 'Rowboat',
+    description: '本地优先的开源AI同事，将邮件/会议/聊天沉淀为可关联的知识图谱，自带邮件、笔记、浏览器、代码等工作台面，数据存本地Markdown。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://www.rowboatlabs.com',
+    price: '开源免费（Apache-2.0）/ 自带模型或API Key',
+    features: ['本地优先', '知识图谱记忆', '邮件自动起草', '会议笔记', '后台Agent', '可自建工作应用', 'MCP集成', '自带模型'],
+  },
 ]
