@@ -392,9 +392,9 @@ export const tools: Tool[] = [
     description: '文字渲染最强的AI图像生成工具，支持在图片中精准嵌入文字，适合Logo、海报和社媒素材设计。',
     category: 'AI图像生成',
     subCategory: 'AI绘画',
-    rating: 4.2,
+    rating: 4.3,
     url: 'https://ideogram.ai',
-    price: '免费 / Pro $8/月',
+    price: '免费 / Plus $20月 / Pro $60月',
     features: ['文字渲染', '高质量出图', '风格多样', '创意设计'],
   },
   {
