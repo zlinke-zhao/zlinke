@@ -1671,4 +1671,15 @@ export const tools: Tool[] = [
     price: '开源免费（Apache-2.0）/ 自带模型或API Key',
     features: ['本地优先', '知识图谱记忆', '邮件自动起草', '会议笔记', '后台Agent', '可自建工作应用', 'MCP集成', '自带模型'],
   },
+  {
+    id: 'lobsterai',
+    name: 'LobsterAI（有道龙虾）',
+    description: '网易有道开源桌面级办公Agent，连接文件/终端/浏览器自主执行，GUI一键安装，钉钉飞书远程指挥+MCP技能商店。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://lobsterai.youdao.com',
+    price: '免费开源（MIT）/ 自带模型或API Key',
+    features: ['桌面级Agent', 'GUI一键安装', 'IM手机远程指挥', '16+内置技能', 'MCP技能商店', 'QEMU沙箱隔离', '本地SQLite数据', '13套专家套件'],
+  },
 ]
