@@ -264,13 +264,13 @@ export const tools: Tool[] = [
   {
     id: 'bolt-new',
     name: 'Bolt.new',
-    description: 'StackBlitz推出的AI全栈应用构建工具，通过自然语言对话即可生成完整Web应用，内置数据库、认证和部署。',
+    description: 'StackBlitz推出的浏览器内全栈AI应用构建工具，WebContainer技术让完整Node.js环境直接在浏览器运行，从自然语言到可部署Web应用仅需几分钟。',
     category: 'AI编程开发',
     subCategory: '云端开发',
-    rating: 4.5,
+    rating: 4.3,
     url: 'https://bolt.new',
-    price: '免费 / Pro $20/月',
-    features: ['全栈应用生成', 'Figma导入', '一键部署', '设计系统集成'],
+    price: '免费 / Pro $25/月',
+    features: ['浏览器全栈运行时', 'Bolt Cloud后端一体化', 'Bolt v2自主调试', 'MCP连接器', 'Figma导入'],
   },
   {
     id: 'coderabbit',
