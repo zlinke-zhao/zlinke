@@ -400,13 +400,13 @@ export const tools: Tool[] = [
   {
     id: 'openart',
     name: 'OpenArt',
-    description: '1000万+创作者使用的AI全栈创作平台，集图像生成、视频导演（Director）、角色一致性、3D世界构建于一体，支持Veo 3/Sora 2/Kling 3.0等顶级模型，年收入$7000万。',
+    description: '800万+月活用户的AI全栈创作平台，集图像生成、对话式导演（Director，一键产出最长约5分钟成片）、角色一致性、3D世界构建于一体，支持Sora 2/Kling 3.0/Seedance 2.0等100+模型，2025年ARR约$7000万、已盈利。',
     category: 'AI图像生成',
     subCategory: 'AI绘画',
-    rating: 4.4,
+    rating: 4.3,
     url: 'https://openart.ai',
-    price: '免费试用 / Pro $14/月起',
-    features: ['AI图像+视频', '角色一致性', 'Vibe Direct导演模式', '多模型聚合'],
+    price: '免费 / Essential $14/月起',
+    features: ['AI图像+视频', '角色一致性', 'Vibe Direct导演模式', '100+模型聚合'],
   },
   {
     id: 'zawa',
