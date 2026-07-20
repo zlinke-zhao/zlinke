@@ -1682,4 +1682,15 @@ export const tools: Tool[] = [
     price: '免费开源（MIT）/ 自带模型或API Key',
     features: ['桌面级Agent', 'GUI一键安装', 'IM手机远程指挥', '16+内置技能', 'MCP技能商店', 'QEMU沙箱隔离', '本地SQLite数据', '13套专家套件'],
   },
+  {
+    id: 'chatgpt-work',
+    name: 'ChatGPT Work',
+    description: 'OpenAI自主Agent工作台：GPT-5.6跨文件/应用/浏览器自主推进任务数小时，交付文档、表格、幻灯片与可交互Sites。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://openai.com/chatgpt-work',
+    price: '随ChatGPT订阅包含 / 桌面端全计划免费，Web·移动端需Plus $20/月起',
+    features: ['跨应用自主Agent', '数小时连续执行', '1400+插件连接器', 'Sites实时网页产物', '定时/触发任务', 'GPT-5.6驱动'],
+  },
 ]

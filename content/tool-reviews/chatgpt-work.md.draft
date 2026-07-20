@@ -1,0 +1,91 @@
+---
+id: chatgpt-work
+title: "ChatGPT Work 深度评测：OpenAI 把 ChatGPT 变成会自己干数小时活的跨应用 Agent 工作台"
+date: "2026-07-20"
+category: "AI工作台"
+rating: 4.5
+price: "随 ChatGPT 订阅包含 / 桌面端（macOS·Windows）全计划免费，Web·移动端需 Plus $20/月起"
+subtitle: "GPT-5.6 驱动的自主 Agent：跨文件/应用/浏览器收集上下文，数小时自主推进复杂项目，交付文档·表格·幻灯片·可交互 Sites，1400+ 插件连接器"
+url: "https://openai.com/chatgpt-work"
+pros:
+  - "自主时长碾压：复杂多步项目可连续自主推进数小时，关掉笔记本/手机也能跑完，回来收成品——区别于多数只能跑几分钟的 Agent"
+  - "跨应用真·干活：连接文件、桌面 App、浏览器与 1400+ 插件（Slack/Teams/Google Drive/SharePoint 等 @提及直连），把目标转成成品文档/表格/幻灯片"
+  - "Sites 输出形态稀缺：任务产物可直接变成可分享、随数据实时刷新的交互式网页/仪表盘/项目追踪器，不止于聊天/文件"
+  - "真人用户基数巨大：合并自 Codex（周活 500 万+，其中 100 万+ 用于非开发工作），可信赖度与生态成熟度远高于新创桌面 Agent"
+  - "权限与可溯可控：关键动作前先征求许可并标注来源，企业可配权限/支出/用量，降低黑箱风险"
+cons:
+  - "本质是 ChatGPT 的 Agent 模式，非独立产品：与库内 chatgpt 条目存在能力重叠，适合当「ChatGPT 的自主工作台模式」理解"
+  - "重云端托管：以 OpenAI 托管 Agent 工作区为主，离线/私有化部署能力弱于本地优先的 Rowboat/LobsterAI，敏感数据需谨慎授权"
+  - "Web/移动端仅付费计划可用，免费用户体验不完整；桌面端全免费但需下载新版 ChatGPT 桌面 App"
+  - "「亲测」步骤需站长（赵生）补入真实操作记录后再正式发布，避免编造"
+alternatives:
+  - { name: "Fellou", slug: "fellou", reason: "Fellou 以浏览器为底座、主打穿透登录态深度搜索；ChatGPT Work 跨应用更广（文件+App+浏览器+1400插件）且产物可成 Sites，但更重云端" }
+  - { name: "Kimi Work", slug: "kimi-work", reason: "Kimi Work 对话入口+WebBridge+长文本基因，本地化更轻；ChatGPT Work 自主时长与插件生态更强，但依赖 OpenAI 订阅与云端" }
+  - { name: "KroWork", slug: "krowork", reason: "KroWork 对话生成可分享应用+Kro Browser Bridge；ChatGPT Work 的 Sites 类似但由 GPT-5.6+1400插件驱动，托管属性更强" }
+  - { name: "Rowboat", slug: "rowboat", reason: "Rowboat 本地优先开源、以知识图谱记忆为核心；ChatGPT Work 托管云端、以跨应用自主执行+实时 Sites 为核心，数据主权取向相反" }
+  - { name: "LobsterAI（有道龙虾）", slug: "lobsterai", reason: "LobsterAI 开源桌面办公 Agent、本地执行+IM 远程指挥；ChatGPT Work 是托管商业 Agent，跨应用生态与 Sites 更强但需订阅与联网" }
+---
+
+## 一句话总结
+
+ChatGPT Work 是 OpenAI 在 2026-07-09 推出的「ChatGPT 自主工作台模式」——基于 GPT-5.6，把你的目标拆成小步、跨文件/应用/浏览器收集上下文，能**连续自主推进数小时**复杂项目，最终交付文档、表格、幻灯片，甚至可交互、随数据实时刷新的 **Sites 网页应用**，并接入 1400+ 插件连接器。**适合用 ChatGPT 做长链条知识工作（竞品分析、周报、客户研究、经营仪表盘）且已在 OpenAI 生态的团队；但它是 ChatGPT 的 Agent 模式而非独立产品，重云端托管、敏感数据需谨慎授权，且与库内 chatgpt 条目存在能力重叠，建议先当「会自己干数小时活的 ChatGPT」试用。**
+
+> ⚠️ **评测说明**：本文「产品能力」部分基于 OpenAI 官网（openai.com/chatgpt-work）、ChatGPT Business Release Notes（2026-07-09 / 07-16）及多家独立媒体报道撰写；**「亲测」部分的真实操作步骤需站长（赵生）补入实际测试记录后再正式发布**，避免编造。文章先以草稿形态存档，待亲测素材到位后替换标注段落并发布。
+
+## 核心定位一览
+
+<table>
+  <tr><td style="width:140px;font-weight:bold">产品形态</td><td>ChatGPT 桌面 App 内的自主 Agent 模式（Chat / Work / Codex 三合一，macOS·Windows）</td></tr>
+  <tr><td style="font-weight:bold">核心能力</td><td>跨应用上下文收集 + 数小时自主执行 + 成品交付（文档/表格/幻灯片/报告/Sites）+ 定时/触发任务</td></tr>
+  <tr><td style="font-weight:bold">差异化引擎</td><td>GPT-5.6（Sol/Terra/Luna）+ 1400+ 插件目录 + Sites 实时网页产物</td></tr>
+  <tr><td style="font-weight:bold">支持平台</td><td>macOS / Windows 桌面（全计划免费）；Web / 移动端（Plus·Pro·Business·Enterprise·Edu）</td></tr>
+  <tr><td style="font-weight:bold">连接器</td><td>1400+ 插件（Slack / Teams / Google Drive / SharePoint 等 @提及直连）</td></tr>
+  <tr><td style="font-weight:bold">调度能力</td><td>一次性 / 定时重复 / 监控触发（如每周三生成周报、监控客户反馈）</td></tr>
+  <tr><td style="font-weight:bold">实时可控</td><td>展示进度、回答问题、改方向、关键动作前征求许可并标注来源</td></tr>
+  <tr><td style="font-weight:bold">价格</td><td>随 ChatGPT 订阅包含；桌面端全计划免费，Web·移动端需 Plus $20/月起</td></tr>
+</table>
+
+## 与已收录桌面智能体 / OpenClaw 系的差异点
+
+| 维度 | ChatGPT Work | Fellou | Kimi Work / KroWork | OpenClaw 套壳（AutoClaw / ArkClaw） | Rowboat / LobsterAI |
+| --- | --- | --- | --- | --- | --- |
+| 产品形态 | ChatGPT 内 Agent 模式（托管） | 完整浏览器客户端 | 对话入口 + 浏览器桥接 | 开源框架一键安装套壳 | 本地优先开源 / 桌面 Agent |
+| 自主时长 | ✅ 数小时连续推进 | ⚠️ 中短任务为主 | ⚠️ 视任务 | ⚠️ 视技能 | ⚠️ 视触发 |
+| 跨应用生态 | ✅ 1400+ 官方插件 | ⚠️ 浏览器+登录态 | ⚠️ 各有桥接 | ⚠️ 技能市场 | ⚠️ MCP / 技能 |
+| 产物形态 | ✅ 文档/表/幻灯 + 实时 Sites | ✅ 研究报告 | ✅ 可分享应用 | ✅ 任务执行 | ✅ 工作面 / 应用 |
+| 数据主权 | ⚠️ 重云端托管 | ⚠️ 重云端 | ⚠️ 各有所长 | ✅ 本地可部署 | ✅ 本地优先 |
+| 是否独立产品 | ⚠️ ChatGPT 模式 | 是 | 是 | 开源套壳 | 是 / 开源 |
+
+**结论**：ChatGPT Work 区别于本库已收录的桌面智能体——它不是「本地操控浏览器的开源套壳」，也不是「对话生成应用」，而是**托管在 OpenAI 生态、以 GPT-5.6 + 1400 插件 + 实时 Sites 为引擎的跨应用自主工作台**。最长板是「数小时不间断自主推进 + 产物直接变成可分享网页」，短板是云端托管与 ChatGPT 模式的非独立性。
+
+## 解决的问题
+
+1. **长链条知识工作自动化**：竞品分析、月度经营复盘、客户研究等需跨多源、耗时数小时的任务，一次委派后关掉电脑也能跑完，回来收成品——把「数周的循环」压到「数小时」。
+2. **跨应用信息孤岛打通**：连接 Slack/Teams/Drive/SharePoint 等 1400+ 工具，自动拉取邮件、日历、CRM、表格上下文，免手动搬运。
+3. **可交互交付物**：用 Sites 把分析结果变成团队可实时查看、随数据刷新的仪表盘/项目追踪器，而非静态文件。
+4. **定时/监控型自动化**：每周自动出周报、监控客户反馈流、新邮件触发更新文档，人在做别的事时持续运转。
+
+## 优势与短板
+
+**优势：**
+- 自主时长与跨应用广度目前同类第一梯队，且背靠 500 万+ 周活 Codex 用户基数，生态成熟度远超新创桌面 Agent。
+- Sites 把「AI 产物」从文件升级为「可分享网页」，协作形态稀缺。
+- 关键动作前征求许可 + 来源标注，企业可配权限/支出，可控性较好。
+
+**短板：**
+- 非独立产品，与库内 chatgpt 条目能力重叠；纯离线/私有化需求不满足。
+- 重云端托管，敏感数据授权需谨慎；Web/移动端仅付费计划可用。
+- 与 Kimi Work / KroWork / Fellou 桌面智能体定位部分重叠，选型按「要跨应用广度与 Sites，还是要本地操控/浏览器深搜」区分。
+- 官网与媒体营销性表述（如「54% token 效率提升」）需独立验证，不宜直接采信。
+
+## 最终推荐
+
+**适合：** 已在 OpenAI 生态、用 ChatGPT 做长链条知识工作（竞品分析、周报、客户研究、经营仪表盘）的个人与团队；希望「委派一次、数小时收成品」的用户。
+
+**不建议依赖：** 需要离线/私有化部署的敏感场景（交给 Rowboat / LobsterAI）；纯浏览器穿透登录态深搜（交给 Fellou）；纯 IDE 重构（交给 Cursor / Kimi Work）。
+
+**组合建议**：把 ChatGPT Work 当「跨应用自主长工时工作台」做分析与交付；Fellou 做穿透登录态的深度研究；KroWork 拼可分享小应用；Rowboat 管本地记忆——各取所长。
+
+---
+
+**评测声明**：本文基于 OpenAI 官网（openai.com/chatgpt-work）、ChatGPT Business Release Notes（2026-07-09 / 07-16）及 remio.ai / gagadget / ai2.work 等独立媒体报道撰写，差异化对比基于与本库已收录桌面智能体 / OpenClaw 系工具的能力梳理。所有营销性表述（如 token 效率）均需独立验证，本文不含付费推广。「亲测」操作记录待站长（赵生）补入后发布正式版。
