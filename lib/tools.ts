@@ -1693,4 +1693,15 @@ export const tools: Tool[] = [
     price: '随ChatGPT订阅包含 / 桌面端全计划免费，Web·移动端需Plus $20/月起',
     features: ['跨应用自主Agent', '数小时连续执行', '1400+插件连接器', 'Sites实时网页产物', '定时/触发任务', 'GPT-5.6驱动'],
   },
+  {
+    id: 'hermes-agent',
+    name: 'Hermes Agent',
+    description: 'Nous Research出品的跨平台开源AI Agent运行时：长期记忆+技能自学习+MCP，v0.16原生桌面端可跨设备远程操控。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://hermes-agent.ai',
+    price: '开源免费（MIT）/ 托管云 FlyHermes $49/月起',
+    features: ['长期记忆', '技能自学习', 'MCP集成', 'v0.16桌面端', 'Web仪表盘', '远程网关', '多Agent协作', '定时任务', '跨平台渠道'],
+  },
 ]

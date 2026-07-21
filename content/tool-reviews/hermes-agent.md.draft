@@ -1,0 +1,94 @@
+---
+id: hermes-agent
+title: "Hermes Agent 深度评测：Nous Research 开源 AI Agent 运行时，会自己学技能、跨所有渠道共用一份记忆"
+date: "2026-07-21"
+category: "AI工作台"
+rating: 4.3
+price: "开源免费（MIT）/ 托管云 FlyHermes $49/月起；自托管约 $5/月 VPS + 自备模型 API Key"
+subtitle: "不是又一个聊天框，而是 Python 写的可自托管 Agent 运行时：长期记忆 + 从你的工作里自动长出可复用技能 + 一个 Agent 横跨 Telegram/Discord/Slack/邮件/桌面/Web，v0.16 还给了原生桌面端与远程网关"
+url: "https://hermes-agent.ai"
+pros:
+  - "会自己学技能（Learning Loop）：观察多步任务、重复 3 次以上就自动沉淀成可复用 Skill，并据反馈迭代——越用越懂你的工作流，而非每次冷启动"
+  - "跨渠道同一份记忆：一个 Agent 同时活在 Telegram/Discord/Slack/WhatsApp/Signal/Email/CLI/Web，上下文与技能共享，换平台不用重解释"
+  - "开源可自托管（MIT）：GitHub 10k+ stars，审计/改源码自由，自带模型或 API Key，数据留在你自己的基础设施，无云端锁定"
+  - "v0.16 多端可用：原生桌面 App（Electron，macOS/Win/Linux 一键装、Cmd+K、简体中文 UI、/undo）+ 浏览器仪表盘 + 经安全 WebSocket 的远程网关（笔记本远程开家里的 Hermes）"
+  - "异步自动化扎实：自然语言定时任务（cron）+ 隔离子 Agent（各带独立会话/终端/Python RPC）+ 5 种沙箱（本地/Docker/SSH/Singularity/Modal），可无人值守跑夜间研究/简报/监控"
+cons:
+  - "偏运行时/开发者取向，不是开箱即用的 GUI 办公助理：需配 VPS、API Key、模型路由，上手门槛高于 LobsterAI 这类一键桌面应用"
+  - "模型成本外置：本体开源免费，但调模型需自备 Key 或算力；用 FlyHermes 托管云则按月付费"
+  - "桌面端是新物种（v0.16『The Surface Release』才引入），相对专职桌面 Agent 成熟度仍在爬坡，部分 UI 细节待打磨"
+  - "「亲测」步骤需站长（赵生）补入真实操作记录后再正式发布，避免编造"
+alternatives:
+  - { name: "Fellou", slug: "fellou", reason: "Fellou 以浏览器为底座、主打穿透登录态深度搜索；Hermes 是更底层的自托管运行时，强在记忆/技能自学习/跨渠道网关，不抢浏览器操控赛道" }
+  - { name: "Kimi Work", slug: "kimi-work", reason: "Kimi Work 是国产对话入口+WebBridge+长文本基因的桌面智能体；Hermes 是开源运行时、跨渠道+技能自学习，不依赖单一大模型生态" }
+  - { name: "KroWork", slug: "krowork", reason: "KroWork 对话生成可分享应用+Kro Browser Bridge；Hermes 不主打应用生成，而以「一份记忆横跨所有渠道 + 越用越懂你」为核心差异" }
+  - { name: "AutoClaw / ArkClaw", slug: "autoclaw", reason: "AutoClaw/ArkClaw 是 OpenClaw 套壳（智谱/火山一键装）；Hermes 是 Nous Research 独立开源运行时、非 OpenClaw 分支，甚至提供从 OpenClaw 迁移的命令" }
+  - { name: "Rowboat", slug: "rowboat", reason: "Rowboat 本地优先、以知识图谱记忆为核心；Hermes 也开源+长期记忆，但更强调跨渠道网关、技能自学习与云/自托管双形态" }
+  - { name: "LobsterAI（有道龙虾）", slug: "lobsterai", reason: "LobsterAI 是网易一键 GUI 桌面办公 Agent+IM 远程指挥+13 专家套件；Hermes 更开发者/运行时向，需自配环境，但技能自学习与跨渠道更广" }
+  - { name: "ChatGPT Work", slug: "chatgpt-work", reason: "ChatGPT Work 是 OpenAI 托管商业 Agent、跨应用自主+实时 Sites；Hermes 是开源自托管、你带模型，数据主权取向相反，且不强在『数小时跨应用大项目』" }
+---
+
+## 一句话总结
+
+Hermes Agent 是 Nous Research 出品的**开源 AI Agent 运行时**（Python、MIT、GitHub 10k+ stars）——它把「记忆 + 技能自学习 + 跨渠道网关」做成产品底座：会话记忆跨平台持久化，重复 3 次以上的多步任务会自动**长成可复用 Skill** 并随反馈迭代，一个 Agent 同时活在 Telegram/Discord/Slack/邮件/桌面/Web 共用一份记忆；v0.16『The Surface Release』补齐了原生桌面端、浏览器仪表盘与远程网关，让非命令行用户也能用。**适合想要「自己掌控、越用越懂我、一个 Agent 管所有渠道」的开发者与自托管玩家；但它是运行时而非开箱 GUI 办公助理，需自配环境与模型成本，且与 Fellou/Kimi Work/KroWork/OpenClaw 系存在定位重叠，建议先当「会进化技能的个人 Agent 底座」试用。**
+
+> ⚠️ **评测说明**：本文「产品能力」部分基于 Hermes Agent 官网（hermes-agent.ai）、GitHub 仓库（NousResearch/hermes-agent）、官方发布博客（v0.16 The Surface Release）及中文社区（hermesagent.org.cn、微信公众号）评测撰写；**「亲测」部分的真实操作步骤需站长（赵生）补入实际测试记录后再正式发布**，避免编造。文章先以草稿形态存档，待亲测素材到位后替换标注段落并发布。
+
+## 核心定位一览
+
+<table>
+  <tr><td style="width:140px;font-weight:bold">产品形态</td><td>开源 AI Agent 运行时（Python / MIT），可自托管或托管云；v0.16 起附原生桌面端 + Web 仪表盘 + 远程网关</td></tr>
+  <tr><td style="font-weight:bold">核心能力</td><td>长期记忆（MEMORY.md/USER.md + SQLite + FTS5） + 技能自学习（Learning Loop） + 多平台网关 + 定时任务 + 隔离子 Agent + 浏览器自动化 + 沙箱代码执行</td></tr>
+  <tr><td style="font-weight:bold">差异化引擎</td><td>Learning Loop：观察你的多步任务，重复 3+ 次自动沉淀成 Skill 并据反馈迭代——越用越懂你的工作流</td></tr>
+  <tr><td style="font-weight:bold">支持平台</td><td>macOS / Windows / Linux（桌面端）；Telegram / Discord / Slack / WhatsApp / Signal / Email / CLI / Web（网关渠道）</td></tr>
+  <tr><td style="font-weight:bold">数据归属</td><td>自托管优先：MIT 开源、审计自由，数据留本地/自有 VPS；也可选 FlyHermes 托管云（60 秒上线）</td></tr>
+  <tr><td style="font-weight:bold">模型</td><td>自带/自选模型（deepseek-v4-flash、MiniMax-M3、qwen3.7-plus、gemini-3.5-flash 等），多端点聚合；或接 FlyHermes 托管</td></tr>
+  <tr><td style="font-weight:bold">远程能力</td><td>v0.16 远程网关：经安全 WebSocket 把桌面 GUI 指向 homelab/VPS/团队服务器上的 Hermes，OAuth 或账密登录</td></tr>
+  <tr><td style="font-weight:bold">价格</td><td>开源免费（MIT）；自托管约 $5/月 VPS + 模型 API Key；FlyHermes 托管云 $49/月起</td></tr>
+</table>
+
+## 与已收录桌面智能体 / OpenClaw 系的差异点
+
+| 维度 | Hermes Agent | Fellou | Kimi Work / KroWork | OpenClaw 套壳（AutoClaw / ArkClaw） | Rowboat / LobsterAI |
+| --- | --- | --- | --- | --- | --- |
+| 产品本质 | 开源 Agent **运行时**（Python/MIT） | 完整浏览器客户端 Agent | 国产对话入口 + 浏览器桥接 | 开源框架一键安装套壳 | 本地优先开源 / 桌面 Agent |
+| 记忆机制 | ✅ 持久记忆 + **技能自学习** | ⚠️ Agentic Memory | ⚠️ 各有记忆层 | ⚠️ 依赖插件/上下文 | ✅ 图谱/本地记忆 |
+| 跨渠道 | ✅ 一个 Agent 跨 8+ 渠道同记忆 | ⚠️ 桌面/浏览器为主 | ⚠️ 各有桥接/分享 | ⚠️ 技能市场 | ⚠️ IM 远程/本地 |
+| 自托管数据主权 | ✅ MIT 全自托管 | ⚠️ 重云端工作区 | ⚠️ 各有所长 | ✅ 本地可部署 | ✅ 本地优先 |
+| 是否 OpenClaw 分支 | ❌ 独立（Nous Research） | 否 | 否 | ✅ 是 | 否（LobsterAI 基于 OpenClaw 适配） |
+| 上手形态 | 运行时/开发者向，需配环境 | 桌面客户端开箱 | 桌面客户端开箱 | 一键安装套壳 | 一键 GUI 桌面 |
+
+**结论**：Hermes Agent 区别于本库已收录的桌面智能体——它不是「会操控浏览器的 Agent」（Fellou），也不是「对话生成应用」（KroWork），也不是 OpenClaw 套壳，而是**一个可自托管的开源 Agent 底座**：最长板是「记忆持久化 + 从你的工作里自动长出可复用技能（Learning Loop）+ 一个 Agent 横跨所有渠道共用一份记忆」。对想要数据主权、又想 Agent「越用越懂自己」的开发者/自托管玩家，这是最稀缺的差异点。
+
+## 解决的问题
+
+1. **技能反复重学 / 上下文冷启动**：多数 Agent 每次从零开始；Hermes 的 Learning Loop 把重复多步任务固化成 Skill，下次直接复用并随反馈变好——「能力会累积复利」而非「每次都重新教」。
+2. **多渠道反复解释同一件事**：Telegram/Discord/Slack/邮件/桌面/Web 共用一份记忆与技能，换平台不用重说背景、重设上下文。
+3. **数据主权与成本可控**：MIT 开源自托管，审计/改源码自由，自带模型或 API Key，数据留在自己基础设施；不想运维则 FlyHermes 60 秒上云。
+4. **异步无人值守自动化**：自然语言 cron + 隔离子 Agent + 网关，夜间研究扫描、晨间简报、竞品监控自动跑完，人不在也能交付。
+5. **远程即用**：v0.16 远程网关让笔记本安全连上家里/VPS 的 Hermes，出门也能指挥本地 Agent。
+
+## 优势与短板
+
+**优势：**
+- Learning Loop 是真实产品哲学而非营销词——社区评价「sits between a Claude Code style CLI and an OpenClaw style messaging platform agent」，补了中间生态位。
+- 开源 + 跨渠道 + 云/自托管双形态，数据主权与灵活性兼得；GitHub 10k+ stars 与 Nous Research 背书，可信度较高。
+- v0.16 补齐桌面端/仪表盘/远程网关，从纯命令行走向多端可用，受众面扩大。
+
+**短板：**
+- 偏运行时/开发者取向，需配 VPS、API Key、模型路由，上手门槛高于 LobsterAI 这类一键 GUI 桌面应用。
+- 模型成本外置，高频调用隐性开销取决于所选模型与用量；FlyHermes 托管云按月付费。
+- 桌面端为新物种（v0.16 才引入），相对专职桌面 Agent 成熟度仍在爬坡。
+- 与 Fellou / Kimi Work / KroWork / OpenClaw 系定位存在重叠，选型按「要记忆与技能自学习 + 跨渠道，还是要浏览器操控/应用生成」区分。
+
+## 最终推荐
+
+**适合：** 想要数据主权、又希望 Agent「越用越懂自己」的开发者与自托管玩家；已被多渠道反复解释背景、上下文冷启动折磨的多渠道重度用户；愿花一点运维成本换长期可控的用户。
+
+**不建议依赖：** 想要下载即用、零配置的 GUI 办公助理（交给 LobsterAI / Kimi Work）；纯浏览器穿透登录态深搜（交给 Fellou）；纯 IDE 重构（交给 Cursor / Kimi Work）；不愿配环境、要 OpenAI 式开箱托管（交给 ChatGPT Work）。
+
+**组合建议**：把 Hermes Agent 当「会进化技能、跨所有渠道的个人 Agent 底座」管记忆/自动化/研究；Fellou 做穿透登录态深度研究；KroWork 拼可分享小应用；Rowboat 管本地知识图谱——各取所长。
+
+---
+
+**评测声明**：本文基于 Hermes Agent 官网（hermes-agent.ai）、GitHub 仓库（NousResearch/hermes-agent，MIT）、官方发布博客（v0.16 The Surface Release）及中文社区（hermesagent.org.cn、微信公众号评测）撰写，差异化对比基于与本库已收录桌面智能体 / OpenClaw 系工具的能力梳理。所有功能细节需实际安装体验确认，本文不含付费推广。「亲测」操作记录待站长（赵生）补入后发布正式版。
