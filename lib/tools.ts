@@ -280,8 +280,8 @@ export const tools: Tool[] = [
     subCategory: 'AI代码审查',
     rating: 4.5,
     url: 'https://www.coderabbit.ai',
-    price: '免费 / Pro $12/月',
-    features: ['PR自动审查', '一键修复', '代码总结', '持续学习'],
+    price: '免费 / Pro $24/月 / Pro+ $48/月',
+    features: ['PR自动审查', '40+扫描层', 'Learnings学习', '全4大Git平台', '开源永久免费'],
   },
   {
     id: 'opencode',
