@@ -1528,7 +1528,7 @@ export const tools: Tool[] = [
     subCategory: 'AI搜索引擎',
     rating: 4.3,
     url: 'https://consensus.app',
-    price: '免费 / Premium $8.99/月',
+    price: '免费 / Pro $15/月 / Deep $65/月',
     features: ['论文检索', 'Consensus Meter', '引用导出', '循证决策'],
   },
 
