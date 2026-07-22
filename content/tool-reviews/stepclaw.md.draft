@@ -1,0 +1,98 @@
+---
+id: stepclaw
+title: "StepClaw 深度评测：阶跃星辰把 OpenClaw 包成「零门槛桌面宠物」，水产市场捡技能 + 信通院首批安全认证"
+date: "2026-07-22"
+category: "AI工作台"
+rating: 4.3
+price: "免费（5000万 Token 首月）；StepPlan ¥49/月起，开发者社区半价 ¥25"
+subtitle: "不是给极客的命令行 Agent，而是给普通人的「桌面宠物龙虾」：零命令行零 Docker 零 API Key，扫码领养即用，水产市场 5000+ 技能一键装，微信/飞书远程指挥，本地加密记忆 + 三级权限管控，并首批通过中国信通院 Claw 类智能体安全评测"
+url: "https://www.stepfun.com/download"
+pros:
+  - "真正零门槛：零命令行 / 零 Docker / 零 API Key，桌面伙伴里点一下或手机扫码即「领养」，小白也能用，区别于原版 OpenClaw 的极客取向"
+  - "技能生态活跃：接入「水产市场」5000+ 创作者、5000+ 精选技能（Skill/插件/触发器/频道/经验包），常用工作流一键变技能复用"
+  - "远程不在电脑前也能指挥：微信（ClawBot 插件）/ 飞书直连，手机发一句话，本地电脑自动跑报表、整理文件"
+  - "安全合规到位：本地加密记忆（明文不可直读）+ 三级权限（自由/需确认/禁止）+ 敏感操作弹窗强提醒；首批通过中国信通院 Claw 类智能体风险管理能力专项评测"
+  - "主动执行能力强：全局截屏感知当前文档/代码状态，支持定时任务与文件归档/邮件摘要/定时汇总等触发器，不用开口也能交付"
+  - "多端部署：云端（阶跃 AI App 一键部署，7×24 在线）+ 桌面（Windows/Mac 双端）+ 手机，形态灵活"
+cons:
+  - "编程/代码执行能力偏弱（InfoQ 实测）：复杂多步开发任务易中断，重度编码交给 KroWork / Kimi Work / Cursor 更稳"
+  - "本质是 OpenClaw 深度优化的「商业发行版」，并非独立新内核，与 AutoClaw/ArkClaw/LobsterAI 等同源，选型看生态与集成差异"
+  - "部分高级能力需终端配置命令（IT时报实测日历接入略繁琐），非技术用户上手个别功能仍有门槛"
+  - "「亲测」步骤需站长（赵生）补入真实操作记录后再正式发布，避免编造"
+alternatives:
+  - { name: "AutoClaw（澳龙）", slug: "autoclaw", reason: "AutoClaw 是智谱本地一键装 + 飞书深度集成 + 数据不出本地；StepClaw 强在「水产市场」技能生态 + 桌面宠物情绪价值 + 信通院首批安全认证，上手更小白" }
+  - { name: "ArkClaw", slug: "arkclaw", reason: "ArkClaw 是字节火山纯云端 SaaS、7×24 在线、飞书生态；StepClaw 云端+桌面双轨、本地加密记忆，形态更灵活" }
+  - { name: "LobsterAI（有道龙虾）", slug: "lobsterai", reason: "LobsterAI 是网易一键 GUI + 13 套专家套件 + QEMU 沙箱隔离 + 国内 IM 远程；StepClaw 更早量产（3月）、水产市场生态更大、信通院首批认证，但专家套件少于 LobsterAI" }
+  - { name: "Fellou", slug: "fellou", reason: "Fellou 是浏览器底座、主打穿透登录态深度搜索；StepClaw 不抢浏览器操控赛道，主打桌面宠物 + 本地文件/日程自动化 + 微信远程" }
+  - { name: "Kimi Work / KroWork", slug: "kimi-work", reason: "Kimi Work/KroWork 是国产对话入口 + 浏览器桥接 / 对话生成可分享应用；StepClaw 偏通用桌面办公自动化 + 技能市场，编码能力弱于二者" }
+  - { name: "Rowboat", slug: "rowboat", reason: "Rowboat 本地优先、以知识图谱记忆为核心；StepClaw 也本地加密记忆，但更强调「零门槛领养 + 水产市场技能捡拾 + 微信远程」，图谱记忆非其第一性原理" }
+  - { name: "Hermes Agent", slug: "hermes-agent", reason: "Hermes 是 Nous Research 独立开源运行时（MIT）、技能自学习 + 跨渠道；StepClaw 基于 OpenClaw 深度优化的商业发行版，开箱即用但内核非自研" }
+  - { name: "ChatGPT Work", slug: "chatgpt-work", reason: "ChatGPT Work 是 OpenAI 托管商业 Agent、跨应用自主 + 实时 Sites；StepClaw 是本地优先的国产桌面宠物 Agent，数据主权取向相反" }
+---
+
+## 一句话总结
+
+StepClaw（阶跃龙虾）是**阶跃星辰（StepFun）出品的消费级桌面 AI 智能体**——它把开源的 OpenClaw 深度优化、包装成「人人可领养的桌面宠物」：**零命令行、零 Docker、零 API Key**，桌面伙伴里点一下或手机扫码就能「领养」一只专属龙虾；接入「水产市场」5000+ 技能一键安装，微信/飞书直连可远程指挥本地电脑，记忆本地加密存储并配三级权限管控，还首批通过了**中国信通院 Claw 类智能体风险管理能力专项评测**。**适合想要「最低门槛把 AI Agent 请进日常工作」的普通办公用户与创作者；但它是 OpenClaw 系商业发行版（非独立内核）、编程能力偏弱，重度编码建议交给 KroWork/Kimi Work/Cursor，且「亲测」记录需站长（赵生）补入后再正式发布。**
+
+> ⚠️ **评测说明**：本文「产品能力」部分基于 StepClaw 官网（stepfun.com/download）、中国信通院评测通报、InfoQ/掘金/IT时报/腾讯新闻等第三方实测与报道撰写；**「亲测」部分的真实操作步骤需站长（赵生）补入实际测试记录后再正式发布**，避免编造。文章先以草稿形态存档，待亲测素材到位后替换标注段落并发布。
+
+## 核心定位一览
+
+<table>
+  <tr><td style="width:140px;font-weight:bold">产品形态</td><td>消费级桌面 AI 智能体（OpenClaw 深度优化发行版）；「桌面宠物」UI + 云端/桌面/手机多端</td></tr>
+  <tr><td style="font-weight:bold">核心能力</td><td>一句话操控电脑（网页/文件操作）+ 信息获取处理 + 本地文件管理 + 定时/触发任务 + 微信/飞书远程指挥 + 全局截屏感知</td></tr>
+  <tr><td style="font-weight:bold">差异化引擎</td><td>「零门槛领养」：零命令行/零 Docker/零 API Key + 桌面宠物皮肤 + 水产市场技能捡拾，把极客 Agent 变大众工具</td></tr>
+  <tr><td style="font-weight:bold">支持平台</td><td>Windows / macOS（桌面端）；iOS / Android / 网页（手机与云端）；微信 / 飞书（远程指挥渠道）</td></tr>
+  <tr><td style="font-weight:bold">数据归属</td><td>本地加密记忆（明文不可直读）；用户数据本地存储不上云；可切回官方助手「小跃」协助</td></tr>
+  <tr><td style="font-weight:bold">模型</td><td>阶跃自研 Step 3.5 Flash（OpenClaw 月榜 Top1，Agent 场景优化，强推理/快响应/低成本）</td></tr>
+  <tr><td style="font-weight:bold">生态</td><td>「水产市场」5000+ 创作者、5000+ 精选资产（Skill/插件/触发器/频道/经验包），openclawmp.cc 与 OpenClaw 生态互通</td></tr>
+  <tr><td style="font-weight:bold">安全合规</td><td>首批通过中国信通院 Claw 类智能体风险管理能力专项评测；三级权限 + 敏感操作弹窗强提醒 + 水产市场技能安全审查（指令+代码双重防线）</td></tr>
+  <tr><td style="font-weight:bold">价格</td><td>免费（5000万 Token 首月限时）；StepPlan ¥49/月起，开发者社区半价 ¥25</td></tr>
+</table>
+
+## 与已收录桌面智能体 / OpenClaw 系的差异点
+
+| 维度 | StepClaw（阶跃龙虾） | 原版 OpenClaw | AutoClaw / ArkClaw | LobsterAI（有道） | Fellou / Kimi Work / KroWork |
+| --- | --- | --- | --- | --- | --- |
+| 产品本质 | OpenClaw 深度优化**消费级发行版** | 开源极客框架（命令行） | OpenClaw 一键套壳（智谱/火山） | OpenClaw 适配 GUI 办公 Agent | 浏览器/对话/应用生成 Agent |
+| 上手门槛 | ✅ 零命令行/零 Docker/零 Key | ❌ 高（需运维） | ⚠️ 一键装但仍偏技术 | ✅ 一键 GUI | ✅ 桌面客户端开箱 |
+| 情绪价值/UI | ✅ 桌面宠物皮肤 + 像素办公室 | ❌ 无 | ⚠️ 一般 | ✅ GUI + 专家套件 | ⚠️ 工具向 |
+| 技能生态 | ✅ 水产市场 5000+ 技能 | ⚠️ 社区插件 | ⚠️ 各有市场 | ⚠️ MCP 技能商店 + 13 套专家 | ⚠️ 各有技能 |
+| 远程指挥 | ✅ 微信/飞书直连 | ⚠️ 命令遥控 | ✅ 飞书（AutoClaw）/飞书（ArkClaw） | ✅ 钉钉/飞书/微信/企微 | ⚠️ 各有桥接 |
+| 安全认证 | ✅ 信通院首批评测 | ❌ 无 | ⚠️ ArkClaw 等保二级 | ⚠️ 沙箱隔离 | ⚠️ 各异 |
+| 编码能力 | ⚠️ 偏弱（InfoQ 实测） | ✅ 强 | ⚠️ 中 | ⚠️ 中 | ✅ 强（KroWork/Kimi Work） |
+
+**结论**：StepClaw 区别于本库已收录的桌面智能体——它不是「会操控浏览器的 Agent」（Fellou），也不是「对话生成应用」（KroWork），也不是「开源运行时」（Hermes），而是**把 OpenClaw 做成「人人可领养的桌面宠物」**：最长板是「最低上手门槛（零命令行/零 Docker/零 Key）+ 水产市场技能捡拾 + 微信远程指挥 + 信通院首批安全认证」。对想要「把 AI Agent 请进日常办公、又怕极客工具劝退」的普通用户，这是最稀缺的差异点。
+
+## 解决的问题
+
+1. **极客工具劝退普通人**：原版 OpenClaw 需命令行/容器/API Key，普通用户望而却步；StepClaw 扫码领养即用，把「技术问题变产品问题」。
+2. **技能获取成本高**：「水产市场」5000+ 技能一键安装，常用工作流（日报/邮件摘要/文件归档）变技能复用，不用每次从头教。
+3. **人不在电脑前无法指挥**：微信/飞书直连，地铁上发语音，办公室电脑自动跑报表、整理资料。
+4. **安全焦虑**：本地加密记忆 + 三级权限 + 敏感操作弹窗强提醒 + 信通院首批安全认证 + 水产市场技能安全审查，从源头拦 Skill 投毒与越权。
+5. **被动等待 vs 主动执行**：全局截屏感知 + 定时/触发任务，满足条件自动开始（如定时汇总、文件归档），不用开口也能交付。
+
+## 优势与短板
+
+**优势：**
+- 真·零门槛是杀手锏——阶跃把 OpenClaw 从「极客玩具」做成「大众桌面伙伴」，GDPS 2026 现场「装虾」排长队即验证情绪价值与低门槛。
+- 生态活跃（水产市场 5000+ 技能）与信通院首批安全认证，是「敢放心给普通人用」的关键背书。
+- 多端（云端/桌面/手机）+ 微信远程，覆盖「人在哪都能指挥电脑」的真实场景。
+
+**短板：**
+- 编程能力偏弱（InfoQ 实测复杂多步开发易中断），重度编码不敌 KroWork/Kimi Work/Cursor。
+- 本质是 OpenClaw 深度优化的商业发行版，内核非自研，与 AutoClaw/ArkClaw/LobsterAI 同源，选型看生态与集成差异。
+- 部分高级能力（如本地日历接入）仍需终端配置命令，非技术用户个别功能上手略繁琐。
+- 与 Fellou/Kimi Work/KroWork/Hermes 定位存在重叠，选型按「要最低门槛+技能市场+微信远程，还是要浏览器深搜/应用生成/开源自托管」区分。
+
+## 最终推荐
+
+**适合：** 想要最低门槛把 AI Agent 请进日常办公的普通用户、内容创作者、自由职业者；怕命令行/容器劝退、又想要技能生态与远程指挥的人；看重安全合规背书（信通院首批）的个人用户。
+
+**不建议依赖：** 重度代码开发（交给 KroWork/Kimi Work/Cursor）；穿透登录态浏览器深搜（交给 Fellou）；要开源自托管数据主权（交给 Hermes/Rowboat）；要专家套件开箱即用（交给 LobsterAI）。
+
+**组合建议**：把 StepClaw 当「桌面宠物 + 日常办公自动化 + 微信远程指挥」用；Fellou 做穿透登录态深度研究；KroWork 拼可分享小应用；LobsterAI 用专家套件处理垂直办公——各取所长。
+
+---
+
+**评测声明**：本文基于 StepClaw 官网（stepfun.com/download）、中国信通院 Claw 类智能体风险管理能力专项评测通报、InfoQ/掘金/IT时报/腾讯新闻等第三方实测与报道撰写，差异化对比基于与本库已收录桌面智能体 / OpenClaw 系工具的能力梳理。所有功能细节需实际安装体验确认，本文不含付费推广。「亲测」操作记录待站长（赵生）补入后发布正式版。

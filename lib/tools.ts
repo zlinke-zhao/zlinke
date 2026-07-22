@@ -1704,4 +1704,15 @@ export const tools: Tool[] = [
     price: '开源免费（MIT）/ 托管云 FlyHermes $49/月起',
     features: ['长期记忆', '技能自学习', 'MCP集成', 'v0.16桌面端', 'Web仪表盘', '远程网关', '多Agent协作', '定时任务', '跨平台渠道'],
   },
+  {
+    id: 'stepclaw',
+    name: 'StepClaw（阶跃龙虾）',
+    description: '阶跃星辰出品的零门槛桌面AI智能体：OpenClaw深度优化成桌面宠物，水产市场捡技能、微信远程指挥，本地加密记忆。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://www.stepfun.com/download',
+    price: '免费 / StepPlan ¥25–49 月（开发者半价）',
+    features: ['桌面宠物UI', '零命令行部署', '水产市场5000+技能', '微信/飞书远程指挥', '本地加密记忆', '定时/触发任务', '三级权限管控', '信通院安全认证'],
+  },
 ]
