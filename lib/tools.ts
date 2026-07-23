@@ -1715,4 +1715,15 @@ export const tools: Tool[] = [
     price: '免费 / StepPlan ¥25–49 月（开发者半价）',
     features: ['桌面宠物UI', '零命令行部署', '水产市场5000+技能', '微信/飞书远程指挥', '本地加密记忆', '定时/触发任务', '三级权限管控', '信通院安全认证'],
   },
+  {
+    id: 'claude-cowork',
+    name: 'Claude Cowork',
+    description: 'Anthropic官方桌面Agent：给定目标后跨本地文件与工具端到端执行，沙箱VM隔离、逐步可见、删除需审批，交付成品待审。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://claude.com/product/cowork',
+    price: '随Claude付费订阅包含（Pro $17/月起，Max $100–200/月）',
+    features: ['本地文件夹端到端任务', '沙箱VM隔离', 'Computer Use屏幕操控', '定时无人值守任务', '并行子任务', '38+连接器与插件市场', '删除需审批', 'Win/macOS/Linux/Web'],
+  },
 ]

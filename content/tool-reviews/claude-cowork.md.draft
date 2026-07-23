@@ -1,0 +1,46 @@
+---
+title: "Claude Cowork 差异点笔记（草稿·待站长亲测）"
+tool_id: claude-cowork
+date: 2026-07-23
+status: draft
+note: 本笔记基于 Anthropic 官方产品页/官方博客 + 公开媒体报道聚合撰写，来源均已标注，未包含任何虚构亲测细节。上线正式评测前需站长实际安装体验并补充一手截图。
+---
+
+# Claude Cowork：Anthropic 版「桌面同事」差异点笔记
+
+## 它解决了什么
+
+Claude Cowork 是 Anthropic 的官方桌面 Agent，定位是「非技术岗的 Claude Code」——你给一个目标（不是一串提示词），它在你授权的本地文件夹和工具里端到端把活干完，最后交回一份成品等你审阅。官方博客明确说了它的出身：Anthropic 内部市场、数据等非技术团队绕过 Chat 界面直接用 Claude Code 干多步骤活，于是把同一套引擎包成了普通人能用的形态（来源：claude.com/blog/cowork-research-preview）。
+
+典型场景（官方产品页列举）：整理/重命名/去重本地文件夹、把一堆源文件合成结构化报告初稿、跨来源研究综述、从合同/报表里批量抽取结构化数据、定时每周自动生成指标周报 deck。
+
+## 关键时间线（均有公开来源）
+
+- 2026-01-12：macOS 研究预览版发布（Max 订阅）；1/16 扩至 Pro；1/23 扩至 Team/Enterprise（Anthropic 官方博客）
+- 2026-02-10：Windows 版上线，功能完全对齐（claudecowork.im 等第三方指南）
+- 2026-03：新增 Computer Use 屏幕操控，可点击按钮/填表单，覆盖无 API 的桌面应用（aimadetools.com）
+- 2026 年中：企业版部署管控（按团队设权限/控制开销/用量审计，OpenTelemetry 流到 SIEM）；现已支持 Win/macOS/Linux/ChromeOS/Web/移动端 beta
+
+## 和已收录工具的差异点
+
+| 对比对象 | 核心差异 |
+|---|---|
+| ChatGPT Work | 最直接对标。ChatGPT Work 强在「数小时自主推进 + 1400 插件 + Sites 产物变网页」，云端托管色彩重；Cowork 强在「本地文件夹 + 沙箱 VM 隔离 + 每步可见可改」，安全叙事更工程化（删除必须审批、Hyper-V/VM 隔离、企业 SIEM 审计） |
+| OpenClaw 系（AutoClaw/ArkClaw/StepClaw/LobsterAI） | 同为桌面 Agent，但 Cowork 是闭源官方托管引擎（Claude Opus 4.7 + 1M 上下文），无需自配模型 Key；OpenClaw 系开源可定制但模型成本外置、安全自负 |
+| Kimi Work | Kimi Work 7/20 刚上桌面（WebBridge 浏览+本地脚本+Cron），主打金融数据预载与免费分发；Cowork 生态更成熟（38+连接器、23+官方插件、插件市场），但必须付费订阅（Pro $17/月起） |
+| Claude Code | 同引擎不同壳：Code 面向开发者终端，Cowork 面向文档/数据/文件类知识工作，官方称 Cowork 本身就是用 Claude Code 十天造出来的 |
+
+一句话定位：**在「安全可控」维度做得最重的官方桌面 Agent**——沙箱 VM、文件夹白名单、删除审批、企业级权限/审计一整套，是给「想用 Agent 但怕它乱动电脑」的团队准备的。
+
+## 待站长亲测项
+
+- [ ] Windows 版首跑 VM 镜像下载（约 2GB）耗时与磁盘占用
+- [ ] Pro 订阅下 Cowork 消耗限额速度（官方承认比 Chat 快）
+- [ ] 中文文件名/中文文档处理质量
+- [ ] 与 ChatGPT Work 同任务对比（如：源文件夹→周报 deck）
+
+## 来源
+
+- 官方产品页：https://claude.com/product/cowork 、 https://www.anthropic.com/product/claude-cowork
+- 官方博客：Introducing Cowork（2026-01-12）
+- 第三方：aimadetools.com《What Is Claude Cowork?》、claudecowork.im Windows 上手指南、AI Insiders（Kimi Work 报道中的竞品对照）
