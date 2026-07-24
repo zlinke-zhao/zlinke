@@ -291,7 +291,7 @@ export const tools: Tool[] = [
     subCategory: 'AI编辑器',
     rating: 4.6,
     url: 'https://opencode.ai',
-    price: '免费 / Zen服务付费',
+    price: '免费开源 / Go $10月 / Zen按量',
     features: ['开源免费', '多模型支持', '终端+IDE+桌面', 'LSP智能集成'],
   },
   {
@@ -1725,5 +1725,16 @@ export const tools: Tool[] = [
     url: 'https://claude.com/product/cowork',
     price: '随Claude付费订阅包含（Pro $17/月起，Max $100–200/月）',
     features: ['本地文件夹端到端任务', '沙箱VM隔离', 'Computer Use屏幕操控', '定时无人值守任务', '并行子任务', '38+连接器与插件市场', '删除需审批', 'Win/macOS/Linux/Web'],
+  },
+  {
+    id: 'manus',
+    name: 'Manus',
+    description: 'Meta旗下自主AI Agent：给定目标即在沙箱云VM里规划-浏览-写码-出稿端到端交付，My Computer桌面版可读写本地文件与应用。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.6,
+    url: 'https://manus.im',
+    price: '按积分计费（Starter ~$19/月，Pro ~$199/月）',
+    features: ['规划-执行多Agent架构', '沙箱云VM(浏览器+终端+文件)', 'Wide Research并行子Agent', 'My Computer桌面版操本地', '应用/网站构建+Stripe', '深度网研带引用', '实时可视执行', 'GAIA基准领先'],
   },
 ]
