@@ -1517,8 +1517,8 @@ export const tools: Tool[] = [
     subCategory: 'AI搜索引擎',
     rating: 4.2,
     url: 'https://felo.ai',
-    price: '免费 / Pro $8/月',
-    features: ['多语言搜索', '学术检索', 'PPT生成', '日文专长'],
+    price: '免费 / Pro $14.99/月（年付$12.5/月）',
+    features: ['多语言搜索', 'PPT生成', 'Felo Agent', '日文专长'],
   },
   {
     id: 'consensus',
