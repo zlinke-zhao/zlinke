@@ -1737,4 +1737,15 @@ export const tools: Tool[] = [
     price: '按积分计费（Starter ~$19/月，Pro ~$199/月）',
     features: ['规划-执行多Agent架构', '沙箱云VM(浏览器+终端+文件)', 'Wide Research并行子Agent', 'My Computer桌面版操本地', '应用/网站构建+Stripe', '深度网研带引用', '实时可视执行', 'GAIA基准领先'],
   },
+  {
+    id: 'genspark',
+    name: 'Genspark',
+    description: '全能型AI工作台：一句话调度9模型+80+工具自主出稿，Claw桌面版可操本地文件与浏览器，还能AI打电话、嵌入Office插件。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://www.genspark.ai',
+    price: '免费试用 / Plus·Pro 订阅按额度计费',
+    features: ['Super Agent一句话执行', '9模型混合编排', 'Claw桌面版操本地/浏览器', 'AI打电话预订', 'Slides/Sheets/Docs生成', 'Office原生插件', 'Speakly实时翻译+会议纪要', 'GAIA 87.8%'],
+  },
 ]

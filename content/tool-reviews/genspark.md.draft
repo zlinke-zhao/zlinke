@@ -1,0 +1,30 @@
+# Genspark 体验笔记（草稿 · 待站长亲测）
+
+> 状态：入库草稿。基于官网(genspark.ai)、官方博客(AI Workspace 4.0/6.0)与第三方报道（腾讯新闻《比OpenClaw更火的"Agent员工"赛道杀出新王者GenSpark 4.0》）聚合整理，未编造亲测细节，正式评测前需站长实机验证。
+
+## 一句话定位
+Genspark 是一款"AI 员工/超级 Agent"型全能工作台：一个 prompt 就调度 9 个大模型 + 80+ 工具，自主完成深度研究、做 PPT、生成视频、甚至真人语音打电话预订；4.0 起推出 **Genspark Claw for Desktop** 桌面原生客户端（Computer Use 操本地文件 + Browser Use 自动网页操作），并把 Slides/Sheets/Docs Agent 以原生插件嵌进 PowerPoint/Excel/Word。
+
+## 它解决了什么
+- 把"研究→创作→执行"一条龙压缩到一句话：找资料、出报告、做投资级 PPT、发布视频，不用自己拼多个工具。
+- 招牌能力"AI 打电话"：用拟真语音替你打餐厅/商家电话完成预订、问询、排期，是多数桌面 Agent 没有的差异功能。
+- Office 原生插件让 AI 主动"进到你已有的工作流里"，不必离开 Word/Excel/PPT。
+
+## 与库内已收录工具的差异点
+| 对比对象 | Genspark 的不同 |
+|---|---|
+| ChatGPT Work / Claude Cowork（云端/沙箱托管 Agent） | Genspark 是**多模型混合编排（9 模型 + 80+ 工具）**的全能内容工厂，招牌是 **AI 真人语音打电话** + 一站式多模态出稿（视频/PPT/网站/文档） |
+| Manus（自主多 Agent + 沙箱云 VM） | Genspark 更偏"AI 员工无处不在"——桌面版 + Office 插件 + 会议(Speakly 实时翻译/纪要)全场景铺开，产物覆盖更广的办公多模态 |
+| OpenClaw 系（LobsterAI/StepClaw，本地开源套壳） | Genspark 是**闭源托管**、开箱即用，主打消费级/职场"出成品"体验，而非本地开源自配 Key |
+| Fellou（Agentic 浏览器） | Genspark 的 Claw 桌面版同时具备 Computer Use（本地文件）+ Browser Use（网页），并叠加打电话与多模态创作 |
+
+## 关键事实（第三方可核）
+- 官网：https://www.genspark.ai （© 2026 Genspark Inc.，.ai 域名，HTTPS）
+- 声称数据：GAIA 基准 87.8%、6 个月 2M+ 用户、45 天 $36M ARR（来自官网，待独立核实）
+- 沿革：2024-06 以 AI 搜索起家（~500 万用户）→ 2025-04 转型 Super Agent 套件 → 2026 AI Workspace 4.0（AI 员工无处不在）→ 6.0 迭代中
+- 独立报道：腾讯新闻/QQ News 专题；官方博客多语言版本
+
+## 短板 / 待复审
+- URL 安全脚本判 **medium**（"内容真实性评分偏低 -3"），系官网为 JS 渲染 SPA、给爬虫返回的静态 HTML 偏薄导致的**误报**；产品真实性由官方博客 + 多家第三方报道充分交叉验证。正式评测前建议站长实机确认。
+- 官网宣传数字（GAIA/ARR/用户量）需以第三方数据复核，评测中不直接引用为事实。
+- 积分/额度计费模式下，重任务的实际成本需实测。
