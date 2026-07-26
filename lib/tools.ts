@@ -1748,4 +1748,15 @@ export const tools: Tool[] = [
     price: '免费试用 / Plus·Pro 订阅按额度计费',
     features: ['Super Agent一句话执行', '9模型混合编排', 'Claw桌面版操本地/浏览器', 'AI打电话预订', 'Slides/Sheets/Docs生成', 'Office原生插件', 'Speakly实时翻译+会议纪要', 'GAIA 87.8%'],
   },
+  {
+    id: 'minimax-agent',
+    name: 'MiniMax Agent 2.0',
+    description: 'MiniMax出品的AI原生工作台：桌面端直接操作本地文件与浏览器，Expert Agents注入私有知识库和SOP打造领域专家分身。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://agent.minimaxi.com',
+    price: '会员订阅制，专业任务消耗积分 / Expert Agents限时免费',
+    features: ['桌面端操本地文件(Win/Mac)', 'Expert Agents专家分身', '私有知识库+SOP注入', '网页自动化', '长期记忆', '子代理自定义与协作', 'MiniMax Space网页部署', 'M2.1模型驱动'],
+  },
 ]
