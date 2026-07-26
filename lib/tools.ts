@@ -1504,10 +1504,10 @@ export const tools: Tool[] = [
     description: 'Yahoo推出的AI答案引擎，基于Claude模型结合30年Yahoo数据积累，提供带来源链接的结构化搜索结果，免费使用。',
     category: 'AI搜索工具',
     subCategory: 'AI搜索引擎',
-    rating: 4.2,
+    rating: 4.1,
     url: 'https://scout.yahoo.com',
-    price: '免费',
-    features: ['Claude驱动', '来源引用', 'Yahoo生态', '结构化答案'],
+    price: '完全免费（含广告，仅限美国beta）',
+    features: ['Claude驱动', '9条来源链接', 'Yahoo生态', '结构化答案'],
   },
   {
     id: 'felo',
