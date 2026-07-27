@@ -1729,12 +1729,12 @@ export const tools: Tool[] = [
   {
     id: 'manus',
     name: 'Manus',
-    description: 'Meta旗下自主AI Agent：给定目标即在沙箱云VM里规划-浏览-写码-出稿端到端交付，My Computer桌面版可读写本地文件与应用。',
+    description: '现象级自主AI Agent：给定目标即在沙箱云VM里规划-浏览-写码-出稿端到端交付，My Computer桌面版可读写本地文件与应用（Meta收购被叫停，腾讯牵头回购谈判中）。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
-    rating: 4.6,
+    rating: 4.2,
     url: 'https://manus.im',
-    price: '按积分计费（Starter ~$19/月，Pro ~$199/月）',
+    price: '免费(每日300积分) / Pro $20-40/月 / Pro Max $200/月',
     features: ['规划-执行多Agent架构', '沙箱云VM(浏览器+终端+文件)', 'Wide Research并行子Agent', 'My Computer桌面版操本地', '应用/网站构建+Stripe', '深度网研带引用', '实时可视执行', 'GAIA基准领先'],
   },
   {
