@@ -1,0 +1,44 @@
+# QwenPaw（原CoPaw）体验笔记（草稿 · 待站长亲测）
+
+> 收录日期：2026-07-28
+> 官网：https://qwenpaw.agentscope.io ｜ GitHub：agentscope-ai/QwenPaw（约16.8k★，Apache 2.0）
+> 说明：本笔记基于官方文档/GitHub README/第三方公开评测聚合撰写，已标注来源，未编造亲测细节，待站长亲测后补充。
+
+## 它是什么
+
+QwenPaw = Qwen Personal Agent Workstation，阿里云通义实验室 AgentScope 团队出品的开源个人智能体工作站。2026 年 2 月 14 日以 CoPaw 之名开源，4 月 12 日官宣更名 QwenPaw，深化与 Qwen 开源生态的整合。迭代极快：2 月开源至今已发布 v1.1.x 十余个版本（v1.1.2 加入 Mission 自主任务模式与 ACP 外部 Agent 委托协议）。
+
+## 解决了什么
+
+把「桌面 Agent」做成一个**数据完全自主、渠道全域触达的本地软件**：
+- 记忆、文件、配置全部留在本地（或你自己的服务器），无第三方托管、不上传数据；
+- 支持钉钉/飞书/微信/QQ/Discord/Telegram/iMessage 等多渠道接入——手机上发条钉钉消息，家里电脑上的 Agent 自动开文件、跑任务、把结果发回来；
+- 内置主动心跳机制 + Cron 定时任务：不是被动等指令，而是会主动查邮件、整理待办、定点推送摘要；
+- Skills 扩展零门槛：自定义技能丢进目录自动加载，无审核无上架，能力边界由社区而非厂商决定；
+- 支持 llama.cpp/Ollama/LM Studio 本地模型，可完全断网零 API Key 运行。
+
+## 与库内已收录工具的差异点
+
+- **vs StepClaw / LobsterAI（OpenClaw 系发行版）**：QwenPaw 不是 OpenClaw 套壳，基于阿里自研 AgentScope 框架从零构建；同样主打国内 IM 远程指挥，但 QwenPaw 是纯开源（Apache 2.0）+ 模块化解耦（Prompt/Hooks/Tools/Memory 可独立替换），二次开发自由度更高；
+- **vs Rowboat（本地优先开源）**：Rowboat 第一性原理是「知识图谱长期记忆」，QwenPaw 的长板是「多渠道触达 + 主动心跳 + 大小模型协同路线」（轻量本地模型处理隐私数据、云端大模型做规划）；
+- **vs Skywork 桌面版 / MiniMax Agent（国产闭源订阅制）**：QwenPaw 完全免费开源、数据不出门，代价是需要自配模型（本地模型或 API Key），开箱即用程度低于闭源产品；
+- **vs Claude Cowork / ChatGPT Work（海外官方托管）**：路线相反——不是云端托管引擎，而是「本地软件 + 可选云模型」，适合数据敏感、想要完全掌控的用户。
+
+## 公开评测亮点与短板（来源标注）
+
+亮点（CSDN guopei 深度拆解 / zhichai.net 深度评测 / 上海证券报 2026-02-28 报道）：
+- 6 种安装方式（pip 三行命令 / 脚本 / Docker / 阿里云 ECS / 魔搭创空间一键 / Tauri 桌面 App），号称业界部署门槛最低的 Agent 工具之一；
+- 三层安全防护：工具守卫（拦截 rm -rf 等危险命令）、文件访问控制、Skill 安全扫描（含中文提示词注入检测）；
+- 多 Agent 协作 + Mission 自主多阶段任务模式（v1.1.2+）。
+
+短板：
+- Skill 分发目前仍是 GitHub + 手动下载，官方 Skill 市场尚未落地（zhichai.net 评测指出）；
+- 桌面 App 仍标注 Beta，兼容性与性能未充分打磨（官方 README 自述）；
+- 面向普通用户的开箱体验弱于 StepClaw（后者零命令行扫码领养），QwenPaw 最顺路径仍偏开发者。
+
+## 待站长亲测项
+
+- [ ] Windows 桌面 App（Beta）安装与稳定性
+- [ ] 微信/钉钉渠道接入配置成本
+- [ ] 本地 Ollama 模型下的实际任务完成质量
+- [ ] 主动心跳 + 定时任务的可靠性

@@ -1770,4 +1770,15 @@ export const tools: Tool[] = [
     price: '订阅制（Basic / Plus会员，Skywork 2.0取消积分制改为无限使用）',
     features: ['本地执行免上传云端', '跨格式统一语义理解(图/表/PPT/文档)', 'Claude/GPT/Gemini/DeepSeek多模型切换', '100+内置Skills自动匹配', '并行子Agent协作', '本地虚拟机隔离安全', '定时自动化任务', 'Windows 10+/macOS 12+(Apple Silicon)'],
   },
+  {
+    id: 'qwenpaw',
+    name: 'QwenPaw（原CoPaw）',
+    description: '阿里通义AgentScope团队开源的个人智能体工作站：本地部署数据不出门，钉钉/飞书/微信远程指挥，Skills自动加载扩展。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://qwenpaw.agentscope.io',
+    price: '开源免费（Apache 2.0），模型可用本地llama.cpp/Ollama零API Key',
+    features: ['本地/云端一键部署', '钉钉/飞书/微信/Discord/Telegram多渠道接入', 'Skills自动加载+定时任务', '主动心跳机制', '多Agent协作+Mission自主任务', '本地模型零API Key', '三层安全防护(工具守卫/文件访问控制/技能扫描)', '桌面App(Tauri)+pip/Docker/魔搭多安装方式'],
+  },
 ]
