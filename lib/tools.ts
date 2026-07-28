@@ -1740,13 +1740,13 @@ export const tools: Tool[] = [
   {
     id: 'genspark',
     name: 'Genspark',
-    description: '全能型AI工作台：一句话调度9模型+80+工具自主出稿，Claw桌面版可操本地文件与浏览器，还能AI打电话、嵌入Office插件。',
+    description: '全能型AI工作台：一句话调度70+模型+80+工具自主出稿，Claw「AI员工」独占云VM跨会话执行，还能AI打电话、原生嵌入Office。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
-    rating: 4.5,
+    rating: 4.2,
     url: 'https://www.genspark.ai',
-    price: '免费试用 / Plus·Pro 订阅按额度计费',
-    features: ['Super Agent一句话执行', '9模型混合编排', 'Claw桌面版操本地/浏览器', 'AI打电话预订', 'Slides/Sheets/Docs生成', 'Office原生插件', 'Speakly实时翻译+会议纪要', 'GAIA 87.8%'],
+    price: '免费(100-200积分/天) / Plus $24.99月($19.99年付) / Pro $249.99月($199.99年付)',
+    features: ['Super Agent一句话执行', '70+模型混合编排', 'Claw专属云VM持久记忆', 'AI打电话预订', 'Slides/Sheets/Docs生成', 'Word/Excel/PPT原生插件', '6000+企业客户', 'GAIA 87.8%(自报)'],
   },
   {
     id: 'minimax-agent',
