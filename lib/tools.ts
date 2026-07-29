@@ -1723,8 +1723,8 @@ export const tools: Tool[] = [
     subCategory: '桌面智能体',
     rating: 4.5,
     url: 'https://claude.com/product/cowork',
-    price: '随Claude付费订阅包含（Pro $17/月起，Max $100–200/月）',
-    features: ['本地文件夹端到端任务', '沙箱VM隔离', 'Computer Use屏幕操控', '定时无人值守任务', '并行子任务', '38+连接器与插件市场', '删除需审批', 'Win/macOS/Linux/Web'],
+    price: '随Claude付费订阅包含（Pro $17/月起，Max $100–200/月，Team $30/人/月）',
+    features: ['本地文件夹端到端任务', '沙箱VM隔离', '屏幕接管操控', '定时无人值守任务', '并行子任务', '插件市场+MCP连接器', '删除需审批', 'Web/桌面/移动全端'],
   },
   {
     id: 'manus',
