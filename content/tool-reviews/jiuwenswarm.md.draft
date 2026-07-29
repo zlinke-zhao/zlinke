@@ -1,0 +1,43 @@
+# JiuwenSwarm（蜂群智能体）体验笔记（草稿 · 待站长亲测）
+
+> 收录日期：2026-07-29
+> 来源声明：本笔记基于官方网站（openjiuwen.com/jiuwenswarm）、官方发布公告、中国日报、腾讯新闻（2026-07-25 / 07-29 两篇场景实测报道）、搜狐（机器之心系）、环球网/东方网（鸿蒙 PC 版发布）等公开资料整理，未虚构亲测细节，待站长亲测后补充第一手体验。
+
+## 它是什么
+
+华为 2012 实验室 + 华为云 AgentArts 团队联合构建的开源社区 openJiuwen 出品的"蜂群智能体"——一款多智能体协同的开源 AI 统一工作台。核心理念是 Coordination Engineering（协同工程）：不追求一个无所不能的超级 Agent，而是自动组建一支分工明确的 Agent 团队并行干活。2026-07-28 发布鸿蒙 PC 版，成为**首个面向鸿蒙 PC 的开源 AI 统一工作台**；同时提供 Windows / macOS 桌面安装包和 pip 安装（`pip install jiuwenswarm`）。Apache-2.0 全栈开源，代码托管在 GitHub（openJiuwen-ai/jiuwenswarm）、AtomGit 和 GitCode（2.83K 星）。
+
+## 它解决了什么
+
+- **串行办公变并行**：做 200 页 PPT 这类任务，传统"查资料→搭大纲→补页面"是串行的；Swarm 集群模式自动拆成多 Agent 并行任务链（官方场景演示：20 分钟出 200 页 PPT，数据来自官方通稿，待验证）。
+- **人机共协同（HITS）**：行业主流是 HOTS（人在蜂群之上远程调度），JiuwenSwarm 首推 HITS（Human in the Swarm）——人作为蜂群成员入队，与 AI 同步迭代、随时 @ 某个成员加需求、中途拉专家 Agent 会诊。
+- **团队经验可沉淀**：Swarm Skills 把协作流程沉淀为标准化技能包，Swarm Skills Hub 让团队技能在社区流动，支持基于执行轨迹与用户反馈的双层自演进。
+
+## 与已收录工具的差异点
+
+- vs **QwenPaw**（阿里 AgentScope 开源）：同为国产大厂开源桌面 Agent，但 QwenPaw 是"个人智能体工作站"（单 Agent + 多渠道遥控），JiuwenSwarm 的第一性原理是"多 Agent 蜂群协同 + 人入队"（HITS），且独占鸿蒙 PC 生态位。
+- vs **Skywork 桌面版 / MiniMax Agent**（闭源订阅）：完全开源免费，需自配模型；协同范式（Agent 团队组建/协商/技能沉淀）是产品核心而非附加功能。
+- vs **LobsterAI / StepClaw**（OpenClaw 系发行版）：非 OpenClaw 套壳，基于自研 openJiuwen Harness（DeepAgent 架构 + 上下文工程 + 长期记忆），官方称 PinchBench 94.2% 超 OpenClaw（91.6%）且 token 消耗降 34.8%（官方数据，待第三方复测）。
+- vs **Rowboat**（知识图谱记忆优先）：JiuwenSwarm 的记忆是分层记忆 + 上下文瘦身（LOCOMO 85%），主打的是协同而非记忆沉淀。
+- vs **ChatGPT Work / Claude Cowork**（云端托管）：本地软件 + 全开源可审计，支持小艺/飞书/钉钉/Telegram 多频道远程指挥。
+
+## 公开评测亮点
+
+- 三种任务模式：个人助手（Claw 类）/ 编码（Coding）/ 集群（Swarm），覆盖日常事务到复杂工程。
+- 腾讯新闻实测场景：鸿蒙 PC 上 Code 集群模式组队开发坦克大战小游戏（前后端分支并行开发再合入主干）、ArkTS 热量记录应用一句话生成、五子棋/狼人杀人机组队娱乐。
+- 手机飞书下发指令可远程唤醒鸿蒙 PC 端 AI 团队干活（"人在高铁上，活已经在电脑上干着了"）。
+
+## 已知短板 / 待验证
+
+- v0.2.4.beta2 仍是 Beta 版本，成熟度待观察。
+- 需自配模型（华为云或其他），对普通用户有一定门槛。
+- PinchBench 94.2% / 20 分钟 200 页 PPT 等均为官方口径，暂无独立第三方复测。
+- 多 Agent 并行的 token 消耗与实际成本待亲测。
+
+## 待亲测清单
+
+- [ ] Windows 桌面版安装体验（安装包 vs pip 两种方式）
+- [ ] Swarm 集群模式做一份真实 PPT，验证质量与耗时
+- [ ] HITS 模式中途 @ 成员加需求的实际体验
+- [ ] 飞书频道远程指挥链路
+- [ ] 自配模型的配置成本（是否支持 DeepSeek 等国产 API）

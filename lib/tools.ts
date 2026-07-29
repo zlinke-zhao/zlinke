@@ -1781,4 +1781,15 @@ export const tools: Tool[] = [
     price: '开源免费（Apache 2.0），模型可用本地llama.cpp/Ollama零API Key',
     features: ['本地/云端一键部署', '钉钉/飞书/微信/Discord/Telegram多渠道接入', 'Skills自动加载+定时任务', '主动心跳机制', '多Agent协作+Mission自主任务', '本地模型零API Key', '三层安全防护(工具守卫/文件访问控制/技能扫描)', '桌面App(Tauri)+pip/Docker/魔搭多安装方式'],
   },
+  {
+    id: 'jiuwenswarm',
+    name: 'JiuwenSwarm（蜂群智能体）',
+    description: '华为openJiuwen社区开源的多智能体协同工作台：自动组建Agent团队并行干活，人可入队协作（HITS），全平台含鸿蒙PC。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://www.openjiuwen.com/jiuwenswarm',
+    price: '开源免费（Apache 2.0），需自配模型（支持华为云/多模型接入）',
+    features: ['个人助手(Claw)/编码(Coding)/集群(Swarm)三模式', '自动组建多Agent团队并行分工', 'HOTS/HITS人机协同（人可作为蜂群成员入队）', 'Swarm Skills团队技能沉淀+Skills Hub共享', '小艺/飞书/钉钉/Telegram多频道远程指挥', '首个鸿蒙PC开源AI统一工作台（Win/Mac/HarmonyOS）', 'Skills自演进+分层记忆+上下文瘦身', 'PinchBench 94.2%业界SOTA（官方数据）'],
+  },
 ]
