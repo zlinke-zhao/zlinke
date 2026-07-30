@@ -1792,4 +1792,15 @@ export const tools: Tool[] = [
     price: '开源免费（Apache 2.0），需自配模型（支持华为云/多模型接入）',
     features: ['个人助手(Claw)/编码(Coding)/集群(Swarm)三模式', '自动组建多Agent团队并行分工', 'HOTS/HITS人机协同（人可作为蜂群成员入队）', 'Swarm Skills团队技能沉淀+Skills Hub共享', '小艺/飞书/钉钉/Telegram多频道远程指挥', '首个鸿蒙PC开源AI统一工作台（Win/Mac/HarmonyOS）', 'Skills自演进+分层记忆+上下文瘦身', 'PinchBench 94.2%业界SOTA（官方数据）'],
   },
+  {
+    id: 'dumate',
+    name: 'DuMate（百度搭子）',
+    description: '百度智能云出品的桌面级办公智能体：在本地沙箱内整理文件、跨表分析出报告、跨应用自动化，高危操作需二次授权。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://dumate.baidu.com',
+    price: '个人免费版每日登录赠1000积分；Pro 59元/月、Max 129元/月；企业版189元/席位/月',
+    features: ['本地安全沙箱隔离运行', '文件夹级权限管控+高危操作二次确认+全程可审计', '文件智能分类归档与Office/PDF批量互转', '多表关联分析并自动生成汇报PPT', '跨应用/网页自动化+操作录制回放', '定时任务调度', '技能广场+自定义技能', '内置百度搜索Skill', '飞书/微信/钉钉/如流渠道接入', 'Windows/macOS/移动端'],
+  },
 ]
