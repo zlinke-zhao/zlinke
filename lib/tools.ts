@@ -1803,4 +1803,15 @@ export const tools: Tool[] = [
     price: '个人免费版每日登录赠1000积分；Pro 59元/月、Max 129元/月；企业版189元/席位/月',
     features: ['本地安全沙箱隔离运行', '文件夹级权限管控+高危操作二次确认+全程可审计', '文件智能分类归档与Office/PDF批量互转', '多表关联分析并自动生成汇报PPT', '跨应用/网页自动化+操作录制回放', '定时任务调度', '技能广场+自定义技能', '内置百度搜索Skill', '飞书/微信/钉钉/如流渠道接入', 'Windows/macOS/移动端'],
   },
+  {
+    id: 'aipy',
+    name: '爱派 AiPy',
+    description: '知道创宇开源的本地AI数字员工：把自然语言现场转成Python代码并在本机执行，交付结果而非建议。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.1,
+    url: 'https://www.aipyaipy.com',
+    price: '开源核心免费（pip install aipyapp，Apache 系协议，需自配模型API Key）；AiPy Pro 桌面客户端免费下载、需手机/微信注册登录',
+    features: ['Python-Use范式：无工具插件/无MCP，直接生成并执行代码', '任务→计划→代码→执行→反馈自动闭环，报错自修复', '本地执行，数据不出本机', '直接读写本地Excel/Word/PDF/图片等文件', '可操控浏览器、局域网设备、打印机、FreeCAD等本机软件', '开源命令行版(GitHub knownsec/aipyapp)+Pro桌面客户端双形态', '支持DeepSeek等主流模型自配API Key', 'Windows/macOS/Linux，兼容海光CPU与银河麒麟、统信UOS信创系统'],
+  },
 ]
