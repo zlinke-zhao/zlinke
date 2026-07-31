@@ -1655,9 +1655,9 @@ export const tools: Tool[] = [
     description: '全球首款代理式AI浏览器（Agentic Browser），桌面端自动规划并执行跨网站与本地任务，内置Computer Use与Agentic Memory。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
-    rating: 4.4,
+    rating: 4.2,
     url: 'https://www.fellou.ai/',
-    price: 'CE版免费 / Plus $19·Pro $39.9 月',
+    price: '免费(1000 Sparks) / Plus $19·Pro $39.9·Ultra $199.9 月',
     features: ['Agentic浏览器', '先规划后执行', 'Computer Use本地操控', 'Agentic Memory', '跨站深研报告', '可实时介入'],
   },
   {
