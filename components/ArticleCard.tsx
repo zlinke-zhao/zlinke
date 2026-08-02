@@ -7,6 +7,8 @@ interface Article {
   category: string
   tags: string[]
   description: string
+  /** 自定义链接地址，默认为 /articles/{slug} */
+  href?: string
 }
 
 export default function ArticleCard({ article }: { article: Article }) {
@@ -14,12 +16,22 @@ export default function ArticleCard({ article }: { article: Article }) {
     '新闻': { bg: 'bg-green-100', darkBg: 'dark:bg-green-900/30', text: 'text-green-700', darkText: 'dark:text-green-400' },
     '评测': { bg: 'bg-blue-100', darkBg: 'dark:bg-blue-900/30', text: 'text-blue-700', darkText: 'dark:text-blue-400' },
     '深度': { bg: 'bg-purple-100', darkBg: 'dark:bg-purple-900/30', text: 'text-purple-700', darkText: 'dark:text-purple-400' },
+    // 工具评测分类样式
+    'AI对话助手': { bg: 'bg-blue-100', darkBg: 'dark:bg-blue-900/30', text: 'text-blue-700', darkText: 'dark:text-blue-400' },
+    'AI写作工具': { bg: 'bg-indigo-100', darkBg: 'dark:bg-indigo-900/30', text: 'text-indigo-700', darkText: 'dark:text-indigo-400' },
+    'AI编程开发': { bg: 'bg-orange-100', darkBg: 'dark:bg-orange-900/30', text: 'text-orange-700', darkText: 'dark:text-orange-400' },
+    'AI图像生成': { bg: 'bg-pink-100', darkBg: 'dark:bg-pink-900/30', text: 'text-pink-700', darkText: 'dark:text-pink-400' },
+    'AI视频创作': { bg: 'bg-violet-100', darkBg: 'dark:bg-violet-900/30', text: 'text-violet-700', darkText: 'dark:text-violet-400' },
+    'AI搜索工具': { bg: 'bg-cyan-100', darkBg: 'dark:bg-cyan-900/30', text: 'text-cyan-700', darkText: 'dark:text-cyan-400' },
+    'AI音频语音': { bg: 'bg-emerald-100', darkBg: 'dark:bg-emerald-900/30', text: 'text-emerald-700', darkText: 'dark:text-emerald-400' },
+    'AI工作台': { bg: 'bg-amber-100', darkBg: 'dark:bg-amber-900/30', text: 'text-amber-700', darkText: 'dark:text-amber-400' },
   }
 
   const style = categoryStyles[article.category] || { bg: 'bg-gray-100', darkBg: 'dark:bg-gray-800', text: 'text-gray-600', darkText: 'dark:text-gray-400' }
+  const linkHref = article.href || `/articles/${article.slug}`
 
   return (
-    <Link href={`/articles/${article.slug}`} className="group">
+    <Link href={linkHref} className="group">
       <article className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all hover:-translate-y-0.5">
         {/* Color Bar */}
         <div className="h-1.5 gradient-bg" />

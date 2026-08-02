@@ -4,6 +4,7 @@ import ArticleCard from '@/components/ArticleCard'
 import ToolCard from '@/components/ToolCard'
 import Newsletter from '@/components/Newsletter'
 import { getAllArticles } from '@/lib/articles'
+import { getAllToolReviews } from '@/lib/tool-reviews'
 import { tools } from '@/lib/tools'
 import { hasReview } from '@/lib/tool-reviews'
 
@@ -13,9 +14,44 @@ export const metadata: Metadata = {
   },
 }
 
+/** 统一的内容项格式，用于合并文章和工具评测 */
+interface ContentItem {
+  slug: string
+  title: string
+  date: string
+  category: string
+  tags: string[]
+  description: string
+  /** 工具评测需要链接到 /tools/xxx */
+  href?: string
+}
+
 export default function Home() {
   const articles = getAllArticles()
-  const latestArticles = articles.slice(0, 3)
+  const reviews = getAllToolReviews()
+
+  // 合并文章 + 工具评测，统一格式后按日期排序
+  const allContent: ContentItem[] = [
+    ...articles.map((a) => ({
+      slug: a.slug,
+      title: a.title,
+      date: a.date,
+      category: a.category,
+      tags: a.tags,
+      description: a.description,
+    })),
+    ...reviews.map((r) => ({
+      slug: r.id,
+      title: r.title,
+      date: r.date,
+      category: r.category,
+      tags: [r.category, r.price ? '定价分析' : ''].filter(Boolean),
+      description: r.subtitle || `${r.title} - 深度评测`,
+      href: `/tools/${r.id}` as const,
+    })),
+  ].sort((a, b) => (a.date > b.date ? -1 : 1))
+
+  const latestArticles = allContent.slice(0, 3)
   // 从每个分类各取一款代表性工具，展示多样性
   const featuredTools = [
     tools.find(t => t.category === 'AI对话助手'),  // ChatGPT
@@ -69,7 +105,7 @@ export default function Home() {
               <div className="text-sm text-blue-200 mt-1">AI工具</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold">{articles.length}+</div>
+              <div className="text-3xl md:text-4xl font-bold">{allContent.length}+</div>
               <div className="text-sm text-blue-200 mt-1">评测文章</div>
             </div>
             <div>
