@@ -1,261 +1,167 @@
 ---
 id: rowboat
-title: "Rowboat 深度评测：开源本地AI同事，用知识图谱让邮件会议变成可复用记忆"
+title: "Rowboat 深度评测：YC 团队做的开源 AI 同事，把邮件和会议熬成一张会长大的知识图谱"
 date: "2026-08-02"
 category: "AI工作台"
 rating: 4.2
-price: "免费开源（Apache-2.0）/ 本地模型零成本 / 云端API自备Key按量付费"
-subtitle: "不是又一个聊天框，而是把你的工作沉淀成一张长期演进的知识图谱：邮件自动起草、会议实时纪要、后台Agent按事件定时跑、代码模式并行Agent"
+price: "完全免费开源（Apache-2.0）；模型/API 与语音、搜索等第三方服务成本自付；官方托管账户版仍在规划中"
+subtitle: "16,900+ GitHub Star、三登 Hacker News 首页，本地 Markdown 知识图谱是它最锋利的一刀；但 v0.8.3 的沙箱缺失、Google 独苗集成与图谱噪音，决定了它现在更像极客的利器而非团队的生产力底座"
 url: "https://www.rowboatlabs.com"
 pros:
-  - "记忆机制独树一帜：邮件/会议/Slack被蒸馏成Obsidian式双向链接Markdown知识图谱，上下文随工作累积而非每次冷启动"
-  - "完全本地优先+开源Apache-2.0：数据全在本地明文Markdown，可读可改可备份无锁定；Ollama/LM Studio本地模型可完全离线零成本运行"
-  - "模型彻底自由：支持Claude/OpenAI/Gemini/DeepSeek等任何API Key，可按任务难度路由到本地或云端模型"
-  - "HN社区验证扎实：Show HN 208赞87评论登首页，GitHub 16.7K Stars全球排名#2767，YC S24孵化"
+  - "记忆机制是真差异化而非营销词：邮件/会议/Slack/助手对话被蒸馏成 Obsidian 式双向链接的纯 Markdown 图谱，上下文按天累积，而不是每次检索都冷启动"
+  - "数据主权彻底：Apache-2.0 开源，全部内容以明文 Markdown 存在本机 ~/.rowboat/ 目录，可用 Obsidian / VSCode 直接打开、Git 版本管理，卸载了知识库还在"
+  - "工作面而非聊天框：内置邮件客户端、本地会议记录器、隔离浏览器、Code Mode（通过 ACP 并行驱动 Claude Code / Codex）、Apps 自建本地小应用，五个面共享同一张图谱"
+  - "模型完全自由：Ollama / LM Studio 跑本地模型可完全离线，也可自带 OpenAI / Anthropic / Gemini 密钥，官方明示还能直接用 ChatGPT 订阅"
+  - "社区验证扎实：GitHub 16,900+ Star，三次大版本均登 Hacker News 首页（CLI 131 分、Knowledge 205 分并登顶 GitHub Trending、Work Surfaces 218 分），团队在评论区逐条实名回复"
 cons:
-  - "早期阶段v0.7.x：界面打磨不一，部分Surface成熟度差距大，集成仍需手动配置各API Key"
-  - "本地优先被云依赖削弱：语音转写依赖Deepgram云端、部分集成需在线，纯离线体验打折扣"
-  - "知识图谱需主动维护：不清理会变 cluttered 垃圾场，缺乏自动衰减/归档机制"
-  - "单用户桌面定位：无多用户同步/共享图谱/冲突解决，团队协作场景不适用"
+  - "沙箱几乎缺位是最硬的风险：HN 用户直指它一边吞入各种来源的文本、一边在底层跑 Node.js 执行任务，提示注入面很大，而所谓「只生成草稿不发送」的防线被评价为天真"
+  - "集成目前是 Google 独苗：只支持 Gmail / Calendar / Drive，且 Google 连接为只读（用户让它归档邮件会直接卡死），IMAP / JMAP / CalDAV 仍在路线图上"
+  - "图谱噪音需要人工养：有用户接入 Gmail 后被生成 20 个实体节点却完全看不懂它们是什么，官方靠 note-creation.json 调严格度，图谱不主动整理就会越长越乱"
+  - "还是 v0.8.3 的早期产品：三人团队同时推桌面、Web、CLI 三条线，版本一周能连跳四个小版本，Granola 同步等集成出现过失效，权限、审计、稳定性这些团队落地的最后一公里得自己补"
+  - "彻底的单用户桌面定位：没有多人同步、共享图谱与冲突解决机制，也没有移动端，团队协作和跨设备访问都用不上"
 alternatives:
-  - { name: "Claude Cowork", slug: "claude-cowork", reason: "要Anthropic最强模型+零配置安全管控+企业合规(SOC2/HIPAA)，接受Claude-only和云端托管" }
-  - { name: "Manus", slug: "manus", reason: "要云端自主Agent过夜跑长任务(浏览器+终端+文件系统)，接受积分制和云端沙箱" }
-  - { name: "Fellou", slug: "fellou", reason: "要穿透登录态的浏览器深度搜索(X/Reddit/LinkedIn)，Fellou的Agentic Browser是独门能力" }
-  - { name: "Genspark", slug: "genspark", reason: "要编排层协调70+模型+80+工具组装成品，Genspark的Claw AI员工有独占云VM" }
+  - { name: "Claude Cowork", slug: "claude-cowork", reason: "Anthropic 官方桌面 Agent，安全管控与开箱即用体验远胜，但闭源、数据在云端、只能用 Claude；Rowboat 是它最直接的开源本地平替" }
+  - { name: "Fellou", slug: "fellou", reason: "Fellou 以浏览器为产品底座，强在穿透登录态跨站深搜；Rowboat 不抢浏览器操控赛道，核心是长期记忆图谱" }
+  - { name: "Kimi Work", slug: "kimi-work", reason: "Kimi Work 是对话入口 + 长文本基因的国产桌面 Agent，中文与开箱体验更好；Rowboat 胜在数据留本地、模型可自选" }
+  - { name: "Manus", slug: "manus", reason: "Manus 走云端虚拟机路线，难题深度更强、无需本地配置；Rowboat 反过来把算力和数据都放回你自己的机器" }
 ---
 
 ## 一句话总结
 
-Rowboat 是「把你的工作变成一张会自己长大的知识图谱」的本地优先开源 AI 同事——它不是又一个聊天框套壳，而是把邮件、会议、Slack 持续蒸馏成 Obsidian 式双向链接的 Markdown 笔记（人/项目/决策成为图谱节点），并基于这张图谱帮你起草邮件、做会议简报、跑后台 Agent、甚至并行编码。**适合被「反复喂背景、上下文冷启动」折磨的知识工作者与隐私敏感用户；但它在 v0.7.x 早期阶段，界面打磨参差不齐，且单用户桌面定位不适合团队协作场景。**
+Rowboat 是「把你的日常工作熬成一张会自己长大的知识图谱」的开源本地 AI 同事——不是又一个聊天框，而是把邮件、会议、Slack、助手对话持续蒸馏成 Obsidian 式双向链接的 Markdown 笔记（人、公司、项目、决策都成为图谱节点），再基于这张图谱替你分诊邮件、写会议纪要、跑后台任务，甚至用一句话拼出住在本地的小应用。**适合被「每次开新会话都要重喂一遍背景」折磨、同时在意数据不出本机的技术型知识工作者；但它沙箱防护近乎缺位、集成目前只有 Google 一条腿、图谱需要人工养护，且仍是 v0.8.3 的早期产品——现在值得装来当第二大脑，还不值得把公司的关键流程压上去。**
 
 ## 核心数据一览
 
 <table>
-<tr><td style="width:140px;font-weight:bold;background:#f0f4f8;">开发商</td><td>Rowboat Labs（Y Combinator S24 孵化）</td></tr>
-<tr><td style="font-weight:bold;background:#f0f4f8;">最新版本</td><td>v0.7.7（2026-07-20 发布）；v0.6.8→v0.7.1 四版本于 2026-07-07 日内密集发布</td></tr>
-<tr><td style="font-weight:bold;background:#f0f4f8;">开源协议</td><td>Apache-2.0（OSI 认可，允许商用）</td></tr>
-<tr><td style="font-weight:bold;background:#f0f4f8;">GitHub</td><td>16.7K Stars / 1.7K Forks / 全球排名 #2767（2026-07-22）</td></tr>
-<tr><td style="font-weight:bold;background:#f0f4f8;">技术栈</td><>TypeScript + Electron 桌面应用 + OpenAI Agents SDK</td></tr>
-<tr><td style="font-weight:bold;background:#f0f4f8;">支持平台</td><td>macOS / Windows / Linux 三平台安装包</td></tr>
-<tr><td style="font-weight:bold;background:#f0f4f8;">社区热度</td><td>Hacker News Show HN 208 赞 87 评论（2026-07-07）；Product Hunt #26 日榜 86 赞（2026-04-21）</td></tr>
+  <tr><td style="width:140px;font-weight:bold">开发商</td><td>Rowboat Labs（Y Combinator Summer 2024 批次，总部印度班加罗尔，团队 3 人）</td></tr>
+  <tr><td style="font-weight:bold">创始团队</td><td>Arjun Maheswaran（前 Twitter）、Ramnique Singh、Akhilesh Sudhakar；三人共事 7 年以上，此前联合创办客服 AI 公司 Agara，2021 年被 Coinbase 收购</td></tr>
+  <tr><td style="font-weight:bold">产品形态</td><td>本地优先开源桌面客户端（macOS / Windows / Linux），另有 CLI</td></tr>
+  <tr><td style="font-weight:bold">最新版本</td><td>v0.8.3（2026-07-29 发布）；Windows 安装包 154MB、Linux deb 93.6MB、macOS 约 119-128MB</td></tr>
+  <tr><td style="font-weight:bold">开源许可</td><td>Apache-2.0；截至 2026 年 8 月 GitHub 16,900+ Star、约 1,600 Fork、2,189 次提交</td></tr>
+  <tr><td style="font-weight:bold">数据归属</td><td>全部明文 Markdown 存本机 ~/.rowboat/ 目录，兼容 Obsidian，可读可改可备份可删</td></tr>
+  <tr><td style="font-weight:bold">模型支持</td><td>Ollama / LM Studio 本地模型；OpenAI / Anthropic / Gemini 等自带密钥，国内用户实测可接 DeepSeek API；亦可直接使用 ChatGPT 订阅</td></tr>
+  <tr><td style="font-weight:bold">社区热度</td><td>三次大版本连登 Hacker News 首页：CLI（2025-11，131 分）、Knowledge（2026-02，205 分 / 56 条评论 / GitHub Trending 第一）、Work Surfaces（2026-07，218 分）</td></tr>
+  <tr><td style="font-weight:bold">价格</td><td>完全免费开源，模型与第三方服务成本自付；团队已在 HN 明示计划推出零配置托管账户版</td></tr>
 </table>
+
+## 产品前史：它其实换过两次赛道
+
+这一点几乎所有中文介绍都漏了，但它决定了你该如何看待这个项目的成熟度。
+
+Rowboat Labs 2024 年进 YC 时做的是「面向客服场景的 LLM Agent」；到 2026 年 4 月，GitHub 上的 Rowboat 还是一个「开源多智能体 IDE」，被称作 Agent 界的 Cursor，基于 OpenAI Agents SDK，当时约 1.04 万 Star；直到 2026 年 2 月 Knowledge 版本、7 月 Work Surfaces 版本连续发布，它才彻底转型成今天这个「带记忆的 AI 同事」。
+
+**换句话说：16,900 颗星里有相当一部分是上一代产品攒下的。** 这不是黑它——两次转型都由同一支三人团队完成，迭代速度惊人（v0.6.8 到 v0.7.1 在两天内连发四个版本）——但你在评估「这产品够不够稳」时，不该把星数直接等同于当前形态的成熟度。
 
 ## 核心功能评测
 
-### 1. 知识图谱记忆系统 ⭐⭐⭐⭐⭐（5/5）
+### 1. Brain 知识图谱 ⭐⭐⭐⭐⭐
 
-这是 Rowboat 的灵魂，也是它与所有竞品最本质的区别。
+这是 Rowboat 的第一性原理，也是它唯一真正稀缺的东西。
 
-大多数 AI 助手是**无状态**的——每次对话从零开始，需要你反复喂背景。Rowboat 的哲学完全相反：它把你的 Gmail 邮件、Google Calendar 事件、Slack 消息、会议录音全部索引，提取出人名、项目、决策、承诺等实体，写成带双向链接的 Markdown 文件存到你本地磁盘。结果是一个 **Obsidian 兼容的知识库**——你 literally 可以用 Obsidian 直接打开 Rowboat 的数据目录浏览和编辑。
+绝大多数 AI 工具用的是 RAG：你提问，它临时去文档堆里捞几段塞进 prompt，答完即忘，下次从零开始。Rowboat 反过来——它把邮件、会议转录、Slack、以及你和助手的历史对话持续蒸馏成带反向链接的 Markdown 笔记，人、公司、项目、主题各自成为节点，图谱随工作自动更新。官方 README 里对这个差异的表述很准确：**结果是会复利的记忆，而不是每次都冷启动的检索。**
 
-CreativeAINews 的评测精准概括了这个差异：「Most assistants reconstruct context on demand, pulling a few documents into a prompt for one answer and discarding the connections afterward. Rowboat instead indexes your work into a durable, backlinked graph.」
+关键设计有两点。其一，不把整张图喂给模型——团队在 HN 明确说明只检索相关笔记，以控制上下文成本。其二，实体消歧用两层法：原始同步层按来源 ID 存储，图谱构建层再用 LLM 批处理做合并；出现信息冲突时按时间戳更新，团队称后续会标记冲突供人工复核。
 
-实际价值？想象你每天开 8 个会、收 200 封邮件。Rowboat 的「Day-Prep Briefing」功能会在每个会议前 15 分钟给你三句话：「这个人上次问了什么、你承诺了什么、还有哪些 open action item」。Skila 的评测称这是「the killer feature」——听起来 trivial，但对高频会议者来说**仅此一项就值回票价**。
+但它也不是没有争议。HN 上有开发者直接质疑：「有个图谱似乎并没有比 SQLite 或 Postgres 多提供什么价值，说自己有『上下文图谱』只是营销话术。」这个质疑团队没有正面反驳。我的看法是：图谱本身的技术含量确实有限，真正的价值在于**它是人类可读、可手改的纯文本**——你能打开看它到底记了什么、记错了就改掉，这在黑箱记忆的产品里是稀缺的。
 
-**扣分项**：图谱不会自动清理。如果你不定期手动整理，节点会越来越杂乱变成「知识坟场」。目前缺少自动衰减/归档机制。
+### 2. 邮件工作面 ⭐⭐⭐⭐☆
 
-### 2. 多工作面（Work Surfaces）⭐⭐⭐⭐（4/5）
+内置邮件客户端把收件箱分成「重要」和「其余」，对重要邮件直接预生成草稿；你每次编辑和发送，它都会学你的语气，下一封更像你写的。这个「从你的修改中学习」的闭环设计比单纯的 AI 写邮件高一档。
 
-Rowboat 不是单一聊天窗口，而是多个专用「表面」：
+**但有一个必须知道的硬限制：Google 连接目前是只读的。** HN 上有用户接入 Gmail 后让它归档邮件，Agent 直接卡住不动，团队回复确认写操作尚未支持。同时，集成目前基本只有 Google 一家（Gmail / Calendar / Drive，会议侧支持 Granola 和 Fireflies）。多位用户要求支持 IMAP / JMAP / CalDAV，团队回复「100% 同意，会排进路线图，先做 Google 是因为最快」。**如果你用的是 Outlook、企业邮箱或自建邮件服务，现在基本用不上这个面。**
 
-| 工作面 | 功能 | 成熟度 |
-|--------|------|--------|
-| Email | 自动分诊重要性、学习你的写作风格后起草回复 | 较成熟 |
-| Meeting Notes | 本地 Granola 式笔记——麦克风实时转写→Markdown 纪要→回写图谱 | 较成熟 |
-| Browser | 隔离环境中的 Agent 浏览器，可执行网页任务 | 中等 |
-| Code Mode | 基于 Claude Code/Codex 的并行编码 Agent | 较成熟 |
-| Notes | Obsidian 式笔记+图视图+语音笔记 | 较成熟 |
-| Background Agents | 事件触发（新邮件到达）/ 定时触发（每日简报） | 中等 |
-| App Builder | 自然语言描述即生成住在本地的小应用（CRM/追踪器） | 早期 |
+### 3. 本地会议记录 + 后台 Agent ⭐⭐⭐⭐☆
 
-每个 Surface 都读写同一个共享知识图谱，这意味着邮件里提到的承诺会出现在会议简报里，代码讨论中的决策会沉淀为图谱节点。这种**跨 Surface 的上下文流动**是 Rowboat 最硬的护城河。
+会议记录器是 Granola 式的本地方案：直接接麦克风和扬声器，**不需要一个机器人加入你的会议**——这在很多公司的合规环境里是决定性的差别。边开会边出实时转录，会议结束生成带行动项的 Markdown 摘要，并自动回写图谱里相关的人和项目节点。
 
-**扣分项**：各 Surface 打磨程度不一致。Email 和 Notes 相对成熟，Browser 和 App Builder 仍偏实验性。RightAIChoice 的社区反馈指出「polish varies significantly across surfaces」。
+后台 Agent 支持事件触发（新邮件到达、会议结束）和定时触发（每天早上 8 点），可以联网搜索、驱动内置浏览器、调用工具、甚至写代码。调度支持 cron、时间窗口和一次性任务，UI 里可开关。团队表示审批系统仍在开发中——**这意味着现在的后台 Agent 是在没有完整审批链的情况下自动跑的，这一点要和下面的安全短板连起来看。**
 
-### 3. 模型自由度 ⭐⭐⭐⭐⭐（5/5）
+### 4. Code Mode 与隔离浏览器 ⭐⭐⭐⭐☆
 
-Rowboat 在模型选择上做到了真正的「BYOK」（Bring Your Own Key）：
+Code Mode 不自己造轮子，而是通过自建的 ACP（Agent Client Protocol）客户端并行拉起多个 Claude Code 或 Codex 实例，再用你的工作上下文去调度它们。会议上定的一个决策、客户提的一个阻塞点，可以直接变成一个带可审阅 diff 的分支，而你不用再向任何人重述背景——这个动线是它把「记忆」变现为生产力的最漂亮的一处。
 
-- **本地模型**：通过 Ollama 或 LM Studio 运行 DeepSeek/Qwen/Llama 等 8B-14B 模型，**完全离线、零成本**
-- **云端 API**：Claude / OpenAI / Gemini / DeepSeek / Moonshot 等，按任务难度灵活切换
-- **智能路由**：简单邮件起草走本地小模型省成本，复杂推理走 Claude Opus 保质量
+内置浏览器则刻意与你的主浏览器隔离：你只在里面登录那些愿意让助手碰的账号，Agent 用 browser-use 技能操作网页。这个「隔离登录态」的设计比 Fellou 那种直接跑在你主浏览器登录态上的方案在心理负担上轻得多。
 
-对比 Claude Cowork（只能用 Claude）和 ChatGPT Work（只能用 OpenAI），Rowboat 的模型自由度是**结构性优势**。对同时持有多个 API Key 的重度用户来说，这意味著不被任何一家供应商锁定。
+### 5. Work Surfaces 自建应用 ⭐⭐⭐⭐☆
 
-**隐性成本提醒**：本体软件免费，但云端 API 费用和本地算力成本由用户承担。RightAIChoice 指出 Pro 版 $49/月主要解除配额限制，模型/API 费另计。
+2026 年 7 月上线的新能力，也是第三次登上 HN 首页的版本：你用自然语言向 copilot 描述一个工作流——融资 CRM、现金流跑道追踪器、客户健康度看板——它就生成一个住在 Rowboat 内部、跑在本地的小型 Web 应用，每个应用有自己的 UI 和一个后台 Agent，能调用 Rowboat 的全部工具、集成和你的工作记忆。发布也只需一步：连上 GitHub，它自动建仓库并注册应用，社区应用可直接搜索安装。
 
-### 4. 集成与扩展 ⭐⭐⭐（3/5）
+HN 上那条被官网引用的高赞评价说得挺准：「这非常接近我想要的 AI 工具形态：不只是聊天，而是记忆 + 围绕记忆的真实工作面。」不过要清醒——这类生成式小应用的天花板仍是「能跑的原型」，不是能交付客户的产品。
 
-当前原生集成：
-- ✅ Gmail / Google Calendar / Google Drive（Google OAuth）
-- ✅ Slack
-- ⏳ Outlook（计划中）
-- 🔄 MCP 协议支持：Linear / Jira / GitHub / X（Twitter）/ Exa 搜索 / Composio 工具链 / Deepgram 语音 / ElevenLabs 语音合成
+## 价格方案：软件免费，但账单在别处
 
-MCP（Model Context Protocol）支持是关键——理论上任何 MCP Server 都能接入，生态扩展潜力大。但现实是**每个集成都需要手动配置 API Key**，没有统一的凭据管理面板。对非技术用户来说，配置 Gmail OAuth + Deepgram + ElevenLabs 一套下来可能要 30-60 分钟。
-
-**扣分项**：集成数量仍有限，Granola 同步等曾被报告断裂后未明确修复。中文生态（微信/飞书/钉钉）无原生支持。
-
-### 5. 隐私与数据主权 ⭐⭐⭐⭐⭐（5/5）
-
-这是 Rowboat 最无可争议的强项：
-
-- 所有数据存储为**本地明文 Markdown 文件**（路径 `~/.rowboat/` 目录下 JSON 配置 + Markdown vault）
-- 配置文件也是纯 JSON，可审计可版本管理
-- 用本地模型时**数据完全不出机器**
-- 即使公司倒闭，你的知识库仍然是一个普通的文件夹
-
-但要注意一个微妙之处：**「本地优先」不等于「100% 离线」**。语音转写依赖 Deepgram 云端、邮件同步需要联网、部分工具调用要走外部 API。Hacker News 社区有人指出「local-first claim is partially undone by cloud transcription and voice dependencies」。严格气隙环境需要仔细审查每条数据通路。
-
-## 价格方案
+Rowboat 本体 Apache-2.0 完全免费，没有任何付费档。真正的成本是外置的，这才是你该算的账：
 
 <table>
-<tr>
-  <th style="background:#4a90d9;color:#fff;">方案</th>
-  <th style="background:#4a90d9;color:#fff;">价格</th>
-  <th style="background:#4a90d9;color:#fff;">包含内容</th>
-</tr>
-<tr>
-  <td><strong>Free 开源版</strong></td>
-  <td>$0（永久免费）</td>
-  <td>完整桌面应用 + 全部 Work Surfaces + 知识图谱 + 本地模型支持；有基础配额限制</td>
-</tr>
-<tr>
-  <td><strong>Pro</strong></td>
-  <td>~$49/月（RightAIChoice 报价）</td>
-  <td>解除配额限制 + 高级功能；早期访问价曾报 $20-30/user/月</td>
-</tr>
-<tr>
-  <td><strong>Enterprise</strong></td>
-  <td>定制报价</td>
-  <td>团队部署 + 专属支持</td>
-</tr>
-<tr>
-  <td colspan="3" style="background:#f8f8f8;color:#666;"><em>注：以上价格不含 LLM API 费用。使用 Ollama 本地模型可实现零成本运行；调用 Claude/OpenAI 等云端 API 按各家定价另行计费。</em></td>
-</tr>
+  <tr><th style="background:#4a90d9;color:#fff;">成本项</th><th style="background:#4a90d9;color:#fff;">是否必需</th><th style="background:#4a90d9;color:#fff;">费用来源</th><th style="background:#4a90d9;color:#fff;">说明</th></tr>
+  <tr><td>Rowboat 软件本体</td><td>必需</td><td>$0</td><td>Apache-2.0 开源，个人与商用均无限制</td></tr>
+  <tr><td>大模型</td><td>必需（二选一）</td><td>自带 API 密钥按量计费，或本地模型 0 元</td><td>可用 OpenAI / Anthropic / Gemini 密钥，也可直接用 ChatGPT 订阅；Ollama / LM Studio 本地跑则只耗电和显存</td></tr>
+  <tr><td>语音输入</td><td>可选</td><td>Deepgram API 密钥</td><td>配置在 ~/.rowboat/config/deepgram.json</td></tr>
+  <tr><td>语音输出</td><td>可选</td><td>ElevenLabs API 密钥</td><td>配置在 ~/.rowboat/config/elevenlabs.json</td></tr>
+  <tr><td>联网研究搜索</td><td>可选</td><td>Exa API 密钥</td><td>配置在 ~/.rowboat/config/exa-search.json</td></tr>
+  <tr><td>外部工具</td><td>可选</td><td>Composio 密钥或自建 MCP Server</td><td>可接 Slack / Linear / Jira / GitHub / X 等</td></tr>
+  <tr><td>本地算力</td><td>走本地模型时必需</td><td>你自己的硬件</td><td>有实测者指出跑 7B 量级模型约需 8GB 显存，集显笔记本建议直接走 API</td></tr>
 </table>
 
-**成本对比视角**：Rowboat Free + Ollama 本地 DeepSeek = **$0/月**。对比 Claude Cowork 最低 $20/月（Pro）、Manus Pro $20/月、ChatGPT Plus $20/月——Rowboat 对预算敏感用户极其友好。但若重度使用 Claude Opus 级云端模型，API 费用可能超过直接订阅竞品。
+**这里必须做一次辟谣。** 调研过程中我发现多个 AI 工具聚合站给出了互相矛盾且与官方不符的定价：某站标注 Rowboat「Free，Pro 起价 $49/月」并称它是 Linux 独占客户端；另一站标注「Starter $20/月、Pro $200/月」。这两组数字在官网、GitHub 仓库、YC 官方页面上都找不到任何依据，而「Linux 独占」更是直接与 GitHub Releases 里同时挂着 Windows setup.exe 和 macOS 安装包的事实相悖。**截至发稿，Rowboat 没有任何官方付费档位。** 团队只是在 HN 评论里表示，计划推出一个零配置的托管账户版（帮你托管集成与模型选择），但尚未上线、也未公布价格。
+
+**真正的隐性成本是后台 Agent 的持续调用。** 有长期使用者提醒：如果所有后台实体抽取都走 GPT 或 Claude，持续的自动处理会悄悄堆出可观账单，他的建议是**用本地 Ollama 跑后台的实体抽取，把云端模型留给真正需要推理的任务**——这是个很实在的省钱策略。
 
 ## 与竞品对比
 
 <table>
-<tr>
-  <th style="background:#4a90d9;color:#fff;">维度</th>
-  <th style="background:#4a90d9;color:#fff;">Rowboat</th>
-  <th style="background:#4a90d9;color:#fff;">Claude Cowork</th>
-  <th style="background:#4a90d9;color:#fff;">Manus</th>
-</tr>
-<tr>
-  <td><strong>许可协议</strong></td>
-  <td>Apache-2.0 开源</td>
-  <td>专有（Anthropic）</td>
-  <td>专有</td>
-</tr>
-<tr>
-  <td><strong>数据位置</strong></td>
-  <td>本地 Markdown 文件</td>
-  <td>Anthropic 云端</td>
-  <td>云端沙箱 VM</td>
-</tr>
-<tr>
-  <td><strong>模型选择</strong></td>
-  <td>任意（Ollama/本地/API Key）</td>
-  <td>Claude only</td>
-  <td>Manus 自研模型</td>
-</tr>
-<tr>
-  <td><strong>核心差异化</strong></td>
-  <td>持久知识图谱记忆</td>
-  <td>安全管控+企业合规</td>
-  <td>云端自主长任务</td>
-</tr>
-<tr>
-  <td><strong>工作面</strong></td>
-  <td>邮件/会议/浏览器/代码/笔记</td>
-  <td>多 Surface+MCP 连接器</td>
-  <td>浏览器+终端+文件系统</td>
-</tr>
-<tr>
-  <td><strong>离线能力</strong></td>
-  <td>✅ 完全支持（本地模型）</td>
-  <td>❌ 不支持</td>
-  <td>❌ 不支持</td>
-</tr>
-<tr>
-  <td><strong>价格起点</strong></td>
-  <td>$0（+可选 API 费）</td>
-  <td>$20/月（含 Claude）</td>
-  <td>$0（+积分制）</td>
-</tr>
-<tr>
-  <td><strong>适合场景</strong></td>
-  <td>知识密集型个人生产力</td>
-  <td>已订阅 Claude 的专业开发者</td>
-  <td>委托式自主研究/构建</td>
-</tr>
+  <tr><th style="background:#4a90d9;color:#fff;">维度</th><th style="background:#4a90d9;color:#fff;">Rowboat</th><th style="background:#4a90d9;color:#fff;">Claude Cowork</th><th style="background:#4a90d9;color:#fff;">Fellou</th></tr>
+  <tr><td>核心卖点</td><td>本地知识图谱长期记忆 + 五个工作面</td><td>官方级 Agent 能力 + 最重的安全管控</td><td>Agentic Browser，穿透登录态跨站执行</td></tr>
+  <tr><td>许可与源码</td><td>Apache-2.0 开源可审计</td><td>闭源专有</td><td>闭源（Eko 框架开源）</td></tr>
+  <tr><td>数据存放</td><td>本机明文 Markdown</td><td>Anthropic 云端</td><td>本地浏览器 + 云端工作区</td></tr>
+  <tr><td>模型选择</td><td>任意，含完全离线本地模型</td><td>仅 Claude 系列，不支持 BYOK</td><td>平台内置模型</td></tr>
+  <tr><td>安全沙箱</td><td>弱，被社区点名缺失</td><td>强，本机隔离虚拟机 + 文件夹白名单 + 删除审批</td><td>中，先出计划后执行、可随时介入</td></tr>
+  <tr><td>开箱难度</td><td>高，约需 30 分钟配置，图谱要养一周才好用</td><td>低，装完即用</td><td>中，装浏览器后即可用</td></tr>
+  <tr><td>费用</td><td>软件 0 元，模型与第三方服务自付</td><td>Pro 年付约 $17/月起，Team $30/人/月</td><td>免费档 1000 Sparks，Plus $19/月起</td></tr>
+  <tr><td>移动端</td><td>无</td><td>Web 与移动端远程会话已上线</td><td>无</td></tr>
 </table>
 
-## 优势与短板展开
+**一句话选型**：要开箱即用和安全兜底，选 Claude Cowork；要穿透登录态做跨站深搜，选 Fellou；**要数据不出本机、模型完全自选、且愿意为此付出配置成本，Rowboat 是目前最完整的开源答案。**
 
-### 优势
+## 优势与短板
 
-**1. 知识图谱是真实的产品哲学，不是营销词**
+**优势展开：**
 
-多数 AI 工具的「记忆」只是延长上下文窗口。Rowboat 做的是**结构化的长期记忆**——人、项目、决策成为显式节点，关系是双向链接，数据是你能直接打开编辑的 Markdown。HN 社区多条高赞评论确认了这一点的稀缺性：「memory + actual work surfaces around it is exactly what I've been looking for」「the knowledge graph compounds over time」。
+- **记忆是产品哲学，不是功能清单里的一行。** 从图谱设计、纯文本存储、到五个工作面共享同一份上下文，整个产品是围绕「上下文要活得比会话久」这一个判断搭起来的，内部一致性很高。
+- **数据主权做到了可验证的程度。** 不是「我们承诺不看你的数据」，而是「数据就是你硬盘上一堆 .md 文件，你自己去看」。团队原话是：没有专有格式、没有托管锁定，随时可检视、编辑、备份、删除。如果 Rowboat 明天倒闭，你的知识库还是一个你完全拥有的文件夹。
+- **模型自由度是它对 Claude Cowork 的结构性优势。** 能完全离线跑，也能直接复用你已有的 ChatGPT 订阅，不必再多付一份月费。
+- **团队姿态诚恳。** HN 那 56 条评论里，团队几乎逐条实名回复，承认路线图缺口、解释只读限制、采纳社区建议（比如用「你主动发过邮件的人」作为重要度信号）。这在开源项目里是可持续性的正面信号。
 
-**2. 数据主权做到极致**
+**短板展开：**
 
-本地 Markdown = 可读可改可备份可 Git 管理。即使 Rowboat 项目明天停止维护，你的知识库仍然是完整的。这对隐私敏感行业（法律/医疗/金融）和独立创作者来说是决定性优势。
+- **安全是最该警惕的一环。** HN 上有安全向的用户直言：完全缺乏任何形式的沙箱令人害怕——这个东西要消化各种来源的文本，底层又跑 Node.js 执行各类任务；他还认为「让 LLM 写 JS 文件」以及「只建草稿不发送」这种防线是天真的。另有用户对 shell 访问权限表示担忧。客观地说，Gmail 只读是团队有意为之的谨慎设计，但**当你把一个能读你全部邮件、又能执行代码的程序放在本机时，提示注入的攻击面是实打实的**。
+- **图谱会长杂草。** 不主动做人工整理，图谱容易越来越乱；有实测者还发现，用参数量太小的本地模型（如 7B 蒸馏版）做图谱关联时会把不相关的内容连在一起，换更大的模型后明显好转。
+- **本地优先的口号有折扣。** 语音转写等能力依赖 Deepgram、ElevenLabs 这类云服务，严格意义上并非全链路本地——想要纯离线，得放弃这部分功能。
+- **早期产品的粗糙感。** 有实测者在 v0.7.2 时反馈界面偶尔卡顿、部分功能不够稳定；Granola 同步等集成出现过失效且缺清晰修复说明；自定义 MCP Server 的文档也偏薄。三人团队同时推桌面、Web、CLI 三条产品线，速度换来的代价就在这里。
+- **没有移动端。** 本地优先的天然代价：手机上访问不到你的图谱和 Agent。
 
-**3. 模型自由度带来成本优化空间**
+### 上手避坑清单
 
-简单任务走本地 8B 模型（几乎零成本），复杂推理走 Claude Opus。这种**按任务难度分级路由**的能力，是所有单一模型竞品无法复制的。
-
-**4. HN/GitHub 社区验证扎实**
-
-16.7K Stars + YC 孵化 + Show HN 首页热议，说明开发者社区认可其技术方向。日均多版本迭代表明项目活跃度高，非 dead project。
-
-### 短板
-
-**1. 早期阶段的代价**
-
-v0.7.x 意味着功能仍在快速变化中——今天能用的 workflow 下个版本可能行为不同。RightAIChoice 社区扫描显示 78 条反馈中 73% 为批评意见，集中在「setup complexity」「integration gaps」「inconsistent polish」。非技术用户上手门槛显著高于 Claude Cowork 或 ChatGPT Work。
-
-**2. 「本地优先」的宣传与现实有 gap**
-
-语音转写绑 Deepgram 云端、邮件同步需 Google OAuth、MCP 工具调用走外部 API——真正 100% 离线的只有纯文本对话+本地模型这条路径。对气隙安全要求严格的用户需要逐条审核数据通路。
-
-**3. 单用户定位限制团队场景**
-
-无多用户同步、无共享图谱、无并发编辑冲突解决。对一个追求「institutional memory」的工具来说，这是明显的天花板——团队知识无法汇聚。
-
-**4. 知识图谱维护负担**
-
-图谱只增不减时会退化成 noise。目前缺少自动权重衰减、节点归档、重复合并等治理机制。重度使用几周后可能需要花时间手动清理。
+1. **先索引再评价。** 首次接入会全量索引现有邮件与文件，有实测者的约 2GB 数据索引了 20 分钟左右，之后转为增量。别在索引没跑完时下结论。
+2. **别用手动改文件名的方式整理图谱。** 笔记之间靠引用关联，手动重命名或移动文件会打断链接，要改请走 Rowboat 界面。
+3. **后台任务优先挂本地模型。** 实体抽取这类高频低难度活交给 Ollama，把云端大模型留给推理密集的任务，账单能差出一个数量级。
+4. **给图谱一周时间。** 有长期使用者的经验是：安装约 30 分钟，但图谱要用满一周才真正好用，头几天觉得平庸是正常的。
+5. **敏感账号先别接。** 在审批系统完善、沙箱补齐之前，建议先用非核心邮箱和小号账户跑通流程。
 
 ## 最终推荐
 
-### 该用 Rowboat 的人
+**强烈建议试试，如果你是这几类人：**
 
-- **每天 8+ 会议的管理者/咨询师/投资人**：Day-Prep Briefing 单项功能就值回配置时间
-- **隐私敏感的专业人士**（律师/医生/记者）：本地 Markdown 数据存储满足合规刚需
-- **已有多个 API Key 的重度 AI 用户**：模型自由度让你不被单一供应商绑定
-- **Obsidian/Notion 重度用户**：知识图谱理念与你现有工作流天然契合
-- **开发者和技术爱好者**：开源 Apache-2.0 意味着可以深度定制和贡献
+每天泡在邮件和会议里、跨多个项目和客户来回切换的知识工作者；被「每开一个新会话就要重讲一遍背景」反复折磨的重度 AI 用户；所处行业把「邮件内容上云」视为安全风险、必须本地处理的从业者；已经在用 Obsidian 但懒得手动建双链的人；以及愿意用 Ollama 跑本地模型、能接受命令行和配置文件的技术型用户。
 
-### 不该用 Rowboat 的人
+**不建议现在依赖它，如果你是这几类人：**
 
-- **追求开箱即用的非技术用户**：配置 Gmail OAuth + Ollama + 各 API Key 的流程劝退小白
-- **需要团队协作的场景**：无多用户同步，团队知识无法汇聚
-- **主要需求是浏览器操控/深度搜索**：Fellou 的 Agentic Browser 更对口
-- **需要企业级合规认证**：Claude Cowork 的 SOC 2 / ISO 27001 / HIPAA 是 Rowboat 目前没有的
-- **想委托式丢给 Agent 过夜跑长任务**：Manus 的云端沙箱更适合
+用 Outlook、企业邮箱或非 Google 日历的用户（当前集成基本覆盖不到你）；需要开箱即用、零配置、有客服兜底的团队（去用 Claude Cowork）；需要在手机上随时访问助手的用户（Rowboat 没有移动端）；处理高度敏感数据且没有能力自行评估提示注入风险的组织；以及想要一个「装完就自动变聪明」的插件式方案的人——Rowboat 给你的是一副很有想法的骨架，不是交钥匙工程。
 
-### 组合策略建议
+**组合建议：** 让 Rowboat 当那个带长期记忆的第二大脑，专管邮件分诊、会议沉淀和知识积累；把穿透登录态的深度调研交给 Fellou；把需要强安全兜底的正式产出交给 Claude Cowork。三者定位不冲突，各取所长的收益远大于死磕一个。
 
-把 Rowboat 当**「带记忆的第二大脑」**管邮件/会议/知识沉淀（$0 + 本地模型），搭配 Fellou 做穿透登录态研究、Manus 做云端自主长任务——三者覆盖的记忆/搜索/执行三角是目前桌面 Agent 领域最完整的组合拳之一。
+**关于 4.2 分：** 概念完成度和数据主权设计值 5 分，社区验证与迭代速度值 4.5 分，但沙箱缺位、Google 独苗集成、图谱噪音和 v0.8.x 的成熟度各扣一档。这是一个方向极对、执行仍在半路上的项目——**现在装它，你是在投资一个赌注，而不是购买一个成品。**
 
 ---
 
-**评测声明**：本文基于 Rowboat 官网（rowboatlabs.com）、GitHub 仓库（rowboatlabs/rowboat，Apache-2.0）、Hacker News 社区讨论、Product Hunt 页面及 RightAIChoice/Skila/CreativeAINews 等第三方独立评测撰写。所有功能描述均来自可验证的公开信息，本文不含付费推广。
+**评测声明**：本文基于 Rowboat 官网（rowboatlabs.com）、GitHub 官方仓库（rowboatlabs/rowboat，Apache-2.0）与 Releases 页面、Y Combinator 官方公司页与产品发布页、Hacker News 原帖及 56 条社区评论（含团队公开回复）、以及多篇独立中文/英文实测文章交叉核验撰写。版本号、安装包体积、提交数、融资与团队背景等均以官方来源为准；用户体验类描述均标注为第三方实测引用，作者未声称亲自完成全部功能测试。文中已对两家 AI 工具聚合站与官方矛盾的定价信息做出更正说明。本文不含付费推广。
