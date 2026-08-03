@@ -1630,7 +1630,7 @@ export const tools: Tool[] = [
   {
     id: 'qoderwork',
     name: 'QoderWork',
-    description: 'Qoder团队（阿里系）推出的桌面AI助手，基于Qoder CLI Coding Agent，自主规划+本地文件操作+技能市场，Mac/Win双端。',
+    description: 'Qoder团队（阿里系）桌面AI助手，自主规划+本地文件操作+技能市场；2026年7月已并入阿里「千问办公」统一序列。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
     rating: 4.2,
@@ -1813,5 +1813,16 @@ export const tools: Tool[] = [
     url: 'https://www.aipyaipy.com',
     price: '开源核心免费（pip install aipyapp，Apache 系协议，需自配模型API Key）；AiPy Pro 桌面客户端免费下载、需手机/微信注册登录',
     features: ['Python-Use范式：无工具插件/无MCP，直接生成并执行代码', '任务→计划→代码→执行→反馈自动闭环，报错自修复', '本地执行，数据不出本机', '直接读写本地Excel/Word/PDF/图片等文件', '可操控浏览器、局域网设备、打印机、FreeCAD等本机软件', '开源命令行版(GitHub knownsec/aipyapp)+Pro桌面客户端双形态', '支持DeepSeek等主流模型自配API Key', 'Windows/macOS/Linux，兼容海光CPU与银河麒麟、统信UOS信创系统'],
+  },
+  {
+    id: 'qwenwork',
+    name: '千问办公（QwenWork）',
+    description: '阿里出品的办公智能体，整合QoderWork/悟空/MuleRun：一句话交付Office产物与网页，可在钉钉侧边栏直接调用。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://qwenwork.cn',
+    price: '个人免费版（注册赠2000积分，每日登录赠100积分）；个人标准版98元/月、高级版198元/月；企业标准版198元/席位/月，旗舰版需咨询',
+    features: ['整合QoderWork(桌面交互)+MuleRun(流程复用)+悟空(钉钉企业数据)三层架构', '钉钉企业IM 25项能力打通：群聊/考勤审批/会议日程/知识库/邮件直读', '原生生成PPTX/Word/Excel/HTML产物并支持在线预览与实时编辑', '全栈网页生成，自带默认域名+数据库+托管，免部署发布', '多模态理解与生成：图片/音频/视频识别与素材创作', '专家套件与技能市场，覆盖HR/律师/财务/分析师等十余岗位', '桌面端支持本地文件操作、电脑操控、浏览器自动化、语音输入', '云端定时任务，结果自动推送至钉钉消息', '继承企业权限体系+安全沙箱运行+数据链路可追溯', '桌面端Windows 10+/macOS 14+/HarmonyOS 6.1+，网页端Beta，钉钉内置版'],
   },
 ]
