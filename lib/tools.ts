@@ -1825,4 +1825,15 @@ export const tools: Tool[] = [
     price: '个人免费版（注册赠2000积分，每日登录赠100积分）；个人标准版98元/月（连续包月8折78元）、高级版198元/月（8折158元）；企业标准版198元/席位/月，旗舰版需咨询',
     features: ['整合QoderWork(桌面交互)+MuleRun(流程复用)+悟空(钉钉企业数据)三层架构', '钉钉企业IM 25项能力打通：群聊/考勤审批/会议日程/知识库/邮件直读', '原生生成PPTX/Word/Excel/HTML产物并支持在线预览与实时编辑', '全栈网页生成，自带默认域名+数据库+托管，免部署发布', '多模态理解与生成：图片/音频/视频识别与素材创作', '专家套件与技能市场，覆盖HR/律师/财务/分析师等十余岗位', '桌面端支持本地文件操作、电脑操控、浏览器自动化、语音输入', '云端定时任务，结果自动推送至钉钉消息', '继承企业权限体系+安全沙箱运行+数据链路可追溯', '桌面端Windows 10+/macOS 14+/HarmonyOS 6.1+，网页端Beta，钉钉内置版'],
   },
+  {
+    id: 'openworker',
+    name: 'OpenWorker',
+    description: '吴恩达团队开源的桌面AI同事：自带模型Key，跨Slack/邮件/日历交付成品，关键操作需审批。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 3.9,
+    url: 'https://openworker.com',
+    price: '应用本体 MIT 开源完全免费、无订阅费；需自备模型 API Key 直接向模型厂商付费，或接 Ollama 跑本地模型零成本',
+    features: ['交付成品导向：直接产出文档/表格/报告/网页文件，而非待办清单', '模型无关：基于自研 aisuite 统一接口，支持 OpenAI/Anthropic/Gemini/DeepSeek/Kimi/GLM/Qwen/MiniMax/Mistral/Grok 等，可任务中途切换', '本地优先：Agent 引擎、会话记录、连接器 Token、模型密钥均存本机', '支持 Ollama 本地模型，可完全离线运行', '25+ 连接器：Slack/Gmail/Outlook/Google Calendar/GitHub/Jira/Notion/Linear/HubSpot/monday.com 等', 'Slack 中 @OpenWorker 即在桌面端开启会话，完成后将结果回帖至原线程', '可读写本地文件并执行 Shell 命令，桌面即工作空间', '接入 MCP 协议，支持按工具单独授权', '定时自动化任务（晨报/周报/频道监控），运行留完整执行日志', '写入/发送/执行类操作强制审批，无人值守时挂起到收件箱待批', 'macOS 12+（已签名公证）/Windows 10/11 x64（尚未代码签名，SmartScreen 会告警），暂无 Linux 版'],
+  },
 ]
