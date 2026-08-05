@@ -1710,9 +1710,9 @@ export const tools: Tool[] = [
     description: '阶跃星辰出品的零门槛桌面AI智能体：OpenClaw深度优化成桌面宠物，水产市场捡技能、微信远程指挥，本地加密记忆。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
-    rating: 4.3,
+    rating: 4.1,
     url: 'https://www.stepfun.com/download',
-    price: '免费 / StepPlan ¥25–49 月（开发者半价）',
+    price: '客户端免费 / Step Plan ¥49·99·199·699 月（年付低至 ¥38/月）',
     features: ['桌面宠物UI', '零命令行部署', '水产市场5000+技能', '微信/飞书远程指挥', '本地加密记忆', '定时/触发任务', '三级权限管控', '信通院安全认证'],
   },
   {
