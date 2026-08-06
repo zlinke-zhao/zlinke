@@ -1696,13 +1696,13 @@ export const tools: Tool[] = [
   {
     id: 'hermes-agent',
     name: 'Hermes Agent',
-    description: 'Nous Research出品的跨平台开源AI Agent运行时：长期记忆+技能自学习+MCP，v0.16原生桌面端可跨设备远程操控。',
+    description: 'Nous Research出品的跨平台开源AI Agent运行时：长期记忆+技能自学习+MCP，v0.20支持流式语音、A2A互联与可溯源研究，覆盖飞书/钉钉/微信等20+渠道。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
-    rating: 4.3,
-    url: 'https://hermes-agent.ai',
-    price: '开源免费（MIT）/ 托管云 FlyHermes $49/月起',
-    features: ['长期记忆', '技能自学习', 'MCP集成', 'v0.16桌面端', 'Web仪表盘', '远程网关', '多Agent协作', '定时任务', '跨平台渠道'],
+    rating: 4.2,
+    url: 'https://hermes-agent.nousresearch.com',
+    price: '开源免费（MIT）/ Nous Portal托管云 $20·100·200 月',
+    features: ['长期记忆', '技能自学习', 'MCP集成', 'v0.20桌面端', '流式语音', 'A2A互联', '可溯源研究', '定时任务', '跨20+渠道'],
   },
   {
     id: 'stepclaw',
