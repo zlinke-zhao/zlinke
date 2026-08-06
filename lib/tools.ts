@@ -1836,4 +1836,15 @@ export const tools: Tool[] = [
     price: '应用本体 MIT 开源完全免费、无订阅费；需自备模型 API Key 直接向模型厂商付费，或接 Ollama 跑本地模型零成本',
     features: ['交付成品导向：直接产出文档/表格/报告/网页文件，而非待办清单', '模型无关：基于自研 aisuite 统一接口，支持 OpenAI/Anthropic/Gemini/DeepSeek/Kimi/GLM/Qwen/MiniMax/Mistral/Grok 等，可任务中途切换', '本地优先：Agent 引擎、会话记录、连接器 Token、模型密钥均存本机', '支持 Ollama 本地模型，可完全离线运行', '25+ 连接器：Slack/Gmail/Outlook/Google Calendar/GitHub/Jira/Notion/Linear/HubSpot/monday.com 等', 'Slack 中 @OpenWorker 即在桌面端开启会话，完成后将结果回帖至原线程', '可读写本地文件并执行 Shell 命令，桌面即工作空间', '接入 MCP 协议，支持按工具单独授权', '定时自动化任务（晨报/周报/频道监控），运行留完整执行日志', '写入/发送/执行类操作强制审批，无人值守时挂起到收件箱待批', 'macOS 12+（已签名公证）/Windows 10/11 x64（尚未代码签名，SmartScreen 会告警），暂无 Linux 版'],
   },
+  {
+    id: 'lingxi-pro',
+    name: '灵犀专业版',
+    description: '金山办公出品的AI原生桌面办公助理，基于WPS文档内核直接交付可继续编辑的Word/Excel/PPT成品。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.1,
+    url: 'https://www.lingxi.cn',
+    price: '体验版限时免费（每月800灵点）；月会员48元/月、进阶版128元/月、旗舰版398元/月（2026-08-03起正式收费，档位据WPS官方社区）',
+    features: ['文档内核级处理：依托WPS文档技术做格式排版/表格公式/PPT动效，非接口拼凑', '产出原生可继续编辑的成品：保留公式的表格、可审阅的文档、可改版的PPT', '四层记忆架构：个人记忆/专家记忆/团队记忆/自进化，按项目沉淀上下文与写作风格', '可直接操作WPS多维表格API：读写记录、创建字段、运行AirScript脚本', '内置同花顺/国家统计局/arXiv等权威数据源，供金融、法律、学术场景取数', '技能生态：内置文档/数据/演示技能，可把重复工作流封装为自定义技能', '桌面端支持定时任务、系统级操作与深度文件管理，可执行本地指令与调用浏览器', '多频道远程指挥，电脑不在手边可用手机下发紧急任务', 'Pro/Max双模式，灵点计费（官方社区实测Pro模式单任务约10灵点、Max约167灵点）', '桌面客户端Windows 10/11 + macOS（Apple/Intel），Web版lingxi.kdocs.cn；Office插件与Chrome插件官网标注即将上线'],
+  },
 ]
