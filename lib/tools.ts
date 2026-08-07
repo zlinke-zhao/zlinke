@@ -1831,10 +1831,10 @@ export const tools: Tool[] = [
     description: '吴恩达团队开源的桌面AI同事：自带模型Key，跨Slack/邮件/日历交付成品，关键操作需审批。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
-    rating: 3.9,
+    rating: 3.8,
     url: 'https://openworker.com',
-    price: '应用本体 MIT 开源完全免费、无订阅费；需自备模型 API Key 直接向模型厂商付费，或接 Ollama 跑本地模型零成本',
-    features: ['交付成品导向：直接产出文档/表格/报告/网页文件，而非待办清单', '模型无关：基于自研 aisuite 统一接口，支持 OpenAI/Anthropic/Gemini/DeepSeek/Kimi/GLM/Qwen/MiniMax/Mistral/Grok 等，可任务中途切换', '本地优先：Agent 引擎、会话记录、连接器 Token、模型密钥均存本机', '支持 Ollama 本地模型，可完全离线运行', '25+ 连接器：Slack/Gmail/Outlook/Google Calendar/GitHub/Jira/Notion/Linear/HubSpot/monday.com 等', 'Slack 中 @OpenWorker 即在桌面端开启会话，完成后将结果回帖至原线程', '可读写本地文件并执行 Shell 命令，桌面即工作空间', '接入 MCP 协议，支持按工具单独授权', '定时自动化任务（晨报/周报/频道监控），运行留完整执行日志', '写入/发送/执行类操作强制审批，无人值守时挂起到收件箱待批', 'macOS 12+（已签名公证）/Windows 10/11 x64（尚未代码签名，SmartScreen 会告警），暂无 Linux 版'],
+    price: '应用本体 MIT 开源完全免费、无订阅费（官网FAQ：直接付费给模型厂商，一分钱不付给我们）；需自备模型 API Key，或接 Ollama 跑本地模型零推理成本',
+    features: ['交付成品导向：直接产出文档/表格/报告/网页文件，而非待办清单', '模型无关：基于自研 aisuite 统一接口，官方原生支持 OpenAI/Anthropic/Gemini/Inkling/GLM/DeepSeek/Kimi/Qwen/MiniMax/Mistral/Grok 十一家，另经 Together、Fireworks 接开源权重，可对话框内直接切换不重启', '本地优先：Agent 引擎、会话记录、连接器 Token、模型密钥均存本机', '支持 Ollama 本地模型，可完全离线运行', '25+ 连接器：Slack/Gmail/Outlook/Google Calendar/GitHub/Jira/Notion/Linear/HubSpot/monday.com 等', 'Slack 中 @OpenWorker 即在桌面端开启会话，完成后将结果回帖至原线程', '可读写本地文件并执行 Shell 命令，桌面即工作空间', '接入 MCP 协议，支持按工具单独授权', '定时自动化任务（晨报/周报/频道监控），运行留完整执行日志', '写入/发送/执行类操作强制审批，无人值守时挂起到收件箱待批', 'macOS 12+（仅 Apple Silicon 有签名公证包，自动更新）/Windows 10/11 x64（尚未代码签名，SmartScreen 会告警），无 Linux 版、无中文界面', 'Open Beta 阶段（最新 v0.1.7，2026-07-30）；Skills 支持于 2026-08-01 合入但官方说明当前仅为占位实现'],
   },
   {
     id: 'lingxi-pro',
