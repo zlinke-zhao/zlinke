@@ -1,0 +1,137 @@
+# AgentSky 体验笔记（草稿·待站长亲测）
+
+> 说明：本篇基于官网（agentsky.dev）、官方定价页、Product Hunt 发布页与评论区、以及多家独立工具站与中文评测聚合撰写，来源均已标注。**站长尚未亲自开通实测**，凡标注「官方口径」「PH 评论区」处均未经本站独立验证。
+
+- **收录日期**：2026-08-07
+- **工具 ID**：`agentsky`
+- **官网**：https://agentsky.dev
+- **发布时间**：2026-08-03 登陆 Product Hunt
+- **分类**：AI 工作台 / 桌面智能体
+- **当前评分**：3.9
+
+---
+
+## 一、它是什么，解决什么问题
+
+一句话：**它不做 Agent，它做 Agent 的托管运行时。**
+
+这是本站 AI 工作台分类收录的第 24 款工具，也是路线最"反向"的一款。
+
+在此之前，库里 23 款桌面 Agent —— 从 Claude Cowork、ChatGPT Work、千问办公、灵犀专业版，到 OpenWorker、AiPy、LobsterAI、StepClaw —— 无论开源闭源、无论大厂独立，共同前提都是同一个：**Agent 跑在你的机器上**。这个前提带来一个所有人都遇到过、但很少被当成"产品问题"的麻烦：
+
+> 合盖了，任务就断了。
+
+你花两小时给 Claude Code 配好 `CLAUDE.md`、接好 MCP Server、调好指令，让它跑一个需要几天的调研或重构。然后你要出门、要关机、要重启系统。社区里的土办法是买一台 Mac mini 挂在家里当"Agent 服务器"——AgentSky 官网首屏那句 slogan 就是直接冲着这个来的：
+
+> **No Mac mini, no setup.**
+
+它的做法是：你选一个 harness（Claude Code / Codex / Hermes / OpenClaw），选一个模型，挂上需要的能力，然后它把这个 Agent 当作**托管 worker** 跑在云端隔离沙箱里，配快照、备份和故障自动恢复。你的笔记本关不关机，与它无关。
+
+第二层价值是**渠道无关**。同一个长跑 Agent，可以从 WhatsApp、iMessage、Telegram、Slack、网页、A2A 协议、CLI 任意一处触达，历史、工具和状态跟着走。官网的说法是"Talk to the same long-running agent wherever work starts"。
+
+第三层是**迁移零成本**。`sky clone` 一句提示词，就能把你本机已经调教好的 Claude Code / Codex / OpenClaw 连同指令文件和 MCP Server 整体搬上云——不用从头再来一遍。这一点如果属实，是它最能打动老用户的功能。
+
+---
+
+## 二、和库内已收工具的差异点（这是收录理由）
+
+| 对比对象 | 它们的路线 | AgentSky 的不同 |
+|---|---|---|
+| **OpenWorker**（吴恩达·开源） | 本地执行 + BYO Key + 强制审批，Slack @ 触发但任务在本机跑 | AgentSky 任务**根本不在本机跑**；OpenWorker 是"云触发/本地执行"，AgentSky 是"任意触发/云端执行" |
+| **Hermes Agent**（Nous Research） | 自建开源运行时，用户自己部署维护 | AgentSky **把 Hermes 本身当作可选 harness 托管起来**——两者是互补而非竞争 |
+| **OpenClaw 系**（StepClaw / LobsterAI / AutoClaw / ArkClaw） | 各家把 OpenClaw 包装成好用的桌面发行版 | AgentSky 不包装 OpenClaw，**只提供让它长期不掉线的地方**，且可随时换成 Claude Code |
+| **Claude Cowork / ChatGPT Work** | 绑死自家模型与自家引擎 | 11 款模型 + 4 种 harness 自由组合，官方明确"no lock-in"，换模型不丢历史 |
+| **Manus / Genspark**（云沙箱） | 云端跑，但 Agent 是平台自研的，你只能用它那一个 | 云端跑，但 Agent 是**你自己带来的**，平台只卖运行时 |
+| **千问办公 / 灵犀专业版**（国内大厂） | 深度绑定钉钉组织数据 / WPS 文档内核，中文办公生态 | 渠道全是欧美 IM 栈（WhatsApp/iMessage/Telegram/Slack），**中文办公生态零覆盖** |
+| **QwenPaw**（阿里开源，IM 远程指挥） | 本地部署 + 多渠道远程指挥，数据不出门 | 同样多渠道，但**放弃"数据不出门"换取"永不掉线"**——取舍完全相反 |
+
+**最独特的一点**：库内所有工具卖的都是"Agent 的能力"，AgentSky 卖的是"Agent 的寿命"。它把 harness 和模型都当成可替换的耗材，自己只守住三件事——**不掉线、不失忆、随处可达**。
+
+对已经在用 Claude Code 或 OpenClaw 的人来说，这不是又一个要重新学的工具，而是给现有工具加一层基础设施。
+
+---
+
+## 三、值得信任的信号
+
+- **Product Hunt 2026-08-03 当日第一**：469 赞 / 60 评论（hunted.space 数据），力压同日的 Ctruh Studio（427）与 Qwen3.8-Max（303）
+- **提名人是 Rajiv Ayyangar**——Product Hunt 现任 CEO 亲自 hunt，在 PH 生态里是相当强的质量背书
+- **定价页透明到罕见**：11 款模型的输入/输出单价逐条列出、算力按 1GB/2GB/4GB 三档给出每小时与每月上限价、还内置成本估算器。多数同类产品只写"联系销售"
+- **已有真实负载**：官网称为 Tycoon、Webjourney 两家产品支撑了 10k+ agent sessions（官方口径，未独立验证）
+- 多家独立工具站收录并给出中立分析：ustack.app、onei.ai、aat.ee、neurokitai.com、neodrop.ai（中文）
+
+---
+
+## 四、短板与风险（含 PH 评论区暴露的真实设计盲点）
+
+### 1. "$3/mo 起"是极具误导性的说法
+
+用官方自己的估算器算一笔账：Claude Fable 5 + 4GB 机器 + 每天 20 轮对话 + 每天唤醒 2 小时，月成本 **$121.25**——其中 **$117 是模型 token，只有 $4.25 是算力**。
+
+也就是说，$3 那个数字只描述了账单里 3.5% 的部分。真实成本几乎全部取决于你选哪个模型、跑多少轮。想压成本只有两条路：换 DeepSeek V4 Flash 这类便宜模型，或者绑定自有 Claude Pro/Max 订阅走 BYO 通道（模型侧 $0）。**后者才是这个产品真正的性价比路径**，但官网把它放在功能列表中段，没当卖点讲。
+
+### 2. 「停放免费」抹掉了故障信号（PH 评论区最尖锐的一条）
+
+有评论者指出一个设计上的结构性盲点，值得原样引用其逻辑：
+
+> 如果停放免费、只在工作时计费，那么一个**已经悄悄停止工作的 Agent 也不花钱**。这很美好——直到你发现，一个死掉的 Agent 和一个便宜的月份，在账单上长得一模一样。
+
+对长时任务而言，账单历来是"出事了"的第一个信号。这套定价**有意地移除了这个信号**。从外部看，挂起的 Agent、已完成的 Agent、崩溃后再没恢复的 Agent，三者表现完全相同：没有活动、没有费用、渠道里一片安静。
+
+该评论者的建议是：长时 Agent 应在启动时声明一个预期节奏（cadence），平台据此提示"这个本该醒了却没醒"。**目前官网未见任何存活监测或异常告警机制的说明。**
+
+### 3. 快照恢复与外部副作用的幂等问题
+
+同样来自 PH 评论区的技术质疑：如果快照恰好拍在某个外部副作用执行到一半时，一个被恢复到"刚好在发出 WhatsApp 消息之前"的 Agent，**无法知道那条消息究竟发出去没有**。重发和跳过都是错的，而且只有其中一个错误对接收方可见——他会收到两遍。
+
+副作用是否记录在快照之外、恢复后的 Agent 能否知道"什么已经出门了"，官网未作说明。
+
+### 4. 跨渠道身份与上下文的边界不清
+
+多位评论者追问：用户今天在 Discord 提技术问题、明天在私聊里跟进同一件事，Agent 怎么知道是同一个人、同一个问题？历史是在 Agent 层统一，还是每个平台各自维护？官网只承诺"history follows it across every channel"，但没有公开身份归并规则。
+
+### 5. 其他
+
+- **发布仅 4 天**，长期稳定性完全未经证明——neodrop.ai 的中文评测也明确写了"发布页还不足以证明长期稳定性"
+- **面向开发者**：定位写明是 developers / engineering teams / technical founders，非技术岗上手门槛明显高于 LobsterAI、StepClaw 这类零门槛发行版
+- **数据在别人机器上**：与库内 AiPy、QwenPaw、OpenWorker 的"数据不出门"路线完全相反。虽支持 ZDR，但云端托管这个前提本身对敏感数据场景就是硬伤
+- **中文生态零覆盖**：无微信/钉钉/飞书/企微接入，国内团队协作场景基本用不上
+- **Self-evolving 仍是 coming soon**，官网列在功能区但未上线
+- 权限模型、连接器行为、各渠道能力差异，官方文档披露不完整（ustack 亦指出这一点）
+
+---
+
+## 五、待站长亲测清单
+
+1. `sky clone` 是否真能无损克隆本地 Claude Code 配置（`CLAUDE.md` + MCP Server + 自定义指令）
+2. 换 harness（如 Claude Code → OpenClaw）后，历史与上下文是否真的完整保留
+3. 绑定 Claude Pro 订阅走 BYO 通道，实际月成本能压到多少
+4. 跨渠道连续性实测：Slack 起头 → Telegram 续聊，Agent 是否认得是同一件事
+5. 主动制造一次故障（跑到一半强杀），验证快照恢复是否真的不丢线索
+6. 长跑 7 天以上，观察是否存在静默死亡且无任何告警
+7. 中国大陆网络环境下的可达性与延迟
+8. $3 注册额度实际能跑多少轮真实任务
+
+---
+
+## 六、给读者的判断建议
+
+**适合**：已经在本地重度使用 Claude Code / OpenClaw / Codex，被"合盖即断"折磨过，且手上有 Claude Pro/Max 或 ChatGPT 订阅可走 BYO 通道的技术用户。
+
+**不适合**：非技术岗、需要中文办公生态、对数据出境敏感、或期待开箱即用的完整办公 Agent 的用户——这类需求库内的灵犀专业版、千问办公、LobsterAI 更对口。
+
+**一句话**：它解决的是一个很窄但很痛的问题，而且解决得相当干净。但请把"$3/mo"当成营销话术而非价格，并且在把关键长跑任务托付给它之前，先自己确认一遍——它死了你能不能第一时间知道。
+
+---
+
+## 来源
+
+1. AgentSky 官网首页 https://agentsky.dev
+2. AgentSky 定价页 https://agentsky.dev/pricing
+3. Product Hunt 发布页数据与评论区（经 hunted.space 汇总）https://www.hunted.space/product/agentsky
+4. ustack.app Product Hunt Daily Digest（2026-08-03）
+5. ustack.app 产品页 https://ustack.app/products/agentsky
+6. onei.ai 产品评测 https://onei.ai/apps/agentsky.dev
+7. aat.ee 项目页 https://aat.ee/projects/agentsky
+8. neurokitai.com 产品页
+9. neodrop.ai《8 月 4 日新品图鉴》中文独立评测
+10. producthunt.programnotes.cn 中文热榜（2026-08-04）
