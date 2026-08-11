@@ -1,0 +1,106 @@
+# Annotate 体验笔记（草稿·待站长亲测）
+
+> 收录日期：2026-08-11　｜　分类：AI工作台 / 桌面智能体　｜　评分：3.8
+> 官网：https://xannotate.com　｜　下载：annotate.canvas-vision.com（DMG，仅 macOS Apple Silicon）
+> **说明**：本笔记基于官网、Product Hunt 发布贴与三家独立评测（chatgate.ai / aat.ee / aipure.ai）聚合撰写，已逐条标注来源；站长尚未亲自安装，标注「待亲测」的条目不作为结论。
+
+---
+
+## 一句话：它不是又一个 Agent，是 Agent 缺的那双眼睛
+
+库内已有 26 款 AI 工作台，绝大多数在回答同一个问题——**"谁来干活"**（Fellou / Claude Cowork / ChatGPT Work / OpenClaw 系都在这条线上）；BrowserOS neo（08-09 收录）补的是**"手"**（给已有 Agent 一个带登录态的本机浏览器）。
+
+Annotate 补的是**"眼睛"**：把"我不知道怎么写 prompt"变成一次屏幕演示。它自己不干活、也不点网页，而是让你录屏 + 画 + 说，把"要改什么"表达得比文字 prompt 清楚得多，再交给你已有的 Agent 去执行。**它是输入层 / 沟通层工具，不是 Agent 本体**——与库内 26 款工作台零重叠。
+
+官方一句话定位（官网标题）：*"Screen recording as a prompt."* 创始人 PH 发布贴原话："I wrote long, detailed prompts to get better results, but the agent still guessed wrong. Screenshots didn't fix it either — they're too static to capture movement, form input flows, or real-time UI feedback."
+
+---
+
+## 它到底解决什么
+
+| 卡点 | 现有做法的问题 | Annotate 的解法 |
+|---|---|---|
+| 写不清的长 prompt | 文字描述 UI 改动容易遗漏上下文，Agent 猜错 | 录屏边画边说，把"哪个按钮、什么时机、改成啥"一次讲清 |
+| 截图丢失动态 | PNG 是冻结的一帧，丢了点击、时序、语音 | 录屏保留动作、时序与语音，Agent 看到完整故事 |
+| 跨多屏的上下文 | 一张截图装不下 app+编辑器两个屏 | 多显示器一次录制，会话统一交付 |
+| token 烧得快 | 丢一整段视频给 Agent 极贵 | 通过本地 MCP 让 Agent 读关键帧+语音转写，而非整段视频 dump |
+
+---
+
+## 与库内相似工具的差异点（关键）
+
+| 工具 | 核心角色 | 与 Annotate 的根本区别 |
+|---|---|---|
+| **Fellou / Claude Cowork / ChatGPT Work** | 自带大脑的桌面 Agent | 它们是"干活的"；Annotate 不干活，只负责把需求讲清楚再交给它们 |
+| **BrowserOS neo（08-09）** | 给 Agent 的本机浏览器"手" | neo 让 Agent 点得动登录态网页；Annotate 让 Agent 听懂你要改什么。**一个补手，一个补眼，互补** |
+| **AgentSky（08-07）** | 云端托管 Agent 的运行时 | 卖的是 Agent 的寿命；Annotate 卖的是需求表达的清晰度 |
+| **OpenClaw 系（StepClaw/LobsterAI/DuMate）** | 完整桌面 Agent 发行版 | 它们是 Agent 本体；Annotate 是它们可以消费的输入源 |
+| **常规截图/录屏工具（如 Loom）** | 给人看的录屏 | Loom 产出给人看的视频；Annotate 产出给 Agent 读的 MCP 会话（关键帧+转写），本地优先不上传 |
+
+**一句话总结**：库内 26 款在卷"谁来干活"，BrowserOS neo 卷"活干得到不"，Annotate 卷"活讲得清不"——它是 Agent 的输入层，不是又一款 Agent。
+
+---
+
+## 信任信号
+
+1. 官网 xannotate.com 内容详实，含三步工作流、功能拆解、下载链接与 PH 嵌入徽章
+2. Product Hunt 2026-08-06 发布，208 赞 / 19 评论，当日第 5（hunted.space 存档确认）
+3. 三家独立评测站已交叉确认：chatgate.ai（含 MCP 配置与安全边界分析）、aat.ee（项目页）、aipure.ai（功能/定价/场景，8-07 更新）
+4. 本地优先、免费、无登录、无云端依赖，隐私姿态清晰；DMG 由 annotate.canvas-vision.com 分发
+5. MCP 安装文档覆盖 Cursor、Claude Desktop、Claude Code、Codex 四种客户端
+
+---
+
+## 公开评测里值得注意的点（非站长亲测）
+
+- **省 token 是关键卖点**：Agent 通过 MCP 读关键帧+语音转写，而非整段视频 dump；chatgate.ai 指出这避免了"巨大视频文件"的 token 浪费
+- **不是零配置**：需先安装并启动 Annotate 一次使 MCP 包就位，系统需有 Node.js，客户端配置要指向本地 server 文件
+- **平台限制明确**：官方与 MCP 文档均标注 macOS Apple Silicon only，无 Windows / Linux 下载
+- chatgate.ai 提醒：本地存储不自动让下游步骤都私密——一旦配置的编码 Agent 读取会话，该 Agent 自己的服务条款与数据控制生效；Annotate 条款明确把录制同意与机密信息责任归于用户
+
+---
+
+## 短板与风险（评 3.8 而非更高的原因）
+
+1. **仅 macOS Apple Silicon**——无 Windows / Linux，直接把最大用户群挡在门外；库内多数桌面 Agent 至少覆盖 Win+Mac
+2. **依赖你已经有 Agent**——它本身不干活，没有 Cursor/Claude Code/Codex 就没意义；对纯小白价值低
+3. **不是零配置**——需装 Node.js、启动一次、改客户端 MCP 配置，门槛高于"双击即用"
+4. **下游隐私不归它管**——本地不泄露，但会话一旦喂给云端 Agent，数据去向由该 Agent 条款决定；录他人屏幕/敏感信息需先取得同意
+5. **无独立基准**——官方与评测均未给出"省多少 token / 多少分钟"的可复现数字；narration 不清楚时 Agent 仍可能误解
+6. **发布仅 5 天**（08-06），长期稳定性与维护节奏未经检验；DMG 版本号 0.1.15 仍早期
+7. **本体是输入工具，能力边界窄**——只解决"需求表达"一环，不碰执行、不碰浏览器、不碰文件，无法独立完成任务
+
+---
+
+## 待亲测清单（站长实测时重点验证）
+
+- [ ] macOS Apple Silicon 上从下载到首次交给 Cursor 的真实耗时与配置顺畅度
+- [ ] 与 Claude Code / Codex / WorkBuddy 的 MCP 接入是否真"开箱"，中文 UI 场景（飞书、知乎、微信后台）能否准确指向元素
+- [ ] "省 token"的实际幅度——同一 UI 改动，对比纯文字 prompt 量一次真实消耗
+- [ ] 语音转写准确率（尤其中英混说、技术术语），与时间轴对齐是否真的对齐到正确帧
+- [ ] 多显示器录制的边界行为（焦点窗口切换、跨屏拖拽）
+- [ ] 本地会话文件的磁盘占用增长速度，有无自动清理
+- [ ] 0.1.15 版本的稳定性（崩溃、MCP server 掉线、重连表现）
+- [ ] 敏感屏幕（密码框、他人视频）的录制与脱敏提示是否到位
+
+---
+
+## 适合 / 不适合
+
+**适合**：已经在用 Cursor / Claude Code / Codex，且经常为"这一处 UI 怎么改"写不清长 prompt 的人；做 UI bug 复现、设计走查、QA 用例文档的工程师与设计师；在意数据不出本机、且愿意用"演示"代替"打字"的人。
+
+**不适合**：没有在用编码 Agent 的小白（它自己不干活）；Windows / Linux 用户；想要一个开箱即用的全自动 Agent 的人；需要把会话同步到团队云盘协作的场景（它刻意本地优先）。
+
+---
+
+## 来源
+
+1. Annotate 官网 https://xannotate.com/ （产品定位"Screen recording as a prompt"、三步工作流、功能拆解、下载链接）
+2. Product Hunt 发布贴（经 hunted.space 产品页存档）：2026-08-06，208 赞 / 19 评论，当日第 5，创始人痛点自述
+3. chatgate.ai《Annotate: Free screen recording as prompts》（MCP 配置、本地优先边界、第三方 Agent 隐私提醒）
+4. aat.ee《Annotate》（项目页：本地-only、免费、Apple Silicon、MCP 握手机制）
+5. aipure.ai《Annotate: Reviews, Features, Pricing》（功能/定价/场景，2026-08-07 更新）
+
+---
+
+*本文首发于ZLinke · 智链*
