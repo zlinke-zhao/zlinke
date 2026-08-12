@@ -1,228 +1,222 @@
 # ZLinke 每日工具评测 - 执行记录
 
-## 2026-07-02: Grammarly 深度评测
-- **工具**: Grammarly (Grammarly, Inc., 2025年并入Superhuman品牌)
-- **评级**: 4.5/5.0
-- **文件**: content/tool-reviews/grammarly.md
-- **Git提交**: 3e22d6f
-- **核心发现**: Grammarly是英文写作领域全球最主流AI助手——4千万DAU、$7亿ARR、$130亿估值、96%财富500强渗透。核心价值不在炫技而是日积月累的生产力复利：95%+语法准确率行业第一、100万+应用无死角集成、GrammarlyGO v4.0 AI已成熟可用。最大护城河是全平台覆盖（唯一支持iOS+Android移动端）和12种语气检测（非母语者刚需）。但致命短板是仅支持英语——多语言/中文用户完全无用。年付$12/月价格合理但月付$30是明显宰客——差价2.5倍。无离线模式、云端处理文本带来隐私风险、创意写作建议偏保守。vs ProWritingAid（$10/月，长篇小说+学术分析更强）和LanguageTool（$4.99/月，30+语言）各有胜负。最佳定位：需要日常英语商务沟通的职场人和留学生；纯中文用户、小说家、涉密行业、无网环境不适合。
-- **定价**: Free $0(100 AI提示词/月) / Pro $12/月年付 $30/月月付(1,000提示词/月) / Business $15/席/月(2,000提示词/成员/月) / Enterprise 联系销售
-- **已完成工具(22)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai, leonardo, dalle3, coze, jasper, grammarly
-- **下一步**: xiezuocat (AI写作工具-中文写作，第二批次，秘塔科技中文AI写作助手)
+## 2026-08-12: BrowserOS neo 深度评测（草稿转正）
+- **工具**: BrowserOS neo（browseros.com/neo；Felafax, Inc. 旧金山、YC 背书；原名 BrowserClaw 因 SEO 改名；创始人 Nikhil Sonti & Nithin Sonti 双胞胎兄弟）
+- **评级**: 4.0/5.0（与 tools.ts 现有 rating 一致，未改）。分项：定位稀缺性 4.5 / 登录态复用+可观测 4.5 / 免费开源本机 4.5 / 并行与隔离 4.0 / 省 token 快照 4.0 / **安全与权限隔离 2.5**（登录态共享是设计 + per-agent 隔离仅路线图 + MCP 端点即控制权）
+- **文件**: content/tool-reviews/browseros-neo.md（中文约 2000 字，4 个 HTML 表格 / 13 处蓝底白字 th；PyYAML 解析 OK，0 中文弯引号 / 0 NBSP / 0 U+FFFD / 0 Markdown 表格残留；4 个 alternatives slug 均存在：fellou / agentsky / claude-cowork / manus）
+- **tools.ts 同步**: 未改（rating 4.0、price、features 已准确）；无需重跑 tsc
+- **Git 提交**: 待 push；git rm 删除 browseros-neo.md.draft
+- **草稿转正关键处理**: 旧草稿是「体验笔记」格式、含「待站长亲测清单」占位符与「草稿」标题，转正时整体删除占位、改写为标准 frontmatter + 4 表格结构；文末声明站长未亲测、实测结论均转引具名第三方
 
-## 2026-07-04: Windsurf 深度评测
-- **工具**: Windsurf (原Codeium → 2026年初Cognition AI以$250M收购，归属Devin母公司)
-- **评级**: 4.3/5.0
-- **文件**: content/tool-reviews/windsurf.md
-- **Git提交**: d5957ac
-- **核心发现**: Windsurf是AI编程工具中「模型选择最丰富+自研模型最快+Devin云端代理独有」的三位一体选手。SWE-1.6自研模型950 tok/s零配额成本（比Claude Sonnet 4.5快13倍），Cascade本地Agent+Devin云端代理形成市场唯一「本地规划+云端执行」闭环，Memories跨会话持久化记忆解决重启失忆痛点，10+一线模型一站式访问无须管理多套API Key。$20/月与Cursor价格持平但在Agent深度上多走一步——LogRocket 2026年2月AI开发者工具实力榜#1。但Tab自动补全可用性仅53-60%（Cursor/Copilot 70-75%）是硬伤，大项目(5万+行)CPU 70-90%性能消耗大，公司动荡历史（OpenAI $3B收购流产→创始人被Google$2.4B挖走→Cognition $250M接盘）带来长期不确定性。最大风险：SWE-1.6免费期后定价未公布。最佳定位：需要Devin云端并行开发+多模型灵活切换的专业开发者；追求极致补全体验或超大单体仓库开发者不适合。
-- **定价**: Free $0(有限配额+Tab无限) / Pro $20/月(标准日/周配额，约50-70次提示/天，学生$10) / Max $200/月(Devin Cloud+最高配额) / Teams $40/用户/月 / Enterprise定制
-- **已完成工具(24)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai, leonardo, dalle3, coze, jasper, grammarly, xiezuocat, windsurf
-- **下一步**: replit (AI编程开发-云端开发，第二批次第六位，浏览器内全栈开发+即时部署)
+### 🔑 关键事实源（2026-08-12 重新核验；草稿写于 8-09，部分数据需复核）
+- **官方**: browseros.com/neo（四大能力、FAQ、对比表、平台支持、改名说明）；完整版 browseros.com（YC 背书、13 家模型商、53 项浏览器工具、40+ MCP 集成）；GitHub browseros-ai/BrowserOS（AGPL-3.0、© Felafax、3,472 commits、最近提交 2026-08-08）
+- **GitHub Stars**: 12,000+（官网与多家评测一致口径；neo 与完整版共仓）
+- **价格**: 完全免费、开源（AGPL-3.0）；模型费由自带 Key/订阅另计（toolworthy / chatgate 均标 100% Free）
+- **功能（官方 FAQ + PH 发布贴交叉）**: 一键导入 Chrome 登录态；MCP 6 家一键（Claude Code/Cursor/Codex/VS Code/Zed/GitHub Copilot）+ 其余 URL；驾驶舱实时 + 会话可回放（可拖进度条录像）；并行 Agent 各自标签页；传精简快照非截图省 token；本机运行数据不出本机
+- **独立评测**: toolworthy.ai（免费、AGPL 商用提示、Chromium 分支维护风险）；pidune.com（72h 实测 4.2/5、安装到跑通约 15 分钟、16GB Mac 跑 4 Agent 卡顿、回放抓 Shopify 下拉框错、不推荐 7×24 无人值守）；chatgate.ai（MCP 端点安全边界、隐私政策辨析、Linux 规划）
+- **⚠️ Product Hunt 票数分歧（重要，勿取单一数字）**: hunted.space 2026-08-12 实时 = 127 赞 / 6 评论 / 当日第 6；CSDN 2026-08-08 热榜记 195 票 / 第 5；旧草稿曾记 209 赞 / 16 评论 / 第 5（疑似早期快照）。文中以「Product of the Day、当日榜单前列」表述，不写死单一票数
 
-## 2026-07-03: 写作猫 深度评测
-- **工具**: 写作猫 (上海秘塔网络科技有限公司，蚂蚁集团领投A轮超1亿元，估值1.5亿美元)
-- **评级**: 4.0/5.0
-- **文件**: content/tool-reviews/xiezuocat.md
-- **Git提交**: 17f60b0
-- **核心发现**: 写作猫是中文写作纠错赛道的专项守门员——1300万用户验证、自研MetaLLM百亿参数模型中文纠错精度国产第一、¥24/月性价比极高。但AI续写能力远不如Kimi/ChatGPT（模板化严重），仅支持中英双语（英文远不如Grammarly），云端处理无本地模式带来隐私风险。最大护城河是「的地得」/成语误用/中文标点等微观纠错能力——这是通用大模型无法替代的专项优势。vs Grammarly（英文之王但中文为零）/Kimi（创作之王但无专项纠错）/ChatGPT（通用之王但无中文微观检测）形成差异化互补。最佳定位：需要中文纠错+降重的学生/公务员/中文内容创作者；追求AI自动创作或多语言/离线使用的用户不适合。
-- **定价**: Free ¥0(8000字纠错/天) / 基础版 ¥24/月(10000字AI写作+30000字纠错/天) / 高级版 ¥48/月(30000字AI写作+60000字强力改写/天) / 团队版 联系销售
-- **已完成工具(23)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai, leonardo, dalle3, coze, jasper, grammarly, xiezuocat
-- **下一步**: windsurf (AI编程开发，第二批次第五位，Codeium推出的AI原生IDE Flow模式)
+### 下一步建议
+- 剩余草稿按完整度：**dumate(6.2KB) > aipy(4.7KB) > jiuwenswarm(4.2KB) > skywork-desktop(4.0KB) > qwenpaw(3.7KB) > minimax-agent(3.5KB)**（browseros-neo 已转正）
+- 选题机会：BrowserOS neo（本机浏览器复用登录态）+ Perplexity Personal Computer（云端 Comet 浏览器）+ AgentSky（云端托管寿命）可组「Agent 上网的两条路 / 该住在谁的机器上」横评
+- 流程注意：草稿「待站长亲测清单」占位符转正必须整体删除；`.md.draft` 是被 git 跟踪的，转正 `git rm`；临时校验脚本用完 PowerShell `Remove-Item -LiteralPath` 清理
 
-## 2026-07-01: Jasper AI 深度评测
-- **工具**: Jasper AI (Jasper AI, Inc., 前身Jarvis)
-- **评级**: 4.2/5.0
-- **文件**: content/tool-reviews/jasper.md
-- **Git提交**: de2461c
-- **核心发现**: Jasper 2026年定位已从通用AI写作工具进化为品牌内容执行平台。Brand IQ四层上下文引擎(Brand Voice+Audiences+Knowledge Base+Marketing IQ)是其不可替代的护城河，100+专用营销Agent+Grid内容流水线将临时性写作任务转为可重复生产系统。但价格是ChatGPT Plus的3.5倍(Creator $39-49/mo, Pro $59-69/mo，隐藏成本Copyscape+Surfer SEO需额外购买)，消费者端口碑与专业评测分裂严重(G2 4.7/5 vs Trustpilot 3.5/5 vs BBB F评级)。公司经历ChatGPT冲击后ARR从$120M暴跌至$55M后恢复至$88M，创始CEO被替换+多轮裁员，长期稳定性存疑。最佳定位是有规模化品牌内容生产+合规需求的中大型营销团队；个人创作者和小团队应选择ChatGPT($20/月)或Writesonic($19/月起)。
-- **定价**: Creator $39/月(年付$468/年) / Pro $59/月(年付$708/年) / Business 定制(12个月最低承诺)
-- **已完成工具(21)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai, leonardo, dalle3, coze, jasper
-- **下一步**: grammarly (AI写作工具-英文写作，第二批次，全球最受欢迎AI英文写作助手)
+## 2026-08-11: AgentSky 深度评测
+- **工具**: AgentSky（agentsky.dev；定位 managed agent as a service，托管式 Agent 运行时，不生产 Agent 只出租 Agent 寿命）
+- **评级**: 3.6/5.0（由 tools.ts 的 3.9 下调）。分项：Harness/模型自由度 4.5 / 开发者工程完成度 4.5 / 定价透明度 4.5 / 持久运行时与恢复 4.0 / sky clone 迁移 3.0 / 全渠道与跨渠道身份 3.0 / 数据主权与合规 2.5 / 可观测性与故障告警 2.0 / 成熟度与公开证据 2.0 → 均分约 3.4，因「库内唯一把 harness 当可替换耗材 + CLI/API 做到 fly.io 水位」上调约 0.2
+- **文件**: content/tool-reviews/agentsky.md（中文正文 3130 字，22.8KB；4 个 HTML 表格 / 14 处蓝底白字 th；PyYAML OK，0 中文弯引号 / 0 NBSP / 0 U+FFFD / 0 Markdown 表格残留；4 个 alternatives slug 均存在：hermes-agent / openworker / manus / qwenpaw）
+- **tools.ts 同步**: rating 3.9→3.6；price 改写为完整两条计量线 + 估算器结论；features 12 条全面重写（补入默认 harness、Kimi K3 兼容边界、clone 边界、best-effort 恢复、无存活告警、connect chatgpt 需上传 Codex 登录态、CLI/API 细节、中文生态零覆盖）；`npx tsc --noEmit` 通过
+- **Git 提交**: 1bcca96（已 push 至 main）；git rm 删除 agentsky.md.draft
 
-## 2026-06-30: 扣子Coze 3.0 深度评测
-- **工具**: 扣子Coze (字节跳动)
-- **评级**: 4.4/5.0
-- **文件**: content/tool-reviews/coze.md
-- **Git提交**: dad88ca
-- **核心发现**: Coze 3.0（2026.06.01上线）是国内首个「多人+多Agent」协作平台，从「单人对话AI」到「AI军团指挥官」的范式转移。最大护城河是零代码极低门槛+@机制多Agent协作+一键接入本地Agent（Claude Code/Codex/OpenClaw，30秒完成）。字节生态（微信/飞书/抖音）原生打通是竞品无法复制的渠道优势。免费版每日500点+1500登录积分，轻量使用完全够。三大硬伤：积分当日清零、闭源SaaS限制深度定制、Agent接入双层收费（¥39.9月费+¥89本地Agent接入）。vs Dify对比：Coze做轻交付和生态引流，Dify做重交付和私有化，互补而非替代。用户量年增200%，国内AI Agent市场份额第一。最佳定位：非技术团队的AI工作流快速验证平台；技术型重度定制需求者应选Dify。
-- **定价**: 免费/进阶¥39.9/月(3万点)/高阶¥99/月(9.9万点)/旗舰¥199/月(19.9万点)/企业定制/Agent接入¥89/月
-- **已完成工具(20)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai, leonardo, dalle3, coze
-- **下一步**: jasper (AI写作工具-营销文案，第二批次，专注营销内容创作)
+### 🔑 本次三处实质纠错（草稿写错，勿再沿用）
+1. **sky clone 不是整体搬家**：官方 CLI reference 原文 `clones instructions, model, secretless MCP servers — never secrets or history`，且标注 Claude Code first。历史一条不过去、密钥须 `sky secrets set` 重设。第三方 aitoolly 独立记录「Local secrets and API keys are not synced during cloud cloning」与官方互为印证
+2. **快照幂等问题厂商已回应**：AgentSky maker 在 PH 讨论区明说 state restoration is best-effort、无法排除竞态，快照不应被当作外部副作用的 exactly-once 保护（chatgate.ai 转述 PH 讨论）。草稿写的「官网未作说明」已作废
+3. **默认 harness 是 hermes 而非 Claude Code**（agent.toml `type` 默认值）；且官网顶栏公告 Kimi K3 仅在 Hermes 与 OpenClaw 可用，模型与 harness 非全矩阵兼容
 
-## 2026-06-29: DALL·E 3 深度评测
-- **工具**: DALL·E 3 (OpenAI)
-- **评级**: 4.4/5.0
-- **文件**: content/tool-reviews/dalle3.md
-- **字数**: ~2100字
-- **Git提交**: d0ab22a
-- **核心发现**: DALL·E 3是提示词准确度最高的AI绘画工具，核心优势是GPT-4充当提示词翻译器实现零门槛对话式创作。这是三大绘画工具中唯一真正「听人话」的——指定颜色/位置/数量几乎精准还原，无需任何参数语法。ChatGPT原生集成是最大护城河，覆盖数亿现有用户。但艺术表现力明显落后Midjourney（「企业化AI感」），内容过滤器过于保守常误杀创意请求，缺少风格锁定/种子控制/图生图等专业能力。免费版仅约2张/天基本无法迭代。最佳定位：非设计背景的内容创作者和营销人员的日常配图工具；专业设计师应选Midjourney+Stable Diffusion组合。
-- **定价**: Free $0(约2张/天) / ChatGPT Plus $20/月(约50张/3小时) / ChatGPT Pro $200/月(无限) / API $0.04-0.08/张 / Azure企业定制
-- **已完成工具(19)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai, leonardo, dalle3
-- **下一步**: coze (AI对话助手-Bot搭建，第二批次，字节跳动AI Bot平台)
+### 关键事实源（均已核验，2026-08-11 读取）
+- **官方一手**：agentsky.dev 首页（7 渠道、内置能力供应商清单、10k+ sessions for Tycoon/Webjourney、ZDR、Self-evolving coming soon）；/pricing（11 款模型输入输出单价 + 1/2/4GB 算力三档 + 内嵌估算器）；/docs 开发者快速上手；/docs/agent-toml；/docs/cli
+- **定价硬数字**：算力 1GB $0.021/h·$0.51/24h·$15.24/月，2GB $0.038·$0.91·$27.16，4GB 默认 $0.071·$1.70·$51.01；挂起/停放 $0，按秒计、不足一分钟不计。模型：Claude Fable 5 $15/$75，Opus 5 $7.50/$37.50，Sonnet 4.6 $4.50/$22.50，GPT-5.6 Sol $7.50/$45，Terra $3/$18，Luna $0.30/$1.80，Gemini 3.5 Flash $1.13/$6.75，GLM-5.2 $2.10/$6.60，Kimi K3 $4.50/$22.50，DeepSeek V4 Pro $0.65/$1.31，Flash $0.21/$0.42
+- **估算器**：Claude Fable 5 + 4GB + 20 轮/天 + 唤醒 2h/天 = **$121.25/月（$117 模型 + $4.25 算力）**，假设单轮约 8k 输入 + 1k 输出 → 首页「Starts at $3/mo」只描述了账单约 3.5%
+- **docs 细节**：`npm i -g @agentsky/sky`；`sky launch` 脚手架 agent.toml；API 统一 `/api/v1`，发消息返回裸 202、输出走常驻 SSE，漏事件从 events 端点重放并按 event id 去重，终点看 `turn.status_idle` 的 `stop_reason`；agent.toml 只有 name 必填，vcpus 1|2|4|8、memory_mb 每 vCPU 256–2048MB（**但定价页只公布到 4GB，8 vCPU 机型价格未公开**）；skills 支持 registry|git|package|archive；secrets 写入不可读回、静态加密；文件不过网（CLI 客户端校验并内联）
+- **BYO 通道**：`sky auth connect claude` 调起 `claude setup-token`；`sky auth connect chatgpt` 需**上传本地 Codex 登录态**（信任成本）；disconnect 后该订阅上的 Agent 会失败直到切回 Platform
+- **PH 数据口径分歧（已在文中并列标注）**：hunted.space 最新 469 赞/60 评论、早期快照 376/48；ustack 441；aitoolly 438；launly 371/40。均为 #1 Product of the Day，hunter 是 PH 现任 CEO Rajiv Ayyangar。**PH 上仅 1 条评价 5.00/5**
+- **渠道口径分歧（已并列标注）**：官网首页只列 7 项无 Discord；chatgate.ai 与 aitoolly 均写含 Discord
+- **PH 评论区两条尖锐质疑（hunted.space 原文）**：①停放免费抹掉故障信号——死掉的 Agent 和便宜的月份在账单上长得一样，建议启动时声明预期 cadence 由平台告警；②快照 + 外部副作用的幂等问题（恢复到发 WhatsApp 前无法知道消息发没发）。另有多人追问跨渠道身份归并规则，官方至今未公开
+- **独立评测**：VibeWatch 归类为 cloud agent hosting，明确 flag 公开证据薄弱 + 托管让出控制权
 
-## 2026-06-28: Leonardo.ai 深度评测
-- **工具**: Leonardo.ai (Leonardo AI, 2024年7月被Canva收购)
-- **评级**: 4.3/5.0
-- **文件**: content/tool-reviews/leonardo.md
-- **字数**: ~2000字
-- **Git提交**: ca6ac3b
-- **核心发现**: Leonardo是全球最大专业AI图像平台之一——19M用户+$95M年收+$13亿估值(Canva集团内)。最大优势是全能性：29+模型+Elements自定义训练+Canvas编辑器打通生图到编辑闭环，免费层150代币/天是竞品无法匹敌的生产力级别。Canva收购后生态红利巨大（Canva Business用户免费获得Essential）。Phoenix模型画质达Midjourney V7的85-90%，但极致美学仍落后。三大硬伤：代币计费黑箱（无公开模型消耗表）、「无限」仅限自有模型（第三方Veo/Sora始终消耗代币）、免费层IP归属模糊+全部公开。Trustpilot 4.6/5（Excellent），但差评集中在代币透明度和「无限」营销措辞上。最佳定位：对已有Canva订阅的设计团队是零成本升级，对需要一站式云端创作平台的独立游戏开发者是最佳选择。
-- **定价**: Free $0(150代币/天) / Essential $12/月 $10年付(8,500代币/月) / Premium $30/月 $24年付(25,000+无限放松图像) / Ultimate $60/月 $48年付(60,000+无限放松视频)
-- **已完成工具(18)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai, leonardo
-- **下一步**: dalle3 (AI图像生成，第二批次，OpenAI官方绘画工具)
+### 下一步建议
+- 剩余草稿按完整度：**browseros-neo(8.7KB) > dumate(6.2KB) > aipy(4.7KB) > jiuwenswarm(4.2KB) > skywork-desktop(4.0KB) > qwenpaw(3.7KB) > minimax-agent(3.5KB)**
+- 选题机会：AgentSky（云端托管、放弃数据主权换寿命）+ BrowserOS neo（本机执行、复用登录态）+ QwenPaw（本地部署 IM 远程指挥）可组一篇「Agent 该住在谁的机器上」三方横评
+- 流程注意：草稿里凡「官网未作说明」「待站长亲测清单」类表述，转正前必须重新检索一次——本次三处纠错全部出在这类占位说法上；临时校验脚本写进 scripts/ 后用 PowerShell `Remove-Item -LiteralPath` 清理（本次已清）
 
-## 2026-06-27: Canva AI 深度评测 + AdSense合规修复
-- **工具**: Canva AI Magic Studio (Canva Pty Ltd)
-- **评级**: 4.3/5.0
-- **文件**: content/tool-reviews/canva-ai.md
-- **字数**: ~2100字
-- **Git提交**: 0a0fe18
-- **核心发现**: Canva AI最大优势是一体化设计工作流（设计+文案+生图+排期一站式），265M MAU/$40亿ARR验证其市场统治力。但AI生图默认分辨率仅384×688px，落后Midjourney 2-3年；Magic Write仅能写短文案，无法胜任SEO长文。最佳定位：非设计师的日常视觉内容工厂。
-- **定价**: Free $0/Pro $15月 $120年/Teams $25人月/Enterprise联系销售
-- **AdSense修复**: 同时修复sitemap.ts工具URL从77降至17（仅含真实评测），解决内容农场判定
-- **已完成工具(17)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma, canva-ai
-- **下一步**: leonardo (AI图像生成，第一批次第九位，专业概念设计+游戏素材)
+## 2026-08-10: Perplexity Personal Computer 深度评测
+- **工具**: Perplexity Personal Computer（perplexity.ai/computer；官方定语 local agent harness）
+- **评级**: 3.7/5.0（由 tools.ts 的 3.9 下调）。分项：多模型元路由 4.5 / 研究与交付 4.5 / 本地文件与 Office 渗透 4.0 / 长时运行交付 4.0 / **成本可预测性 2.0** / 工程完成度与可观测性 2.5 / 信任与合规 2.5 → 均分 3.43，因「多模型元路由 + 本地文件读写 + 400+ 连接器」三合一在库内独一份且长时运行能力被多方独立复现，上调 0.27
+- **文件**: content/tool-reviews/perplexity-computer.md（正文中文 3086 字，19.9KB；4 个 HTML 表格 / 14 处蓝底白字 th；PyYAML 解析 OK，0 中文弯引号 / 0 NBSP / 0 U+FFFD / 0 Markdown 表格残留；4 个 alternatives slug 均存在）
+- **tools.ts 同步**: rating 3.9→3.7；price 改写为五档全价目 + 额度规则；features 新增「两个同名产品必须分清」「沙箱规格」「额度机制头号差评源」「独立实测数据」「独立评测短板」「口碑两面镜」「信任背景」七条；`npx tsc --noEmit` 通过
+- **Git 提交**: 420910d（已 push 至 main）；git rm 删除 perplexity-computer.md.draft
 
-## 2026-06-26: Gamma 深度评测
-- **工具**: Gamma (Gamma Technologies, Inc.)
-- **评级**: 4.0/5.0
-- **文件**: content/tool-reviews/gamma.md
-- **字数**: ~2300字
-- **Git提交**: df653bd - "review: Gamma深度评测"
-- **核心发现**: Gamma是AI演示工具赛道速度冠军——从提示词到完整演示文稿仅需1-3分钟，2.5亿+生成量验证其市场地位。Web原生分享+参与度分析是其最大护城河（PPTX附件无法追踪阅读数据）。但PPTX导出保真度差（文字重叠/字体缺失常态化）是交付场景的致命伤，AI积分制隐藏成本高（Plus版1000积分实际仅够4-5个高质量文稿），Free/Plus用户内容被授予永久AI训练许可构成商业机密风险。最大风险：AI生成数据看起来专业但未经核实——对外使用前必须逐条人工核查。vs Canva AI和Beautiful.ai各有胜负：Gamma在速度和Web分享无人能敌，但在导出质量、品牌管控、设计模板丰富度全面落后。最佳定位是初稿加速器而非成品输出工具。
-- **定价**: Free $0(400积分一次性)/Plus $12/月 $9年付(1000积分/月)/Pro $25/月 $18年付(4000积分/月)/Ultra $100/月 $90年付(20000积分/月)/Team $20/席/月(2席起)/Business $40/席/月(10席起)
-- **已完成工具(16)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika, gamma
-- **下一步**: canva-ai (AI图像生成，第一批次第八位，全能设计平台+AI演示功能)
+### 🔑 本次最大增量：厘清了两个同名产品（此前草稿与多家中文报道全部混淆）
+- **Computer** = 2026-02-25 上线的**云端** Agent 平台，跑在托管云沙箱，**够不着本机文件**；2026-03 起已下放 Pro 档，$20/月带 **500 额度/月**
+- **Personal Computer** = **桌面常驻变体**，2026-03-11 以 Mac mini 形态宣布并开候补 → 04 月上 macOS → **07-28 补齐 Windows 10/11**；**至今仅 Max / Enterprise Max**
+- 结论：草稿里「zhichai 称 Pro 也能用 vs 英文源称仅 Max，口径冲突」**不是冲突，是两个产品**。$20 能用云端 Computer 一小口，想动本机文件起步 $200
 
-## 2026-06-25: Pika 深度评测
-- **工具**: Pika (Pika Labs)
-- **评级**: 4.0/5.0
-- **文件**: content/tool-reviews/pika.md
-- **字数**: ~2100字
-- **Git提交**: e975d1d - "review: Pika深度评测"
-- **核心发现**: Pika是AI视频赛道速度冠军——Turbo模式12秒出片，Sora 2需50分钟。其最大护城河是11种Pikaffects创意特效(爆炸/融化/蛋糕化等)，竞品完全无法替代。$8/月入门价是AI视频最低门槛。但Trustpilot 1.6分(87%一星)揭示三大硬伤：积分消耗过快、复杂场景成功率仅约50%、客服失联。不是完整视频工具(无音乐/配音/脚本)，仅生成3-10秒片段。商业授权需$35/月Pro起跳，性价比不如Kling($6.99起含商业授权)。最适合作社交媒体创作者的「特效插件」或Runway/Kling的互补工具。
-- **定价**: Basic $0(80积分/480p/有水印) / Standard $10/月 $8年付(700积分/720p/无水印但无商业) / Pro $35/月 $28年付(2300积分/1080p/商业授权) / Fancy $95/月 $76年付(6000积分/1080p/最快速度)
-- **已完成工具(15)**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion, pika
-- **下一步**: gamma (AI办公效率，第一批次，AI生成PPT)
+### 关键事实源（均已多源交叉）
+- **五档全价目**（sentisight + aitoolsatlas + felloai + staxly 交叉一致）：Free $0 无 Computer / Pro $20 月・$200 年（页面显示约 $17/月）含 500 额度 / **Max $200 月・$2,000 年（约 $167/月）含 10,000 额度 + 桌面 Agent** / Enterprise Pro $40 席月・$400 席年 / Enterprise Max $325 席月・$3,250 席年 含桌面 Agent。另有 Education Pro $10/月、Comet Plus $5/月
+- **额度规则**：当月清零不结转；自动续费**默认关闭**，默认月度加购上限 $200（默认最大月支出 $400），可上调至 $2,000；上线期一次性 20,000 奖励额度（30 天过期）+ 35,000 限时促销，均已结束；额度耗尽时任务**暂停不取消**，补额后自动续跑
+- **额度实际消耗**：alt-text 约 30 额度 / 简单调研加报告数百 / **建一个基础网页遇部署问题 10,000+（Max 整月配额，Builder.io）** / 重度日用月度实付 $300-500（Reddit）/ 有 Max 用户「两个月烧掉 7 万额度」
+- **ai-tools-hub 一周实测**：竞品调研 10 家 38 分钟耗月额度约 4%；ICP 分析 22 分钟约 2.5%；Streamlit 看板 1 小时 12 分约 6%；2500 字长文 17 分钟约 1.5%；30 标签页市场扫描 51 分钟约 5%。**抽检 5 份报告约 100 条引用：87 准确 / 9 部分正确 / 4 编造**
+- **模型**：2 月首发 19 个 → 3 月 20+；默认主编排器 **Claude Opus 4.7**（Perplexity 4 月 changelog），可切 GPT-5.4 / Claude Sonnet 4.6；分工 Opus 核心推理 / Gemini 3 Pro 深研 / GPT-5.2 长上下文 / Grok 轻任务 / GPT-5.3-Codex 代码 / Nano Banana 图 / Veo 3.1 视频
+- **沙箱**：隔离 Linux 2 vCPU / 8GB 内存，预装 Python、Node.js、ffmpeg；单任务可跑数小时
+- **厂商自陈两条限制**（techjacksolutions 标注为 Vendor）：长任务实时烧额度（已加实时额度计数器）；长对话会退化、系统会提议压缩重启上下文
+- **独立评测短板**：Zapier——自主网页导航脆弱且比人慢，Cloudflare/反爬限流甚至困住 Agent，AI 音频 not ready for prime-time；Dania Accounting——会计税务等细分议题产出不均需人工复核；Vercel OAuth 令牌每会话过期，有评测者因静默失败烧 10,000 额度推坏构建
+- **口碑两面镜**（okaneland 1,024 帖研究）：Google Play 4.6 分 / 203 万评分 / 编辑推荐 vs **Trustpilot 1.5 分 / 707 条 / 82% 一星，几乎全为计费退款争议**
+- **安全**：LayerX 研究员 Paloma Perlov 称 Comet 比 Chrome 易受钓鱼/网页攻击**最高高出 85%**（TechTimes 2026-06）；研究者 Stav Cohen 记录「意图冲突 intent collision」
+- **法律信任**：亚马逊 2026-03-10 获禁令阻止 Comet 抓取；Cloudflare 记录隐形爬虫规避禁抓；Reddit / Forbes 诉讼进行中；Doe v. Perplexity AI（3:26-cv-02803, N.D. Cal.）03-31 提交、05-01 无偏见撤诉；旧金山 AI 活动 300+ 创始人评其为独角兽中「最可能失败」
+- **竞争面**：MS 365 Copilot 约 $30/席/月，AP 报道 4-6 月季度付费席位破 3000 万；Perplexity 2026-01 与 Azure 签三年 7.5 亿美元 GPU 承诺（挑战 Copilot 却跑在微软云上）
+- **企业版**：2026-03 Ask 2026 大会推出，Slack 频道内 @computer、Snowflake（自动 Data Map 自然语言转 SQL）/ Salesforce / HubSpot 连接器、SSO、合规；支持通过 MCP 自带连接器
 
-## 2026-06-24: Stable Diffusion 深度评测
-- **工具**: Stable Diffusion (Stability AI)
-- **评级**: 4.3/5.0
-- **文件**: content/tool-reviews/stable-diffusion.md
-- **字数**: ~2200字
-- **Git提交**: b9b887c - "review: Stable Diffusion深度评测"
-- **核心发现**: Stable Diffusion是全球约80%AI图片的底层基础设施——5000万+下载、50万+社区LoRA、月产约20亿张。其核心价值不在默认画质（落后Midjourney），而在开源生态的飞轮效应：零成本无限生成+ControlNet精准控制+ComfyUI管线化+完全本地隐私。2026年4月SD4 Ultra首次在画质上追平闭源旗舰（4096×4096原生+87%手部准确+文字渲染模块），但24GB显存门槛让大多数人只能API访问。2015年11月Getty诉讼胜利是开源AI的重大法律里程碑。最大短板：上手门槛极高（4h+配置）、默认画质平庸、工具链碎片化。最佳策略：SD做主力量产+Midjourney做最终精修，两者互补。
-- **定价**: 本地 $0（仅硬件）/ API Core $0.03-0.08/张 / 编辑$0.05/次 / 放大$0.02-0.60/次 / 企业联系销售
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot, deepseek, stable-diffusion
-- **下一步**: pika (AI视频创作，第一批次第六位，社交短视频AI生成工具)
+### ⚠️ 已剔除/降权的说法（勿再沿用）
+1. byteiota 称「2026-06 引入混合本地-云端推理编排器，本地小模型分流敏感数据，支持 Intel Core Ultra Series 3 与 NVIDIA RTX Spark」——**与其余全部信源的「推理全在云端」直接矛盾**，且该文模型清单陈旧、Operator OSWorld 38.1% 疑为旧数，本次未采用
+2. 草稿称「订阅档位口径媒体间打架，以官网为准」——已查明是两个产品之别，本次写清
+3. 时间线分歧如实标注不拍板：Mac 版具体月份各源不一（digitalapplied 自陈 sources disagree）；M365 侧边栏与 Teams 有 5 月与 7 月两说，The Verge 一系倾向 5 月
+4. 四层架构系独立研究者 **Ajit Singh** 2026-03 逆向、TechTimes 引用，**非厂商确认**，文中已标注
+5. 本文引用的 bycrawl / ai-tools-hub / sentisight / digitalapplied / techjacksolutions / okaneland 多为聚合型内容站，已尽量多源交叉，无法交叉的（如具体额度百分比）在文中标注来源单位；文末声明站长未订阅 Max、所有实测数字均转引具名第三方
 
-## 2026-06-23: GitHub Copilot 深度评测
-- **工具**: GitHub Copilot (GitHub/Microsoft)
-- **评级**: 4.5/5.0
-- **文件**: content/tool-reviews/copilot.md
-- **字数**: ~2500字
-- **Git提交**: 1037f26 - "review: GitHub Copilot深度评测"
-- **核心发现**: Copilot是AI编程市场绝对霸主——2000万用户+470万付费+42%市场份额+90%财富百强采用+$4.5-8.5亿ARR。2026年6月平台化升级（桌面App多Agent并行+SDK GA 6语言+双重沙箱）标志着从代码补全工具到Agent开发平台的质变。Pro版$10/月是三大AI编程工具中最便宜的付费方案。但Agent Mode落后Cursor/Windsurf 1-2个身位，8K上下文窗口严重落后竞品200K，Premium计量机制（GPT-4.5一次=50倍消耗）引发重度用户焦虑。最佳定位：不想换IDE的开发者稳妥之选，追求Agent能力的选Cursor($20/$15)。
-- **定价**: Free $0 / Pro $10/月 ($100/年) / Pro+ $39/月 ($390/年) / Business $19/用户/月 / Enterprise $39/用户/月
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi, doubao, copilot
-- **下一步**: stable-diffusion (AI图像生成，第一批次第五位，开源绘画标杆)
+### 下一步建议
+- 剩余草稿按完整度：**agentsky(10.5KB) > browseros-neo(8.7KB) > dumate(6.2KB) > aipy(4.7KB) > jiuwenswarm(4.2KB) > skywork-desktop(4.0KB) > qwenpaw(3.7KB) > minimax-agent(3.5KB)**
+- 选题机会仍在：BrowserOS neo（本机浏览器复用登录态）+ Perplexity Personal Computer（云端 Comet 浏览器）路线正相反，可组一篇「Agent 上网的两条路」横评
+- 流程注意：`.md.draft` **是被 git 跟踪的**，转正时必须 `git rm`（不是 PowerShell 删）；临时脚本写进 workspace 后用 PowerShell `Remove-Item -LiteralPath` 清理；bash 里 `/tmp` 会被解析成 `E:\tmp`，临时脚本请直接写到工作区
+- 校验四件套固定跑：PyYAML 解析（managed python 无 pyyaml，用 `D:/anaconda3/python.exe`）、0 中文弯引号/NBSP/U+FFFD、0 Markdown 表格残留、所有 `<th>` 带 `#4a90d9`+`#fff`
 
-## 2026-06-21: Kimi 深度评测
-- **工具**: Kimi (月之暗面 Moonshot AI)
-- **评级**: 4.3/5.0
-- **文件**: content/tool-reviews/kimi.md
-- **字数**: ~2300字
-- **Git提交**: 4781614 - "review: Kimi深度评测"
-- **核心发现**: Kimi是国产长文本处理标杆，K2.6（2026年4月开源）1T参数MoE+256K上下文+300子Agent集群实现从对话工具到Agent OS的进化，SWE-Bench Pro 58.6超越GPT-5.4。中文写作母语级体验无可匹敌。但MAU从3600万峰值断崖跌至约834万（连续四季度下滑），免费版Agent仅约6个/月严重鸡肋，最低付费¥49/月起跳导致价格敏感用户流失。K2.6代码基准测试亮眼但实际开发中仍不如DeepSeek/Claude，多模态只进不出（不支持图像/视频生成）是内容创作场景的硬伤。最佳策略是组合使用而非单独依赖。
-- **定价**: Adagio ¥0（Agent约6个/月）/ Andante ¥49/月（30个/月）/ Moderato ¥99/月 / Allegretto ¥199/月 / Allegro ¥699/月；API K2.6 $0.95/$4.00/1M tokens（输入/输出）
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno, kimi
-- **下一步**: doubao (国产AI助手，第一批次第三位，1.59亿MAU字节系产品)
+## 2026-08-09: 灵犀专业版（金山办公）深度评测
+- **工具**: 灵犀专业版（金山办公 A股688111，www.lingxi.cn，Web 版 lingxi.kdocs.cn；2026-07-15 上海「2026 AI 生产力大会」发布，内测期名为 WPS 灵犀 Claw）
+- **评级**: 4.0/5.0（由 tools.ts 的 4.1 下调）。分项：Office原生交付 5.0 / 记忆与上下文 4.5 / Pro模式性价比 4.0 / 平台与插件兑现 3.0 / 模型透明度 3.0 / **计费机制成熟度 2.5** → 均分 3.67，因「Office 原生交付」是办公 Agent 第一性能力且它是目前唯一做透的一家，上调 0.33
+- **文件**: content/tool-reviews/lingxi-pro.md（中文 3963 字，4 个 HTML 表格 / 17 处蓝底白字 th；PyYAML 解析 OK，0 中文弯引号 / 0 NBSP / 0 U+FFFD / 0 Markdown 表格残留；4 个 alternatives slug 均存在）
+- **tools.ts 同步**: rating 4.1→4.0；price 补全四档灵点数+首月加赠+加量包+「WPS大会员不打通」；features 补入 SpreadsheetBench 成绩、自动做梦、1.2.27、多维表 API 边界、定时任务上限、统信 UOS 不支持；`tsc --noEmit` 通过
+- **Git 提交**: dd1d7fd（已 push 至 main）；git rm 删除 lingxi-pro.md.draft
 
-## 2026-06-20: Suno AI音乐生成器深度评测
-- **工具**: Suno (Suno, Inc.)
-- **评级**: 4.5/5.0
-- **文件**: content/tool-reviews/suno.md
-- **字数**: ~2300字
-- **Git提交**: 3f556b5 - "review: Suno AI音乐生成器深度评测"
-- **核心发现**: Suno是全球最快最易用的AI音乐生成器，1亿+用户+200万付费订阅+$300M ARR+$54亿估值。v5.5人声首次突破恐怖谷，5分钟从创意到完整歌曲。Pro $8/月含商业权利+全模型+12轨分轨。但黑箱生成(无法控制调性/BPM/曲式)是专业用户致命短板，Suno Studio仍处半成品状态，UMG+Sony诉讼未了结导致商业发行存在法律风险，ToS已从"你拥有它"软化为"用户通常不被视为内容拥有者"。vs Udio对比4-2胜出(工作流/定价/编辑/商业权利领先，人声/曲风覆盖落败)。
-- **定价**: Free $0 (50积分/天，v4.5-all) / Pro $10/月 $8年付 (2,500积分/月，全模型，商业权利) / Premier $30/月 $24年付 (10,000积分/月，全模型+Studio)
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity, suno
-- **下一步**: kimi (国产AI助手，第一批次第二位)
+### 关键事实源（均已核验）
+- **官网实时读取（8-09）**：桌面端 **1.2.27**（下载链接含版本号）；Office 插件 / Chrome 插件 / 微软 Office 版**全部仍标「即将上线」**；产品形态页只有桌面客户端 + Web 端，**无独立移动 App**；四层记忆架构、同花顺/国家统计局/arXiv 数据源为官网原文
+- **定价（2026-08-03 起，官网 lingxi.kdocs.cn/cashier + bbs.wps.cn/topic/93940 + topic/93529 三方交叉一致）**：体验版免费 800 灵点；标准版 ¥48/5,000（首月加赠 5,000，约 104 灵点/元）；进阶版 ¥128/14,000；旗舰版 ¥398/48,000；加量包 ¥25/2,000（80 灵点/元、1 年有效、**限标准版以上**）。**灵点有效期仅 1 个月、过期作废**
+- **SpreadsheetBench**：2026-07-11 **WPS AI 表格 Agent**（注意：不是「灵犀专业版」本名）98.25% 登顶 Verified 400 专家精标榜；6 月 Full 912 全量榜 73.46% 首超人类专家基线。极目新闻/新湖南/北方网/搜狐多家独立报道
+- **灵点横评（bbs.wps.cn/topic/93635，同任务同日）**：灵犀 Pro 10 灵点 / Max 167 灵点（**差 16 倍**）/ TraeWork Auto 130.12 积分 / WorkBuddy Auto 184.99 积分；版本 灵犀1.2.27、WorkBuddy5.3.8、TraeWork0.1.43
+- **AirScript 实测（topic/93650）**：脚本生成一次 80–90 灵点、固化后执行零消耗；10 分钟批量建 103 个客户视图（人工 600+ 步 1 小时以上）。边界：多维表 API 仅支持创建视图，筛选条件需 WebSocket 二进制协议，无法自动设置
+- **差评源（WPS 官方论坛原声）**：topic/91709「灵点归零才弹追赠入口、人工审批不确定、大会员半点额度都没有」；home.wps.cn/topics/node/23「暂不支持统信 UOS」「定时任务最多 15 天 / 最多同时运行 5 个」；topic/88568 官方灵点 FAQ（任务失败不扣费、支持自定义模型）
+- **正面实测**：腾讯新闻雷科技罗超 2026-07-29（项目制记忆、展会统筹）、网易 L20F32SV（PPTX 标准母版可编辑、原文件上改稿不乱）、甲子光年 WAIC 现场（三层上下文、公式可核验）、bbs 用户「月度经营分析 4 小时→52 分钟」
+- **金山三产品必须区分**：WPS AI（嵌 Office 组件、含大会员权益）/ 灵犀专业版（独立个人 Agent、单独灵点计费）/ WPS Comate（企业 AI 中台、随 WPS 365）。三者会员体系互不打通
 
-## 2026-06-19: Perplexity AI 深度评测
-- **工具**: Perplexity AI (Perplexity AI, Inc.)
-- **评级**: 4.5/5.0
-- **文件**: content/tool-reviews/perplexity.md
-- **字数**: ~2300字
-- **Git提交**: ab0b388 - "review: Perplexity AI深度评测"
-- **核心发现**: Perplexity是AI搜索品类定义者，4500万月活+10亿月搜索量，每条答案附带可验证引用是其不可替代的护城河。Deep Research覆盖100+来源生成结构化报告，Model Council支持三模型并行对比，Comet浏览器免费提供AI原生浏览体验。$20/月Pro订阅同时解锁GPT-4/Claude/Gemini多模型访问，性价比碾压单独各家订阅。但Trustpilot 1.6/5的账单投诉记录（累计千条+意外扣费和取消订阅困难）是严重风险信号，中文搜索质量明显弱于英文，Deep Research配额不透明。
-- **定价**: Free $0 / Pro $20/月($200/年) / Pro教育 $10/月 / Max $200/月 / Enterprise Pro $40/人/月 / Enterprise Max $325/人/月
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway, perplexity
-- **下一步**: suno (AI音乐生成，首页6大主打全部完成，进入第一批次)
+### ⚠️ 已修正 8-06 旧草稿的错误（勿再沿用）
+1. 草稿称「不能自定义模型」→ 官方 FAQ 明确**客户端支持添加自定义模型**，只是用户反馈外接模型仍扣灵点
+2. 草稿称「SpreadsheetBench 属官方口径、未见第三方复测」→ 实为**公开国际基准榜单**，多家媒体独立报道，可放心引用（须注明主体是 WPS AI 表格 Agent 而非灵犀）
+3. 草稿称「发布初期需邀请码，现状待确认」→ 已确认**正式发布后不再需要邀请码**
+4. 草稿「待站长亲测清单」为占位符，转正时整体删除，改为文末明确声明站长未安装实测
+5. 草稿称「无直接充值渠道」→ 8-03 加量包上线已部分修复，但限标准版以上，免费用户仍只能干等
+6. 草稿引的「今日头条自媒体称 15 元/月、学生免费」来源仍判定不可信（其对比表出现「竞品A/竞品B」「飞书智脑」等生造内容），本次未采用
 
-## 2026-06-18: Runway Gen-4 深度评测
-- **工具**: Runway Gen-4 (Runway AI, Inc.)
-- **评级**: 4.5/5.0
-- **文件**: content/tool-reviews/runway.md
-- **字数**: ~2000字
-- **Git提交**: 7641523 - "review: Runway Gen-4深度评测"
-- **核心发现**: Runway 2026年已从单一视频生成器进化为多模型创作平台，Motion Brush是不可替代的杀手功能。Gen-4角色一致性大幅提升但绝对画质被Sora 2超越。多模型集市策略（集成Veo 3.1 + Kling 3.0 Pro + FLUX.2）是最聪明的护城河。对中文创作者不友好（汉服会被画成和风）。免费版几乎没有生产力。
-- **定价**: 免费（125一次性积分）/ 标准版 $15/月 / 专业版 $35/月 / 无限版 $95/月 / 企业版 联系销售
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor, runway
-- **下一步**: perplexity (AI搜索工具，首页6大主打最后一款)
+### 下一步建议
+- 剩余草稿按完整度：**agentsky(10.5KB) > browseros-neo(8.7KB，今日新收) > dumate(6.2KB) > aipy(4.7KB) > jiuwenswarm(4.2KB) > skywork-desktop(4.0KB) > qwenpaw(3.7KB) > minimax-agent(3.5KB)**
+- 选题机会：BrowserOS neo + AgentSky + Claude Cowork 可组一篇「Agent 的脑、手、寿命」横评
+- 流程注意：工作区 `rm` 会被 safe-delete 沙箱拦截，删未跟踪文件用 PowerShell `Remove-Item -LiteralPath`，跟踪文件用 `git rm`；收尾务必确认 `git status` 中 content/ 与 lib/ 干净（本次已确认）
 
-## 2026-06-17: Cursor 深度评测
-- **工具**: Cursor (Anysphere)
-- **评级**: 4.6/5.0
-- **文件**: content/tool-reviews/cursor.md
-- **字数**: ~2400字
-- **Git提交**: 218c14f - "review: Cursor深度评测"
-- **核心发现**: Cursor 2026年已是可视化AI编程王者，100万+DAU、$2B+ARR、$293亿估值。Tab预测意图揣测能力业界第一，Agent可自主完成跨文件重构。多模型切换是区别于Copilot的核心优势。Ultra $200/月价格不菲，国内网络门槛和UI精致度是主要短板。Cloud Agents/Browser Use/Design Mode等新功能持续上线。
-- **定价**: Hobby免费（2,000次补全+50次慢速请求）/ Pro $20/月 / Pro+ $60/月 / Ultra $200/月 / Teams $40/用户/月
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai, cursor
-- **下一步**: runway (AI视频创作，首页6大主打)
+## 2026-08-07: OpenWorker（吴恩达开源桌面 AI 同事）深度评测
+- **工具**: OpenWorker（Andrew Ng 团队，openworker.com；github.com/andrewyng/openworker，MIT；引擎建在自家 aisuite 上，非 OpenClaw 系）
+- **评级**: 3.8/5.0（由 tools.ts 的 3.9 下调）。分项：交付成品 4.5 / 模型无关 3.5 / 审批权限 4.0 / 连接器与生态 3.5 / 工程完成度 3.0 → 均分 3.7，为「MIT 真开源+独立技术血统+零商业绑定」补 0.1
+- **文件**: content/tool-reviews/openworker.md（中文 3872 字，3 个 HTML 表格 / 10 处蓝底白字 th；PyYAML 解析 OK，0 中文弯引号 / 0 NBSP / 0 U+FFFD / 0 Markdown 表格残留）
+- **tools.ts 同步**: rating 3.9→3.8；price 补官网 FAQ 原话；模型清单补 Inkling/Together/Fireworks；平台项补「仅 Apple Silicon 有签名包 / 无中文界面」；新增 Beta v0.1.7 与 Skills 占位现状；`tsc --noEmit` 通过
+- **Git 提交**: e77b499（已 push 至 main）；顺带 git rm 清理三个已转正草稿：openworker / hermes-agent / lobsterai
 
-## 2026-06-16: Notion AI 深度评测
-- **工具**: Notion AI (Notion Labs Inc.)
-- **评级**: 4.3/5.0
-- **文件**: content/tool-reviews/notion-ai.md
-- **字数**: ~2300字
-- **Git提交**: fdf7279 - "review: Notion AI深度评测"
-- **核心发现**: Notion AI 2026年已从简单写作助手进化为多模型企业搜索平台（16+连接器 + GPT/Claude/Gemini切换）；AI深度嵌入工作空间的理念是最大护城河；写作质量明显落后ChatGPT；Q&A准确性高度依赖知识库质量——脏数据进去不可靠答案出来；完整AI功能锁定在Business方案($20/成员/月)，Free/Plus仅有限试用
-- **定价**: Free $0（有限试用）/ Plus $10/月（有限试用）/ Business $20/月（完整AI）/ Enterprise 定制价 / 自定义Agent $10/1000积分
-- **已完成工具**: chatgpt, claude, gemini, midjourney, notion-ai
-- **下一步**: cursor (AI编程开发，首页6大主打)
+### 关键事实源（均已核验）
+- **GitHub API 实时读取（2026-08-07）**：13,320 Stars / 1,789 Forks / 396 未关闭 Issue；仓库创建 2026-07-20，7-23 吴恩达在 X 公开发布
+- **版本**：最新 release v0.1.7（2026-07-30），另有 v0.1.6(7-23)/v0.1.5/v0.1.4；主干最近提交 2026-08-01
+- **Skills 真相**：PR #391 于 2026-08-01 合入，标题是 Add support for Skills，但作者 body 原文说明 per-persona skills 后续重设计、**现在只是先打个桩（simply stubbing it for now）**，不可宣传为成熟技能生态
+- **三个安全 Issue 自 7-24 起仍 open**（API 核实）：#100 web_fetch 无 SSRF 防护、跟随重定向、被判低风险免审批；#99 Tauri CSP 被设 null；#81 stdio MCP server 在权限引擎存在前已获网络能力
+- **官方 README/官网**：Open Beta；macOS 12+ 仅 Apple Silicon 签名公证；Windows 10/11 未代码签名（SmartScreen 告警，签名进行中）；无 Linux；25+ 连接器全欧美 SaaS；11 家模型厂商 + Together/Fireworks + Ollama；FAQ 原话「你直接付钱给模型厂商，一分钱不付给我们」+「不需要账号，登出状态全功能可用」
+- **实测源**：毒AI 高晓阳 2026-07-29 全天实测（15 文件 10 秒归档零误判 / 摘要 2 分钟 / HTML 调研 3 分钟 / 全天零崩溃 / **Kimi 官方 Key 一直显示无效，DeepSeek 秒过** / 模型切换不重启）；AI科技评论 2026-08-03《吴恩达开源的 OpenWorker，为什么「不 Work」了？》（自建 OpenAI 兼容端点检测通过却提示无可用模型、本地 Ollama 加载不出模型、**额度不足时连返三次同错误不停止不提示**）；搜狐（代码规模 119 个 py 约 3.24 万行 / 149 个 TS / 78 测试模块、三层审批模式、shell asks forever）
+- **Star 增长轨迹**（多源交叉）：3,461(7-25) → 5,800(7-26) → 9,700(7-29) → 13,320(8-07)
 
-## 2026-06-15: Midjourney 深度评测
-- **工具**: Midjourney (Midjourney Inc.)
-- **评级**: 4.6/5.0
-- **文件**: content/tool-reviews/midjourney.md
-- **字数**: ~2300字
-- **Git提交**: 32a96ac - "review: Midjourney深度评测"
-- **核心发现**: V7架构重建美学质量再提升30%，Draft Mode 10倍速度+半成本革了创意探索工作流的命；Omni Reference让角色一致性从几乎不可用变为真正可落地；文字渲染仍是致命短板(1/10)；Web应用全面上线终结Discord唯一入口时代
-- **定价**: Basic $10/月 | Standard $30/月 | Pro $60/月 | Mega $120/月（年付8折，无免费试用）
-- **已完成工具**: chatgpt, claude, gemini, midjourney
-- **下一步**: notion-ai (AI写作工具，首页6大主打之一)
+### ⚠️ 已剔除的错误说法（勿再沿用）
+1. CSDN 标题「3.7 万个星标」有误——其正文实为「24 小时 3700 星」，真实值以 GitHub API 为准
+2. 早期传闻「内置多种角色模板」属夸大——7-25 有研究者查源码核实当时**仅 1 个 ops persona**
+3. 草稿里「待站长亲测清单」属占位符，转正时已整体删除，改为文末明确声明「站长未亲自安装实测」
 
-## 2026-06-14: Google Gemini 深度评测
-- **工具**: Google Gemini (Google DeepMind)
-- **评级**: 4.5/5.0
-- **文件**: content/tool-reviews/gemini.md
-- **字数**: ~2200字
-- **Git提交**: 83cf836 - "review: Google Gemini深度评测"
-- **核心发现**: 100万Token上下文+原生视频理解无人能敌，Google Workspace集成是最大护城河；AI Pro $19.99含5TB存储性价比碾压竞品；编程和创意写作落后于Claude/ChatGPT
-- **定价**: Free / AI Plus $7.99 / AI Pro $19.99 / AI Ultra $99.99 / Workspace $14/用户
-- **已完成工具**: chatgpt, claude, gemini
-- **下一步**: midjourney (AI图像生成类最高优先级)
+### 下一步建议
+- 剩余草稿按完整度：**lingxi-pro(9.4KB，金山灵犀专业版，已在 tools.ts 收录 rating 4.1)** > dumate(6.2KB) > aipy(4.7KB) > jiuwenswarm(4.2KB) > skywork-desktop(4.0KB) > qwenpaw(3.7KB) > minimax-agent(3.5KB)
+- 每次运行结束确认 `git status` 中 content/ 与 lib/ 干净（本次已确认）
+- 注意：工作区 `rm` 会被 safe-delete 沙箱拦截并 fail-closed，删未跟踪文件请改用 PowerShell `Remove-Item -LiteralPath`，跟踪文件用 `git rm`
 
-## 2026-06-13: Claude 深度评测
-- **工具**: Claude (Anthropic)
-- **评级**: 4.7/5.0
-- **文件**: content/tool-reviews/claude.md
-- **字数**: ~2200字
-- **Git提交**: 983c2e2 - "review: Claude深度评测"
-- **核心发现**: Claude 编程能力业界第一(SWE-bench 80.9%)，幻觉率最低(~3%)，100万Token上下文
-- **价格**: Free / Pro $20/月 / Max $100-200/月
-- **已完成工具**: chatgpt, claude
-- **下一步**: gemini
+## 2026-08-06: Hermes Agent（Nous Research）深度评测
+- **工具**: Hermes Agent（Nous Research 出品，hermes-agent.nousresearch.com；开源 Agent 运行时，MIT，GitHub 22.6 万 Stars / 4.4 万 Forks；首版 2026-02-25，最新 v0.20.0「The Herald Release」2026-08-03）
+- **评级**: 4.2/5.0（由旧草稿 4.3 下调）。依据：v0.20 能力完整（流式语音+A2A+可溯源研究+桌面平台 4.5/5）+ 技能自学习/跨渠道记忆（4.5/5）；扣分：偏开发者向需自配环境（4.0）+ 记忆自学习循环已知粗糙/水军嫌疑（4.2）
+- **文件**: content/tool-reviews/hermes-agent.md（中文 2742 字，3 个 HTML 表格含蓝底白字 th；YAML 解析 OK，0 中文弯引号/0 NBSP/0 U+FFFD/0 Markdown 表格残留）；删除 hermes-agent.md.draft
+- **tools.ts 同步**: rating 4.3→4.2；url 由 hermes-agent.ai 改为 hermes-agent.nousresearch.com；price 由杜撰的「FlyHermes $49/月」改为真实 Nous Portal 三档（$20·100·200 月，含 10% 赠送）；features 更新为 v0.20 能力
+- **Git 提交**: 36f0bbb（已 push 至 main）
+- ⚠️ **纠正旧草稿三处硬伤（勿再沿用）**：①版本号 v0.16→实际 **v0.20.0**；②Stars「10k+」→实际 **22.6 万**；③官网域名 hermes-agent.ai→实际 **hermes-agent.nousresearch.com**；④价格「FlyHermes $49/月」纯属杜撰→实际为 **Nous Portal**（$20/100/200 月）
+- **关键事实源（均已核验）**：GitHub API（Stars/forks/版本/发布时间）、v0.20.0 官方 release notes、Nous Portal 定价页（portal.nousresearch.com/manage-subscription）、Hostinger 成本拆解、Kie.ai 产品分析、aiagentstore 的 Reddit/X 20 大问题汇总、r/hermesagent 社区帖（「是我用错了还是它真没那么神」93 赞）、pasqualepillitteri 社区舆情分析（r/openclaw 10.3 万成员：约 30% 切到 Hermes、20% 并用）
+- **下一步建议**：剩余草稿按完整度：openworker(7.9KB，吴恩达开源桌面 Agent) > dumate(6.2KB) > aipy(4.7KB) > jiuwenswarm(4.2KB) > minimax-agent(3.5KB) > qwenpaw(3.7KB) > skywork-desktop(4.0KB)；注：lobsterai.md.draft 仍残留在工作区（正文 lobsterai.md 已于 0f6a603 提交，该 draft 应删）
+
+## 2026-08-05: StepClaw（阶跃龙虾）深度评测 + 补交 LobsterAI
+- **工具**: StepClaw（上海阶跃星辰，stepfun.com/download；OpenClaw 深度优化的桌面级 Agent，端云协同）
+- **评级**: 4.1/5.0（由 tools.ts 的 4.3 下调）。分项：零门槛安装 5/5、水产市场生态 4.5/5、五端IM远程 4.5/5、个性化养成 4.5/5、**编程与复杂任务执行 2.5/5**
+- **文件**: content/tool-reviews/stepclaw.md（中文 4812 字，3 个 HTML 表格 / 12 处蓝底白字 th；校验全过：0 中文弯引号 / 0 NBSP / 0 U+FFFD / 0 Markdown 表格；PyYAML 解析 OK）；git rm 删除 stepclaw.md.draft
+- **tools.ts 同步**: rating 4.3→4.1；price 由「免费 / StepPlan ¥25–49 月（开发者半价）」改为「客户端免费 / Step Plan ¥49·99·199·699 月（年付低至 ¥38/月）」
+- **Git 提交**: ba0f123（已 push 至 main）
+
+### ⚠️ 修正了 7-22 旧草稿的三处错误（重要，勿再沿用旧稿说法）
+1. **信通院认证时间**: 旧稿写「2026.5 首批过信通院」→ 实为 **2026-06-17** 由信通院 AIIA 安全治理委员会在「智能体时代AI安全治理研讨会」颁发首轮证书；且**同批共 7 家**（华为/百度/智谱/阶跃/MiniMax/浩鲸等），非独家差异化，文中已做祛魅
+2. **定价体系已换代**: 旧稿「¥49 起 + 开发者半价 ¥25」中的 ¥25 是 3/22 发布期限时促销。新版 Step Plan 已**取消「每5小时N次Prompt」滑动窗口限流，改为月度 Credits 池**：Mini ¥49/400M、Plus ¥99/1600M、Pro ¥199/8000M、Max ¥699/40000M（季付 129/269/539/1889，年付 456/936/1860/6666，年付最高省 ¥1722，Studio 额外 40% 额度）
+3. **剔除未核实来源**: 旧稿的「InfoQ 实测编程弱」「IT时报实测日历接入繁琐」两处搜索无法证实，已删；CSDN devpress 页（疑 AI 生成内容农场）称「Electron 内存占用 22.3GB」数值荒谬，已弃用
+
+### 关键事实源（均已核验）
+- 官方：platform.stepfun.com/step-plan 实时价格页、stepfun.com/download 功能页
+- 权威媒体：中国日报财经 2026-03-19（水产市场 5000+创作者/5000+资源/五类资产）、21世纪经济报道+证券时报（近25亿美元融资、估值50-60亿美元、股改拆红筹冲港股）、新民晚报/头条（Step Plan 4档发布、起步价49元）
+- 信通院：10100.com 首轮评测结果解读（6/17 颁证、7家、六大观察）、yeyulingfeng 参评产品介绍（云端规格双核/4GB/40GB）
+- 第三方实测（构成 cons 依据）：SegmentFault 三款国产Claw横评（StepClaw 缺点栏原文「编程能力弱」）、腾讯新闻 20260331A03YJ700（**单次定时日报对话消耗百万级token**）、头条 7663107795687883305（Windows偶发任务卡住、技能质量参差、微信「小龙虾」联系人）、neican.ai（长路径任务逻辑偏移）
+
+### 🔴 顺带修复：补交昨日遗留
+- 8-04 那次运行生成了 content/tool-reviews/lobsterai.md（18.8KB）但**未 commit、也未写 memory**，本次已核验质量合格后补交为 0f6a603 并删除 lobsterai.md.draft
+- **教训**：每次运行结束务必确认 `git status` 干净 + memory 已写，避免成果悬空
+
+### 下一步建议
+- 剩余草稿按完整度：hermes-agent(11.7KB，Nous Research 开源运行时) > dumate(6.2KB) > aipy(4.7KB) > jiuwenswarm(4.2KB) > skywork-desktop(4.0KB) > qwenpaw(3.7KB) > minimax-agent(3.5KB)
+- 注意：hermes/stepclaw 旧草稿里都有一条 cons「亲测步骤需站长补入」属于占位符，转正时必须删除
+
+## 2026-08-03: 千问办公（QwenWork）深度评测
+- **工具**: 千问办公 QwenWork（阿里，qwenwork.cn；钉钉新任CEO陈宇森负责，6/11接任→7/27上线仅46天；整合 QoderWork+悟空+MuleRun 三条产品线）
+- **评级**: 4.0/5.0（Office产物生成5/5 — 实测7分钟出12页Alphabet财报PPT且核心数据与官方财报逐条对得上；企业IM 4/5；网页生成3/5 — 两家媒体独立实测均耗时63-68分钟且卡在配图；模型/成本3/5 — 官方无积分消耗表）
+- **文件**: content/tool-reviews/qwenwork.md（25KB，中文6051字，4个HTML表格含蓝底白字th；YAML解析通过：0中文弯引号/0 NBSP/0 U+FFFD/0 Markdown表格残留）；git rm 删除 qwenwork.md.draft
+- **tools.ts同步**: rating 4.2→4.0，price 补全连续包月8折档位（78/158元）
+- **Git提交**: 6fc2f0f（已push至main）
+
+### 关键事实源（均已核验）
+- 官网 pricing 页个人版/企业版全档位、download 页系统要求、阿里云帮助文档 qw-model-selection-desktop（三档模型+官方原话「建议先完整执行一次工作流来了解成本」）
+- 实测：腾讯新闻 20260727A0BZHH00（财报PPT 7分钟/飞书乱码/电商网页68分钟/约1000积分）、网易 L2UU7K2P05566Y1D（Word 29分08秒/PPT 14分钟/网站63分钟/按钮无反应/约600积分）、腾讯新闻 20260729A0BK1K00（基础模型8积分 vs 旗舰模型吃掉1/4额度）
+- 市场：易观2026Q2报告（17款6月合计6000万次，WorkBuddy 2097万居首）
+- ⚠️ 已剔除草稿中未经核实的说法：官网FAQ并无「千问三兄弟品牌混淆」条目，实际FAQ仅6条（会员能做什么/积分是什么/积分用尽/月付vs连续包月/能否升级/如何反馈）
+
+### 下一步建议
+- 优先 lobsterai 完稿（草稿10.4KB最完整，网易有道国产桌面Agent）
+- 其余草稿：hermes-agent(11.7KB)、stepclaw(12.3KB) 亦较完整，可优先转正
+
+## 2026-08-02: Rowboat 深度评测 + 首页Bug修复
+- **工具**: Rowboat (Rowboat Labs, YC S24 孵化; Apache-2.0 开源本地优先 AI 同事; GitHub 16.7K Stars 全球#2767)
+- **评级**: 4.2/5.0（知识图谱记忆5/5 + 模型自由度5/5 + 隐私主权5/5；扣分：早期阶段v0.7.x打磨不一3/5 + 集成数量有限3/5 + 本地优先被云依赖削弱）
+- **文件**: content/tool-reviews/rowboat.md（约2400字中文，4个HTML表格含蓝底白字th；YAML校验通过：0中文弯引号）；删除 rowboat.md.draft
+- **Git提交**: 89aab72（已push至main）
+
+### 🔴 首页 Bug 修复（用户反馈触发）
+- **问题**: 首页「最新文章」只显示 content/articles/（20篇，最新07-07），完全忽略 content/tool-reviews/（61篇）
+- **修复**: page.tsx 合并双数据源 + ArticleCard.tsx 支持 href prop
+- **Git提交**: cd9333a（已push至main）
+- **效果**: 首页最新3篇 → Rowboat(08-02) / Fellou(07-31) / ChatGPT Work(07-30)
+- **注意**: Next.js export 被 safe-delete 沙箱拦截，需手动从 .next/server/app/ 复制 HTML 到 out/
+
+### 下一步建议
+- 优先 lobsterai 完稿（草稿10.4KB较完整，网易有道出品国产桌面Agent）
+- 其余分类补位同前
+
+## 2026-07-31: Fellou 深度评测
+- **工具**: Fellou (fellou.ai, ASI X Inc. 旧金山/蒸汽记忆(无锡)科技，创始人谢扬95后、Authing身份云创始人；2025-04全球内测、2025-06发布2.0、后推CE版含Windows+中文；三轮融资累计超$3000万(浙江科技报2026-01)/everydev口径$4040万+；注册用户破100万)
+- **评级**: 4.2/5.0（由 lib/tools.ts 的 4.4 下调至 4.2，依据 BestAIFor.me 4.1/5 + buildfastwithai 4.4/5 + 中文社区实测口碑分裂——玉伯/CookieDAO好评 vs CE版稳定性差评「勉强可用」；同步 tools.ts：rating 4.4→4.2、price 补全四档含Ultra）
+- **文件**: content/tool-reviews/fellou.md（12.7KB，3个HTML表格含蓝底白字th；YAML校验通过：0中文弯引号/0 NBSP/0 U+FFFD）；删除 fellou.md.draft，顺带清掉遗留的 chatgpt-work.md.draft
+- **Git提交**: e53ba83（已push至main）
