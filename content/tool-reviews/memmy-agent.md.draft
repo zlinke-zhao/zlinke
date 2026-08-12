@@ -1,0 +1,108 @@
+# Memmy Agent 体验笔记（草稿·待站长亲测）
+
+> 收录日期：2026-08-12　｜　分类：AI工作台 / 桌面智能体　｜　评分：4.0
+> 官网：https://memmy.bot　｜　GitHub：MemTensor/memmy-agent（开源）
+> **说明**：本笔记基于官网、Product Hunt 发布贴与多家独立评测（chatgate.ai / byteiota / subagentic.ai / laughingzhu PH 日报 / xinquji）聚合撰写，已逐条标注来源；站长尚未亲自安装，标注「待亲测」的条目不作为结论。
+
+---
+
+## 一句话：它不是又一个 Agent，是让所有 Agent 都记得"同一个你"的共享记忆层
+
+库内已有 27 款 AI 工作台，绝大多数在回答同一个问题——**"谁来干活"**（Fellou / Claude Cowork / ChatGPT Work / OpenClaw 系都在这条线上）；BrowserOS neo 补的是"手"（带登录态的本机浏览器），Annotate 补的是"眼"（把需求讲清楚）。
+
+Memmy 补的是**"记忆"**：它不直接跟你抢"干活"的活儿，而是坐在所有 Agent 底下，做一个共享记忆中枢——你在 Cursor 里定下的技术决策、在 Claude Code 里踩过的坑，切到 OpenClaw / Codex 时它照样带得过去。**它是 Agent 的记忆底座，不是又一款 Agent 本体**——与库内 27 款工作台零功能重叠，生态位正好是它们的补集。
+
+官方一句话定位（官网标题）：*"Let every AI remember the same you."*
+
+---
+
+## 它到底解决什么
+
+| 卡点 | 现有做法的问题 | Memmy 的解法 |
+|---|---|---|
+| 每次新会话都冷启动 | 切到 Codex 它不认识昨天 Cursor 建的架构，前 5 分钟都在重复交代背景 | 共享记忆库跨工具在线，切换不丢上下文 |
+| 上下文靠整库倾倒 | 把整个项目背景粘进每个 prompt，token 贵、噪声大 | 扫描→去重归类→按需注入相关记忆，而非全量 dump |
+| 偏好/决策散落各处 | "用 Tauri 不用 Electron"只在某次对话提过，下次又得说一遍 | 行为策略层把"你偏好的风格"抽成规则，自动带入 |
+| 多个 Agent 各干各的 | 一个助手忘了另一个刚学会的东西，整体小于部分之和 | 记忆层作为基础设施共享，避免"集体失忆" |
+
+---
+
+## 与库内相似工具的差异点（关键）
+
+| 工具 | 核心角色 | 与 Memmy 的根本区别 |
+|---|---|---|
+| **Fellou / Claude Cowork / ChatGPT Work / OpenClaw 系** | 自带大脑的桌面 Agent（干活的） | 它们是"干活的人"；Memmy 是"它们共享的笔记本"，自己不抢执行活 |
+| **Rowboat（07-17）** | 自带知识图谱记忆的本地 AI 同事 | Rowboat 的记忆是它**自己**的、为自身干活服务；Memmy 的记忆是**共享底座**，专门喂给别的 Agent |
+| **BrowserOS neo（08-09）/ Annotate（08-11）** | 给 Agent 的"手"与"眼" | neo/Annotate 是输入/执行层；Memmy 是记忆/上下文层，三者正好凑齐"眼-手-脑-记忆"的一组 |
+| **AgentSky（08-07）** | 云端托管 Agent 的运行时 | 卖的是 Agent 的寿命；Memmy 卖的是 Agent 之间的记忆连续性 |
+| **常规记忆插件（Mem0/Zep/Letta）** | 多为云端或绑定单一平台 | Memmy 本地优先 + OpenAI 兼容 API 零摩擦接入，且明确支持 OpenClaw，是库内唯一"跨 Agent 共享记忆"开源方案 |
+
+**一句话总结**：库内 27 款在卷"谁来干活"，BrowserOS neo 卷"活干得到不"，Annotate 卷"活讲得清不"，Memmy 卷"活干完之后记得住不"——它是 Agent 的记忆底座，与 OpenClaw 系互补而非竞争。
+
+---
+
+## 信任信号
+
+1. 官网 memmy.bot 内容详实，含三步工作流（Scan/Organize/Inject）、四层记忆架构图、本地优先与权限控制说明
+2. Product Hunt 2026-07-30 发布，534 赞 / 206 评论，当日第 2（hunted.space 存档确认）
+3. 核心开源：GitHub MemTensor/memmy-agent，README 与发布说明完整；LinkedIn 上 Charly Wargnier 等独立 KOL 主动推荐
+4. 多家独立站交叉确认：chatgate.ai（含 scan-organize-inject 流程与 AI Playbook 实测）、byteiota（四层 MemOS 架构拆解）、subagentic.ai（OpenClaw/Claude Code 集成指南）、laughingzhu（PH 日报）、xinquji（新趣集）
+5. 接入零摩擦：暴露 OpenAI 兼容本地 API（http://localhost:8765），并含桌面工作台 / CLI / MCP / Skills，支持 Telegram·微信·飞书·钉钉，开放姿态清晰
+
+---
+
+## 公开评测里值得注意的点（非站长亲测）
+
+- **AI Playbook 实测**（chatgate.ai 转引）：约 5 分钟装好，发现 47 个 Cursor 与 Claude Code 历史会话，并成功召回一条此前记录的框架偏好——证明不止是概念
+- **四层 MemOS 架构是真差异点**：L1 原始轨迹→L2 行为策略→L3 项目世界模型→L4 可复用技能；社区最称赞的是 L2 策略能"结晶"成 L4 技能，是越用越聪明而非越堆越乱（byteiota 评）
+- **省 token 有据**：MemOS 自称混合检索省 35.24% token；对比"全量上下文塞满"在 Mem0 2026 基准里 91.6% 准确/7000 token vs 72.9% 准确/26000+ token（byteiota 引）
+- **本地 SQLite 默认存储**，扫描与摄取默认本地，普通记忆功能不依赖云端模型
+
+---
+
+## 短板与风险（评 4.0 而非更高的原因）
+
+1. **单人开发工具**——本地优先意味着记忆不在团队间同步；无团队云同步层，合规/审计场景暂不适用（官方 FAQ 与评测一致确认）
+2. **无跨机自动同步**——换电脑需手动导出/迁移 SQLite 数据库，PH 发布讨论里 maker 亲认目前无自动云同步
+3. **无硬 token 预算**——注入记忆暂无硬性上限，仅靠检索条数与单条截断间接约束；大模型上下文可能仍被撑大
+4. **本地检索有延迟**——maker 实测平均约 3 秒 SQLite 检索，记忆池越大越慢
+5. **跨 Agent 交接仍不成熟**——架构扎实但部分跨工具上下文 handed 边界较粗糙（byteiota 直言"What It Won't Do Yet"）
+6. **发布约 13 天**（07-30），长期维护与社区节奏未经充分检验；作为 solo 项目，可持续性待观察
+7. **对单工具用户价值有限**——只在"频繁切换 2+ 个 AI 工具"时才划算，单聊机器人用户会觉得多余（Negi AI Lab 评）
+
+---
+
+## 待亲测清单（站长实测时重点验证）
+
+- [ ] 在 macOS/Windows 上从下载到首次把记忆喂给 OpenClaw 的真实耗时与顺畅度
+- [ ] 历史导入是否真能扫到既有 Cursor/Claude Code/Codex 会话并去重归类（AI Playbook 说发现 47 个，复测中文场景）
+- [ ] 跨 Agent 召回准确率：在 OpenClaw 里能否真拿到 Cursor 里定下的技术决策
+- [ ] 注入记忆的实际 token 节省幅度对比"全量粘贴背景"
+- [ ] 本地检索延迟随记忆池增长的真实曲线（3 秒起是否可信）
+- [ ] 微信/飞书/钉钉渠道的中文消息接入与记忆抽取质量
+- [ ] 隐私边界：关闭某来源、删除单条记忆、撤销授权的实际生效表现
+- [ ] 200 万 token 试用额度消耗速率，BYOK 切换是否真无缝
+
+---
+
+## 适合 / 不适合
+
+**适合**：日常在 2 个以上 AI 工具（尤其含 OpenClaw / Claude Code / Cursor / Codex）之间切换、每次新会话都得重述背景的人；在意数据不出本机、希望把分散决策沉淀成结构化长期记忆的开发者与重度 AI 用户。
+
+**不适合**：只用单个聊天机器人的轻度用户（共享记忆层对他多余）；需要团队云同步/合规审计的组织；想要一个开箱即用的全自动 Agent 的人（它自己不抢执行活）。
+
+---
+
+## 来源
+
+1. Memmy 官网 https://memmy.bot/ （产品定位、三步工作流、四层架构、本地优先与权限说明）
+2. Product Hunt 发布贴（经 hunted.space 产品页存档）：2026-07-30，534 赞 / 206 评论，当日第 2
+3. GitHub MemTensor/memmy-agent （开源仓库、README、发布说明）
+4. chatgate.ai《Memmy Agent: Let every AI remember the same you》（scan-organize-inject 流程、AI Playbook 实测、限制与成本）
+5. byteiota.com《Memmy Agent: One Memory Layer for All Your AI Tools》（四层 MemOS 架构、token 基准、What It Won't Do Yet）
+6. subagentic.ai《Memmy: Open-Source Cross-Agent Shared Memory Hub》（OpenClaw/Claude Code 集成指南）
+7. laughingzhu.cn《Product Hunt 每日热榜 2026-07-31》、xinquji.com 新趣集（PH 日报与中文社区报道）
+
+---
+
+*本文首发于ZLinke · 智链*

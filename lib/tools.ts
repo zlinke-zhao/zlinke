@@ -1942,4 +1942,23 @@ export const tools: Tool[] = [
       '发布信息：2026-08-06 登陆 Product Hunt，208 赞 / 19 评论，当日第 5；chatgate.ai、aat.ee、aipure.ai 多家独立站交叉确认',
       '局限：仅 macOS Apple Silicon，无官方 Windows / Linux；录制内容一旦交给本地 Agent，后续数据由该 Agent 的服务条款约束，涉及他人或敏感屏幕需先取得同意'],
   },
+  {
+    id: 'memmy-agent',
+    name: 'Memmy Agent',
+    description: '跨Agent共享记忆中枢+本地AI代理，让多个AI记住同一个你。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.0,
+    url: 'https://memmy.bot',
+    price: '免费起步赠 200 万 ChatGPT token；试用后切 BYOK 自带模型 Key；核心开源（MemTensor/memmy-agent）',
+    features: [
+      '跨Agent共享记忆：Claude Code、Cursor、Codex、OpenClaw、Hermes 共用同一本地记忆库，换工具不丢上下文',
+      '三步闭环：扫描本机 AI 对话历史 → 去重归类成结构化长期记忆 → 按需把相关记忆注入当前任务，而非整库倾倒',
+      '它自己也是 Agent：可直接交办"合并跨 Agent 的计划""把本周技术决策写成文档"等任务，不只会存记忆',
+      '四层记忆架构（MemOS）：原始轨迹→行为策略→项目世界模型→可复用技能，越用越聪明而非越堆越乱',
+      '本地优先：记忆默认存本机 SQLite，不上传云端；每次扫描需显式授权，可随时查看/删除任意记忆、关闭任意来源',
+      '接入零摩擦：暴露 OpenAI 兼容本地 API（http://localhost:8765），任何能调 OpenAI 端点的工具都能用；另有桌面工作台/CLI/MCP/Skills，支持 Telegram·微信·飞书·钉钉',
+      '模型与免费额度：支持 OpenAI/Anthropic/Gemini/DeepSeek/Ollama；注册赠 200 万 token，试用后 BYOK',
+      '发布信息：2026-07-30 登陆 Product Hunt，534 赞 / 206 评论，当日第 2；GitHub MemTensor/memmy-agent 开源，chatgate.ai/byteiota/subagentic 等多家独立站评测'],
+  },
 ]
