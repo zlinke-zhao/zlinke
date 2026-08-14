@@ -1,0 +1,107 @@
+# Agent FM 体验笔记（草稿·待站长亲测）
+
+> 收录日期：2026-08-14　｜　分类：AI工作台 / 桌面智能体　｜　评分：4.0
+> 官网：https://agentfm.ai　｜　YC 发布页：ycombinator.com/launches/SQ0-agent-fm
+> **说明**：本笔记基于官网、YC 官方发布页与多家独立来源（YC LinkedIn / huntscreens / utilo.io / 钛媒体·今日头条）聚合撰写，已逐条标注来源；站长尚未亲自安装，标注「待亲测」的条目不作为结论。
+
+---
+
+## 一句话：它不是又一个 Agent，是坐在 Claude Code / Codex 之上的"监工"
+
+库内已有 28 款 AI 工作台，绝大多数在回答同一个问题——**"谁来干活"**（Fellou / Claude Cowork / ChatGPT Work / OpenClaw 系都在"自己当 Agent"）；BrowserOS neo 补的是"手"（带登录态的本机浏览器），Annotate 补的是"眼"（把需求讲清楚），Memmy 补的是"记忆"（跨 Agent 共享上下文），AgentSky 补的是"寿命"（云端不掉线）。
+
+Agent FM 补的是**"监管"**：它自己不写一行代码，而是把你已经跑起来的 Claude Code / Codex / OpenCode 用**语音 + 群聊**实时播报出来，让你不用肉眼盯十几个终端也能及时纠偏。**它是 Agent 的指挥台 / 监工，不是又一款 Agent 本体**——与库内 28 款工作台零功能重叠，生态位正好是它们的补集（那些是"干活的"，它是"看活的"）。
+
+官方一句话定位（YC 发布页）：*"One group chat to hear and steer your coding agents."*
+
+---
+
+## 它到底解决什么
+
+| 卡点 | 现有做法的问题 | Agent FM 的解法 |
+|---|---|---|
+| 多 Agent 肉眼盯 | 同时跑 3+ 个 Claude Code/Codex，要在多个终端窗口间来回切、扫大段输出，眼睛被独占 | 一个群聊界面统一收听所有 Agent 的进度、阻塞、假设、决策 |
+| 跑偏了才被发现 | 上下文压缩 / 误解指令导致 Agent 往错误方向干了很久才在日志里看到 | 实时语音流"播报"关键事件，听见"谁跑偏了"立刻群里喊停 |
+| 管理者变瓶颈 | Agent 越强越多，人反而成了"调度员 / 幼儿园园长"，注意力无法随规模扩展 | 把"被动监视"变成"异步协作"——Agent 主动汇报，你抽空回指令 |
+| 烧 token 无感知 | 哪个 Agent 在空转、哪个工具反复失败，平时看不见 | 可观测面板跨供应商统计 token 消耗、模型占比、工具失败率 |
+
+---
+
+## 与库内相似工具的差异点（关键）
+
+| 工具 | 核心角色 | 与 Agent FM 的根本区别 |
+|---|---|---|
+| **Fellou / Claude Cowork / ChatGPT Work / OpenClaw 系** | 自带大脑的桌面 Agent（干活的） | 它们是"干活的人"；Agent FM 是"看着它们干活的人"，自己不抢执行活 |
+| **BrowserOS neo（08-09）/ Annotate（08-11）** | 给 Agent 的"手"与"眼" | neo/Annotate 是执行/输入层；Agent FM 是监管/可观测层，正好凑齐"眼-手-脑-记忆-监工"的一组 |
+| **AgentSky（08-07）** | 云端托管 Agent 的运行时 | 卖的是 Agent 的寿命；Agent FM 卖的是"你对这些 Agent 的实时掌控力" |
+| **Memmy（08-12）** | 跨 Agent 共享记忆底座 | Memmy 解决"记得住"，Agent FM 解决"看得住"，二者互补 |
+| **常规监控/日志工具（tmux/终端分屏）** | 被动文本堆叠 | Agent FM 把文本蒸馏成高信号语音流 + 群聊 + 指标面板，是"可听、可说、可量化"的监管 |
+
+**一句话总结**：库内 28 款在卷"谁来干活"，BrowserOS neo 卷"活干得到不"，Annotate 卷"活讲得清不"，Memmy 卷"活干完记得住不"，**Agent FM 卷"活干偏了你能不能第一时间听见并喊停"**——它是 Agent 的指挥台/监工，与所有干活的 Agent 互补而非竞争。
+
+---
+
+## 信任信号
+
+1. 官网 agentfm.ai 内容详实，含 How it works（三步）、use cases（邮件/数据/研究/销售等）、安全与隐私说明
+2. **YC 官方发布页**（ycombinator.com/launches/SQ0-agent-fm）——顶级独立信源，YC S26 批次背书；创始人 Aniket（前 Meta 超级智能实验室，搭过 agent-orchestration/RL/搜索基建）、Mugdhaa（前 Snowflake AI 开发者生产力负责人、前 Twitch 直播基建）
+3. 可验证 traction：YC 发布页称 410+ 工程师在用、60+ 付费、12 万+ 次语音播报、日均 1.2 小时；huntscreens / utilo.io 独立产品页收录
+4. 多家独立报道：YC LinkedIn 官方 launches 合集、Menlo Times、huntscreens、utilo.io、钛媒体·今日头条《AI编程Agent终于有了"保姆"》（08-07）
+5. 定位清晰且不越界：反复强调"We are not a coding harness, we work alongside your existing harnesses"——不重复造 Agent，只做监管层
+
+---
+
+## 公开评测里值得注意的点（非站长亲测）
+
+- **"Agent babysitting"是真实痛点**：钛媒体文章直指行业"房间里的大象"——Agent 越强越多，管理工具却停留在"开多终端+肉眼盯"
+- **被动监听不减速**：utilo.io 评测确认 Agent FM 在独立进程里被动观察会话，不代理、不干扰你的 Agent，零附加开销
+- **音频流是真差异点**：LinkedIn 上多位开发者反馈"盯着终端 tab 等 Agent 循环跑完是注意力杀手"，Agent FM 的 ambient audio feed 切中这一点
+- **可观测性有数据支撑**：YC 发布页给出 token 消耗、模型占比、工具失败率等指标，能定位"哪个 Agent 在烧 context"
+
+---
+
+## 短板与风险（评 4.0 而非更高的原因）
+
+1. **macOS 优先**——YC 发布页与早期 LinkedIn 均称"macOS app"；语音转写（Voice-to-Text）层虽已覆盖 Mac/Windows（huntscreens），但桌面监管主程序对 Windows/Linux 的完整支持状态未充分公开，跨平台用户需确认
+2. **依赖你已有 coding Agent**——它不自己干活，没有 Claude Code/Codex/OpenCode 在跑，它就空转；非开发者 / 不跑编程 Agent 的人价值有限
+3. **发布仅约 1 周**（YC S26 刚入营，08-07 发布），长期稳定性、定价、商业化路径均未定型
+4. **正式定价未公开**——当前 beta 免费，未来是否按席位/用量收费未知，团队/企业成本难预估
+5. **隐私边界需亲测**——虽称被动监听本地会话、不代理，但"听得见"Agent 的上下文就意味着它能触达你的代码与终端输出，敏感项目需评估
+6. **监控 ≠ 干预**——它能喊停、能回指令，但无法替你做架构决策；最终把关仍靠人，可能"听得见但改不动"要看实际群聊交互深度
+7. **偏编程场景**——当前核心围绕 coding agents，对库内偏办公/创作类 Agent（如 Omniwork、QwenWork）的监管能力未验证
+
+---
+
+## 待亲测清单（站长实测时重点验证）
+
+- [ ] macOS 上从下载到首次收听到 Claude Code 会话语音播报的真实耗时与顺畅度
+- [ ] 是否真能自动识别并接入本地正在跑的 Claude Code / Codex / OpenCode 会话（无需手动配置）
+- [ ] 群聊里回指令纠偏的实际链路：说一句"停"能否真的暂停对应 Agent 的破坏性操作
+- [ ] 可观测面板数据准确性：token 消耗、工具失败率与实际是否吻合
+- [ ] Windows 下桌面主程序（非仅语音转写）的可用性与体验差异
+- [ ] 被动监听是否真的零减速、不干扰原 Agent 运行
+- [ ] 隐私边界：会话内容是否只留本机、有无任何上行遥测、能否完全离线
+- [ ] beta 免费期结束后定价与额度，团队部署的席位/计费模型
+
+---
+
+## 适合 / 不适合
+
+**适合**：日常同时跑 2+ 个编程 Agent（Claude Code / Codex / OpenCode）的开发者、技术负责人；被"Agent babysitting"拖累、想异步监管又怕跑偏的人；追求可观测性、要量化 token/工具效率的团队。
+
+**不适合**：只用单个聊天机器人的轻度用户（监管层对他多余）；不跑编程 Agent 的纯办公/创作用户（当前核心围绕 coding agents）；希望一个工具"自己把活干完"的人（它自己不抢执行活）。
+
+---
+
+## 来源
+
+1. Agent FM 官网 https://agentfm.ai/ （How it works、use cases、安全与隐私说明）
+2. Y Combinator 官方发布页 https://www.ycombinator.com/launches/SQ0-agent-fm-one-group-chat-to-hear-and-steer-your-coding-agents （YC S26、traction、创始人背景）
+3. YC LinkedIn Launches 合集（Menlo Times 转引）、Aniket Deshpande / Mugdhaa P. 创始人 LinkedIn 发布帖
+4. huntscreens.com/products/agent-fm （功能清单、跨平台语音转写说明）
+5. utilo.io/tools/582ba9aae0cd4c58abd8c56d48f （独立产品验证、任务派生、核心特性）
+6. 钛媒体·今日头条《AI编程Agent终于有了"保姆"：Agent FM接下了一个没人愿干的脏活》（2026-08-07）
+
+---
+
+*本文首发于ZLinke · 智链*

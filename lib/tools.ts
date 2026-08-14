@@ -1961,4 +1961,23 @@ export const tools: Tool[] = [
       '模型与免费额度：支持 OpenAI/Anthropic/Gemini/DeepSeek/Ollama；注册赠 200 万 token，试用后 BYOK',
       '发布信息：2026-07-30 登陆 Product Hunt，534 赞 / 206 评论，当日第 2；GitHub MemTensor/memmy-agent 开源，chatgate.ai/byteiota/subagentic 等多家独立站评测'],
   },
+  {
+    id: 'agent-fm',
+    name: 'Agent FM',
+    description: 'Agent 指挥台：把多个 Claude Code/Codex 进度用语音+群聊实时播报与监管。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.0,
+    url: 'https://agentfm.ai',
+    price: 'YC S26 批次项目，当前 beta 免费试用、正式定价未公开；桌面应用 macOS 优先，语音转写层已覆盖 Mac/Windows',
+    features: [
+      'Agent 指挥台：一个群聊界面统一收听并调度你所有 Claude Code / Codex / OpenCode 会话，告别多终端肉眼盯',
+      '实时语音播报：把 Agent 的进度、阻塞点、假设与决策转成 ambient 音频流，不盯屏幕也能听见"谁跑偏了"',
+      '群聊式干预：Agent 主动汇报，你直接在聊天里回指令纠偏，把"被动监视"变成"异步协作"',
+      '可观测性面板：跨模型供应商统计活跃时长、token 消耗、模型占比、工具失败率，揪出烧 token/卡死的 Agent',
+      '计算机操作（Computer Use）：直接在机器上跑审计、存结果；语音转写（Voice-to-Text）系统级随处可用，Mac/Windows 均支持',
+      '本地与远程工作区都支持；被动监听独立进程，不代理、不干扰你的 Agent，零减速',
+      '发布与背书：YC S26 批次；创始人来自 Meta 超级智能实验室与 Snowflake；官网称 410+ 工程师在用、60+ 付费、12 万+ 次语音播报',
+      '定位差异：它不是又一个 coding harness，而是坐在 Claude Code/Codex 之上的"监工"——库内桌面智能体都在"自己干活"，Agent FM 专管"别人干得怎么样"'],
+  },
 ]
