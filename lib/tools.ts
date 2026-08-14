@@ -903,13 +903,13 @@ export const tools: Tool[] = [
   {
     id: 'akiflow',
     name: 'Akiflow',
-    description: 'YC孵化的AI任务日历一体化平台，10万+用户，MCP协议连接Claude/ChatGPT/Cursor管理日程，AI助手Aki支持语音和自然语言操控。',
+    description: 'YC S20孵化的键盘流时间块日历管理器。Universal Inbox聚合10+原生双向同步来源，Cmd+K全键盘操作，2026年6月上线托管MCP服务器mcp.akiflow.com（OAuth授权后Claude/ChatGPT可直接管任务与日历）。无免费版、计费口碑争议大、移动端与Apple日历支持弱。',
     category: 'AI办公效率',
     subCategory: 'AI效率工具',
-    rating: 4.3,
+    rating: 3.7,
     url: 'https://akiflow.com',
-    price: '7天免费试用 / Pro $15/月（年付$10/月）',
-    features: ['MCP AI集成', '任务日历合一', 'AI语音助手', '时间自动分块'],
+    price: '无免费版 / 7天试用（预约1:1可延至14天）/ Pro月付$34·年付$19/月($228/年) / Believer $14.90/月(两年付) / 会议助手加购+$19/月',
+    features: ['托管MCP服务器mcp.akiflow.com', 'Universal Inbox聚合10+原生双向同步', 'Cmd+K键盘流时间块', 'Aki AI助手(三段简报/语音/AI Workflows)', 'Schedule Optimizer一键重排', '原生子任务Subtasks', 'Daily Dashboard日视图', '无公开REST API', '不支持Apple日历/iCloud/CalDAV'],
   },
   {
     id: 'clade',
