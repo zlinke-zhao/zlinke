@@ -1980,4 +1980,22 @@ export const tools: Tool[] = [
       '发布与背书：YC S26 批次；创始人来自 Meta 超级智能实验室与 Snowflake；官网称 410+ 工程师在用、60+ 付费、12 万+ 次语音播报',
       '定位差异：它不是又一个 coding harness，而是坐在 Claude Code/Codex 之上的"监工"——库内桌面智能体都在"自己干活"，Agent FM 专管"别人干得怎么样"'],
   },
+  {
+    id: 'omniwork',
+    name: 'Omniwork',
+    description: '创意工作 Agent OS：专家智能体编排，目标到成片一站式交付。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.0,
+    url: 'https://omniwork.ai',
+    price: 'Starter 免费（100+ Agent，5 Deep 任务/月）；Pro $69/月（~90 Deep 任务）；Ultimate $1999/年',
+    features: [
+      '专家 Agent 市场：100+ 基于顶级真人专业经验打造的 Expert Agent（影视导演/音乐制作/视频剪辑/配音/游戏开发/社媒增长等），开箱即用也可基于自身工作流自建',
+      '目标到交付编排：设一个创作目标，Omni 自动调配合适 Agent 组合完成规划、执行、修订与端到端交付，用 Workflows/Playbooks/Review Gates 管理多步流程',
+      '持久创作记忆：跨会话记住你的审美偏好、风格、世界观、项目历史，新草稿自动贴合既往作品而非每次从零开始',
+      '主动式桌面伴侣：提供 macOS 桌面客户端（"I can live on your desktop now"），常驻屏幕以闲置/进行中/已完成/出错状态展示进度；另有 chat.omniwork.ai 网页版',
+      '创意到发布一体化：一次对话延展成图文/视觉素材/视频成品，Agent 负责跨平台发布并持续追踪内容表现',
+      '机构合作背书：与上海戏剧学院（刘慈欣/杨磊导演支持）共建短剧与 AI 影视 Expert；与上海音乐学院 AI 音乐治疗实验室共建音乐创作 Expert',
+      '发布与定价：Product Hunt #1 Product of the Day（MOGE 收录）；Starter 免费、Pro $69/月、Ultimate $1999/年；© 2026 Omniwork，主体上海/旧金山、Est. 2018'],
+  },
 ]
