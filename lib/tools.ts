@@ -319,13 +319,13 @@ export const tools: Tool[] = [
   {
     id: 'browserbase',
     name: 'Browserbase',
-    description: '为AI Agent提供可靠的Web自动化基础设施，让Agent像人类一样浏览和操作网页，10,000+企业使用，Product Hunt日榜第2名。',
+    description: '为AI Agent提供可靠的Web自动化基础设施，托管无头浏览器即开即用，Stagehand开源框架加一键MCP，10,000+企业使用。',
     category: 'AI编程开发',
     subCategory: 'AI工具链',
     rating: 4.3,
     url: 'https://browserbase.com',
-    price: '免费 / 按量付费',
-    features: ['浏览器自动化', 'Agent Web访问', 'Search API', 'Fetch API'],
+    price: '免费 / Developer $20/月 / Startup $99/月 / Scale定制',
+    features: ['托管无头浏览器', 'Stagehand框架', 'Search API', 'Fetch API', '一键MCP', '会话录屏调试'],
   },
 
   // ========================
