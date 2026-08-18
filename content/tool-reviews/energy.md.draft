@@ -1,0 +1,109 @@
+# Energy 体验笔记（草稿·待站长亲测）
+
+> 收录日期：2026-08-18　｜　分类：AI工作台 / 桌面智能体　｜　评分：3.9
+> 官网：https://getenergy.com
+> **说明**：本笔记基于 Energy 官网（getenergy.com，JS 渲染 SPA，静态 HTML 偏薄）、Gabriel Petersson 发布 X 帖、Dealroom / RuntimeWire / CNBC TV18 / Superhuman AI 报道及瑞典-美商会（SACC）成员背书聚合撰写，已逐条标注来源；站长尚未亲自安装，标注「待亲测」的条目不作为结论。
+
+---
+
+## 一句话：前 OpenAI Sora 研究员做的「模型无关桌面 Agent」——主打一键接管浏览器与多工具工作流，卖点是「零配置 + 不被厂商锁死」
+
+库内已有 31 款 AI 工作台，大多在回答「谁来干活」——Fellou / Claude Cowork / ChatGPT Work / OpenClaw 系是「自己当 Agent」；千问办公靠钉钉组织数据；Omniwork 卷创意；AgentSky 卷云端不掉线；CatPaw 卷本地生活 + 7×24 托管。
+
+Energy 的差异化在**两个层面同时反主流**：
+1. **模型无关**——你接自己的任意 LLM（OpenAI/Claude/Gemini/…），不被 Cowork（绑 Claude）或 ChatGPT Work（绑 GPT）锁死；
+2. **零配置体验**——它自己声称「一键创建助手，不用自己管记忆/技能/自动化」，瞄准的是「SF 以外 99% 还不会用 Agent 干活的人」。
+
+换句话说，库内 31 款在卷「能力/手/眼/记忆/寿命/创意/行业」，Energy 卷的是**「把 Agent 用起来的门槛」**——它赌的是「模型已够强，但普通人不会用」这个 adoption gap。
+
+官方一句话定位（getenergy.com 首页）：*"Work at the speed of thought."*；创始人 Petersson 在 X 上：「Hundreds of clicks between 5 web pages turn into a simple sentence... Requires no complicated setup, and runs in your signed in browser.」
+
+---
+
+## 它到底解决什么
+
+| 卡点 | 现有做法的问题 | Energy 的解法 |
+|---|---|---|
+| 跨应用手工搬数据 | 收件箱、网银、表格、CRM 分散在不同网页，几百次点击才能完成一件事 | 说清目标，它驱动已登录浏览器跨 Gmail/Drive/Calendar/Slack/Outlook 自动执行 |
+| Agent 配置门槛高 | Cowork/OpenClaw 系要自己管记忆、技能、MCP、自动化，非工程师难上手 | 一键创建预置助手（清收件箱/推进销售/做调研/管项目），免手动配置 |
+| 被厂商模型锁死 | Cowork 绑 Claude、ChatGPT Work 绑 GPT，换模型要换平台 | 兼容任意 LLM，模型当「可替换基础设施」，接自己已有的订阅/Key |
+| 多工具协作断层 | 工作流横跨多个 SaaS，人工衔接步骤、复制上下文 | 收集邮件/文件/对话/工具上下文 → 执行步骤 → 返回结果供审阅，闭环在一句话里 |
+
+---
+
+## 与库内相似工具的差异点（关键）
+
+| 工具 | 核心壁垒 | 与 Energy 的根本区别 |
+|---|---|---|
+| **Claude Cowork（07-23）** | 绑死自家 Claude、本地文件夹+沙箱VM | Cowork 模型绑定；Energy **模型无关**，且主打「零配置一键助手」而非企业级安全管控 |
+| **ChatGPT Work（07-20）** | 绑 GPT-5.6 + 1400 插件 + 实时 Sites | ChatGPT Work 生态封闭在 OpenAI；Energy 把模型当可替换层，接用户自有 LLM |
+| **Fellou / OpenClaw 系** | 本地/浏览器自主 Agent（干活的） | 同属「自己当 Agent」，但 Energy 强调「不用自己配记忆/技能」的零门槛 + 模型可换 |
+| **AgentSky（08-07）** | 云端托管 Agent 运行时 | AgentSky 卖「Agent 的寿命」（任意 harness 上云不掉线）；Energy 卖「本机浏览器 + 零配置上手」 |
+| **千问办公 / CatPaw** | 组织数据 / 行业认知壁垒 | 二者护城河在「数据/行业」；Energy 护城河在「模型无关 + 上手门槛」，通用而非垂直 |
+
+**一句话总结**：库内 31 款在卷「能力/手/眼/记忆/寿命/创意/行业」，**Energy 卷「让普通人零配置用上 Agent」+「模型不被锁死」**——目前唯一把「模型无关 + 一键零配置」同时作为头号卖点的桌面 Agent。
+
+---
+
+## 信任信号
+
+1. 官网 getenergy.com 可达、HTTPS、.com 优质 TLD；Safety 脚本判定 safe=true / risk_level=low / 0 warnings
+2. **创始人背书确凿**：Gabriel Petersson 为 ex-OpenAI 研究员、Sora 2 贡献者（openai.com Sora 2 发布页列名）、ex-Midjourney，公开履历可追溯
+3. **多路独立媒体报道**：Dealroom 新闻、RuntimeWire（6 信源深度文）、CNBC TV18、Superhuman AI Newsletter 均独立报道发布
+4. **瑞典-美商会（SACC SF/SV）成员背书**：LinkedIn 帖子「Our member company Energy has officially launched its product!」并附 getenergy.com，且称「early testers 已实际使用」
+5. 创始人 X 发布帖（@gabriel1，2026-08-06）公开演示真实场景（Mercury 追收据、PostHog 找 power users 并排会议、会后自动开 PR）
+
+---
+
+## 公开评测里值得注意的点（非站长亲测）
+
+- **「模型无关」是真差异**：官网/FAQ 明确把 Cowork 列为对比对象，自称优势是「run your work with any model」+「one-click setup instead of managing memory, skills and automations」——直接切中 Cowork/OpenClaw 系配置复杂的痛点
+- **定位「adoption gap」而非「更强模型」**：Petersson 在 X 称「SF 以外 <1% 的人用 AI 干全部电脑工作，很快 100% 会，要么产品不对、要么人不会用」——产品逻辑是「把激进 AI 用户的用法变成普通人可复用的流程」
+- **真实演示场景可信度高**：追收据（开 Mercury → 在本机+收件箱找收据 → 回 Mercury 上传）、PostHog 找 power user 排会 + 会后自动开 PR 并转发给 cofounder——是具体可验证的多步工作流，非空泛宣传
+
+---
+
+## 短板与风险（评 3.9 而非更高的原因）
+
+1. **发布仅约 12 天**（2026-08-06），长期稳定性、可靠性未充分证明
+2. **「days of work in hours」为创始人单方声称**，无独立基准/第三方实测佐证（RuntimeWire 也指出 launch material 无独立测量结果）
+3. **独立深度上手评测偏薄**——交叉验证主要来自创始人 X + 媒体通发，缺少 Product Hunt/HN/少数派/36氪 等独立上手深测（与 Omniwork/Agent FM 等 PH 高热度新品相比信源厚度弱）
+4. **单创始人 + 极早期**，团队规模与可持续性存疑（launch thread 仅 Petersson 一人具名，LinkedIn 招人帖暗示团队尚在组建）
+5. **官网为 JS 渲染 SPA，静态 HTML 偏薄**——WebFetch 仅取回首页标题，实质产品介绍需前端执行，自动抓取与内容审计受限（类似 Genspark 情况，已标注）
+6. **数据流向/权限边界未公开细节**——连接 Gmail/Drive/Slack 等后的凭证存储、操作审计、撤销机制未见公开文档
+7. **护城河存疑**：「零配置 + 模型无关」更多是产品/分发策略，技术上 OpenAI/Anthropic/Google 都在做同类桌面 Agent，Energy 能否在巨头夹击中独立存活不确定（LinkedIn 评论也指出「easier setup 是否够成护城河」存疑）
+
+---
+
+## 待亲测清单（站长实测时重点验证）
+
+- [ ] 桌面客户端（macOS/Windows）从下载到首次跑通一个「跨 Gmail+Drive 收集信息→产出文件」任务的真实耗时与顺畅度
+- [ ] 「模型无关」是否真能接任意 LLM：自带 Key/订阅接入 Claude/GPT/Gemini 的实际配置成本
+- [ ] 一键预置助手（清收件箱/推进销售）的真实可用性与泛化能力
+- [ ] 驱动已登录浏览器执行多步任务的准确率与中途失败处理
+- [ ] 数据流向：连接 Gmail/Drive/Slack 后的凭证存储位置、是否上传云端、撤销/审计机制
+- [ ] 「days of work in hours」在真实重复任务上的可复现性
+- [ ] 与 Claude Cowork（同是桌面 Agent、但绑模型）在普通用户上手成本上的实际差异
+
+---
+
+## 适合 / 不适合
+
+**适合**：工作横跨多个 SaaS（Gmail/Drive/Slack/Outlook 等）、想用 Agent 但嫌 Cowork/OpenClaw 配置麻烦的创始人/运营/团队；已有多种 LLM 订阅、不想被单一厂商锁死的用户；愿意尝鲜极早期产品的激进用户。
+
+**不适合**：要求企业级安全管控/审计的合规场景（可选 Claude Cowork/DuMate）；纯本地优先、数据不出门的用户（可选 AiPy/QwenPaw）；看重长期稳定与独立深度评测的保守用户（Energy 尚处极早期）。
+
+---
+
+## 来源
+
+1. Energy 官网 https://getenergy.com/ （首页 "Work at the speed of thought"；JS 渲染 SPA）
+2. Gabriel Petersson X 发布帖 https://x.com/gabriel1/status/2085418582192841147 （2026-08-06 发布 + 演示视频）
+3. RuntimeWire《Former OpenAI researcher Gabriel Petersson launches Energy for AI-driven computer work》https://runtimewire.com/article/gabriel-petersson-launches-energy-ai-work-app （6 信源）
+4. CNBC TV18《Former OpenAI researcher Gabriel Petersson launches AI startup Energy》https://www.cnbctv18.com/business/startup/former-openai-researcher-gabriel-petersson-launches-ai-startup-energy-19964864.htm
+5. Superhuman AI Newsletter《Former OpenAI researcher launches desktop agent》https://www.superhuman.ai/p/former-openai-researcher-launches-desktop-agent
+6. 瑞典-美商会 SACC SF/SV LinkedIn 成员背书 https://www.linkedin.com/posts/saccsfsv_our-member-company-energy-has-officially-activity-7491558272982863872-Lmkg
+
+---
+
+*本文首发于ZLinke · 智链*

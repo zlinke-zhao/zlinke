@@ -2016,4 +2016,21 @@ export const tools: Tool[] = [
       '模型底座：搭载 LongCat 2.0 万亿参数 MoE 大模型（国产算力训练），可切 GLM-5.2/DeepSeek/Kimi/MiniMax 等国产模型',
       '大规模内部验证：美团内部已覆盖 9 万员工、搭建 3 万+ Agent，餐饮/美业/宠物医院等真实场景落地'],
   },
+  {
+    id: 'energy',
+    name: 'Energy',
+    description: '前OpenAI研究员打造的桌面AI Agent：模型无关，一键接管浏览器与多工具工作流。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 3.9,
+    url: 'https://getenergy.com',
+    price: '早期访问免费试用 / 连接自有模型（BYO Key，不被厂商锁定）',
+    features: [
+      '模型无关：兼容任意 LLM（OpenAI/Claude/Gemini 等），不被单一厂商锁定——区别于 Cowork/ChatGPT Work 绑死自家模型',
+      '桌面 Agent：可下载桌面应用，驱动你已登录的真实浏览器，跨网页/本地文件/连接工具执行多步任务',
+      '一键助手：点击即可创建预置助手（清收件箱/推进销售/做调研/管项目），免自己管记忆、技能与自动化',
+      '工具连接：原生对接 Gmail、Google Drive、Google Calendar、Slack、Outlook，可逐项授权访问范围',
+      '目标驱动：说清想要的结果，它收集邮件/文件/对话/工具上下文、执行步骤、返回结果供你审阅',
+      '团队背景：创始人 Gabriel Petersson 为 ex-OpenAI Sora 2 研究员、ex-Midjourney，2026-08-06 发布'],
+  },
 ]
