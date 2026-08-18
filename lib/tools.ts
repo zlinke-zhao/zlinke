@@ -1582,13 +1582,13 @@ export const tools: Tool[] = [
   {
     id: 'willow-voice',
     name: 'Willow Voice',
-    description: '跨Mac/Windows/iPhone的AI语音听写工具，3倍准确率、200ms低延迟、自动格式化文本。',
+    description: 'YC X25孵化的系统级AI语音听写工具，热键一按在任意App出字，约200ms延迟；含Scribe意图写作（说个大意直接生成成品邮件/消息），支持Mac/Windows/iOS三端，Pro起可离线。',
     category: 'AI音乐音频',
     subCategory: 'AI语音',
-    rating: 4.3,
+    rating: 4.0,
     url: 'https://willowvoice.com',
-    price: '免费下载 / Pro付费',
-    features: ['AI语音听写', '跨平台支持', '自动格式化', '100+语言'],
+    price: '免费2000词/周 / Individual Pro $15月（年付约$12即$144/年）/ Team Pro $12席月（≥3席）/ Enterprise定制',
+    features: ['系统级听写约200ms', 'Willow Scribe意图写作', '按App匹配语气与风格记忆', '自学词典与去口水词', 'Pro起支持本机离线听写', '100+语言（安卓即将上线）'],
   },
 
   // ========================
