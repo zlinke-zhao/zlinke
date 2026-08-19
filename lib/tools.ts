@@ -1754,10 +1754,10 @@ export const tools: Tool[] = [
     description: 'MiniMax出品的AI原生工作台：桌面端直接操作本地文件与浏览器，Expert Agents注入私有知识库和SOP打造领域专家分身。',
     category: 'AI工作台',
     subCategory: '桌面智能体',
-    rating: 4.4,
+    rating: 4.1,
     url: 'https://agent.minimaxi.com',
-    price: '会员订阅制，专业任务消耗积分 / Expert Agents限时免费',
-    features: ['桌面端操本地文件(Win/Mac)', 'Expert Agents专家分身', '私有知识库+SOP注入', '网页自动化', '长期记忆', '子代理自定义与协作', 'MiniMax Space网页部署', 'M2.1模型驱动'],
+    price: '免费 1000 积分 / 基础版 ¥39/月(5000积分) / 专业版 ¥119/月(16000积分) / Ultra 约 ¥219/月；另有¥59-149积分包；Token Plan 独立 Plus ¥49·Max ¥119·Ultra ¥469 每月',
+    features: ['桌面端读写本地文件(Win/Mac)', 'Expert Agents专家分身(SOP封装)', 'Supabase后端全栈交付', '网页自动化+MaxClaw云端', 'MCP集成(GitHub/Figma/Slack)', '长期记忆与Skills复用', 'MiniMax Space网页部署', 'M3模型驱动(100万token)'],
   },
   {
     id: 'skywork-desktop',
