@@ -2033,4 +2033,22 @@ export const tools: Tool[] = [
       '目标驱动：说清想要的结果，它收集邮件/文件/对话/工具上下文、执行步骤、返回结果供你审阅',
       '团队背景：创始人 Gabriel Petersson 为 ex-OpenAI Sora 2 研究员、ex-Midjourney，2026-08-06 发布'],
   },
+  {
+    id: 'grok-bot',
+    name: 'Grok Bot',
+    description: 'xAI与Cursor联合出品的AI同事：Bot自带持久云电脑，登录你的工具后台干活。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 3.7,
+    url: 'https://x.ai/bot',
+    price: '无独立档位，随订阅赠送：Cursor Ultra $200/月、SuperGrok Heavy $300/月、Cursor Premium Teams $120/席/月；企业版等待名单',
+    features: [
+      '持久云电脑：Bot 跑在云端虚拟机（带 Chrome、终端、文件管理），合上笔记本仍 24/7 继续跑，手机端可随时接管这台虚拟机',
+      '免 API 绕行：以浏览器界面直接登录并点击操作，覆盖没有 API/MCP 的网站与系统（官方演示 Zendesk 工单、Gmail 发票、CRM 写入）',
+      '演示即流程：让 Bot 跟看你做一遍，逐帧学成可复用 routine，下次自动重跑并接受纠正',
+      '多 Bot 群聊交接：可建 Chief of Staff 统筹 + 销售/招聘/报销/复现 Bug 等专职 Bot，同一线程内互相传递上下文，每个 Bot 各占一块屏幕并行',
+      '⚠️ 云电脑与登录态在同账号下多 Bot 共享：一个 Bot 登了 Google，其余 Bot 即可触达该账号名下站点（官网 FAQ 与 dev.to 一周实测均证实），敏感账号需谨慎分配',
+      '⚠️ 早期 beta（2026-08-11 上线）：独立实测反馈简单点击卡住、数据只回一半、偶发冻结；纯视觉 computer use 偏慢，重度多 Bot 数小时即可能触到周额度',
+      '平台与访问：Windows 10/11、macOS、Linux、iOS（Android 开发中），无免费档，最低 $200/月起'],
+  },
 ]
