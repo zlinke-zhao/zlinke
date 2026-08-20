@@ -1170,10 +1170,10 @@ export const tools: Tool[] = [
     description: 'AI推理计算效率层，用专用小模型+全球边缘网络处理高流量结构化任务，降本50%+提速10倍，OpenAI兼容API即插即用。',
     category: 'AI编程开发',
     subCategory: 'AI基础设施',
-    rating: 4.2,
+    rating: 4.1,
     url: 'https://zerogpu.ai',
-    price: '免费 / 按量付费',
-    features: ['推理降本50%+', '边缘推理网络', 'OpenAI兼容', '专用小模型'],
+    price: '免费 agent 额度 / 按 token 计费（qwen3-30b $0.05/$0.30 每百万 token 起）',
+    features: ['边缘推理网络', 'OpenAI兼容API', '专用小模型SLM', '按token计费', '免费agent额度'],
   },
   {
     id: 'context-dev',
