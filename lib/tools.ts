@@ -1543,8 +1543,8 @@ export const tools: Tool[] = [
     subCategory: 'AI音乐',
     rating: 4.5,
     url: 'https://suno.com',
-    price: '免费 / Pro $10/月',
-    features: ['文生音乐', '歌词生成', '多风格', '完整歌曲'],
+    price: '免费 / Pro $8-10/月 / Premier $24-30/月',
+    features: ['文生完整歌曲', 'v5.5模型', '自定义歌词', '12轨分轨', 'Suno Studio', '人声克隆', '音频上传', '移动端App'],
   },
   {
     id: 'elevenlabs',
