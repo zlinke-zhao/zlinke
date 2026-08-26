@@ -1,0 +1,111 @@
+# Soloop 体验笔记（草稿·待站长亲测）
+
+> 收录日期：2026-08-26　｜　分类：AI工作台 / 云端智能体　｜　评分：3.7
+> 官网：https://soloop.io
+> **说明**：本笔记基于 Soloop 官网、Product Hunt 上线页、小宇宙 PH 日报、jxxy 觉醒学院评测、Pidune 72 小时实测、Synthszr 排行榜、ProductCool、AIPURE 等独立来源撰写，已逐条标注来源；站长尚未亲自注册使用，标注「待亲测」的条目不作为结论。
+
+---
+
+## 一句话：Soloop 是面向一人公司的「审批优先」Agent OS——用 AI CEO/CTO/CMO/Analyst 组一支虚拟领导班子，把想法推进到营收，但每个关键动作都等你点头
+
+库内已有约 40 款 AI 工作台，大多在回答「谁来干活 / 干办公的活 / 干编程的活 / 给 Agent 一双手或一双眼睛 / 卖 Agent 的寿命」——Fellou / ChatGPT Work / OpenClaw 系是通用执行本体；Omniwork / MiniMax Design 卷创意生产；AgentSky 卖云端托管运行时；Grok Bot 给每个 Bot 配持久云电脑。
+
+Soloop 走的是**「一人公司的虚拟高管团队」路线**：它不拼单 Agent 的执行力，而是把公司建设（company-building）拆成四个角色——AI CEO 定方向、AI CTO 写代码落地、AI CMO 找用户做分发、AI Analyst 挖信号——由一个协调循环串起来，且**刻意不做全自动放飞，所有带判断的动作（发帖、花钱、部署）必须创始人审批**。这与库内 40 款零功能重叠、互补非竞争。
+
+官方一句话定位（Soloop 官网）：*"Idea In. Revenue Out. —— Work 24/7 for you, with AI CEO managing."*
+
+---
+
+## 它到底解决什么
+
+| 卡点 | 现有做法的问题 | Soloop 的解法 |
+|---|---|---|
+| 单人创始人「什么都要会」 | 会写代码不会做市场、有产品不知道先改功能还是先找用户，找合伙人/外包又意味着分股权、磨合、管理 | 把你不擅长那部分交给 AI 领导班子：CTO 写代码、CMO 做增长、Analyst 挖信号，你只保留判断权 |
+| 不知道下一步先做什么 | 待办清单越列越长，反而更焦虑、更不动 | **每次只推一个「下一步」**：AI CEO 只给当前最关键的一个行动并说明原因，不甩清单 |
+| AI 失控风险 | 自主 Agent 趁你睡觉自动发帖、花钱、部署，出事难收 | **审批优先**：发帖/花钱/部署代码等高风险动作全部人工确认后才执行；低风险任务批量汇总、每天展示一次 diff |
+| 上下文散落 | 战略、代码、反馈分在多个助手聊天里，每次从零讲背景 | 统一工作区记忆：项目历史、用户反馈、代码变更、失败尝试持续沉淀，影响后续决策 |
+| 反馈进不了路线图 | 用户吐槽听完了就忘，下次还踩同样的坑 | 每日审查循环把反馈与路线图决策相连，减少上下文切换 |
+
+---
+
+## 与库内相似工具的差异点（关键）
+
+| 工具 | 核心壁垒 | 与 Soloop 的根本区别 |
+|---|---|---|
+| **Manus / Genspark（通用任务 Agent）** | 通用自主任务执行、端到端交付 | 它们是「通用执行器」；Soloop 是「公司建设协调器」，且**刻意审批优先、不全自动**，专为一人的创业者保留所有权与判断 |
+| **Omniwork（创意 Agent OS）** | 顶级真人专家经验固化的 100+ 创意 Agent | Omniwork 卷「创意成片/成曲的统筹」；Soloop 卷「从想法到营收的商业建设」，角色是 CEO/CTO/CMO/Analyst 而非导演/剪辑 |
+| **Grok Bot / AgentSky（云端运行时）** | 给 Bot 持久云电脑 / 托管任意 harness 不掉线 | 它们卖「Agent 的寿命与算力底座」；Soloop 不碰底层运行时，卖的是「谁来定方向、谁来协调」，且每个动作等人批 |
+| **ChatGPT Work / Claude Cowork（通用办公 Agent）** | 绑自家模型的通用自主办公 | 它们是通用助手；Soloop 把「一人公司的高管分工」当第一性原理，单一公司目标 + 每日审查循环，而非聊天式任务流 |
+| **库内各类编程/写作/视频单点工具** | 单点能力强 | Soloop 不竞争单点能力，而是把这些活「编排给对应角色 + 等你批」，本质是公司运营 OS 而非生产工具 |
+
+**一句话总结**：库内 40 款在卷「谁来干活 / 手 / 眼 / 记忆 / 寿命 / 创意生产」，**Soloop 卷「一个人怎么既当老板又当兵，还不被 AI 架空」**——用审批优先的虚拟领导班子把「想法→营收」的鸿沟填起来，且坚决不全自动放飞。
+
+---
+
+## 信任信号
+
+1. 官网 soloop.io 内容详实（AI CEO/CTO/CMO/Analyst 四角色、How it works、Founder story、用户反馈），HTTPS 可达、.io 优质 TLD
+2. **创始人为 Wenhao Yu（余文豪，前百度）**——官网 Founder story 自述「在百度看到大量 demo 因不会迭代下一步而赚不到一分钱」，背景可追溯
+3. **Product Hunt 2026-08-07 正式上线**（同步见于小宇宙 PH 日报、Synthszr 排行榜等），有明确发布时间线
+4. 多源交叉验证：小宇宙 PH 日报《AI 越能干，「判断」越值钱》、jxxy 觉醒学院深度评测、Pidune 72 小时实测、Synthszr（Enterprise Agent Platforms #10）、ProductCool、AIPURE 均给出一致的功能与定位描述
+5. 安全脚本核验：soloop.io HTTPS、safe=true、risk_level=low、0 warnings；无高风险 TLD、无钓鱼/跳转/弹窗广告迹象
+6. 注册免信用卡（Pidune 实测），降低体验门槛，符合「有免费试用、有真实用户基础」的收录标准
+
+---
+
+## 公开评测里值得注意的点（非站长亲测）
+
+- **审批优先是真设计，不是缺陷**：小宇宙与 jxxy 均指出这是 Soloop 与通用自主 Agent 的关键区别——它不会趁你睡觉时自动发帖/花钱/部署，判断权始终在创始人手里
+- **「每次只推一个下一步」缓解优先级焦虑**：jxxy 评测强调，单人创业者最怕的不是没事做而是不知道先做什么，Soloop 的 AI 每次只推荐一个最关键行动并说明原因
+- **工作区记忆闭环**：执行结果（如 CMO 推文反馈）回流进 Analyst，影响下轮推荐，形成「规划→执行→分析→再规划」的循环（jxxy）
+- **Pidune 72 小时实测（工程评分 3.5/5）**：策略与规划类任务表现合格，但指出营销文案有时「语气不对」（默认折扣导向、会削弱高端品牌调性）需人工覆盖、Analyst 建议偏泛、大数据集下响应 45s+ 偏慢
+
+---
+
+## 短板与风险（评 3.7 而非更高的原因）
+
+1. **上线仅约 19 天**（2026-08-07 PH 发布），Synthszr 明确标注「仍处早期开发阶段」，长期稳定性、可靠性未充分验证
+2. **官网未公开完整定价表**——仅第三方报道称约 $25/月档，注册前无法确认费用，成本透明度弱于库内 AgentSky（公开 11 款模型逐条单价）
+3. **仅 Web 端、无桌面/移动客户端**——与库内 Fellou / OpenClaw 系 / 千问办公等「桌面智能体」主线不同，它是纯浏览器 Agent OS，本地文件/本机操作能力弱
+4. **界面为英文、暂无中文版**，社交分发仅覆盖 Twitter/X，对中文一人公司/独立开发者友好度有限
+5. **第三方实测暴露准确性短板**（Pidune 3.5/5）：营销文案语气、分析建议颗粒度、响应速度均被点名，工程化打磨明显偏早期
+6. **无官方第三方集成文档**（Synthszr 标注「No officially documented third-party integrations」），目前是 standalone agent team，生态开放度待观察
+7. **CMO 分发聚焦 Twitter/X**，其他平台（微信/抖音/小红书等）尚未覆盖，对中文增长场景价值打折
+
+---
+
+## 待亲测清单（站长实测时重点验证）
+
+- [ ] 注册 soloop.io（免信用卡）后，从提交一个 repo / 落地页到拿到第一个 AI CEO「下一步建议」的真实耗时与顺畅度
+- [ ] 审批流是否如所述：发帖/部署/花钱类动作是否真卡在人工确认，低风险任务是否真批量汇总、日更一次 diff
+- [ ] 「每次只推一个下一步」体验：建议质量与原因说明是否真的缓解优先级焦虑
+- [ ] AI CTO 真能改代码并交付可部署结果吗？沙盒环境是否够用
+- [ ] AI CMO 在 Twitter/X 上的内容质量：是否如 Pidune 所说「语气不对」需人工覆盖
+- [ ] 工作区记忆闭环：CMO 推文反馈是否真回流进 Analyst 影响下轮推荐
+- [ ] 定价：注册后实际看到的档位与 $25/月 传闻是否一致、有无隐藏消耗
+- [ ] 与库内 Manus / Omniwork / AgentSky 在「一人公司从 0 到 1」场景下的实际体验边界
+
+---
+
+## 适合 / 不适合
+
+**适合**：已有产品雏形（repo / Demo / 落地页）但不知道下一步先改功能还是先找用户的独立开发者；擅长做产品、不擅长做市场运营的 OPC 一人公司实践者；想快速试错、验证想法但不愿招团队增加负担的创业者。
+
+**不适合**：需要深度本地文件/本机操作或桌面客户端的用户（Soloop 纯 Web）；需要中文界面或微信/抖音/小红书增长覆盖的用户；追求全自动无人值守执行的用户（它审批优先、刻意不全自动）；对成本透明度要求高、不愿先注册看定价的用户。
+
+---
+
+## 来源
+
+1. Soloop 官网 https://soloop.io （AI CEO/CTO/CMO/Analyst 四角色、How it works、Founder story、用户反馈页）
+2. Product Hunt Soloop 产品页 https://www.producthunt.com/products/soloop （2026-08-07 上线）
+3. 小宇宙 PH 日报《AI 越能干，「判断」越值钱》https://www.xiaoyuzhoufm.com/episode/6a76d07a9b1f552e8571d703 （Soloop 作为 Approval-first Agent OS 入选当日 8 款 AI 代理）
+4. jxxy 觉醒学院《一个人开公司配齐 CEO+CTO+CMO：这个 AI 系统替你做不擅长的事》https://www.jxxy.net/ai/articles/soloop-ai-agent-os （四角色拆解、使用流程、审批优先、定价与注意事项）
+5. Pidune Soloop Review（72 小时实测，Engineering Verdict 3.5/5）https://www.pidune.com/soloop-review （setup/集成/性能/可靠性/准确性短板）
+6. Synthszr Charts《Soloop — AI Product Ranking》https://www.synthszr.com/en/rankings/soloop-soloop （Enterprise Agent Platforms #10、Release Date、早期阶段标注、无官方集成文档）
+7. ProductCool《Soloop》https://www.productcool.com/product/soloop-2 （定义、核心价值、四 Agent 功能、FAQ）
+8. AIPURE《Soloop》https://aipure.ai/cn/products/soloop （中文功能清单、每日审查循环、使用场景，更新于 2026-08-14）
+
+---
+
+*本文首发于ZLinke · 智链*
