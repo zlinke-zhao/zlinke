@@ -1,0 +1,111 @@
+# AirJelly 体验笔记（草稿·待站长亲测）
+
+> 收录日期：2026-08-30　｜　分类：AI工作台 / 桌面智能体　｜　评分：3.9
+> 官网：https://www.airjelly.ai
+> **说明**：本笔记基于 AirJelly 官网、隐私政策页、Product Hunt 上线页、ToolRadar 深度评测、The Agent Times 报道、AAT.ee 产品页、moge.ai 等独立来源撰写，已逐条标注来源；站长尚未亲自下载使用，标注「待亲测」的条目不作为结论。
+
+---
+
+## 一句话：AirJelly 是本地优先的「主动式情境感知 Agent」——它不替你干活，而是常驻后台观察你的屏幕，跨应用记住你在做什么，在你开口前把待办、截止日、跟进项自动浮现，数据 100% 留在本机
+
+库内已有约 40 款 AI 工作台，大多在回答「谁来干活 / 干办公的活 / 干编程的活 / 给 Agent 一双手或一双眼睛 / 卖 Agent 的寿命 / 卖云端运行时」——Fellou / ChatGPT Work / OpenClaw 系是通用执行本体；Energy 是模型无关、能驱动你已登录浏览器的桌面 Agent；Memmy 是跨 Agent 的共享记忆底座；Grok Bot / AgentSky 卖云电脑/托管运行时。
+
+AirJelly 走的是**「环境式首席参谋（ambient Chief of Staff）/ 第二大脑」路线**：它**不点击、不执行、不碰你的文件**，而是用本地模型持续「看」你的屏幕活动，把散落在 Slack/Zoom/Docs/Calendar/邮件里的意图提炼成任务与记忆，并主动提醒你「该跟进了 / 该准备了」。它与库内 40 款零执行层重叠、互补非竞争——别人卷「干不干得动」，它卷「你有没有漏掉一件本该记住的事」。
+
+官方一句话定位（AirJelly 官网）：*"The World's First Context-Aware Proactive Agent. No intent missed. No task overdue."*
+
+---
+
+## 它到底解决什么
+
+| 卡点 | 现有做法的问题 | AirJelly 的解法 |
+|---|---|---|
+| 工作上下文散落、容易漏 | 聊天的承诺、会议的动作项、文档的截止日分散在各 App，靠人手动记，一忙就忘 | 跨应用观察：Slack 里一句「我跟进一下」自动变成带截止日的任务，并附上原对话 |
+| 多标签页信息过载 | 十几篇论文/文档/笔记同时开着，回头想整理却无从下手 | 把跨 App 的上下文读成一份单页研究摘要，并附上你早已忘了的旧笔记 |
+| 会议/面试前没准备 | 日程到了才发现没背景资料、没谈话要点 | 从日历感知到「30 分钟后有面试」，主动准备对方背景、近期工作、可能的问题 |
+| 担心隐私不敢用云端 Agent | Manus/Perplexity Computer 类要把上下文传云端，敏感工作不敢交 | 100% 本地处理：屏幕/笔记/对话不出本机、不训练，AES-256 加密，按 Option 双击可临时「闭眼」5 分钟 |
+| 录屏类工具太吵/太贵 | Rewind/Limitless 全程录屏，数据量大、噪音多、企业 IT 敏感 | Enter 键意图捕获：只在你「提交一个动作」（发消息/commit）那一刻截图，声称减少约 80% 截图量 |
+
+---
+
+## 与库内相似工具的差异点（关键）
+
+| 工具 | 核心壁垒 | 与 AirJelly 的根本区别 |
+|---|---|---|
+| **Energy（主动式桌面 Agent）** | 模型无关 + 一键驱动你已登录的真实浏览器跨 Gmail/Drive/Slack 执行多步任务 | Energy **会动手**（驱动浏览器执行）；AirJelly **只看不干**，专注捕获/记忆/提醒，定位是「参谋」而非「执行者」 |
+| **Memmy Agent（跨 Agent 共享记忆）** | 扫描本机对话历史做成共享长期记忆底座，喂给别的 Agent | Memmy 是「记忆底座」供其他 Agent 调用；AirJelly 是「主动捕捉你屏幕意图」并自用，不对外喂别的 Agent |
+| **Fellou / OpenClaw 系 / ChatGPT Work（执行本体）** | 自主把任务执行到结果 | 它们是执行器；AirJelly 明确不执行，只防「漏」，与执行器互补而非竞争 |
+| **Manus / Perplexity Computer（云端沙箱/云脑）** | 云端推理、端到端交付 | 它们上下文出本机；AirJelly **刻意数据不出门**，用本地模型换隐私，取舍方向相反 |
+| **Rewind / Limitless（全程录屏记忆）** | 持续录屏做可搜索回忆 | AirJelly 用 Enter 键「事件级」捕获替代全程录屏，自称噪音少 80%、更省算力，隐私姿态也更轻 |
+
+**一句话总结**：库内 40 款在卷「谁来干活 / 手 / 眼 / 记忆 / 寿命 / 云端」，**AirJelly 卷「你有没有漏掉一个本该记住的意图」**——本地优先、主动预判、只看不干的第二大脑，与所有执行类 Agent 互补。
+
+---
+
+## 信任信号
+
+1. 官网 www.airjelly.ai 内容详实（What it does / How it works / Features / Privacy / FAQ / Use cases），HTTPS 可达、.ai 优质 TLD，页脚版权「© 2026 AirJelly · Low Entropy Group」
+2. **主体可追溯**：ToolRadar 与 The Agent Times 均指出来自 **Low Entropy AI**（北京，约 11 人团队），创始人 Bert 为**前字节产品经理**，曾负责上下文工程产品 MineContext；获 **Five Rings Capital** 投资
+3. **Product Hunt 2026-06-22 上线**，139 赞、当日 #8（hunted.space / AAT.ee 可查），有明确发布时间线
+4. 多源交叉验证：ToolRadar 深度评测（含 Enter 键机制、双层记忆、定价）、The Agent Times 技术报道、AAT.ee 产品页、moge.ai 均给出一致的功能与定位描述
+5. 安全脚本核验：www.airjelly.ai HTTPS、safe=true、risk_level=low、0 warnings；无高风险 TLD、无钓鱼/跳转/弹窗广告迹象
+6. Beta 阶段免费、macOS 下载即用无功能门槛，符合「有免费试用、有真实用户基础」的收录标准
+
+---
+
+## 公开评测里值得注意的点（非站长亲测）
+
+- **Enter 键意图捕获是真机制不是营销话术**：ToolRadar 与 The Agent Times 都详述——通过 macOS 辅助功能权限检测 Enter 按下，每次建模为一个「事件」并提炼成「任务」，团队自述把日截图量从约 1500 降到约 300（约 80%），且过滤掉无关截图、减少误报
+- **双层记忆（Entities + Tasks）**：静态信息（人/项目/组织）存为 Entities，动态信息存为 Tasks（标题+自然语言摘要+进度+下一步+来源事件），检索结合向量+关键词+时间衰减——比单一时间线更结构化
+- **主动触发（Proactive Triggering）**：不是等人问，而是监测任务更新是否超过阈值，自主推荐下一步，通过轻量浮层而非弹窗打扰
+- **本地优先隐私是真架构**：数据 AES-256 加密留本机、无云同步、无训练；双击 Option 键可临时「闭眼」5 分钟，照顾敏感时刻
+
+---
+
+## 短板与风险（评 3.9 而非更高的原因）
+
+1. **仅约 2 个月龄**（2026-06-22 PH 发布），仍处 Beta 早期，长期稳定性与可靠性未充分验证
+2. **仅 macOS**，Windows/Linux 官网标 Coming Soon 尚未发布；需 macOS 辅助功能权限，部分企业 IT 策略会拦截
+3. **正式定价未公布**——Beta 免费，但 post-beta 费用未知，成本透明度弱于库内 AgentSky（公开 11 款模型逐条单价）
+4. **11 人小团队、规模化记录有限**（ToolRadar 明确指出），可持续性待观察
+5. **隐私纠错流程未闭环**：Product Hunt 上 Xuefei Mei 关于「误读上下文并基于错误假设行动时如何纠正而不破坏学习模型」的提问官方未答（ToolRadar 收录）
+6. **技术自述数据无独立基准**：80% 截图削减、300 张/天等数字来自团队自报，暂无第三方对比评测
+7. **底层摘要所用模型未披露**，本地推理模型能力与边界不清
+8. **只捕获不执行**：对需要 Agent 真正「动手干」的场景（发邮件、填表、跑脚本）无能为力，需配合执行类工具
+
+---
+
+## 待亲测清单（站长实测时重点验证）
+
+- [ ] 在 macOS 下载安装，确认辅助功能权限授予流程与「双击 Option 闭眼」是否如所述生效
+- [ ] Enter 键捕获的真实噪音水平：日常工作中任务提炼准确率如何、误报/漏报多不多
+- [ ] 跨应用记忆质量：问「Sarah 上次说的 Q3 预算是什么」能否跨 Slack/Docs/Calendar 准确召回
+- [ ] 主动简报：日历面试前是否真自动准备背景与谈话要点、时点是否合适（过早/过晚）
+- [ ] 每日工作日报的可读性与「下一步」建议质量
+- [ ] 隐私：确认无云上传（可观察网络出口），本地数据加密与删除是否可控
+- [ ] 误读上下文后的纠正机制：能否在不破坏记忆模型的前提下修正
+- [ ] 与库内 Energy / Fellou / OpenClaw 在「记忆+执行」组合场景下的实际分工边界
+
+---
+
+## 适合 / 不适合
+
+**适合**：在多 App 间高频切换、信息过载的知识工作者（产品/运营/工程/设计/创始人）；常做口头承诺怕漏跟进的人；重视隐私、不愿把屏幕/对话传云端的研究者与高管；想要「第二大脑」而非「执行员工」的用户。
+
+**不适合**：只跑 Windows/Linux 的用户（暂不支持）；需要 Agent 真正动手发邮件/填表/跑脚本的执行型需求（它不执行）；企业 IT 禁止辅助功能权限的环境；依赖第三方独立基准再决策的用户（目前仅团队自述数据）。
+
+---
+
+## 来源
+
+1. AirJelly 官网 https://www.airjelly.ai （What it does / How it works / Features / Privacy / FAQ / Use cases）
+2. AirJelly 隐私政策 https://www.airjelly.ai/privacy-policy （本地优先、AES-256、无云同步）
+3. Product Hunt AirJelly 产品页 https://www.producthunt.com/products/airjelly （2026-06-22 上线，139 赞/#8）
+4. ToolRadar《AirJelly Review: The AI That Remembers Your Screen So You Don't Have To》https://www.gotoolradar.com/2026/07/airjelly-review-ai-that-remembers-your.html （Enter 键机制、双层记忆、定价、优缺点、社区反馈）
+5. The Agent Times《AirJelly Brings Screen-Aware Agent Layer to macOS Desktops》https://theagenttimes.com/agents/article/airjelly-brings-screen-aware-agent-layer-to-macos-desktops-49897408 （Low Entropy AI/创始人 Bert/五环资本/技术架构/未证实项）
+6. AAT.ee AirJelly 产品页 https://www.aat.ee/projects/airjelly （功能、适用人群、本地处理）
+7. moge.ai AirJelly 条目 https://www.moge.ai/projects/airjelly （产品定位与功能摘要）
+
+---
+
+*本文首发于ZLinke · 智链*
