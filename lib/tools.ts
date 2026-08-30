@@ -552,8 +552,8 @@ export const tools: Tool[] = [
     subCategory: 'AI视频生成',
     rating: 4.2,
     url: 'https://chatcut.io',
-    price: '免费 / Plus $25/月',
-    features: ['对话式剪辑', '智能去填充词', 'AI动态图形', '100+语言字幕'],
+    price: '免费（25起始积分）/ $25月（100积分）/ $100月（400积分）起，可扩展至 $2500月（10000积分）',
+    features: ['对话式剪辑', '转录编辑', 'AI动态图形', '100+语言字幕', 'XML导出Premiere/DaVinci', 'ChatGPT/Codex插件'],
   },
 
   // ========================
