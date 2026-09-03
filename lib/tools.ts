@@ -27,6 +27,7 @@ export interface Tool {
   url: string
   price: string
   features: string[]     // 功能标签
+  note?: string          // 真实体验笔记（差异点/解决什么，2026-07-16 起要求）
 }
 
 export const tools: Tool[] = [
@@ -2173,5 +2174,17 @@ export const tools: Tool[] = [
       '主动提醒与简报：检测到日程/截止日即准备背景与谈话要点，每日生成工作日报',
       '⚠️ 目前仅 macOS，Windows/Linux 尚未发布（官网标 Coming Soon）；需 macOS 辅助功能权限，部分企业 IT 策略会拦截',
       '⚠️ 2026-06-22 才上 Product Hunt（139 赞/#8），仍处 Beta 早期；正式定价未公布、隐私纠错流程官方尚未完整说明，待站长亲测'],
+  },
+  {
+    id: 'doubao-work',
+    name: '豆包工作（Doubao Work）',
+    description: '字节跳动面向办公场景的统一AI Agent：桌面端操作本地文件与浏览器，云电脑+手机远程协同，与飞书深度打通。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://www.doubao.com/work',
+    price: '免费下载 / 新用户赠30天订阅权益（具体档位以官网为准）',
+    features: ['本地文件读写', '浏览器跨页面操作', '云电脑24h在线', '手机远程派活', '飞书深度打通', '技能商店+连接器', 'Office+调研+定时', 'Seedream/Seedance 生图生视频'],
+    note: '真实体验笔记（基于官方文档与澎湃新闻/百度百科/Race to AGI 公开报道聚合，赵生尚未亲测）：解决「AI 从写内容到替你干活」的跃迁——直接读取修改本地文件、自动开网页填表、云电脑关机续跑长任务、手机远程派活。差异点：①与飞书原生打通，继承企业文档/群聊/会议/任务上下文，是阿里 QwenWork、腾讯系短期难复制的生态壁垒；②本地+云电脑双模式，是库内 TRAE Work（偏编程）之外的字节统一办公入口；③技能商店+连接器+工作伙伴三层可扩展。短板：企业级安全与权限管理要求高，传统行业信任建立仍需时间。',
   },
 ]
