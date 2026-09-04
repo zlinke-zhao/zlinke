@@ -2187,4 +2187,16 @@ export const tools: Tool[] = [
     features: ['本地文件读写', '浏览器跨页面操作', '云电脑24h在线', '手机远程派活', '飞书深度打通', '技能商店+连接器', 'Office+调研+定时', 'Seedream/Seedance 生图生视频'],
     note: '真实体验笔记（基于官方文档与澎湃新闻/百度百科/Race to AGI 公开报道聚合，赵生尚未亲测）：解决「AI 从写内容到替你干活」的跃迁——直接读取修改本地文件、自动开网页填表、云电脑关机续跑长任务、手机远程派活。差异点：①与飞书原生打通，继承企业文档/群聊/会议/任务上下文，是阿里 QwenWork、腾讯系短期难复制的生态壁垒；②本地+云电脑双模式，是库内 TRAE Work（偏编程）之外的字节统一办公入口；③技能商店+连接器+工作伙伴三层可扩展。短板：企业级安全与权限管理要求高，传统行业信任建立仍需时间。',
   },
+  {
+    id: 'openclaw',
+    name: 'OpenClaw',
+    description: '开源本地优先的个人AI智能体框架，本地运行、经聊天App操控真实工具。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://www.openclaw.ai/',
+    price: '开源免费（自托管）；模型按所用供应商计费',
+    features: ['本地优先·开源', '聊天App触发(WhatsApp/Telegram/Discord/Slack)', '邮件/日历/浏览器/GitHub/Obsidian连接器', 'Skills技能+记忆沉淀', '模型无关(Claude/GPT/本地)', 'macOS/Windows/Linux桌面端+CLI', '346k+ GitHub Stars', 'AutoClaw/ArkClaw等OpenClaw系上游'],
+    note: '真实体验笔记（基于官网 openclaw.ai、GitHub、YCombinator/Product Hunt/36氪等公开报道聚合，赵生尚未亲测）：它是库内 AutoClaw（智谱）、ArkClaw（火山）、QwenPaw（阿里）等一众「OpenClaw 系」桌面智能体的开源上游本体——解决了「个人 Agent 该由谁掌控」的根问题：100% 本地优先、开源可审计、模型与数据归用户自己，不被任何厂商锁定。差异点：①与库内各家厂商派生的 OpenClaw 不同，它是无商业绑定的参考实现，自托管零成本、可换任意模型；②连接器直达邮件/日历/GitHub/Obsidian 等真实工具，而非只停留在对话；③2026 年已成为 GitHub 增长最快仓库之一（346k+ Stars），微软 Scout 等也基于它构建，是生态事实标准。短板：部署与调优门槛高于开箱即用的厂商版，企业级治理需自行搭。',
+  },
 ]
