@@ -2199,4 +2199,16 @@ export const tools: Tool[] = [
     features: ['本地优先·开源', '聊天App触发(WhatsApp/Telegram/Discord/Slack)', '邮件/日历/浏览器/GitHub/Obsidian连接器', 'Skills技能+记忆沉淀', '模型无关(Claude/GPT/本地)', 'macOS/Windows/Linux桌面端+CLI', '346k+ GitHub Stars', 'AutoClaw/ArkClaw等OpenClaw系上游'],
     note: '真实体验笔记（基于官网 openclaw.ai、GitHub、YCombinator/Product Hunt/36氪等公开报道聚合，赵生尚未亲测）：它是库内 AutoClaw（智谱）、ArkClaw（火山）、QwenPaw（阿里）等一众「OpenClaw 系」桌面智能体的开源上游本体——解决了「个人 Agent 该由谁掌控」的根问题：100% 本地优先、开源可审计、模型与数据归用户自己，不被任何厂商锁定。差异点：①与库内各家厂商派生的 OpenClaw 不同，它是无商业绑定的参考实现，自托管零成本、可换任意模型；②连接器直达邮件/日历/GitHub/Obsidian 等真实工具，而非只停留在对话；③2026 年已成为 GitHub 增长最快仓库之一（346k+ Stars），微软 Scout 等也基于它构建，是生态事实标准。短板：部署与调优门槛高于开箱即用的厂商版，企业级治理需自行搭。',
   },
+  {
+    id: 'clairvoyance',
+    name: 'Clairvoyance（星界）',
+    description: 'Stardock出品的本地优先桌面AI员工工作台：把Claude Code/Codex/Cursor等Agent当"员工"常驻本机，跨模型协作、免费跑本地模型。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.1,
+    url: 'https://clairvoyanceai.com/',
+    price: '本体免费 / Pro $20/月（云同步+团队+赠送AI额度）',
+    features: ['本地优先AI员工(Staff)', '兼容Claude Code/Codex/Cursor/Grok/Copilot及本地模型', 'Multiplayer AI多人同屏会话', '跨设备远程接管本机Agent', '知识库训练专属Agent', '定时常驻任务', 'DirectPanel富媒体产出', 'Binders/Constellations组织'],
+    note: '真实体验笔记（基于官网 clairvoyanceai.com、Stardock 官方新闻/博客/论坛及 AI Journal 独立报道聚合，赵生尚未亲测）：解决「AI 只停留在聊天框、碰不到你本机文件」的痛点——它是跑在你自己电脑上的桌面 Agent 工作台，把你已经在用的 Claude Code/Codex/Cursor 直接变成常驻的"员工"(Staff)，可读写本机项目、编译、跑测试、调度定时任务。差异点：①"员工制"隐喻最彻底——每个 Agent 有名字、记忆、独立知识库与权限，跨模型(Claude/Codex/Grok/本地)组队，库内多数 OpenClaw 系偏单助手，Clairvoyance 偏"小公司组织图"；②Multiplayer AI 是独门能力，多人可进同一台本机上的实时会话协作，而非云端共享空间；③本地模型一键下拉免费跑、token 不烧钱，且跨设备用手机/网页远程指挥本机干活。短板：仍处 Beta(0.85)、界面偶发卡死提示不清，企业级治理需自建；与库内 Rowboat/Hermes 同属本地优先风格但更偏"桌面办公组织"而非纯开发。',
+  },
 ]
