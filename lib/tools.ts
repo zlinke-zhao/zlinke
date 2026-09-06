@@ -2211,4 +2211,16 @@ export const tools: Tool[] = [
     features: ['本地优先AI员工(Staff)', '兼容Claude Code/Codex/Cursor/Grok/Copilot及本地模型', 'Multiplayer AI多人同屏会话', '跨设备远程接管本机Agent', '知识库训练专属Agent', '定时常驻任务', 'DirectPanel富媒体产出', 'Binders/Constellations组织'],
     note: '真实体验笔记（基于官网 clairvoyanceai.com、Stardock 官方新闻/博客/论坛及 AI Journal 独立报道聚合，赵生尚未亲测）：解决「AI 只停留在聊天框、碰不到你本机文件」的痛点——它是跑在你自己电脑上的桌面 Agent 工作台，把你已经在用的 Claude Code/Codex/Cursor 直接变成常驻的"员工"(Staff)，可读写本机项目、编译、跑测试、调度定时任务。差异点：①"员工制"隐喻最彻底——每个 Agent 有名字、记忆、独立知识库与权限，跨模型(Claude/Codex/Grok/本地)组队，库内多数 OpenClaw 系偏单助手，Clairvoyance 偏"小公司组织图"；②Multiplayer AI 是独门能力，多人可进同一台本机上的实时会话协作，而非云端共享空间；③本地模型一键下拉免费跑、token 不烧钱，且跨设备用手机/网页远程指挥本机干活。短板：仍处 Beta(0.85)、界面偶发卡死提示不清，企业级治理需自建；与库内 Rowboat/Hermes 同属本地优先风格但更偏"桌面办公组织"而非纯开发。',
   },
+  {
+    id: 'naseem',
+    name: 'Naseem',
+    description: 'Swift原生macOS AI智能体：直控文件/终端/Python、驱动原生App与iOS模拟器，支持MCP与本地模型，每步需你批准。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://www.producthunt.com/products/naseem-2',
+    price: 'Free 永久免费（自带API Key）；Pro 一次性买断（子智能体/远程/模拟器）',
+    features: ['纯Swift原生·零Electron零Node', '直控本机文件/终端/Python脚本', '驱动原生Mac App（辅助功能API）', 'iOS模拟器无障碍树精准自动化测试', 'MCP协议+可复用Skills技能', '子智能体并行委派（Pro）', 'Telegram远程指挥（Pro）', '多云/本地模型(Ollama/MLX)·每步人工批准'],
+    note: '真实体验笔记（基于 Product Hunt 官方发布页、ProductCool/AITNT/PoweredByAI 多源独立报道聚合，赵生尚未亲测）：解决「AI只停在聊天框、碰不到你Mac」的痛点——它是用 Swift 写的原生 macOS 桌面智能体，不像库内多数 OpenClaw 系那样跑在网页或 Node 运行时里，而是真正坐在你的 macOS 上读写文件、跑终端与 Python、驱动原生 App、甚至连接 iOS 模拟器做自动化测试。差异点：①"原生 Swift、零 Electron/Node"是独门卖点，启动快、占用小、Apple 公证签名，区别于用 WebView/Node 包装的同类；②"受监督代理"模型最严格——所有重要操作（写文件、rm、控 App）每步都必须你点批准，自主模式需手动开启，安全边界比库内默认开干的 Agent 更稳；③iOS 模拟器走"无障碍树"而非截图识别，自动化测试更准，对 iOS/macOS 开发者是独有能力；④模型无关且本地优先（Ollama/MLX 全离线），数据不出本机。短板：仅 macOS、无 Win/Linux 版；高级能力（子智能体/Telegram远程/模拟器驱动）在 Pro 买断档；官网/仓库未公开可直达页面，主要经 Product Hunt+Gumroad 分发。',
+  },
 ]
