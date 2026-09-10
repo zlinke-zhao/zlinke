@@ -2256,5 +2256,27 @@ export const tools: Tool[] = [
       '先划边界再上岗：高危操作默认拦截、敏感数据本地存、组织级权限管控',
       '连续上下文：岗位档案+群协同+已确认记忆+可复用技能，跨夜跨任务持续'],
     note: '真实体验笔记（基于阿里云开发者社区官方发文、虎嗅/品玩/PChome/环球网/新浪财经多源独立报道聚合，赵生尚未亲测）：解决「Agent只会聊天、碰不到真实工作流」的痛点——阿里 Qoder 家族 2026-09-03 正式发布的「生产级 AI 数字员工平台」，把桌面 Agent 升级为嵌入企业真实业务现场的 Waker（数字员工）。差异点：①库内多为个人/单助手桌面 Agent（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop），QoderWake 是唯一的「组织级数字员工团队」——每位 Waker 有工号、常驻钉钉/飞书/企业微信群、被@就接活、7×24在岗，从「工具」变成「HC」；②岗位制最彻底：预置10类工种、一句话建岗，且能组 Waker 群组按协作 SOP 分派、互审、交接，比库内单 Agent 串行更进一步；③WakerFlow 把跑顺的多步流程存成可复用模板，是组织知识沉淀，库内少见；④安全边界企业级：高危拦截、敏感数据本地、组织级权限与统一看板，区别于个人向工具。短板：偏企业/团队部署，个人轻量场景不如单助手顺手；正式企业版定价未完全公开；与库内 qoderwork（Qoder 桌面助手，已并入千问办公）同系不同品，本条目专指 QoderWake 数字员工平台。',
+  },
+  {
+    id: 'highlight-ai',
+    name: 'Highlight AI',
+    description: '跨全部App的桌面AI助理：本地捕获屏幕/会议上下文，自动起草邮件、工单与纪要。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://highlightai.com',
+    price: 'Mac/Windows 桌面端有免费版（基础模型、本地处理）；Pro 约 $20/月解锁旗舰模型（GPT/Claude/Gemini/Grok）与更高额度，可自带 API Key；企业版按席位与合规需求定价。本地 OCR、SOC 2 Type II、官方声明不用于模型训练。',
+    features: [
+      '捕获式桌面层：系统级浮窗常驻，本地 OCR + 无障碍树读取任意活动窗口，无需写提示词即可就屏幕内容发问',
+      '会议无机器人：本地转录系统音频，自动生成纪要、决策与行动项，不向会议派发可见 bot 参与者',
+      '跨 App 理解：把浏览器、文档、代码编辑器、通讯工具的上下文并在一次对话里引用，告别跨应用复制粘贴',
+      '起草回写：把下一步直接草拟进 Gmail/Slack/Notion/GitHub/Linear 等工具，需你点头才发出，不替你擅自行动',
+      '每日简报与收尾：早上出当日优先级简报，晚上汇总待办与后续，承诺与决策沉淀为可检索的共享团队记忆',
+      '多模型路由：按任务自动选最优模型，或 @ 指定 Claude/GPT/Gemini/Perplexity；Pro 可自带 Key',
+      '隐私优先：捕获全本地、屏幕数据不常驻云端、加密、SOC 2 Type II、明确不用于训练，可随时排除指定 App/窗口',
+      '开放平台：开发者可上架扩展（类 Raycast 但跨 Mac/Windows），支持 MCP Server 接自有工具；技术衍生自 Medal 游戏剪辑',
+      '来头与规模：2024 从 Medal 分拆，2026-03 完成 4000 万美元 A 轮（Khosla Ventures 领投，a16z/General Catalyst 等跟投），前 Discord 产品 VP Sergei Sorokin 任 CEO，宣称 50 万+ 用户'
+    ],
+    note: '真实体验笔记（基于官网 highlightai.com 与 TechCrunch/SiliconANGLE/BusinessWire/CB Insights 多源独立报道聚合，赵生尚未亲测）：解决「AI 只在单个窗口里聪明、跨工具就失忆」的协调税痛点——Highlight AI 是 2024 年从游戏剪辑公司 Medal 分拆、2026-03 完成 4000 万美元 A 轮（Khosla Ventures 领投、a16z/General Catalyst 跟投）、前 Discord 产品 VP 掌舵、宣称 50 万+ 用户的「跨全部 App 的桌面 AI 操作层」。差异点：①与库内 OpenClaw 系（聊天驱动单助手）、Clairvoyance（桌面员工组织图）、QoderWake（企业数字员工）、MiMo Desktop（小米硬件生态）都不同，Highlight 的核心是「捕获式」——系统级浮窗本地读取屏幕+会议音频，你不用写提示词，它主动就当前上下文帮忙；②它把产出直接草拟回 Gmail/Slack/Notion/GitHub/Linear 等真实工具（需你批准才发），把「AI 生成」接回「工作发生的地方」，而不是另开一个聊天框；③隐私姿态最克制：本地 OCR、屏幕数据不常驻云端、SOC 2、明确不训练，区别于把上下文送云的产品；④开放平台思路（类 Raycast 跨 Mac/Windows）让它有生态延展性。短板：屏幕实时理解官方标 Coming Soon（当前主要靠已连应用的历史+本地会议转录）；Windows 端 Pro 额度与卸载体验有用户吐槽；无移动端；中文生态与微信/钉钉/飞书接入暂无。整体定位清晰、资金与用户基数扎实，是库内桌面智能体里少见的「个人跨 App 协调层」而非「单任务执行器」。'
   }
 ]
