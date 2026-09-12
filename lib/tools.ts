@@ -2299,4 +2299,24 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官网 ai-indeed.com 产品页与关于页、新华网2026-08-05报道、SegmentFault《2026年国内外六大产品能力全景透视》、今日头条/余杭发布多源独立报道聚合，赵生尚未亲测）：解决「大模型只会聊天、碰不到企业里那些没API的老旧系统」的落地最后一公里痛点——实在智能是2018年成立的国产RPA老牌厂商，把自研RPA执行能力与TARS大模型、ISSUT屏幕语义理解融成「会思考也能动手」的桌面智能体。差异点：①库内 OpenClaw系/Clairvoyance/Naseem/MiMo Desktop 等多依赖模型调API或浏览器自动化，实在Agent的独门是 ISSUT 像素级「看懂屏幕」，无需任何接口即可操作30年前的ERP、MES、SCADA等老旧软件，对国企/制造业的存量异构系统特别友好，是真正的「国产Claw(龙虾)」；②2026年7月以90.2%任务成功率登顶OSWorld全球计算机操作智能体总榜、为首个破90%的Computer-Use Agent，工程能力有硬指标背书；③全栈私有化+信创适配（统信/麒麟），满足政企数据安全与国产化替代刚需，区别于库内偏个人/海外的桌面Agent；④无界版嵌入钉钉/飞书、企业运营管理平台支持多智能体协作与知识库，偏「组织数字员工」而非单助手。短板：消费级个人轻量场景不如单助手顺手，企业版授权成本与部署门槛较高，个人免费试用主要体验标准化能力；作为偏B端的成熟产品，端到端「对话即交付」的丝滑度与库内面向个人的Agent仍有定位差异，需赵生后续亲测校准。',
   },
+  {
+    id: 'aipoch-open-science',
+    name: 'Open Science（AIPOCH）',
+    description: '开源本地优先的科研AI工作台：跑Python/R、产出可溯源成果。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://aipoch.com/',
+    price: '完全开源免费（Apache-2.0），桌面端 macOS/Windows/Linux 可直接下载安装；模型按需自带 API Key 或接自定义网关，无订阅锁定。',
+    features: [
+      '本地优先科研工作台：项目/会话/文件/产物版本与证据默认存本机，自托管、不上传云端',
+      '执行而非建议：编排 Agent 读文件、跑 Python/R、联网检索、调科学数据连接器，每步需你批准',
+      '可溯源产物：表格/图/报告为不可变版本，附 Provenance 视图（产生代码、执行历史、输入、环境清单）',
+      '模型无关：内置 15+ 官方模型 API + 自定义网关，或复用 Claude Code/OpenCode/Codex 订阅',
+      '跨平台桌面端 + 科学技能库：550+ 医疗科研 Skills（经 MedSkillAudit 审计）、24+ 科学数据连接器',
+      'HPC 支持：v0.26.0 起远程主机支持按主机 Slurm 提交，兼 SSH；文献库管理 PDF/引用与溯源',
+      '实证背书：2026-09 v0.28.0 发布，GitHub 3.5K+ Stars、17 名贡献者，BiomniBench-DA 公开榜 #1',
+    ],
+    note: '真实体验笔记（基于官网 aipoch.com、GitHub aipoch/open-science README 与多篇官方博客、以及 gstars.dev/moclaw.ai 第三方独立报道聚合，赵生尚未亲测）：解决「科研上下文在聊天框、笔记本、文件管理器、数据库之间反复丢失，结果难以溯源复现」的痛点——AIPOCH 是 2026 年 7 月开源（Apache-2.0）的「本地优先、模型无关」科研 AI 工作台，把科研任务放进持久项目空间：编排 Agent 读文献、跑 Python/R、联网、调 PubMed/生物结构/化学等科学数据连接器，产出带 Provenance 溯源视图的表格/图/报告。差异点：①库内 OpenClaw 系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI 等都是通用生产力/办公桌面 Agent，Open Science 是唯一的「科研可复现」工作台——核心卖点是「产物可溯源、可重放验证」（Re-execute sealed artifact recipes、比对复现文件与原文件），专门解决学术/科研的可复现性刚需，区别于通用 Agent 的「产出即走」；②本地优先 + 自托管，项目态与证据全留本机，研究数据不进云，对涉及敏感/受控数据的科研场景是硬门槛优势；③模型无关、无锁定——可复用你已有的 Claude Code/OpenCode/Codex 订阅或自定义网关，企业/课题组不被单一厂商绑定；④独门科学技能库（550+ 医疗科研 Skills，经 MedSkillAudit 发布前审计）与 24+ 科学数据连接器，把领域知识沉淀成可复用、可审计的方法包，是通用 Agent 没有的垂直深度；⑤2026-09-10 已发 v0.28.0、v0.26.0 起支持 Slurm HPC 集群与文献库，GitHub 3.5K+ Stars、17 贡献者、BiomniBench-DA 公开榜 #1，工程与学术背书扎实。短板：受众窄——偏科研/数据密集学科（生科/化学/统计/材料/物理/环境），对普通办公用户过重；作为 2026-07 才开源的新项目，生态与长期稳定性待观察；需要一定命令行/Python/R 基础，非纯小白向。整体是库内桌面智能体里少见的「科研可复现工作台」垂直品类，与现有通用 Agent 形成清晰互补。',
+  }
 ]
