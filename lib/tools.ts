@@ -2318,5 +2318,26 @@ export const tools: Tool[] = [
       '实证背书：2026-09 v0.28.0 发布，GitHub 3.5K+ Stars、17 名贡献者，BiomniBench-DA 公开榜 #1',
     ],
     note: '真实体验笔记（基于官网 aipoch.com、GitHub aipoch/open-science README 与多篇官方博客、以及 gstars.dev/moclaw.ai 第三方独立报道聚合，赵生尚未亲测）：解决「科研上下文在聊天框、笔记本、文件管理器、数据库之间反复丢失，结果难以溯源复现」的痛点——AIPOCH 是 2026 年 7 月开源（Apache-2.0）的「本地优先、模型无关」科研 AI 工作台，把科研任务放进持久项目空间：编排 Agent 读文献、跑 Python/R、联网、调 PubMed/生物结构/化学等科学数据连接器，产出带 Provenance 溯源视图的表格/图/报告。差异点：①库内 OpenClaw 系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI 等都是通用生产力/办公桌面 Agent，Open Science 是唯一的「科研可复现」工作台——核心卖点是「产物可溯源、可重放验证」（Re-execute sealed artifact recipes、比对复现文件与原文件），专门解决学术/科研的可复现性刚需，区别于通用 Agent 的「产出即走」；②本地优先 + 自托管，项目态与证据全留本机，研究数据不进云，对涉及敏感/受控数据的科研场景是硬门槛优势；③模型无关、无锁定——可复用你已有的 Claude Code/OpenCode/Codex 订阅或自定义网关，企业/课题组不被单一厂商绑定；④独门科学技能库（550+ 医疗科研 Skills，经 MedSkillAudit 发布前审计）与 24+ 科学数据连接器，把领域知识沉淀成可复用、可审计的方法包，是通用 Agent 没有的垂直深度；⑤2026-09-10 已发 v0.28.0、v0.26.0 起支持 Slurm HPC 集群与文献库，GitHub 3.5K+ Stars、17 贡献者、BiomniBench-DA 公开榜 #1，工程与学术背书扎实。短板：受众窄——偏科研/数据密集学科（生科/化学/统计/材料/物理/环境），对普通办公用户过重；作为 2026-07 才开源的新项目，生态与长期稳定性待观察；需要一定命令行/Python/R 基础，非纯小白向。整体是库内桌面智能体里少见的「科研可复现工作台」垂直品类，与现有通用 Agent 形成清晰互补。',
+  },
+  {
+    id: 'amazon-quick',
+    name: 'Amazon Quick（亚马逊云桌面AI助手）',
+    description: 'AWS出品桌面AI助手：连本地文件与Slack/Outlook/Teams，建个人知识图谱、后台跑Agent。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://aws.amazon.com/quick/',
+    price: '免费注册即用（无需AWS账号），Free档桌面端30天试用；Plus/Enterprise含桌面权限与SSO；数据不用于训练，跑在AWS IAM/VPC与企业合规框架下。',
+    features: [
+      '桌面原生（macOS Apple Silicon / Windows 10+ x64）：本地文件智能索引，不上传即可理解',
+      '个人知识图谱：跨项目/人脉/文件自动建联，越用越懂你的角色、优先级与关系',
+      '后台常驻Agent：定时简报、会议准备、闭电脑后仍在云端跑任务，移动端同步动态信息流',
+      '连接一切：Slack/Teams/Outlook/Gmail/Google日历/CRM/数据库，一处提问跨源取数',
+      '对话即交付：直接生成Word/Excel/PPT/图表/看板/无代码App，并草拟回写各工具',
+      '深度研究+工作流自动化：多源检索成报告，监控变化、标记重点、自动执行后续',
+      '企业级可信：IAM/VPC/合规认证、数据不出域、支持MCP开放标准避免厂商锁定',
+      '发布背书：AWS 2026-09-11 官宣桌面端 GA，LabCorp/Southwest/PGA Tour 等已试用'],
+    note: '真实体验笔记（基于官网 aws.amazon.com/quick 系列产品页/桌面页/下载页、AWS 官方文档、GeekWire(2026-09-10)/TechWeb/网易(亚马逊云科技官方通稿 2026-09-11)/QUASA 多源独立报道聚合，赵生尚未亲测）：解决「工作信息散落在几十个 SaaS 与本地文件里、AI 只在单一聊天框聪明」的痛点——AWS 2026-09-11 官宣 Amazon Quick 桌面端 GA（macOS/Windows），把"连接一切工作上下文"做成核心卖点。差异点：①库内 OpenClaw系/Clairvoyance/Naseem/MiMo Desktop 多是"单助手在本机执行"，Highlight AI 是"捕获屏幕的跨 App 协调层"；Amazon Quick 的独门是「个人知识图谱」——把 Slack/Outlook/Teams/Gmail/CRM/本地文件的关系、项目、人脉自动编织成一张持续进化的图谱，越用越懂你，区别于库内偏"即时指令-执行"的产品；②"动态信息流"+后台常驻 Agent 是独门体验：Agent 在云端持续跑、电脑关机也不停，第二天手机弹出"已完成/需你拍板"的精简队列，且已自行处理的事项自动消失，把"通知焦虑"反转成"只留决策"，库内少见；③企业级底座最硬：跑在 AWS IAM/VPC 与既有合规认证上、数据不出域、明确不训练你的模型、支持 MCP 开放标准避免厂商锁定，对已经用 AWS 的组织几乎是零摩擦接入，这是 OpenClaw 系/个人向工具没有的信任优势；④覆盖端最全：桌面+网页+移动+浏览器扩展+Office(Word/Excel/PPT/Outlook)+Slack/Teams 全栈嵌入，可对话式生成文档/看板/无代码App 并草拟回写。短板：强绑定 AWS 生态、国内访问与合规存疑（.com 境外域、需 AWS 账号或企业 SSO），Free 档桌面端仅 30 天试用、Plus/Enterprise 才含桌面权限，个人轻量用户不如单助手顺手；作为 2026-09 才 GA 的新桌面端，长期稳定性与中文支持待观察，需赵生后续亲测校准。整体是库内桌面智能体里少见的「企业级全连接知识图谱助手」，与现有通用/个人向 Agent 清晰互补。',
   }
+
 ]
