@@ -2379,4 +2379,24 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官网 www.tabbit.com 产品页/功能页，以及今日头条「2026桌面端办公Agent工具推荐榜」(2026-09-09，Tabbit 位列第一)、美团光年之外(GN06)团队公开发布信息聚合，赵生尚未亲测）：解决「Agent 是个独立聊天框，而人每天最高频的生产力动作是上网查资料、填表单、跨平台汇总」的割裂痛点——Tabbit 把 Agent 直接长进浏览器这一最高频入口，你本就要开网页，Agent 就长在网页里，无需切换 App。差异点：①库内 13+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley 等）多为聊天框、系统浮窗或独立桌面 harness，Tabbit 是少见的「Agentic Browser（智能体浏览器）」品类，Agent 任务模式可自主打开页面、填表、执行操作并整合信息，把浏览器本身变成可执行的桌面生产力中枢；②模型中性是独门：不像豆包/千问绑定自家模型，Tabbit 内置 Kimi/GLM/DeepSeek/MiniMax/Doubao/Qwen/LongCat 等，标准版可同时调用 3 个模型横向对比输出质量，用户自由切换、新模型当天接入；③「妙招」把常用提示词/工作流固化复用，外加标签/分组/本地文件一键@ 的上下文引用与收藏全文检索，直接解决「每次重复输入、上下文割裂」的办公痛点，偏团队效率沉淀；④来源背书强：美团光年之外(GN06)团队出品，2026-03 公测、06 上线 1.0，2026-09 桌面 Agent 评测榜居首，且永久免费降低门槛。短板：本质是浏览器，复杂本地文件操作与系统级桌面操控不如纯桌面 Agent（如实在Agent/MiMo Desktop）；自动化依赖联网与网页结构，遇反爬或改版可能失效；作为 2026 新晋产品，长期稳定性与中文站外生态待观察，需赵生后续亲测校准其 Agent 自主执行的可靠性与边界。整体是库内桌面智能体里少见的「Agentic Browser」品类，与执行型/浮窗型 Agent 形成清晰互补。'
   }
+,
+  {
+    id: 'lumichats',
+    name: 'LumiChats（多模型桌面Agent）',
+    description: '聚合40+前沿模型的AI平台，桌面端支持深度研究、全终端自主编码与离线本地推理，按天付费。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://lumichats.com',
+    price: 'Freemium：每日5条免费消息永久免费；激活日不到$1/天（5M tokens+全模型），不用即$0；无限版$14/月；离线Windows版免费开源(MIT)。',
+    features: [
+      '桌面端（Windows）深度研究：多小时自主研究并附真实引用与来源账本(source ledger)，非浅层网页搜索',
+      '长时自主编码会话：全终端访问，跨整个代码库运行/重构/交付，而非逐文件',
+      'Agent模式：给定目标即自主拆子任务、为每个子任务选最合适模型执行并交付成品',
+      'Study Mode：把AI锁定在上传PDF的指定页范围，逐页标注引用页码，杜绝幻觉',
+      '离线Windows版(LumiChats Offline)：CPU即可跑GGUF本地模型、LocalDocs本地RAG、零遥测零云依赖(MIT)',
+      '按活跃日付费：不到$1/天，对抗$20/月订阅制'
+    ],
+    note: '真实体验笔记（基于官网 lumichats.com 产品页/关于页/下载页，以及 Product Hunt、NeoDrop 独立评测、EveryDev/ProductCool 工具档案、中文 Florx 科技观察 Product Hunt 周榜(2026-08) 多源聚合，赵生尚未亲测）：解决①浏览器AI碰不到本地文件、只能聊天不能真干活；②主流订阅制$20/月、但多数人只在考试/黑客松的8-12天高频使用、六成钱白花；③学生用AI答PDF题却频现幻觉三重痛点。差异点：①库内13+桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit等）多为单助手执行器或浏览器/浮窗Agent，LumiChats是少见的「多模型聚合器+学生向研究工具+离线本地LLM」三位一体，且独有Study Mode——把AI锁死在上传PDF的指定页范围、逐页标注引用，从根上消除学生场景幻觉，库内无同类；②定价反订阅：按活跃日付费不到$1/天、不用即$0，与库内所有订阅/买断型形成清晰差异；③离线Windows版(LumiChats Offline)CPU即可跑GGUF本地模型、LocalDocs本地RAG、零遥测(MIT)，补上库内纯本地隐私推理一块；④桌面端深度研究带source ledger(记录用了哪些网页/引用/是否真读过)，可审计性区别于黑盒Agent。短板：桌面端仅Windows、安装包未代码签名、文档明确不是沙箱(有read-only/审批/自动三模式，首次建议审批模式)；作为2026-01发布的印度独立学生团队产品，国内可用性与中文支持有限；规模与长期可靠性待观察，需赵生后续亲测校准其本地执行安全边界与离线模型质量。整体与库内执行型/浏览器型桌面Agent形成多模型+学习+离线隐私互补。'
+  }
 ]
