@@ -2398,5 +2398,24 @@ export const tools: Tool[] = [
       '按活跃日付费：不到$1/天，对抗$20/月订阅制'
     ],
     note: '真实体验笔记（基于官网 lumichats.com 产品页/关于页/下载页，以及 Product Hunt、NeoDrop 独立评测、EveryDev/ProductCool 工具档案、中文 Florx 科技观察 Product Hunt 周榜(2026-08) 多源聚合，赵生尚未亲测）：解决①浏览器AI碰不到本地文件、只能聊天不能真干活；②主流订阅制$20/月、但多数人只在考试/黑客松的8-12天高频使用、六成钱白花；③学生用AI答PDF题却频现幻觉三重痛点。差异点：①库内13+桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit等）多为单助手执行器或浏览器/浮窗Agent，LumiChats是少见的「多模型聚合器+学生向研究工具+离线本地LLM」三位一体，且独有Study Mode——把AI锁死在上传PDF的指定页范围、逐页标注引用，从根上消除学生场景幻觉，库内无同类；②定价反订阅：按活跃日付费不到$1/天、不用即$0，与库内所有订阅/买断型形成清晰差异；③离线Windows版(LumiChats Offline)CPU即可跑GGUF本地模型、LocalDocs本地RAG、零遥测(MIT)，补上库内纯本地隐私推理一块；④桌面端深度研究带source ledger(记录用了哪些网页/引用/是否真读过)，可审计性区别于黑盒Agent。短板：桌面端仅Windows、安装包未代码签名、文档明确不是沙箱(有read-only/审批/自动三模式，首次建议审批模式)；作为2026-01发布的印度独立学生团队产品，国内可用性与中文支持有限；规模与长期可靠性待观察，需赵生后续亲测校准其本地执行安全边界与离线模型质量。整体与库内执行型/浏览器型桌面Agent形成多模型+学习+离线隐私互补。'
+  },
+  {
+    id: 'astudio',
+    name: 'AStudio（科大讯飞）',
+    description: '科大讯飞桌面AI生产力工作台，星火X2.5+ACode Harness，办公与Coding双空间。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://agent.xfyun.cn/studio-download',
+    price: 'Freemium：新人下载登录领 1000 积分（有效期3个月）；体验版每日登录免费领 100 积分；分档订阅方案已上线（具体档位以官网公示为准）。',
+    features: [
+      '双工作空间：日常空间处理资料整理/检索/报告/数据分析，项目空间关联本地文件夹直接改代码、跑命令',
+      '双任务模式：Plan 模式先出计划分步推进，Goal 模式只给目标由 AI 持续拆解纠偏',
+      'ACode Harness 内核：多模型接入（星火X2.5/DeepSeek等）、多智能体协作、Skills/插件/MCP/外部应用集成',
+      '企业级安全：跨平台沙箱、细粒度权限、风险审批机制，执行过程可观察可打断可纠偏',
+      '本地文件与真实项目直连：读取本地运营数据自动统计PV/DAU/留存并生成交互式看板',
+      '桌面端 macOS（M系列）/Windows 10·11，2026-09-15 发布 v3.3.1，国产后端算力'
+    ],
+    note: '真实体验笔记（基于官网 agent.xfyun.cn 下载页/快速上手页，以及中关村在线、证券时报e公司、中国经济网、AITOP100 等多源公开发布信息聚合，赵生尚未亲测）：解决「桌面AI要么只能聊天、要么只服务单一场景，复杂办公与开发任务仍要在多个软件间反复切换」的割裂痛点——AStudio 把文档、网页、代码、研报等复杂任务收进同一个桌面工作台，AI 从「会回答」走到「能交付」。差异点：①库内已有 16+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats 等），AStudio 是唯一的「国产算力+双工作空间」结构——日常空间管办公、项目空间管 Coding，物理上把办公与开发两类上下文分开，区别于单聊天框/单 harness 的同类；②自研 ACode Harness 运行时是核心护城河：多模型接入（不锁星火，可切 DeepSeek 等）、多智能体协作、Skills/插件/MCP/外部应用一体化，比纯提示词编排更接近「操作系统级」Agent 底座；③Plan/Goal 双模式让复杂任务可规划、可观察、可打断、可纠偏，把 AI 黑箱变成协作过程，且 Goal 模式支持长周期目标持续拆解推进；④企业级安全姿态最显式：跨平台沙箱+细粒度权限+风险审批，执行链路可审计，区别于多数消费级桌面 Agent 的「直接放行」；⑤国产大模型公司（科大讯飞）2026-09-15 刚发布 v3.3.1，全国产算力背书，中文办公场景契合度与可信度高于海外同类。短板：产品极新（发布当天即 9-15，缺大规模真实工作流验证），长期稳定性、定价档位与多模型实际适配质量待观察；桌面客户端体积大（Windows 555MB），主要面向中文生态、海外可用性有限；需赵生后续亲测校准其 Agent 自主执行可靠性与本地文件操作边界。整体与库内执行型/浏览器型/浮窗型桌面 Agent 形成「国产双空间工作台」互补。'
   }
 ]
