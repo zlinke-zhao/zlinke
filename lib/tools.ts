@@ -2418,4 +2418,25 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官网 agent.xfyun.cn 下载页/快速上手页，以及中关村在线、证券时报e公司、中国经济网、AITOP100 等多源公开发布信息聚合，赵生尚未亲测）：解决「桌面AI要么只能聊天、要么只服务单一场景，复杂办公与开发任务仍要在多个软件间反复切换」的割裂痛点——AStudio 把文档、网页、代码、研报等复杂任务收进同一个桌面工作台，AI 从「会回答」走到「能交付」。差异点：①库内已有 16+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats 等），AStudio 是唯一的「国产算力+双工作空间」结构——日常空间管办公、项目空间管 Coding，物理上把办公与开发两类上下文分开，区别于单聊天框/单 harness 的同类；②自研 ACode Harness 运行时是核心护城河：多模型接入（不锁星火，可切 DeepSeek 等）、多智能体协作、Skills/插件/MCP/外部应用一体化，比纯提示词编排更接近「操作系统级」Agent 底座；③Plan/Goal 双模式让复杂任务可规划、可观察、可打断、可纠偏，把 AI 黑箱变成协作过程，且 Goal 模式支持长周期目标持续拆解推进；④企业级安全姿态最显式：跨平台沙箱+细粒度权限+风险审批，执行链路可审计，区别于多数消费级桌面 Agent 的「直接放行」；⑤国产大模型公司（科大讯飞）2026-09-15 刚发布 v3.3.1，全国产算力背书，中文办公场景契合度与可信度高于海外同类。短板：产品极新（发布当天即 9-15，缺大规模真实工作流验证），长期稳定性、定价档位与多模型实际适配质量待观察；桌面客户端体积大（Windows 555MB），主要面向中文生态、海外可用性有限；需赵生后续亲测校准其 Agent 自主执行可靠性与本地文件操作边界。整体与库内执行型/浏览器型/浮窗型桌面 Agent 形成「国产双空间工作台」互补。'
   }
+,
+  {
+    id: 'spectrion',
+    name: 'Spectrion',
+    description: '跨平台个人AI智能体，57+工具自主行动，语音+长期记忆+设备网格。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.1,
+    url: 'https://spectrion.app',
+    price: 'Freemium：自带API密钥（Claude/OpenAI/Ollama/Apple Foundation Models/兼容端点）全功能免费；托管代理订阅 Starter/Pro/Ultra 仅区别消息额度。',
+    features: [
+      '57+ 内置工具：发消息/打电话、日历/提醒、网页搜索抓取、文件管理、相机/相册、地图/音乐/健康等，Agent 真正替你操作',
+      '语音优先：唤醒词免手操作、实时语音识别与TTS、语音克隆，把自然语言直接变成动作',
+      '长期记忆：跨会话向量语义搜索、自动提取事实、支持文档/图片知识库上传',
+      '子代理并行：把复杂任务委派给编程/研究/写作/工具构建等专用子代理并行执行（最多5个）',
+      '设备网格(Device Mesh)：iPhone+Mac 加密跨设备编排成“一个大脑”，任务跨端续跑',
+      '运行时自建工具：JavaScript 沙盒（HTTP/KV/SQLite/加密）+ 连接任意 MCP 服务器，社区商店共享'
+    ],
+    note: '真实体验笔记（基于官网 spectrion.app 产品页/下载页/FAQ，以及 Product Hunt、MWM.ai、Microlaunch 多源独立报道聚合，赵生尚未亲测）：解决“聊天机器人只能对话、系统级助手不会动手”的断层——Spectrion 把 LLM 推理与真实设备工具调用缝合，给定目标即规划多步、调用工具、迭代到完成，是“会干活的 Agent”而非“会聊天的 Bot”。差异点：①库内已有 17+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio 等），Spectrion 平台覆盖最广——iOS/macOS/Windows/Linux 全端原生（多数同类只覆盖 1-2 个桌面系统，且 Spectrion 苹果端用 SwiftUI 原生、非 Electron），且独门 Device Mesh 把“iPhone+Mac”加密编排成“一个大脑”，跨设备续跑任务，库内无同类；②语音优先+语音克隆最完整（含唤醒词免手操作），区别于多数桌面 Agent 仍以打字为主入口；③运行时工具创建（JS 沙盒跑 HTTP/KV/SQLite/加密）+ 连接任意 MCP 服务器 + 社区商店，把“扩展能力”做成开放生态，比封闭 harness 更具可塑性；④多供应商中立（Claude/OpenAI/Ollama/Apple 端侧/兼容端点任意切换，含自带密钥全免费），隐私姿态克制（数据留本机、Keychain 存密钥、无追踪）。短板：由独立开发者 2 个月零融资做成、团队与长期可靠性待观察；核心卖点 Device Mesh/语音克隆等深度能力需 iOS+Mac 生态，纯 Windows/Linux 端体验打折；国内可用性（App Store 区域、Apple 端侧模型）与中文支持有限；需赵生后续亲测校准其本地工具执行安全边界与跨设备编排稳定性。整体与库内执行型/浏览器型/浮窗型桌面 Agent 形成“全端原生+设备网格+语音优先”互补。'
+  }
+
 ]
