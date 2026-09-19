@@ -876,7 +876,7 @@ export const tools: Tool[] = [
     subCategory: 'AI行政助手',
     rating: 4.3,
     url: 'https://pluno.ai',
-    price: '免费模拟 / 付费联系官方',
+    price: '平台费 €850/月起 + AI Copilot €49/席/月 + Deflection €0.90/次',
     features: ['复杂工单自动解决', '历史工单学习', 'Zendesk深度集成', 'SOC-2/GDPR合规'],
   },
   {
