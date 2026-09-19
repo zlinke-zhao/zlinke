@@ -2439,4 +2439,24 @@ export const tools: Tool[] = [
     note: '真实体验笔记（基于官网 spectrion.app 产品页/下载页/FAQ，以及 Product Hunt、MWM.ai、Microlaunch 多源独立报道聚合，赵生尚未亲测）：解决“聊天机器人只能对话、系统级助手不会动手”的断层——Spectrion 把 LLM 推理与真实设备工具调用缝合，给定目标即规划多步、调用工具、迭代到完成，是“会干活的 Agent”而非“会聊天的 Bot”。差异点：①库内已有 17+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio 等），Spectrion 平台覆盖最广——iOS/macOS/Windows/Linux 全端原生（多数同类只覆盖 1-2 个桌面系统，且 Spectrion 苹果端用 SwiftUI 原生、非 Electron），且独门 Device Mesh 把“iPhone+Mac”加密编排成“一个大脑”，跨设备续跑任务，库内无同类；②语音优先+语音克隆最完整（含唤醒词免手操作），区别于多数桌面 Agent 仍以打字为主入口；③运行时工具创建（JS 沙盒跑 HTTP/KV/SQLite/加密）+ 连接任意 MCP 服务器 + 社区商店，把“扩展能力”做成开放生态，比封闭 harness 更具可塑性；④多供应商中立（Claude/OpenAI/Ollama/Apple 端侧/兼容端点任意切换，含自带密钥全免费），隐私姿态克制（数据留本机、Keychain 存密钥、无追踪）。短板：由独立开发者 2 个月零融资做成、团队与长期可靠性待观察；核心卖点 Device Mesh/语音克隆等深度能力需 iOS+Mac 生态，纯 Windows/Linux 端体验打折；国内可用性（App Store 区域、Apple 端侧模型）与中文支持有限；需赵生后续亲测校准其本地工具执行安全边界与跨设备编排稳定性。整体与库内执行型/浏览器型/浮窗型桌面 Agent 形成“全端原生+设备网格+语音优先”互补。'
   }
 
+,
+  {
+    id: 'meta-muse',
+    name: 'Meta Muse',
+    description: 'Meta个人AI智能体：独立安全VM执行任务，WhatsApp对话、审批式操作。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://muse.ai',
+    price: 'Freemium：日常用量免费（有额度上限），超限后可订阅升级或等额度刷新；Meta 称多数需求免费。',
+    features: [
+      'Muse Secure VM：持久隔离的 Linux 虚拟机+完整浏览器，Agent 在独立电脑上干活，不碰你本机隐私数据',
+      'WhatsApp 直聊：在 WhatsApp 里像发消息给人一样指挥 Agent，无需打开独立 App',
+      '审批式执行+完整审计：发邮件/付款等高风险动作先经你批准，所有操作与计划可见可查',
+      '连接你的 App 并自造工具：接入邮箱/日历/Instagram，缺工具时 Agent 自己构建',
+      '安全支付：结账用 Stripe Link 一次性卡号隐藏真实卡，部分购买享 Link 赔付保障（AI 代理首例）',
+      '跨设备续跑：手机/Android/Mac 多端无缝衔接同一任务线程，关 App 也在后台推进'
+    ],
+    note: '真实体验笔记（基于官网 muse.ai 产品页/介绍页/安全页，以及 TechCrunch、aichatdaily、unite.ai、agentpedia 多源独立报道聚合，赵生尚未亲测）：解决“聊天机器人不会动手、系统级助手又太侵入”的两难——Muse 把“会干活的 Agent”做成你日常就在用的入口（WhatsApp/手机/Mac），给定目标即自主规划、在独立安全电脑上执行、高风险动作交你批准。差异点：①库内已有 18+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion 等），它们多在“你的机器上”靠本地执行或屏幕读取/无障碍权限干活；Muse 架构独门——在“独立持久的安全虚拟机(Muse Secure VM)”上跑、配完整浏览器、与本机物理隔离，靠隔离而非索取桌面权限来保安全，库内无同类；②通讯入口最独特——直接长在 WhatsApp 收件箱里，用发消息给人的方式指挥 Agent，无需记得打开工具，是库内其他桌面 harness 都没有的“消费级 IM 原生”形态；③Sentinel 安全子代理在系统层独立运行、所有出网请求须经其批准，叠加审批式执行+完整审计轨迹，安全姿态在库内最显式；④真实交易能力最强——Stripe Link 一次性卡号+Link 赔付保障（AI 代理首例），能代你订票/购物而非只给建议。短板：首发仅限美国（暂不服务中国大陆/港澳），18+ 年龄分级，隐私上 Meta 称对话不进广告系统、可退出训练但仍有数据归属顾虑；需手机号/邮箱登录；Mac 桌面端 2026-09-17 才上线、正式定价未明；国内可用性与中文支持有限，需赵生后续亲测校准其跨设备续跑与审批流稳定性。整体与库内“本机执行型/浏览器型/浮窗型”桌面 Agent 形成“独立安全VM+IM原生+可交易”互补。'
+  }
 ]
