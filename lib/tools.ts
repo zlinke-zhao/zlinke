@@ -2458,5 +2458,43 @@ export const tools: Tool[] = [
       '跨设备续跑：手机/Android/Mac 多端无缝衔接同一任务线程，关 App 也在后台推进'
     ],
     note: '真实体验笔记（基于官网 muse.ai 产品页/介绍页/安全页，以及 TechCrunch、aichatdaily、unite.ai、agentpedia 多源独立报道聚合，赵生尚未亲测）：解决“聊天机器人不会动手、系统级助手又太侵入”的两难——Muse 把“会干活的 Agent”做成你日常就在用的入口（WhatsApp/手机/Mac），给定目标即自主规划、在独立安全电脑上执行、高风险动作交你批准。差异点：①库内已有 18+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion 等），它们多在“你的机器上”靠本地执行或屏幕读取/无障碍权限干活；Muse 架构独门——在“独立持久的安全虚拟机(Muse Secure VM)”上跑、配完整浏览器、与本机物理隔离，靠隔离而非索取桌面权限来保安全，库内无同类；②通讯入口最独特——直接长在 WhatsApp 收件箱里，用发消息给人的方式指挥 Agent，无需记得打开工具，是库内其他桌面 harness 都没有的“消费级 IM 原生”形态；③Sentinel 安全子代理在系统层独立运行、所有出网请求须经其批准，叠加审批式执行+完整审计轨迹，安全姿态在库内最显式；④真实交易能力最强——Stripe Link 一次性卡号+Link 赔付保障（AI 代理首例），能代你订票/购物而非只给建议。短板：首发仅限美国（暂不服务中国大陆/港澳），18+ 年龄分级，隐私上 Meta 称对话不进广告系统、可退出训练但仍有数据归属顾虑；需手机号/邮箱登录；Mac 桌面端 2026-09-17 才上线、正式定价未明；国内可用性与中文支持有限，需赵生后续亲测校准其跨设备续跑与审批流稳定性。整体与库内“本机执行型/浏览器型/浮窗型”桌面 Agent 形成“独立安全VM+IM原生+可交易”互补。'
+  },
+  {
+    id: 'octop',
+    name: 'Octop（腾讯云）',
+    description: '腾讯云开源的自托管多用户、多智能体 AI 助手平台（MIT 协议），一条命令跑起 Web 控制台+CLI+IM 通道，前身是内部项目 LightClaw ACE。',
+    category: 'AI工作台',
+    subCategory: '自托管多智能体',
+    rating: 4.4,
+    url: 'https://octop.cloud',
+    price: '开源免费（MIT）：自托管零许可费，仅需自备 LLM API Key（按模型厂商计费），支持 OpenAI 兼容 API/通义/混元/Ollama。',
+    features: [
+      '单进程自托管：一条 octop run 起服务（默认 8088），Web+CLI+IM 桥接+定时任务共用 SQLite/PostgreSQL，无需 Redis/消息队列',
+      '多用户多专家：管理员管理多成员，独立记忆/工作区/凭证；内置 16 个 MBTI 人格模板 + 10+ 专家模板',
+      'Connector 机制：能力即插件，注册制接入腾讯文档/腾讯会议/Notion/微信读书等约 18 个连接器，也支持 MCP Server',
+      '双向 ACP：可被 Zed/OpenCode 调用（octop acp），也可委派给 Claude Code/Codex/CodeBuddy 执行',
+      'Loop Engineering + RAG：工程化 Agent Loop 自主规划-执行-校验，知识库公共/私有分级、来源可追溯',
+      '安全边界：JWT 用户隔离、工具审批+Shell 防护+敏感脱敏、专家沙箱默认不信任、可完全离线私有部署'
+    ],
+    note: '真实体验笔记（基于 Octop 官方文档、GitHub 仓库 TencentCloud/Octop、腾讯云开发者社区及 AlphaSignal 独立报道，结合赵生在腾讯云轻量服务器实测部署 1.0）：腾讯云 2026-07 开源、2026-09-15 发 1.0 GA 的自托管多智能体平台，MIT 协议、前身 LightClaw ACE。差异点：①库内 18+ 桌面智能体多在本机执行或靠屏幕读取干活，Octop 是服务端单进程统一路由 Web/IM/定时任务的自托管中枢，形态独门；②双向 ACP 让它能既被 Zed/OpenCode 调用、又能委派 Claude Code/Codex，是库内少见的「可嵌入工作流的多智能体服务端」；③Connector 能力即插件 + 约 18 连接器 + MCP，接入腾讯文档/会议等国内生态是差异化。短板：单进程无横向扩展、1.0 生态早期、自主成功率约三分之二、运维有门槛。定位为 WorkBuddy 的互补而非竞品（赵生亲测部署经验已沉淀为公众号 Octop 系列）。'
+  }
+  {
+    id: 'zcode',
+    name: 'ZCode（Z.ai）',
+    description: '智谱 AI 国际品牌 Z.ai 推出的桌面 Agentic Development Environment（ADE），GLM-5.2 官方 IDE，Agent 对话居中、集成文件管理/终端/Git/实时预览。',
+    category: 'AI编程开发',
+    subCategory: 'Agentic IDE',
+    rating: 4.2,
+    url: 'https://z.ai',
+    price: '免费下载；5 天试用（500 万 tokens/天）；正式订阅 GLM Coding Plan 多源口径不一：$18/$72/$160 月(list) 或 ¥16.2/¥64.8/¥144 月；也可 BYOK 按量。',
+    features: [
+      'Goal Mode：设定目标后 Agent 自动多轮规划-执行-校验，验证通过才总结停止，无需手动 continue',
+      '自定义子 Agent：v3.2.0 起每个子 Agent 独立 model/权限/系统提示，以 Markdown 存于 ~/.zcode/agents/',
+      '远程触发：通过微信/飞书/Telegram 在手机上派发编码任务，高权限动作仍需桌面确认',
+      '一体化 ADE：Electron 桌面端（mac/Win/Linux beta）集成 20+ 工具——文件管理器/终端/Git 面板/实时浏览器预览',
+      'MCP + BYOK：支持 MCP 扩展，可接入 Claude/Codex/Gemini/OpenCode 等第三方模型',
+      'GLM-5.2 内核：MoE 744B 总参/40B 激活、1M 上下文、MIT 开源、推理 High/Max 双档'
+    ],
+    note: '真实体验笔记（基于 Z.ai 官方介绍、ZCode 公开 changelog 及 Digital Applied、InformerTech、DevOps.com、TechPillow、cldnavi 独立报道，赵生尚未完整亲测编码、已规划 ZCode 入门教程系列）：Z.ai（智谱国际品牌）2026-07-01 当周发布的桌面 ADE，GLM-5.2 官方 IDE，Agent 优先范式（对话居中、工具环绕）。差异点：①库内 Cursor/Claude Code/OpenCode/Windsurf 多为编辑器优先或 CLI，ZCode 是模型厂商自建驾驶舱路线，与 Anthropic Claude Code、OpenAI Codex CLI 同类；②手机远程触发（微信/飞书/Telegram）是库内编码 Agent 少见的移动层；③GLM-5.2 性价比炸裂（约 Opus 五分之一成本、1M 上下文、MIT 开源）是核心卖点。短板：订阅定价多源口径不一（$18/$72/$160 与 ¥16.2/¥64.8/¥144 并存）、客户端本身闭源引争议、长程 Agent 稳定性仍落后 Opus 4.8、Linux 仍 beta。推荐给 GLM-5.2 用户与成本敏感团队。'
   }
 ]
