@@ -2477,7 +2477,26 @@ export const tools: Tool[] = [
       '安全边界：JWT 用户隔离、工具审批+Shell 防护+敏感脱敏、专家沙箱默认不信任、可完全离线私有部署'
     ],
     note: '真实体验笔记（基于 Octop 官方文档、GitHub 仓库 TencentCloud/Octop、腾讯云开发者社区及 AlphaSignal 独立报道，结合赵生在腾讯云轻量服务器实测部署 1.0）：腾讯云 2026-07 开源、2026-09-15 发 1.0 GA 的自托管多智能体平台，MIT 协议、前身 LightClaw ACE。差异点：①库内 18+ 桌面智能体多在本机执行或靠屏幕读取干活，Octop 是服务端单进程统一路由 Web/IM/定时任务的自托管中枢，形态独门；②双向 ACP 让它能既被 Zed/OpenCode 调用、又能委派 Claude Code/Codex，是库内少见的「可嵌入工作流的多智能体服务端」；③Connector 能力即插件 + 约 18 连接器 + MCP，接入腾讯文档/会议等国内生态是差异化。短板：单进程无横向扩展、1.0 生态早期、自主成功率约三分之二、运维有门槛。定位为 WorkBuddy 的互补而非竞品（赵生亲测部署经验已沉淀为公众号 Octop 系列）。'
-  }
+  },
+  {
+    id: 'sider-omni',
+    name: 'Sider Omni Sidebar',
+    description: 'macOS 窗口级 AI 智能体：紧贴任意 App 窗口停靠侧栏，读取屏幕内容就地执行任务，无需复制粘贴。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://sider.ai',
+    price: 'Freemium：基础可用；支持接入已有 ChatGPT / Claude 账号与 Codex 额度（BYOC），高阶能力需订阅 Sider 会员。',
+    features: [
+      '窗口级停靠：单击窗口角落头像即在当前 App（Numbers / Keynote / Mail / Notes / Obsidian / Notion / Safari / Chrome 等）旁停靠 AI 侧栏，随窗口拖拽缩放',
+      '就地执行：直接读取屏幕上已打开的内容操作——读出 Numbers 表格就地生成图表、在 Mail 内用你的语气起草回信、把大纲变成带演讲备注的幻灯片',
+      '每窗独立 Agent：每个窗口拥有独立上下文，可跨窗口引用（如把 Safari 看板数字搬进本地表格），并可并行多任务',
+      '多模型任选：基于 GPT-6 Astra，任务可一键切换不同模型，平衡效果与成本',
+      '自带额度（BYOC）：可接入已有 ChatGPT 或 Claude 账号与 Codex 额度，不必另开订阅',
+      '本地优先隐私：仅在任务需要时读取窗口内容，权限（辅助功能 / 屏幕录制）可分别撤销，对话与产物留在 Mac 本地运行时而非云端'
+    ],
+    note: '真实体验笔记（基于 Product Hunt 官方发布页、chatgate.ai / Coding4Food 实测、exploreai.tools 评测及 Sider 团队官方说明聚合，赵生尚未亲测）：解决「要 AI 帮忙就得把内容复制进另一个聊天窗口」的割裂感——Sider Omni 把 Agent 直接贴在你正在用的窗口旁边，就地读屏、就地改稿、就地出图，全程不离开原 App。它与 Sider 早年的浏览器侧边栏扩展（Sider.AI）是两条线：Omni 是 2026-09-18 才登 Product Hunt（当日 #4、260+ upvotes）的 macOS 原生桌面应用，能停靠在 Numbers / Keynote / Mail 等原生 App 窗口并读取屏幕内容，而非只活在浏览器里。差异点：①库内已有 18+ 桌面智能体（OpenClaw系 / Clairvoyance / Naseem / MiMo Desktop / Highlight AI / Amazon Quick / 实在Agent / Open Science / Zinley / Tabbit / LumiChats / AStudio / Spectrion / Meta Muse 等）多为「独立 harness / 全屏接管 / 浮窗捕获」形态；Omni 是独特的「窗口级内嵌侧栏 Agent」——不接管系统、不另开全屏、不浮窗遮挡，而是紧贴单个 App 窗口、与该窗口内容共生，属于「就地（in-context）Agent 层」而非「全局执行器」，库内无严格同类；②「每窗独立 Agent + 跨窗引用」让多源任务（A 表数字进 B 文档）无需手工导出，区别于库内多数单会话 harness；③BYOC 接已有 ChatGPT / Codex 额度降低订阅门槛，对已在用 OpenAI 生态的用户友好。短板：仅 macOS、早期产品（2026-09-18 才首发）、效果依赖提示词与人工复核、读屏类 Agent 在含凭据 / 客户数据的窗口有泄露风险需谨慎、8/16GB Mac 有性能开销。与库内 Highlight AI（系统浮窗跨 App 协调层）同属「不打断工作流」方向，但 Omni 更轻、更贴单窗、更偏消费级知识工作者，形成互补。'
+  },
   {
     id: 'zcode',
     name: 'ZCode（Z.ai）',
