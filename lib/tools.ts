@@ -2515,5 +2515,24 @@ export const tools: Tool[] = [
       'GLM-5.2 内核：MoE 744B 总参/40B 激活、1M 上下文、MIT 开源、推理 High/Max 双档'
     ],
     note: '真实体验笔记（基于 Z.ai 官方介绍、ZCode 公开 changelog 及 Digital Applied、InformerTech、DevOps.com、TechPillow、cldnavi 独立报道，赵生尚未完整亲测编码、已规划 ZCode 入门教程系列）：Z.ai（智谱国际品牌）2026-07-01 当周发布的桌面 ADE，GLM-5.2 官方 IDE，Agent 优先范式（对话居中、工具环绕）。差异点：①库内 Cursor/Claude Code/OpenCode/Windsurf 多为编辑器优先或 CLI，ZCode 是模型厂商自建驾驶舱路线，与 Anthropic Claude Code、OpenAI Codex CLI 同类；②手机远程触发（微信/飞书/Telegram）是库内编码 Agent 少见的移动层；③GLM-5.2 性价比炸裂（约 Opus 五分之一成本、1M 上下文、MIT 开源）是核心卖点。短板：订阅定价多源口径不一（$18/$72/$160 与 ¥16.2/¥64.8/¥144 并存）、客户端本身闭源引争议、长程 Agent 稳定性仍落后 Opus 4.8、Linux 仍 beta。推荐给 GLM-5.2 用户与成本敏感团队。'
+  },
+  {
+    id: 'kimi-code-desktop',
+    name: 'Kimi Code Desktop（月之暗面）',
+    description: 'Kimi Code 官方桌面客户端：macOS/Windows 下载即用，对话驱动编程 Agent 读写代码、运行命令、自动化任务。',
+    category: 'AI编程开发',
+    subCategory: 'Agentic IDE',
+    rating: 4.3,
+    url: 'https://kimi.com/code',
+    price: 'Freemium：Kimi Code 官方模型需 Kimi Coding Plan 订阅（新会员体系已上线、Code 场景取消周限额）；也可配置第三方模型供应商作 BYOK。',
+    features: [
+      '桌面客户端：macOS（Apple+Intel）/Windows 官方客户端，CLI 任务自动同步到桌面端，图形界面集中管理项目与配置',
+      '多模式协作：Plan 先出可评审计划、Goal 围绕目标持续推进、Swarm 拆分子任务、实验性 Tower 多 Agent 并行',
+      '内置终端/浏览器/Git：直接运行构建测试、操作浏览器验证页面、查看 Git 状态与关联 PR，执行过程清晰可见',
+      '逐文件审阅：右侧面板按文件或单轮修改查看 diff，预览 Markdown/JSON/HTML，聊天中路径点击即开',
+      '截图标注：框选屏幕区域写评论发给 Agent 指哪改哪；标注网页元素自动捕获信息并附截图',
+      '模型底座：搭载 Kimi K3，登录 Kimi 账号用官方模型，或配置第三方供应商作为 Kimi Coding Plan 搭配 Agent'
+    ],
+    note: '真实体验笔记（基于 kimi.com/code 官方产品页、Kimi 官方发布说明及网易/新浪/同花顺/金融界AI电报多源独立报道聚合，赵生尚未亲测）：解决「编程 Agent 只在终端里、看不清改动、多任务乱成一团」的痛点——Kimi Code Desktop 把 Kimi Code 的编程 Agent 从 CLI 搬进图形桌面，对话驱动读写代码、跑命令、自动化任务，过程（工具调用/进度/diff）全可见、可点开、可评审。差异点：①库内 kimi 是纯聊天机器人、kimi-work 是知识/事务工作台（kimi.com/work），本条目是 Kimi Code 的官方桌面编程客户端，三者各管一摊、不重叠；②与库内 ZCode（Z.ai 桌面 ADE、GLM-5.2）同类但厂商不同——Kimi Code Desktop 搭 Kimi K3、强调 Plan/Goal/Swarm/Tower 四档协作粒度（从先出计划让你审、到多 Agent 并行拆工程），尤其 Tower 实验性多 Agent 并行是库内少见的工程级多 Agent 编排；③独门截图标注——框选屏幕/网页元素写评论即发 Agent 指哪改哪，把视觉反馈直接灌进编码上下文，区别于纯文本 diff 流；④内置浏览器验证页面+Git/PR 状态联动，闭环到交付。短板：2026-09-21 刚发布（1.0）、生态与稳定性待观察、订阅定价口径仍在新会员体系过渡期、国内可用性依赖 Kimi 账号；需赵生后续亲测校准其 Swarm/Tower 在大代码库下的可靠性。整体与库内 ZCode 形成国产双桌面 ADE 对照、与 kimi-work 形成编码 vs 事务互补。'
   }
 ]
