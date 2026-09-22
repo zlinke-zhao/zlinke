@@ -2534,5 +2534,26 @@ export const tools: Tool[] = [
       '模型底座：搭载 Kimi K3，登录 Kimi 账号用官方模型，或配置第三方供应商作为 Kimi Coding Plan 搭配 Agent'
     ],
     note: '真实体验笔记（基于 kimi.com/code 官方产品页、Kimi 官方发布说明及网易/新浪/同花顺/金融界AI电报多源独立报道聚合，赵生尚未亲测）：解决「编程 Agent 只在终端里、看不清改动、多任务乱成一团」的痛点——Kimi Code Desktop 把 Kimi Code 的编程 Agent 从 CLI 搬进图形桌面，对话驱动读写代码、跑命令、自动化任务，过程（工具调用/进度/diff）全可见、可点开、可评审。差异点：①库内 kimi 是纯聊天机器人、kimi-work 是知识/事务工作台（kimi.com/work），本条目是 Kimi Code 的官方桌面编程客户端，三者各管一摊、不重叠；②与库内 ZCode（Z.ai 桌面 ADE、GLM-5.2）同类但厂商不同——Kimi Code Desktop 搭 Kimi K3、强调 Plan/Goal/Swarm/Tower 四档协作粒度（从先出计划让你审、到多 Agent 并行拆工程），尤其 Tower 实验性多 Agent 并行是库内少见的工程级多 Agent 编排；③独门截图标注——框选屏幕/网页元素写评论即发 Agent 指哪改哪，把视觉反馈直接灌进编码上下文，区别于纯文本 diff 流；④内置浏览器验证页面+Git/PR 状态联动，闭环到交付。短板：2026-09-21 刚发布（1.0）、生态与稳定性待观察、订阅定价口径仍在新会员体系过渡期、国内可用性依赖 Kimi 账号；需赵生后续亲测校准其 Swarm/Tower 在大代码库下的可靠性。整体与库内 ZCode 形成国产双桌面 ADE 对照、与 kimi-work 形成编码 vs 事务互补。'
+  },
+  {
+    id: 'lapu-ai',
+    name: 'Lapu AI',
+    description: '桌面原生AI智能体：用系统API驱动应用跨App自动办公，本地优先、内置前沿模型免密钥。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://lapu.ai',
+    price: 'Freemium：免费档无需信用卡，含内置前沿模型+本地文件/终端/桌面自动化+权限审批；付费档提升用量额度并增团队/企业能力（SSO/SAML/共享额度/私有部署）。',
+    features: [
+      '桌面原生：macOS 12+/Windows 10·11 真应用，读文件/跑终端/驱动本机 App，非浏览器沙盒',
+      '驱动应用而非鼠标：走 macOS Accessibility / Windows UI Automation 系统控件 API，窗口移动也不失效',
+      '一句话跨 App 工作流：从 A 应用取数、处理后推送到 B 应用，不切标签（Google Workspace/M365/Salesforce/Notion/Jira 等）',
+      '内置前沿模型·免密钥：AI 能力出厂内置，无需自带 OpenAI/Anthropic/Google Key，免费档即可用',
+      '权限审批执行：文件写、终端命令、桌面操作每步需你批准，绝不越权',
+      '可复用技能+定时调度：工作流封装为 Skills 定时自动跑，重复报表/同步免人工',
+      '本地优先隐私：文件与数据全留本机、无 Lapu 云盘、无环境采集，仅单步推理上下文上送',
+      '完整审计轨迹+浮窗 Mini Chat：每步操作实时留痕可查；迷你聊天随桌面应用常驻，不离开当前窗口'
+    ],
+    note: '真实体验笔记（基于官网 lapu.ai 产品页/桌面页/免费档页，以及 ProductCool/SoFarBot 工具档案、Product Hunt 多轮发布聚合，赵生尚未亲测）：解决「AI 只在聊天框/浏览器里聪明，跨 App 的脏活累活还得自己切来切去」的痛点——Lapu AI 是 macOS/Windows 原生桌面智能体，把跨应用自动化压成一句自然语言：从 A 应用取数、处理、推送到 B 应用，全程不切标签。差异点：①库内 19+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code 等）操控电脑多靠截图+坐标点击（OpenAI Operator/Anthropic Computer Use 路线）或像素级屏幕语义（实在Agent 的 ISSUT）；Lapu AI 的核心独门是驱动应用而非鼠标——通过操作系统原生无障碍/UI 自动化 API（macOS Accessibility / Windows UI Automation）直接操控应用控件，窗口移动、布局变化都不会让自动化失效，比截图派更稳、比像素派更轻，库内无严格同类；②永不接管你的光标——不抢鼠标键盘、不全屏接管，区别于库内全屏接管型 Agent，对怕失控的用户友好；③内置前沿模型、免 API Key、免费档无信用卡——对不懂配 Key 的非技术用户门槛最低，库内多数 BYOK 代理都有配置门槛；④七视图（Agent Chat/Mini Chat/Workflows/Editor/Scheduler/Calendar/Settings）+ 完整审计轨迹，每步操作实时留痕可查，透明可审，库内少见。短板：海外产品、国内合规/中文支持与微信/钉钉/飞书接入暂不明确；模型不可自选厂商（内置，缺 BYOK 灵活性）；作为 2026 新晋、长期可靠性与大规模验证待观察；需赵生后续亲测校准其 API 驱动在国产软件（WPS/微信）上的实际可用性与稳定性。整体与库内截图派/像素派桌面 Agent 形成系统 API 驱动互补，是消费/团队向低门槛跨 App 自动化代表。'
   }
 ]
