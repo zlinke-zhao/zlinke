@@ -2448,7 +2448,7 @@ export const tools: Tool[] = [
     subCategory: '桌面智能体',
     rating: 4.3,
     url: 'https://muse.ai',
-    price: 'Freemium：日常用量免费（有额度上限），超限后可订阅升级或等额度刷新；Meta 称多数需求免费。',
+    price: '免费（每周最高 1 亿 tokens） / Power $20 每月 / Maximum $100 每月',
     features: [
       'Muse Secure VM：持久隔离的 Linux 虚拟机+完整浏览器，Agent 在独立电脑上干活，不碰你本机隐私数据',
       'WhatsApp 直聊：在 WhatsApp 里像发消息给人一样指挥 Agent，无需打开独立 App',
