@@ -2556,4 +2556,23 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官网 lapu.ai 产品页/桌面页/免费档页，以及 ProductCool/SoFarBot 工具档案、Product Hunt 多轮发布聚合，赵生尚未亲测）：解决「AI 只在聊天框/浏览器里聪明，跨 App 的脏活累活还得自己切来切去」的痛点——Lapu AI 是 macOS/Windows 原生桌面智能体，把跨应用自动化压成一句自然语言：从 A 应用取数、处理、推送到 B 应用，全程不切标签。差异点：①库内 19+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code 等）操控电脑多靠截图+坐标点击（OpenAI Operator/Anthropic Computer Use 路线）或像素级屏幕语义（实在Agent 的 ISSUT）；Lapu AI 的核心独门是驱动应用而非鼠标——通过操作系统原生无障碍/UI 自动化 API（macOS Accessibility / Windows UI Automation）直接操控应用控件，窗口移动、布局变化都不会让自动化失效，比截图派更稳、比像素派更轻，库内无严格同类；②永不接管你的光标——不抢鼠标键盘、不全屏接管，区别于库内全屏接管型 Agent，对怕失控的用户友好；③内置前沿模型、免 API Key、免费档无信用卡——对不懂配 Key 的非技术用户门槛最低，库内多数 BYOK 代理都有配置门槛；④七视图（Agent Chat/Mini Chat/Workflows/Editor/Scheduler/Calendar/Settings）+ 完整审计轨迹，每步操作实时留痕可查，透明可审，库内少见。短板：海外产品、国内合规/中文支持与微信/钉钉/飞书接入暂不明确；模型不可自选厂商（内置，缺 BYOK 灵活性）；作为 2026 新晋、长期可靠性与大规模验证待观察；需赵生后续亲测校准其 API 驱动在国产软件（WPS/微信）上的实际可用性与稳定性。整体与库内截图派/像素派桌面 Agent 形成系统 API 驱动互补，是消费/团队向低门槛跨 App 自动化代表。'
   }
-]
+,
+  {
+    id: 'sai',
+    name: 'Sai（Simular）',
+    description: 'Simular的机器人秘书：调度云端与本机自主电脑替你做重复屏幕工作，完工短信通知你。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://www.simular.ai',
+    price: '免费起步（7天试用）；Starter Windows $20/月、Mac $200/月，Pro $500/月，企业定制',
+    features: [
+      '机器人秘书：一句话交办，调度一群自主电脑（云端VM或你的设备）执行屏幕工作',
+      '完工通知：任务跑完短信/消息通知你，可关笔记本离开',
+      '神经符号引擎：LLM规划后编译成代码确定性重放，长任务省90%+ token',
+      'OSWorld 榜首：真实电脑操作基准 #1，成本低于 GPT/Opus',
+      '模型无关+跨端：Windows/macOS/Linux，私有云桌面或自带设备(BYOD)执行',
+      '审批护栏：敏感操作需你批准；Simulang 开源脚本语言可教一次重复用'
+    ],
+    note: '真实体验笔记（基于官网 simular.ai 及 Sai GA 公告、Product Hunt 2026-09-21 发布页(#3/405 upvotes)、TechCrunch/The Register/MIT Tech Review/WIRED 独立报道、aitoolsatlas 工具档案聚合，赵生尚未亲测）：解决「桌面 Agent 要么只在本机跑、要么只是聊天框」的断层——Simular（前 DeepMind 科学家创立）把 Sai 做成「机器人秘书(robosecretary)」：你一句话交待桌面杂活，它唤醒一群自主电脑（Simular 提供的云端 VM 或你的设备），把活干完再发消息通知你，可合上笔记本走开。差异点：①库内 20+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Lapu 等）多是「本机执行」或「安全VM隔离」单形态；Sai 独门是「自主电脑舰队(fleet of autonomous computers)」——把任务分布到一群云端/本机电脑并行跑，是库内少见的「多机舰队」而非「单机特工」，主打「完工通知、你只管拍板」的异步秘书体验；②神经符号(neuro-symbolic)引擎是硬核护城河：先用 LLM 做发现与规划，任务理清后编译成代码确定性重放，长周期/重复任务比纯 LLM 包装省 90%+ token、结果更稳，库内无同类；③技术背书最硬：OSWorld 真实电脑操作基准 #1（2.0 版超越 GPT/Opus 且成本更低）、Agent S 获 ICLR 最佳论文、Simulang 开源脚本语言，区别于消费级玩具；④模型无关且跨 Windows/macOS/Linux，支持私有云桌面或自带设备(BYOD)、敏感操作需审批。短板：定价偏贵（Mac Starter 约 $200/月、Pro $500/月），尚无公开用户量/案例；2026-09 才 GA、极新；云端舰队意味着数据会离本机，与库内本地优先 Agent 隐私姿态不同；国内可用性与中文支持待观察，需赵生后续亲测校准其「舰队」执行可靠性与成本。'
+  }]
