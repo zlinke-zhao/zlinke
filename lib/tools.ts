@@ -2575,4 +2575,26 @@ export const tools: Tool[] = [
       '审批护栏：敏感操作需你批准；Simulang 开源脚本语言可教一次重复用'
     ],
     note: '真实体验笔记（基于官网 simular.ai 及 Sai GA 公告、Product Hunt 2026-09-21 发布页(#3/405 upvotes)、TechCrunch/The Register/MIT Tech Review/WIRED 独立报道、aitoolsatlas 工具档案聚合，赵生尚未亲测）：解决「桌面 Agent 要么只在本机跑、要么只是聊天框」的断层——Simular（前 DeepMind 科学家创立）把 Sai 做成「机器人秘书(robosecretary)」：你一句话交待桌面杂活，它唤醒一群自主电脑（Simular 提供的云端 VM 或你的设备），把活干完再发消息通知你，可合上笔记本走开。差异点：①库内 20+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Lapu 等）多是「本机执行」或「安全VM隔离」单形态；Sai 独门是「自主电脑舰队(fleet of autonomous computers)」——把任务分布到一群云端/本机电脑并行跑，是库内少见的「多机舰队」而非「单机特工」，主打「完工通知、你只管拍板」的异步秘书体验；②神经符号(neuro-symbolic)引擎是硬核护城河：先用 LLM 做发现与规划，任务理清后编译成代码确定性重放，长周期/重复任务比纯 LLM 包装省 90%+ token、结果更稳，库内无同类；③技术背书最硬：OSWorld 真实电脑操作基准 #1（2.0 版超越 GPT/Opus 且成本更低）、Agent S 获 ICLR 最佳论文、Simulang 开源脚本语言，区别于消费级玩具；④模型无关且跨 Windows/macOS/Linux，支持私有云桌面或自带设备(BYOD)、敏感操作需审批。短板：定价偏贵（Mac Starter 约 $200/月、Pro $500/月），尚无公开用户量/案例；2026-09 才 GA、极新；云端舰队意味着数据会离本机，与库内本地优先 Agent 隐私姿态不同；国内可用性与中文支持待观察，需赵生后续亲测校准其「舰队」执行可靠性与成本。'
-  }]
+  },
+  {
+    id: 'abacusai-bot',
+    name: 'AbacusAI Bot',
+    description: 'Abacus.AI开源桌面智能体：常驻个人Agent，跨消息应用与100+连接器自动执行任务。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://bot.abacus.ai',
+    price: '免费起步：桌面端完全免费、MIT 开源、无需信用卡；新账号赠 2000 额度，可用 Abacus 模型/自带 Key/本地 OpenAI 兼容模型；支持 OpenRouter 接免费模型，永久免费。',
+    features: [
+      '常驻个人 Agent：每个 Bot 有独立指令/记忆/对话，模板含 Chief of Staff、Morning Brief、Research Scout、Meeting Prep、Follow-Up Tracker',
+      '双入口：桌面应用 + WhatsApp/Telegram/Discord/Slack/Gmail 消息直达，手机也能交办、原地回链',
+      '自动化 Routine：按每小时/每天/工作日/每周/一次性/Webhook 跑无人值守任务（晨报、舆情、周期巡检）',
+      '100+ 连接器与 MCP：GitHub/Jira/Slack/Gmail/Drive/Notion/Calendar/Dropbox/Figma 等，跨栈取数并真实操作',
+      '免费模型路由：自动接入 OpenRouter/Google AI Studio 等免费 LLM，也能自带 Key 或本地 OpenAI 兼容端点',
+      '开源无锁定：MIT 许可证，代码可查可自托管，无隐藏遥测；数据留本机，密钥不外发',
+      '本地优先隐私：跑在你自己的电脑，可选命令沙箱（macOS/Linux 限制写范围）；默认远程无人值守可关',
+      '双形态：一次性受监督会话（Default/Auto-Accept/Plan/Bypass 模式）与常驻 Bot 并存'
+    ],
+    note: '真实体验笔记（基于官方站 bot.abacus.ai、GitHub 仓库 abacusai/abacusai-bot（MIT/TypeScript/v1.0.81/2026-09-21 发布）、aicybr.com 与 theinfotech.info 独立评测、Abacus.AI 官方 PRNewswire 通稿聚合，赵生尚未亲测）：解决「AI 只在聊天框里聪明、跨应用脏活还得自己切」的痛点——AbacusAI Bot 是 Abacus.AI（Bindu Reddy 创立、Coatue/Tiger Global/Index 投资、300万+ 用户）2026-09-21 开源发布的桌面智能体，把「常驻个人 Agent」做成核心：每个 Bot 有独立身份、使命、记忆与对话，不是一次性会话，模板化角色（Chief of Staff/Morning Brief/Research Scout/Meeting Prep/Follow-Up Tracker）直接把 Agent 变成虚拟员工。差异点：①库内 20+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai 等）多为本机执行器、单一 harness、全屏接管或浮窗层；AbacusAI Bot 的 standing agent 独门在于身份与记忆常驻、可复用、跨会话累积，库内无严格同类；②双入口——库内多数要么纯桌面应用（OpenClaw/实在Agent/Spectrion）要么 IM 原生（Zinley/Meta Muse 走 WhatsApp），AbacusAI Bot 同时支持桌面 app 与 WhatsApp/Telegram/Discord/Slack/Gmail 消息直达，手机也能交办、PR 链接回原 App，是「桌面+消息」双通道，库内少见；③Routine 自动化原语最完整（每小时/每天/工作日/每周/一次性/按需/Webhook 七种触发），把 Bot 变无人值守工人（晨报/舆情/周期巡检），库内多数偏手动触发；④100% 免费 + MIT 开源 + 无遥测 + 无锁定 + 本地模型支持（OpenRouter 接免费 LLM、自带 Key、本地 OpenAI 兼容端点），对比库内多数商业桌面 Agent（Spectrion/Meta Muse/Sai 付费、部分 BYOK 有门槛），零成本门槛最低、最透明；⑤背后是真实公司而非独立开发者玩具，可信度与长期可靠性强于纯个人项目；⑥100+ 连接器 + MCP + 技能，跨栈取数并真实操作（GitHub 开 PR/Jira/Slack/Gmail/Drive 等），工程能力完整。短板：常驻 Bot 与 Routine 默认以操作系统用户权限全工具运行（Bypass 模式、无逐步审批），安全需用户自行收窄账号/工作区/连接器权限；Windows 命令暂无内核级沙箱；国内可用性（WhatsApp/海外服务）与中文支持有限；2026-09-21 才 v1.0.81、极新，需赵生后续亲测校准其「常驻 Agent + Routine」在国产软件（WPS/微信）与中文语境下的实际可用性与稳定性。整体与库内桌面 Agent 形成「常驻虚拟员工 + 消息双通道 + 永久免费开源」互补。'
+  }
+]
