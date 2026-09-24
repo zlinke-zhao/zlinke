@@ -112,6 +112,9 @@ export default function ContactPage() {
           <div className="grid grid-cols-2 gap-3 text-sm">
             <a href="/about" className="text-blue-600 dark:text-blue-400 hover:underline">→ 关于我们</a>
             <a href="/privacy-policy" className="text-blue-600 dark:text-blue-400 hover:underline">→ 隐私政策</a>
+            <a href="/terms-of-service" className="text-blue-600 dark:text-blue-400 hover:underline">→ 服务条款</a>
+            <a href="/cookie-policy" className="text-blue-600 dark:text-blue-400 hover:underline">→ Cookie 政策</a>
+            <a href="/disclaimer" className="text-blue-600 dark:text-blue-400 hover:underline">→ 免责声明</a>
             <a href="/articles" className="text-blue-600 dark:text-blue-400 hover:underline">→ 文章列表</a>
             <a href="/tools" className="text-blue-600 dark:text-blue-400 hover:underline">→ AI 工具库</a>
           </div>

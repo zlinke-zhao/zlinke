@@ -26,6 +26,9 @@ export default function Footer() {
               <Link href="/about" className="block hover:text-white transition-colors">关于我们</Link>
               <Link href="/contact" className="block hover:text-white transition-colors">联系我们</Link>
               <Link href="/privacy-policy" className="block hover:text-white transition-colors">隐私政策</Link>
+              <Link href="/terms-of-service" className="block hover:text-white transition-colors">服务条款</Link>
+              <Link href="/cookie-policy" className="block hover:text-white transition-colors">Cookie 政策</Link>
+              <Link href="/disclaimer" className="block hover:text-white transition-colors">免责声明</Link>
             </div>
           </div>
 
@@ -41,7 +44,7 @@ export default function Footer() {
           <p className="text-xs">&copy; {new Date().getFullYear()} ZLinke. All rights reserved.</p>
           <p className="text-xs">
             本站部分链接为联盟营销链接，详见
-            <Link href="/about" className="text-gray-300 hover:text-white ml-1">免责声明</Link>
+            <Link href="/disclaimer" className="text-gray-300 hover:text-white ml-1">免责声明</Link>
           </p>
         </div>
       </div>

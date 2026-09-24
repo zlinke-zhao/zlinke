@@ -127,7 +127,8 @@ export default function AboutPage() {
           <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4">免责声明</h2>
           <p className="text-sm">
             本站部分链接为联盟营销链接（Affiliate Link）。如果你通过这些链接购买产品，我们可能获得少量佣金，
-            这不会增加你的购买成本。所有推荐基于真实评测，不受佣金影响。
+            这不会增加你的购买成本。所有推荐基于真实评测，不受佣金影响。完整条款详见
+            <a href="/disclaimer" className="text-blue-600 dark:text-blue-400 hover:underline">免责声明</a>。
           </p>
         </div>
 
