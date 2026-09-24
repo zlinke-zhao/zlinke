@@ -5,6 +5,13 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 
+// gray-matter/js-yaml 会把裸 ISO 日期解析成 Date 对象，直接塞进 JSX 会触发
+// "Objects are not valid as a React child" 构建错误。这里统一转成 YYYY-MM-DD 字符串。
+function normalizeDate(v: unknown): string {
+  if (v instanceof Date) return v.toISOString().slice(0, 10)
+  return v ? String(v) : ''
+}
+
 const reviewsDirectory = path.join(process.cwd(), 'content/tool-reviews')
 
 export interface ToolReview {
@@ -38,7 +45,7 @@ export function getToolReviewById(id: string): ToolReview | null {
   return {
     id: data.id || id,
     title: data.title || '',
-    date: data.date || '',
+    date: normalizeDate(data.date),
     category: data.category || '',
     rating: data.rating || 4.0,
     price: data.price || '',
@@ -49,7 +56,7 @@ export function getToolReviewById(id: string): ToolReview | null {
     alternatives: data.alternatives || [],
     contentHtml,
     coverImage: data.coverImage,
-    lastUpdated: data.lastUpdated,
+    lastUpdated: data.lastUpdated ? normalizeDate(data.lastUpdated) : undefined,
   }
 }
 
@@ -70,7 +77,7 @@ export function getAllToolReviews(): ToolReview[] {
       return {
         id: data.id || id,
         title: data.title || '',
-        date: data.date || '',
+        date: normalizeDate(data.date),
         category: data.category || '',
         rating: data.rating || 4.0,
         price: data.price || '',
@@ -81,7 +88,7 @@ export function getAllToolReviews(): ToolReview[] {
         alternatives: data.alternatives || [],
         contentHtml: '',
         coverImage: data.coverImage,
-        lastUpdated: data.lastUpdated,
+        lastUpdated: data.lastUpdated ? normalizeDate(data.lastUpdated) : undefined,
       }
     })
     .sort((a, b) => (a.date > b.date ? -1 : 1))

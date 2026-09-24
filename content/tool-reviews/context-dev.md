@@ -1,7 +1,7 @@
 ---
 id: context-dev
 title: Context.dev 深度评测：一个 API 把网页抓取、品牌情报与结构化抽取全包了
-date: 2026-09-04
+date: "2026-09-04"
 category: AI编程开发
 rating: 4.3
 price: 免费档 250（个人邮箱）/500（工作邮箱）一次性积分；付费 Developer $25、Pro $149、Scale $499 每月，Enterprise 2M+ 积分定制（统一积分池，1 积分=1 页抓取，失败不计费）

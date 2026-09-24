@@ -1,7 +1,7 @@
 ---
 id: spotlight-backplanes
 title: Spotlight by Backplanes 深度评测：给你的 Claude Code/Codex 装一个「黑盒透视仪」
-date: 2026-09-04
+date: "2026-09-04"
 category: AI编程开发
 rating: 4.2
 price: 个人与团队永久免费（无席位计数、无试用倒计时）；企业级 org 铺开（归属/用量/特定管控）需联系销售定制，无公开自助付费档

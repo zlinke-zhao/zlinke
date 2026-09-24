@@ -1,7 +1,7 @@
 ---
 id: jiuwenswarm
 title: JiuwenSwarm 蜂群智能体深度评测：华为开源的「多智能体养蜂场」，能否颠覆单 Agent 时代？
-date: 2026-09-04
+date: "2026-09-04"
 category: AI工作台
 rating: 4.2
 price: 开源免费（Apache-2.0），需自配模型（华为云 MaaS / OpenAI / DeepSeek 等）

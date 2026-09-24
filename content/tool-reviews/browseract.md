@@ -1,7 +1,7 @@
 ---
 id: browseract
 title: BrowserAct 深度评测：给 AI Agent 配一个能趟平 Cloudflare 和验证码的浏览器执行层
-date: 2026-09-04
+date: "2026-09-04"
 category: AI编程开发
 rating: 4.3
 price: 免费试用 500 积分/天；按量 $1=1,000 积分（首购 5 折）；订阅档官方标「即将上线」，AppSumo 买断 $49 起

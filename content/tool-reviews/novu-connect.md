@@ -1,7 +1,7 @@
 ---
 id: novu-connect
 title: Novu Connect 深度评测：把 AI Agent 接进 Slack/Teams/WhatsApp 的「通信最后一公里」基础设施
-date: 2026-09-04
+date: "2026-09-04"
 category: AI编程开发
 rating: 4.2
 price: 开源免费起步（Free $0/月，100 对话·2 Agent·2 渠道）；Pro $30/月、Team $250/月、Enterprise 定制（不含模型与 Agent 运行时费用）

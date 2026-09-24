@@ -1,7 +1,7 @@
 ---
 id: viktor
 title: Viktor 深度评测：住在 Slack/Teams 里的 AI 同事，不只是聊天机器人
-date: 2026-09-04
+date: "2026-09-04"
 category: AI办公效率
 rating: 4.4
 price: 免费档 $100 永久有效积分（免信用卡）；Team 套餐 $50/月起（20,000 积分），阶梯至 $300/月（125,000 积分），Enterprise 定制；按工作区计费、不按席位

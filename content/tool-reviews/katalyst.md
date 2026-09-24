@@ -1,7 +1,7 @@
 ---
 id: katalyst
 title: Katalyst 深度评测：把 Salesforce 管道变成 24/7 自动驾驶的 AI 销售同事
-date: 2026-09-04
+date: "2026-09-04"
 category: AI办公效率
 rating: 4.2
 price: 免费试用；平台费 $89/月（100 AI-active 商机）+ 席位 Starter $39 / Core $99 / Agent $249·座/月（年付）；Enterprise 定制

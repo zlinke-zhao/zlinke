@@ -1,7 +1,7 @@
 ---
 id: oxlo-ai
 title: Oxlo.ai 深度评测：把推理账单从 token 焦虑变成按次预算的隐私优先推理 API
-date: 2026-09-04
+date: "2026-09-04"
 category: AI编程开发
 rating: 4.3
 price: 免费（60 次/天）；Pro $80/月（1,000 次/天）；Premium $350/月（5,000 次/天）；Enterprise 定制
