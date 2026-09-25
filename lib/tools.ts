@@ -2596,5 +2596,26 @@ export const tools: Tool[] = [
       '双形态：一次性受监督会话（Default/Auto-Accept/Plan/Bypass 模式）与常驻 Bot 并存'
     ],
     note: '真实体验笔记（基于官方站 bot.abacus.ai、GitHub 仓库 abacusai/abacusai-bot（MIT/TypeScript/v1.0.81/2026-09-21 发布）、aicybr.com 与 theinfotech.info 独立评测、Abacus.AI 官方 PRNewswire 通稿聚合，赵生尚未亲测）：解决「AI 只在聊天框里聪明、跨应用脏活还得自己切」的痛点——AbacusAI Bot 是 Abacus.AI（Bindu Reddy 创立、Coatue/Tiger Global/Index 投资、300万+ 用户）2026-09-21 开源发布的桌面智能体，把「常驻个人 Agent」做成核心：每个 Bot 有独立身份、使命、记忆与对话，不是一次性会话，模板化角色（Chief of Staff/Morning Brief/Research Scout/Meeting Prep/Follow-Up Tracker）直接把 Agent 变成虚拟员工。差异点：①库内 20+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai 等）多为本机执行器、单一 harness、全屏接管或浮窗层；AbacusAI Bot 的 standing agent 独门在于身份与记忆常驻、可复用、跨会话累积，库内无严格同类；②双入口——库内多数要么纯桌面应用（OpenClaw/实在Agent/Spectrion）要么 IM 原生（Zinley/Meta Muse 走 WhatsApp），AbacusAI Bot 同时支持桌面 app 与 WhatsApp/Telegram/Discord/Slack/Gmail 消息直达，手机也能交办、PR 链接回原 App，是「桌面+消息」双通道，库内少见；③Routine 自动化原语最完整（每小时/每天/工作日/每周/一次性/按需/Webhook 七种触发），把 Bot 变无人值守工人（晨报/舆情/周期巡检），库内多数偏手动触发；④100% 免费 + MIT 开源 + 无遥测 + 无锁定 + 本地模型支持（OpenRouter 接免费 LLM、自带 Key、本地 OpenAI 兼容端点），对比库内多数商业桌面 Agent（Spectrion/Meta Muse/Sai 付费、部分 BYOK 有门槛），零成本门槛最低、最透明；⑤背后是真实公司而非独立开发者玩具，可信度与长期可靠性强于纯个人项目；⑥100+ 连接器 + MCP + 技能，跨栈取数并真实操作（GitHub 开 PR/Jira/Slack/Gmail/Drive 等），工程能力完整。短板：常驻 Bot 与 Routine 默认以操作系统用户权限全工具运行（Bypass 模式、无逐步审批），安全需用户自行收窄账号/工作区/连接器权限；Windows 命令暂无内核级沙箱；国内可用性（WhatsApp/海外服务）与中文支持有限；2026-09-21 才 v1.0.81、极新，需赵生后续亲测校准其「常驻 Agent + Routine」在国产软件（WPS/微信）与中文语境下的实际可用性与稳定性。整体与库内桌面 Agent 形成「常驻虚拟员工 + 消息双通道 + 永久免费开源」互补。'
+  },
+  {
+    id: 'solid',
+    name: 'Solid',
+    description: 'AI智能体拥有自己的电脑/账号/预算，端到端接管长任务并自修复、自扩展。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.6,
+    url: 'https://solid.tech',
+    price: '订阅即余额：Starter $40/月、Pro $160/月、Max $640/月，全额转为 AI 用量+机器+代理采购的统一余额，无额外平台费；新用户赠 $20 试用额度；团队与企业版定制（Solid Cloud / 客户 VPC / 本地部署）。',
+    features: [
+      '智能体自备设备：Windows/macOS 电脑、Linux 服务器、iPhone/Android 手机，真正可运行的执行环境',
+      '自备账号与预算：创建 Google/Apple 账号、注册并付费购买服务，全部在你的预算与审批规则内',
+      '无需预置连接器：能用 API 就调 API，缺了就自建集成，或直接像人一样操作网页/桌面/手机 App',
+      '四自能力：自给工具(self-sufficient)、自修复(self-healing)、自改进(self-improving)、自扩展(self-scaling 拉起更多 Solid/Codex/Claude Code 协同)',
+      '关掉笔记本继续跑：任务跨系统、可超 10 小时长任务，完工或需决策时主动通知你',
+      '客户可控边界：自定访问/预算/策略/审批，发消息、买服务、部署变更等高风险动作需你批准',
+      '企业级部署：Solid Cloud、客户自有 VPC 或本地(on-prem)，数据不出受控环境',
+      'Solid API：把常驻智能体嵌进你自己的产品，跨系统保上下文、跑长任务、受你设定管控'
+    ],
+    note: '真实体验笔记（基于官网 solid.tech 产品页/定价页/FAQ、Product Hunt 2026-09-23 发布页 #1/400+ upvotes/4.6 评分(9 评)、devcuration 公司专访与融资报道、chatgate.ai 实测、launly/ProductCool 工具档案聚合，赵生尚未亲测）：解决「模型会想、但卡在第一个依赖——新账号、云机器、付费授权」的断层——Solid（Trevor Keith 创立、旧金山、2024 年成立、MIT/Berkeley/Waterloo 团队、累计融资 $6M）把智能体做成「拥有自己资源」的执行体：你描述结果、定边界，它自己挑机器、建账号、付费买服务、跑完交付，你合上笔记本它继续干。差异点：①库内 22+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot 等）多在「你的机器上」靠本地执行或屏幕读取干活，或像 Sai 调度「自主电脑舰队」做秘书式异步执行；Solid 更进一步的独门是「资源所有权 + 预算治理」——智能体不仅有自己的电脑，还有自己的 Google/Apple 账号、能在你批准的预算内自己花钱买服务，把身份/算力/支付/恢复都收进工作流而非甩给人工，HN 称其为「OpenClaw、Manus 与 Claude Code 的孩子」；②四自能力(self-sufficient/self-healing/self-improving/self-scaling)把「卡住就等你」变成「自己排查修复、记下有效修复、下次更聪明、必要时拉更多智能体并行」，长任务（实测超 10 小时的产品评测）可靠性优于纯聊天框 Agent；③余额式定价（$40/$160/$640 月全额转为 AI+机器+采购统一余额、无平台费）让自主工作的成本可查可控，区别于库内按席位/按量计费的 Agent；④Solid API 支持把常驻智能体嵌进你的产品，企业可走 VPC/本地部署，治理姿态显式。与库内 Sai 最像（同属「自主电脑」路线），区隔在于 Solid 强在账号/预算所有权与审批治理、余额计费与 API 嵌入，Sai 强在神经符号引擎+OSWorld 榜首+秘书式通知；二者互补、各管一摊。短板：极新（09-23 才 #1 发布）、Beta 用户案例均为创始人自述未独立审计；Mac mini/iPhone 等硬件机器内部支持尚未普遍开放；国内可用性、中文支持与微信/钉钉/飞书接入暂不明确；余额可能中途耗尽、用量上限不透明曾被 PH 评测吐槽；需赵生后续亲测校准。'
   }
 ]
