@@ -75,7 +75,7 @@ export const tools: Tool[] = [
     subCategory: '国产助手',
     rating: 4.5,
     url: 'https://kimi.moonshot.cn',
-    price: '免费',
+    price: '免费 / 会员 Go ¥39、Plus ¥79、Pro ¥159、Max ¥559 每月（年付折算）',
     features: ['超长上下文', '文件处理', '联网搜索', '中文优化'],
   },
   {
