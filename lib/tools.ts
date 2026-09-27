@@ -200,7 +200,7 @@ export const tools: Tool[] = [
     subCategory: '英文写作',
     rating: 4.5,
     url: 'https://www.grammarly.com',
-    price: '免费 / Premium $12/月',
+    price: '免费 / Pro $12/月（年付）或 $30/月（月付）',
     features: ['语法检查', '风格优化', '查重检测', '全平台集成'],
   },
   {
