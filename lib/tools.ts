@@ -2618,4 +2618,25 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官网 solid.tech 产品页/定价页/FAQ、Product Hunt 2026-09-23 发布页 #1/400+ upvotes/4.6 评分(9 评)、devcuration 公司专访与融资报道、chatgate.ai 实测、launly/ProductCool 工具档案聚合，赵生尚未亲测）：解决「模型会想、但卡在第一个依赖——新账号、云机器、付费授权」的断层——Solid（Trevor Keith 创立、旧金山、2024 年成立、MIT/Berkeley/Waterloo 团队、累计融资 $6M）把智能体做成「拥有自己资源」的执行体：你描述结果、定边界，它自己挑机器、建账号、付费买服务、跑完交付，你合上笔记本它继续干。差异点：①库内 22+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot 等）多在「你的机器上」靠本地执行或屏幕读取干活，或像 Sai 调度「自主电脑舰队」做秘书式异步执行；Solid 更进一步的独门是「资源所有权 + 预算治理」——智能体不仅有自己的电脑，还有自己的 Google/Apple 账号、能在你批准的预算内自己花钱买服务，把身份/算力/支付/恢复都收进工作流而非甩给人工，HN 称其为「OpenClaw、Manus 与 Claude Code 的孩子」；②四自能力(self-sufficient/self-healing/self-improving/self-scaling)把「卡住就等你」变成「自己排查修复、记下有效修复、下次更聪明、必要时拉更多智能体并行」，长任务（实测超 10 小时的产品评测）可靠性优于纯聊天框 Agent；③余额式定价（$40/$160/$640 月全额转为 AI+机器+采购统一余额、无平台费）让自主工作的成本可查可控，区别于库内按席位/按量计费的 Agent；④Solid API 支持把常驻智能体嵌进你的产品，企业可走 VPC/本地部署，治理姿态显式。与库内 Sai 最像（同属「自主电脑」路线），区隔在于 Solid 强在账号/预算所有权与审批治理、余额计费与 API 嵌入，Sai 强在神经符号引擎+OSWorld 榜首+秘书式通知；二者互补、各管一摊。短板：极新（09-23 才 #1 发布）、Beta 用户案例均为创始人自述未独立审计；Mac mini/iPhone 等硬件机器内部支持尚未普遍开放；国内可用性、中文支持与微信/钉钉/飞书接入暂不明确；余额可能中途耗尽、用量上限不透明曾被 PH 评测吐槽；需赵生后续亲测校准。'
   }
-]
+,
+  {
+    id: 'avibe',
+    name: 'Avibe（本地优先 Agent OS）',
+    description: '本地优先的开源 Agent OS：把 Claude Code/Codex/OpenCode 接入浏览器与微信/飞书等聊天端统一调度。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://avibe.bot/',
+    price: '免费开源（MIT）：本机自托管，自带 Claude Code/Codex/OpenCode 订阅或 API Key，无平台费；远程访问走 avibe.bot 安全隧道（fail-closed，不碰数据面）。',
+    features: [
+      '本地优先：代码、密钥与 Agent 进程全部留在本机，avibe.bot 只做身份与隧道中转',
+      '统一官方 Agent：一个运行时驱动 Claude Code、Codex、OpenCode 三个官方 CLI，不 fork 不套壳',
+      '六工作入口：内置 Workbench（浏览器/桌面/移动 PWA）+ Slack/Discord/Telegram/微信/飞书，同一批会话',
+      'Agent Harness：一句话变持久工作——定时/周期任务、Watch 监听 PR/CI/文件，后台跑并回传历史',
+      'Show Pages：Agent 生成可交互网页（图表/仪表盘/报告/小应用），可圈点批注就地迭代',
+      '运行图与密钥库：多 Agent 协作可视化为图；Vault 显式批准密钥请求、响应不含明文',
+      '人类检查点：按钮/批注/审批让 Agent 只问真正需要的决策；MIT 开源、单命令安装',
+      '跨设备续跑：手机收推送、在微信/飞书里继续指挥同一 Agent，无需搬状态'
+    ],
+    note: '真实体验笔记（基于官网 avibe.bot 产品页（EN/中文）、GitHub avibe-bot/avibe（MIT/Python 3.9+/约 480 stars）、opensourceprojects.dev 与 brightcoding.dev 独立评测、reporank.net 工具档案聚合，赵生尚未亲测）：解决「Agent 活在终端里、关掉笔记本就失联」的痛点——Avibe 是本地优先的开源 Agent OS，把已经在用的官方 Claude Code/Codex/OpenCode 当成「同事」养在你自己的机器上，再给它们一个能跨浏览器和聊天软件到达你的操作面。差异点：①库内 23+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid 等）多为自研 harness 或屏幕接管派；Avibe 独门是「不重写 Agent、只做操作层」——直接驱动三个官方 CLI 原版，不 fork 不套壳，上游更新即可用，库内无同类；②对中文用户最实用的一点：六工作入口原生含微信与飞书（Lark），库内桌面 Agent 几乎都不支持国内 IM，这是少见的「在微信/飞书里继续指挥本机 Agent」能力，与库内 Zinley/Meta Muse 走海外 WhatsApp 形成互补且更贴赵生场景；③Agent Harness 把一句话变成持久工作（定时/周期任务、Watch 监听 PR/CI/文件），后台跑完回传历史，对比库内多数手动触发 Agent 更进一层；④Show Pages 让 Agent 产出可交互网页并能圈点批注就地改，运行图把多 Agent 协作可视化、Vault 显式批准密钥且响应不含明文，安全姿态克制（fail-closed、数据面不出本机）。短板：偏开发者向（curl 单命令安装、Python 3.9+、Windows 全功能需 WSL），社区约 480 stars 偏小、长期维护性待观察；依赖外部付费 Agent（Claude Code/Codex/OpenCode 自有订阅）；仅支持这三款 CLI、无自定义模型接入；远程访问需自建隧道、安全边界落在用户机器上，需赵生后续亲测校准其在微信/飞书实际可用性与中文体验。'
+  }]
