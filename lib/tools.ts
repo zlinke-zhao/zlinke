@@ -2639,4 +2639,24 @@ export const tools: Tool[] = [
       '跨设备续跑：手机收推送、在微信/飞书里继续指挥同一 Agent，无需搬状态'
     ],
     note: '真实体验笔记（基于官网 avibe.bot 产品页（EN/中文）、GitHub avibe-bot/avibe（MIT/Python 3.9+/约 480 stars）、opensourceprojects.dev 与 brightcoding.dev 独立评测、reporank.net 工具档案聚合，赵生尚未亲测）：解决「Agent 活在终端里、关掉笔记本就失联」的痛点——Avibe 是本地优先的开源 Agent OS，把已经在用的官方 Claude Code/Codex/OpenCode 当成「同事」养在你自己的机器上，再给它们一个能跨浏览器和聊天软件到达你的操作面。差异点：①库内 23+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid 等）多为自研 harness 或屏幕接管派；Avibe 独门是「不重写 Agent、只做操作层」——直接驱动三个官方 CLI 原版，不 fork 不套壳，上游更新即可用，库内无同类；②对中文用户最实用的一点：六工作入口原生含微信与飞书（Lark），库内桌面 Agent 几乎都不支持国内 IM，这是少见的「在微信/飞书里继续指挥本机 Agent」能力，与库内 Zinley/Meta Muse 走海外 WhatsApp 形成互补且更贴赵生场景；③Agent Harness 把一句话变成持久工作（定时/周期任务、Watch 监听 PR/CI/文件），后台跑完回传历史，对比库内多数手动触发 Agent 更进一层；④Show Pages 让 Agent 产出可交互网页并能圈点批注就地改，运行图把多 Agent 协作可视化、Vault 显式批准密钥且响应不含明文，安全姿态克制（fail-closed、数据面不出本机）。短板：偏开发者向（curl 单命令安装、Python 3.9+、Windows 全功能需 WSL），社区约 480 stars 偏小、长期维护性待观察；依赖外部付费 Agent（Claude Code/Codex/OpenCode 自有订阅）；仅支持这三款 CLI、无自定义模型接入；远程访问需自建隧道、安全边界落在用户机器上，需赵生后续亲测校准其在微信/飞书实际可用性与中文体验。'
+  },
+  {
+    id: 'rabbit-os3',
+    name: 'Rabbit OS3（兔兔智能体操作系统）',
+    description: 'rabbit 的跨设备智能体操作系统：本机装 agent，云端编排，BYOK 免月费，最多连 5 台设备统一调度。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://rabbit.tech',
+    price: '免费（BYOK 自带模型密钥，按 token 计费给模型方；编排层不收月费）；桌面端 Win/Mac/Linux 与 r1 可用。',
+    features: [
+      '本地 agent：在 Windows/Mac/Linux 安装 rabbit agent，直接读本机文件、跑浏览器、写并执行代码，文件不出本机',
+      'DLAM 直接操控：需看屏幕操作界面时用 DLAM（Direct Large Action Model）点击应用，敏感动作需你确认',
+      'BYOK 免月费：自带前沿模型/云路由/本地开源模型 API Key，对话中可换模型且不丢记忆与技能',
+      '最多 5 台设备：一个账号连 5 台机器（PC/云 VM/r1），OS3 自行决定任务在哪台跑、或跨机协同',
+      '单一连续对话：网页/Telegram/iMessage/SMS/r1 共用一条带记忆的对话线程，走到哪都能续上',
+      '开放技能：把任意公开技能 URL 粘进对话即可安装使用，无需命令行配置',
+      '后台续跑：长任务关掉标签页也能继续，完工或需你决策时再回来'
+    ],
+    note: '真实体验笔记（基于官网 rabbit.tech OS3 产品页/FAQ、PR Newswire 官方通稿(2026-09-22)、rabbit 社区公告、Wired/Verge 报道、progressiverobot/rawscribe/news4hackers 多源实测聚合，赵生尚未亲测）：解决「Agent 被锁在 App 里、关掉笔记本就失联、换模型要推倒重来」三大痛点——Rabbit（r1 设备的公司，创始人 Jesse Lyu，YC 校友、前 Raven/Baidu）把原本绑在自己硬件上的 Agent 抽成跨设备的智能体操作系统 OS3。差异点：①库内 24+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Avibe 等）多为订阅制（按月/席位）或自带算力计费；OS3 独门是「编排层永久免费 + BYOK 按 token 计费」——你出模型 Key，rabbit 不收月费，重 agentic 工作负载反而比订阅更省、轻量则几乎零成本，且对话中换模型不掉记忆；②「单线程跨设备」最彻底：网页/Telegram/iMessage/SMS/r1 共用一条带长期记忆的对话，一个账号连 5 台设备、任务可跨机调度，库内少见；③DLAM 直接操控界面 + 本地 agent 执行 + 文件不出本机，隐私姿态介于「纯云端舰队(Sai/Solid)」与「本机 harness」之间；④从硬件公司(r1)转身软件优先 agentic OS 的故事本身有稀缺性，开放技能通过 URL 即装即用。短板：依赖 rabbit 云做编排与记忆存储（对话/记忆留在其服务器，非端到端本地）；「敏感动作」边界未公开、技能 URL 即装绕过代码审查有供应链风险；r1 硬件口碑此前一般、OS3 成熟度与长期可靠性待观察；国内可用性、中文支持与微信/钉钉接入暂不明，需赵生后续亲测校准。'
   }]
