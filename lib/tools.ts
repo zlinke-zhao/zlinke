@@ -97,7 +97,7 @@ export const tools: Tool[] = [
     subCategory: 'Bot搭建',
     rating: 4.4,
     url: 'https://www.coze.com',
-    price: '免费',
+    price: '免费 / 进阶版 ¥39.9·月 / 高阶版 ¥99·月 / 旗舰版 ¥199·月 / 尊享版 ¥999·月',
     features: ['Bot搭建', '工作流编排', '知识库', '多平台发布'],
   },
   {
