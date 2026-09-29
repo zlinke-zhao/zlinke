@@ -2659,4 +2659,25 @@ export const tools: Tool[] = [
       '后台续跑：长任务关掉标签页也能继续，完工或需你决策时再回来'
     ],
     note: '真实体验笔记（基于官网 rabbit.tech OS3 产品页/FAQ、PR Newswire 官方通稿(2026-09-22)、rabbit 社区公告、Wired/Verge 报道、progressiverobot/rawscribe/news4hackers 多源实测聚合，赵生尚未亲测）：解决「Agent 被锁在 App 里、关掉笔记本就失联、换模型要推倒重来」三大痛点——Rabbit（r1 设备的公司，创始人 Jesse Lyu，YC 校友、前 Raven/Baidu）把原本绑在自己硬件上的 Agent 抽成跨设备的智能体操作系统 OS3。差异点：①库内 24+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Avibe 等）多为订阅制（按月/席位）或自带算力计费；OS3 独门是「编排层永久免费 + BYOK 按 token 计费」——你出模型 Key，rabbit 不收月费，重 agentic 工作负载反而比订阅更省、轻量则几乎零成本，且对话中换模型不掉记忆；②「单线程跨设备」最彻底：网页/Telegram/iMessage/SMS/r1 共用一条带长期记忆的对话，一个账号连 5 台设备、任务可跨机调度，库内少见；③DLAM 直接操控界面 + 本地 agent 执行 + 文件不出本机，隐私姿态介于「纯云端舰队(Sai/Solid)」与「本机 harness」之间；④从硬件公司(r1)转身软件优先 agentic OS 的故事本身有稀缺性，开放技能通过 URL 即装即用。短板：依赖 rabbit 云做编排与记忆存储（对话/记忆留在其服务器，非端到端本地）；「敏感动作」边界未公开、技能 URL 即装绕过代码审查有供应链风险；r1 硬件口碑此前一般、OS3 成熟度与长期可靠性待观察；国内可用性、中文支持与微信/钉钉接入暂不明，需赵生后续亲测校准。'
-  }]
+  },
+  {
+    id: 'deepseek-harness',
+    name: 'DeepSeek Harness（深度求索 桌面智能体）',
+    description: '深度求索官方桌面智能体工作台：一切皆插件，四模式+多Agent协作与轨迹回放。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://www.deepseek.com/harness/',
+    price: '开发者预览免费：登录 DeepSeek 账号或填 API Key；Agent 干活按 token 扣额度，重度使用前需充值或实名认证。原生桌面客户端 Win/macOS 官方数字签名+Apple 公证，从 download.deepseek.com 下载。',
+    features: [
+      '一切皆插件：模型/工具/技能/会话/沙箱/存储/循环/调度/UI 全部插件化，可自由替换重组（Cordis 内核）',
+      '四工作模式：标准（完整工具）、PTC（模型写代码批量编排工具）、极简（双工具编码）、创造（自定义 preset）',
+      '多 Agent 协作：内置智能体团队 + Subagent，任务拆分/并行/递归调度，共享任务看板',
+      '运行轨迹可回放：仅追加会话日志记录提示词/思维链/工具调用/子Agent调度，可恢复/分叉/检索/回放',
+      '原生桌面客户端：Electron 壳打包官方 Agent 整套运行逻辑，双击即装，比 WebUI 版门槛低',
+      '本地工作区 + 自动化：选定本地文件夹当工作区读文件；插件面板内置自动化任务，固定活儿交给 Agent 班底',
+      '开源：同步开放源代码（deepseek-ai/deepseek-harness），开发者可在配置层扩展任一能力'
+    ],
+    note: '真实体验笔记（基于官方产品页 deepseek.com/harness、官方 GitHub deepseek-ai/deepseek-harness、deepseek-harness.github.io 文档站、网易/香港经济日报/ai-bot.cn 多源报道聚合，赵生尚未亲测）：解决「DeepSeek 只会聊天、Agent 活在命令行/网页里、普通人装不上」的痛点——深度求索把 Harness 这个 Agent 运行时从命令行搬进官方签名的原生桌面客户端，双击安装即用，并把模型/工具/技能/会话/沙箱/存储/调度/UI 全部做成可替换插件。差异点：①库内 25+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Avibe/Rabbit OS3 等）多为自研 harness 或屏幕接管派、且多数绑定自家或第三方模型；Harness 独门是「一切皆插件（Cordis 内核）」——在配置层就能换掉模型/工具/技能/调度任一能力而不动源码，是库内少见的「可重组 Agent 运行时」而非固定产品，且官方开源、可审计；②PTC 模式（让模型先写一段程序再批量编排工具调用）把几十步重复操作打包一次交付，区别于库内多数逐轮对话式 Agent，对批量办公/整理/汇总场景更顺手；③Trajectory 轨迹视图把提示词/思维链/工具调用/子Agent调度全部写入仅追加日志，可恢复/分叉/检索/回放整条工作流，可观测性与可复现性在库内桌面 Agent 中属第一梯队；④多 Agent 协作（智能体团队 + Subagent 并行）配共享看板，把复杂任务拆给不同子 Agent。短板：仍处开发者预览（v0.1.7-rc，官方自标预览版）、稳定性兼容性有限；按 token 扣额度且需实名/充值，非纯免费；客户端内置版本更新、依赖 DeepSeek 账号体系；国内可用但与库内 OpenClaw 系「模型无关」定位相反（绑定 DeepSeek 模型），重度自定义需 Node.js 环境；rc 阶段文档与插件生态仍薄，需赵生后续亲测校准其在 Windows 实际体验与中文支持。'
+  }
+]
