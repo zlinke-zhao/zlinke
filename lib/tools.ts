@@ -2679,5 +2679,24 @@ export const tools: Tool[] = [
       '开源：同步开放源代码（deepseek-ai/deepseek-harness），开发者可在配置层扩展任一能力'
     ],
     note: '真实体验笔记（基于官方产品页 deepseek.com/harness、官方 GitHub deepseek-ai/deepseek-harness、deepseek-harness.github.io 文档站、网易/香港经济日报/ai-bot.cn 多源报道聚合，赵生尚未亲测）：解决「DeepSeek 只会聊天、Agent 活在命令行/网页里、普通人装不上」的痛点——深度求索把 Harness 这个 Agent 运行时从命令行搬进官方签名的原生桌面客户端，双击安装即用，并把模型/工具/技能/会话/沙箱/存储/调度/UI 全部做成可替换插件。差异点：①库内 25+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Avibe/Rabbit OS3 等）多为自研 harness 或屏幕接管派、且多数绑定自家或第三方模型；Harness 独门是「一切皆插件（Cordis 内核）」——在配置层就能换掉模型/工具/技能/调度任一能力而不动源码，是库内少见的「可重组 Agent 运行时」而非固定产品，且官方开源、可审计；②PTC 模式（让模型先写一段程序再批量编排工具调用）把几十步重复操作打包一次交付，区别于库内多数逐轮对话式 Agent，对批量办公/整理/汇总场景更顺手；③Trajectory 轨迹视图把提示词/思维链/工具调用/子Agent调度全部写入仅追加日志，可恢复/分叉/检索/回放整条工作流，可观测性与可复现性在库内桌面 Agent 中属第一梯队；④多 Agent 协作（智能体团队 + Subagent 并行）配共享看板，把复杂任务拆给不同子 Agent。短板：仍处开发者预览（v0.1.7-rc，官方自标预览版）、稳定性兼容性有限；按 token 扣额度且需实名/充值，非纯免费；客户端内置版本更新、依赖 DeepSeek 账号体系；国内可用但与库内 OpenClaw 系「模型无关」定位相反（绑定 DeepSeek 模型），重度自定义需 Node.js 环境；rc 阶段文档与插件生态仍薄，需赵生后续亲测校准其在 Windows 实际体验与中文支持。'
+  },
+  {
+    id: 'openai-dots',
+    name: 'OpenAI Dots（常驻AI智能体）',
+    description: 'OpenAI 常驻AI智能体：自带云电脑与浏览器，连 4000+ 应用，跨 ChatGPT/Slack/Teams 主动跟进任务。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://openai.com/index/introducing-dots/',
+    price: '首个 Dot 随 Pro / Business Premium 套餐免费含（不额外收费）；Pro $500/月档含最高额度；企业版经管理员启用试用。与 Dot 对话不计入 ChatGPT 用量，经 Codex/ChatGPT Work 启动的任务照常计费。',
+    features: [
+      '常驻在线：每个 Dot 拥有独立云电脑与浏览器，24/7 围绕你的目标自主推进，关掉笔记本也能续跑，完工或需决策时再回来',
+      '连接 4000+ 应用：通过 ChatGPT 插件生态接入邮件/日历/代码库/办公套件等，可在自己云电脑上读文件、跑浏览器、执行代码',
+      '跨渠道上下文：ChatGPT（桌面/网页/移动）与 Slack/Teams 共用同一份带记忆的对话，走到哪都能续上，未来还将支持短信',
+      '主动研究（只读）：无人交互时用只读工具扫描已连接应用，主动梳理待办、排查遗漏，整理后待你审批，不擅自发消息或改内容',
+      '用户始终掌控：Custom Rules 设定自动/需批准/禁止动作，auto-review 审核涉账户操作，改密码等敏感动作永远留给人；可一键 Take over 接管',
+      '专家 Dot（企业预览）：组织内拥有独立身份与凭据，承担采购/发票/客服等职责，并与微软 Agent 365 治理层集成'
+    ],
+    note: '真实体验笔记（基于 OpenAI 官方博客 openai.com/index/introducing-dots、DevDay 2026 文档、help.openai.com 安全 FAQ，以及 The Decoder / Bernama-Anadolu / 财联社 / 华尔街见闻 / 每经 多源独立报道聚合，赵生尚未亲测）：解决「AI 只能一问一答、离开屏幕就失联、跨应用要重复同步背景」的痛点——OpenAI 把原本逐轮对话的 ChatGPT 升级为「常驻数字员工」，每个 Dot 有独立云电脑、能主动干活、跨渠道续上下文。差异点：①库内 26+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Avibe/Rabbit OS3/DeepSeek Harness 等）多为本机执行或自托管 harness；Dot 走「独立云电脑隔离」路线（与 Meta Muse 的 Secure VM、Sai/Solid 的云端舰队同属云侧，但 OpenAI 把「每个用户一个常驻 dot + 主动研究只读 + auto-review」做成消费级默认体验，规模与渠道整合最强）；②「主动研究」是库内少见的原生只读值守能力——不打扰你也能扫应用找遗漏，区别于多数需主动派活的 Agent；③跨 ChatGPT/Slack/Teams 三端无缝续上下文 + 企业专家 Dot 接 Agent 365 治理，组织级能力最完整；④背靠 12 亿周活 ChatGPT，分发势能远超任何创业团队。与库内 chatgpt（纯对话）、chatgpt-work（逐任务 Agent 工作台）不重叠：Dot 是「常驻、跨渠道、主动值守」的独立产品形态。短板：2026-09-29 刚发布、Pro/Business Premium 分批灰度、EEA/瑞士/英国 Pro 用户暂不可用、企业版仅管理员启用 beta；依赖 OpenAI 账号与 GPT-6 Astra、数据归属与训练政策需个人套餐用户自行设置；dot 用保存的密码登录网站能力隐私面大、需从低风险账户起步；国内可用性与中文支持暂不明，需赵生后续亲测校准。'
   }
 ]
