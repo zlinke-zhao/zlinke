@@ -259,7 +259,7 @@ export const tools: Tool[] = [
     subCategory: '云端开发',
     rating: 4.3,
     url: 'https://replit.com',
-    price: '免费 / Pro $20/月',
+    price: '免费 / Core $20/月 / Pro $100/月',
     features: ['云端IDE', '即时部署', '协作编辑', 'GhostWriter'],
   },
   {
