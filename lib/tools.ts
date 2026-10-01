@@ -2698,5 +2698,24 @@ export const tools: Tool[] = [
       '专家 Dot（企业预览）：组织内拥有独立身份与凭据，承担采购/发票/客服等职责，并与微软 Agent 365 治理层集成'
     ],
     note: '真实体验笔记（基于 OpenAI 官方博客 openai.com/index/introducing-dots、DevDay 2026 文档、help.openai.com 安全 FAQ，以及 The Decoder / Bernama-Anadolu / 财联社 / 华尔街见闻 / 每经 多源独立报道聚合，赵生尚未亲测）：解决「AI 只能一问一答、离开屏幕就失联、跨应用要重复同步背景」的痛点——OpenAI 把原本逐轮对话的 ChatGPT 升级为「常驻数字员工」，每个 Dot 有独立云电脑、能主动干活、跨渠道续上下文。差异点：①库内 26+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/Amazon Quick/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Avibe/Rabbit OS3/DeepSeek Harness 等）多为本机执行或自托管 harness；Dot 走「独立云电脑隔离」路线（与 Meta Muse 的 Secure VM、Sai/Solid 的云端舰队同属云侧，但 OpenAI 把「每个用户一个常驻 dot + 主动研究只读 + auto-review」做成消费级默认体验，规模与渠道整合最强）；②「主动研究」是库内少见的原生只读值守能力——不打扰你也能扫应用找遗漏，区别于多数需主动派活的 Agent；③跨 ChatGPT/Slack/Teams 三端无缝续上下文 + 企业专家 Dot 接 Agent 365 治理，组织级能力最完整；④背靠 12 亿周活 ChatGPT，分发势能远超任何创业团队。与库内 chatgpt（纯对话）、chatgpt-work（逐任务 Agent 工作台）不重叠：Dot 是「常驻、跨渠道、主动值守」的独立产品形态。短板：2026-09-29 刚发布、Pro/Business Premium 分批灰度、EEA/瑞士/英国 Pro 用户暂不可用、企业版仅管理员启用 beta；依赖 OpenAI 账号与 GPT-6 Astra、数据归属与训练政策需个人套餐用户自行设置；dot 用保存的密码登录网站能力隐私面大、需从低风险账户起步；国内可用性与中文支持暂不明，需赵生后续亲测校准。'
+  },
+  {
+    id: 'todesk-ai',
+    name: 'ToDesk AI（ToClaw 跨桌面智能助理）',
+    description: 'ToDesk 基于OpenClaw优化的桌面AI执行助手，融合远控与Computer Use，微信/企微/飞书可远程指挥电脑。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://www.todeskai.com/',
+    price: '新用户微信扫码登录即赠大额免费积分（按调用量计费）；客户端免费下载，远程桌面 Pro/团队版另有增值。',
+    features: [
+      'Computer Use 可视化操作：自研GUI模拟真人键鼠，增强视觉识别与任务智能调度，全软件兼容',
+      '远控多端互通：微信/企业微信/飞书一键接入，手机远程发指令、电脑端自动执行，随时随地掌控',
+      '工作可视化安全把控：实时流程卡片展示每步动作，可暂停/回滚/终止，全程可追溯',
+      '精细化 Skills 技能库（2026-07上线）：电商/法律/财务等微技能模块化，支持对话创建与一键部署',
+      '浏览器插件（2026-09上线）：免装客户端，AI 直接接管浏览器完成导航/操作/采集全流程网页任务',
+      '零门槛开箱：微信扫码登录免 API Key 配置，安装即用，新用户赠大额积分'
+    ],
+    note: '真实体验笔记（基于官方站 todeskai.com、ToDesk 官网 todesk.com、百度百科 ToDeskAI 词条、CSDN 与 aiproducthub 实测聚合，赵生尚未亲测）：解决「OpenClaw 类工具有能力但部署门槛高、普通人装不上、执行黑盒不可控」的痛点——ToDesk 把自家 3 亿+ 用户远控基因与 OpenClaw 深度优化结合，做成开箱即用桌面执行助手。差异点：①库内 20+ 款桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots 等）多为纯桌面 harness；ToDesk AI 独门在「远控+执行」融合，背靠 ToDesk 远程桌面底座，可在微信/企业微信/飞书里远程指挥电脑干活，把 Agent 能力延伸到手机端，区别于库内所有本机/云侧单一形态；②可视化流程卡片把 AI 每步动作实时呈现、可暂停回滚终止，执行透明可审计，是库内少见的「过程可视化」姿态（多数 Agent 只给结果）；③2026-09 浏览器插件让 AI 免装客户端直接接管浏览器走导航到采集全流程，与库内 Tabbit（智能体浏览器）形成不同路线互补；④Skills 技能库（2026-07）+ 零门槛微信扫码免 API Key，普通用户 3 分钟上手，比原版 OpenClaw 部署成本低一个量级。短板：本质是 OpenClaw 深度优化封装、自研内核创新有限；依赖 ToDesk 账号体系与积分计费、深度任务持续消耗；远程执行涉及键鼠模拟与设备授权、隐私面较大需用户自设权限边界；国内可用但英文海外生态支持弱，需赵生后续亲测校准 Windows 实际体验与中文支持。'
   }
 ]
