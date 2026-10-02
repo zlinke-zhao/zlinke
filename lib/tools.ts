@@ -1485,7 +1485,7 @@ export const tools: Tool[] = [
     subCategory: 'AI搜索引擎',
     rating: 4.5,
     url: 'https://metaso.cn',
-    price: '免费',
+    price: '免费 / 会员 ¥39/月（年付 ¥179/年）',
     features: ['无广告搜索', '结构化结果', '深度研究', '学术检索'],
   },
   {
