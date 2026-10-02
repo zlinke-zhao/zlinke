@@ -2717,5 +2717,25 @@ export const tools: Tool[] = [
       '零门槛开箱：微信扫码登录免 API Key 配置，安装即用，新用户赠大额积分'
     ],
     note: '真实体验笔记（基于官方站 todeskai.com、ToDesk 官网 todesk.com、百度百科 ToDeskAI 词条、CSDN 与 aiproducthub 实测聚合，赵生尚未亲测）：解决「OpenClaw 类工具有能力但部署门槛高、普通人装不上、执行黑盒不可控」的痛点——ToDesk 把自家 3 亿+ 用户远控基因与 OpenClaw 深度优化结合，做成开箱即用桌面执行助手。差异点：①库内 20+ 款桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots 等）多为纯桌面 harness；ToDesk AI 独门在「远控+执行」融合，背靠 ToDesk 远程桌面底座，可在微信/企业微信/飞书里远程指挥电脑干活，把 Agent 能力延伸到手机端，区别于库内所有本机/云侧单一形态；②可视化流程卡片把 AI 每步动作实时呈现、可暂停回滚终止，执行透明可审计，是库内少见的「过程可视化」姿态（多数 Agent 只给结果）；③2026-09 浏览器插件让 AI 免装客户端直接接管浏览器走导航到采集全流程，与库内 Tabbit（智能体浏览器）形成不同路线互补；④Skills 技能库（2026-07）+ 零门槛微信扫码免 API Key，普通用户 3 分钟上手，比原版 OpenClaw 部署成本低一个量级。短板：本质是 OpenClaw 深度优化封装、自研内核创新有限；依赖 ToDesk 账号体系与积分计费、深度任务持续消耗；远程执行涉及键鼠模拟与设备授权、隐私面较大需用户自设权限边界；国内可用但英文海外生态支持弱，需赵生后续亲测校准 Windows 实际体验与中文支持。'
+  },
+  {
+    id: 'nami',
+    name: 'Nami（Dainami AI Agent 工作台）',
+    description: '桌面Agent工作台：并排跑Claude Code/Codex/Kimi等，一键换模型不被锁定。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://nami.dainami.ai/',
+    price: '免费开源（MIT/Apache-2.0）；无需注册，用已有 Claude Code/Codex 等订阅额度，无二次账单。',
+    features: [
+      '统一工作台：一屏并排跑多个顶尖 Agent（Claude Code/Codex/Antigravity/OpenCode/Hermes/Kimi），各自独立面板',
+      '一键换模型不被锁定：更好的 Agent 下月发布？一键切进新 Agent 继续干，不换工具不重学',
+      '并行多任务：每个任务独立面板同时推进，一个写邮件、一个发网页、一个理发票、一个排月计划',
+      '自然语言造 Agent：用大白话描述需求即生成可运行 Agent，技能与 MCP 连接同样一句话搞定',
+      '本地文件夹边界：只动你指定的那一个文件夹，文件不出本机；Notion/Gmail/Slack 一键连接',
+      '免费开源：MIT/Apache-2.0，单人也用得起；Mac 已签名上架，Windows/Linux 跟进中'
+    ],
+    note: '真实体验笔记（基于官方站 nami.dainami.ai、GitHub mrdainami/nami README、Vibed Lab Agents 档案、Cult of Claude 技能页、reporank 开源对比 多源聚合，赵生尚未亲测）：解决「顶尖 Agent 各自为政、装十个工具每周换一个、订阅绑死」的痛点——Nami 不做 Agent 本身，而是把 Claude Code/Codex/Kimi/Hermes 等已有 Agent 收进同一桌面工作台，每个任务一块面板、并排同时跑，谁先发新版一键切进工作流，不被任何厂商锁定。差异点：①库内 27+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI 等）几乎都是「自己就是一个 Agent、自己干活」；Nami 是少见的「Agent 工作台/调度层」——不生产 Agent，只把你的 Agent 们编排到同一屏并行作业，属库内空白的「元工作台」品类；②「一句话造 Agent + 一键换模型」把多 Agent 协作门槛降到非工程师也能用（创始人称「不是工程师也能让 AI 干活」），区别于库内偏开发者向的 multi-agent 编排器；③本地文件夹边界（只动指定目录、文件不出本机）+ 用你已有的订阅额度（无 Nami 账号、无二次账单）比多数商业桌面 Agent 更克制透明；④完全免费开源、Mac 已签名公证上架。短板：2026-08 才创建、极新、独立基准数据少；公开版 macOS 优先、Windows/Linux 由社区 fork 跟进（赵生 Windows 需等官方或社区版）；本质是调度层、强依赖你已装好 Claude Code/Codex 等运行时；国内大模型接入与中文支持待观察，需赵生后续亲测校准。'
   }
+
 ]
