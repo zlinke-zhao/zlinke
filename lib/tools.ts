@@ -2736,6 +2736,26 @@ export const tools: Tool[] = [
       '免费开源：MIT/Apache-2.0，单人也用得起；Mac 已签名上架，Windows/Linux 跟进中'
     ],
     note: '真实体验笔记（基于官方站 nami.dainami.ai、GitHub mrdainami/nami README、Vibed Lab Agents 档案、Cult of Claude 技能页、reporank 开源对比 多源聚合，赵生尚未亲测）：解决「顶尖 Agent 各自为政、装十个工具每周换一个、订阅绑死」的痛点——Nami 不做 Agent 本身，而是把 Claude Code/Codex/Kimi/Hermes 等已有 Agent 收进同一桌面工作台，每个任务一块面板、并排同时跑，谁先发新版一键切进工作流，不被任何厂商锁定。差异点：①库内 27+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI 等）几乎都是「自己就是一个 Agent、自己干活」；Nami 是少见的「Agent 工作台/调度层」——不生产 Agent，只把你的 Agent 们编排到同一屏并行作业，属库内空白的「元工作台」品类；②「一句话造 Agent + 一键换模型」把多 Agent 协作门槛降到非工程师也能用（创始人称「不是工程师也能让 AI 干活」），区别于库内偏开发者向的 multi-agent 编排器；③本地文件夹边界（只动指定目录、文件不出本机）+ 用你已有的订阅额度（无 Nami 账号、无二次账单）比多数商业桌面 Agent 更克制透明；④完全免费开源、Mac 已签名公证上架。短板：2026-08 才创建、极新、独立基准数据少；公开版 macOS 优先、Windows/Linux 由社区 fork 跟进（赵生 Windows 需等官方或社区版）；本质是调度层、强依赖你已装好 Claude Code/Codex 等运行时；国内大模型接入与中文支持待观察，需赵生后续亲测校准。'
+  },
+
+  {
+    id: 'moogh',
+    name: 'MOOGH（Windows 本地 AI 工作台）',
+    description: 'Windows 桌面AI智能体：规划多步任务、每步审批后在本机执行文件/命令/自动化。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://www.aimoogh.com/',
+    price: '开放测试中无订阅：按量付费，1 美元=60 积分，充值 $1-$100，无闲置费。',
+    features: [
+      '任务规划与审批：用大白话描述任务，Agent 先出计划（涉及哪些文件/命令）等你批准再执行',
+      '本地文件作用域：仅访问你指定的项目/文件夹，每次读改可见、可回退，文件不出本机',
+      '终端命令代跑：在终端执行命令并先审批，执行后核验结果再回报',
+      '透明行动历史：Agent 所有操作全程留痕，可查看改了什么、调整或还原，无黑盒',
+      '按量付费无订阅：充值积分（1 美元=60 点），只为真实用量付费、无隐藏费无闲置成本',
+      'Windows 原生：Windows 10/11 x64 桌面客户端，v2026.9.30 持续更新'
+    ],
+    note: '真实体验笔记（基于官方站 aimoogh.com、产品下载页 download、官方博客多篇、Product Hunt 发布页 launch=1244591、nav-ai.net 评测、dev.to 作者自述、GitHub youlemei2022-web/moogh-desktop-agent 多源聚合，赵生尚未亲测）：解决「想让 AI 真在我电脑上干活、又怕它乱改文件、还不想被订阅绑死」的痛点——MOOGH 把「每步审批 + 全程留痕 + 文件只动指定目录」做成 Windows 原生桌面 Agent 的默认姿态。差异点：①库内 28+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami 等）里 macOS 优先的偏多（Nami/Sider Omni/Clairvoyance/Naseem 仅或先 Mac），MOOGH 是少见的「Windows 10/11 x64 原生」桌面 Agent，对赵生 Windows 环境直接可用、无需 Mac/虚拟机；②「规划→审批→执行→核验→留痕」五段闭环是库内最显式的审批派之一（与 Naseem 每步批准、Lapu 审计轨迹同脉，但 MOOGH 把「改动前出 diff、改后可还原」做成产品级默认）；③按量付费无订阅、1 美元=60 积分、无闲置费，比库内多数月付/余额制更轻门槛（也区别于 Nami 免费用你已有额度那一路）；④定位「workbench 而非 chatbot」，强调在本机真实完成文件/命令/自动化而非只回答。短板：仍是开放测试早期（v2026.9.30-1、个人开发者 youlemei2022 出品）、长期可靠性与大规模用户验证待观察；模型走 API 调用、需自带 Key 或走其积分；国内可用性/中文支持与 Windows 实际体验需赵生后续亲测校准。'
   }
 
 ]
