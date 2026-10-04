@@ -1566,8 +1566,8 @@ export const tools: Tool[] = [
     subCategory: 'AI音乐',
     rating: 4.3,
     url: 'https://udio.com',
-    price: '免费 / Pro $10/月',
-    features: ['文生音乐', '多风格', '高质量人声', 'Stem分离'],
+    price: '免费 / Standard $10/月（年付 $8/月） / Pro $30/月（年付 $24/月）',
+    features: ['文生音乐', '多风格', '高质量人声', 'Inpainting局部重绘', 'Voice/Style/Key控制'],
   },
   {
     id: 'aiva',
