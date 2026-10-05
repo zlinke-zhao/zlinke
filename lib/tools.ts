@@ -2756,6 +2756,26 @@ export const tools: Tool[] = [
       'Windows 原生：Windows 10/11 x64 桌面客户端，v2026.9.30 持续更新'
     ],
     note: '真实体验笔记（基于官方站 aimoogh.com、产品下载页 download、官方博客多篇、Product Hunt 发布页 launch=1244591、nav-ai.net 评测、dev.to 作者自述、GitHub youlemei2022-web/moogh-desktop-agent 多源聚合，赵生尚未亲测）：解决「想让 AI 真在我电脑上干活、又怕它乱改文件、还不想被订阅绑死」的痛点——MOOGH 把「每步审批 + 全程留痕 + 文件只动指定目录」做成 Windows 原生桌面 Agent 的默认姿态。差异点：①库内 28+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami 等）里 macOS 优先的偏多（Nami/Sider Omni/Clairvoyance/Naseem 仅或先 Mac），MOOGH 是少见的「Windows 10/11 x64 原生」桌面 Agent，对赵生 Windows 环境直接可用、无需 Mac/虚拟机；②「规划→审批→执行→核验→留痕」五段闭环是库内最显式的审批派之一（与 Naseem 每步批准、Lapu 审计轨迹同脉，但 MOOGH 把「改动前出 diff、改后可还原」做成产品级默认）；③按量付费无订阅、1 美元=60 积分、无闲置费，比库内多数月付/余额制更轻门槛（也区别于 Nami 免费用你已有额度那一路）；④定位「workbench 而非 chatbot」，强调在本机真实完成文件/命令/自动化而非只回答。短板：仍是开放测试早期（v2026.9.30-1、个人开发者 youlemei2022 出品）、长期可靠性与大规模用户验证待观察；模型走 API 调用、需自带 Key 或走其积分；国内可用性/中文支持与 Windows 实际体验需赵生后续亲测校准。'
+  },
+
+  {
+    id: 'agent-os',
+    name: 'Agent OS（AIUtil 桌面 Agent 工作台）',
+    description: '本地优先的桌面Agent工作台：统一运行、审阅并记忆 Claude/Codex 等多 CLI，跨设备续跑。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://agentos.aiutil.com/',
+    price: '开源免费（Apache-2.0）；macOS/Windows/Linux 全平台，数据默认存本机，无订阅。',
+    features: [
+      '统一运行：本机或授权远程节点运行 Claude/Codex/Gemini/Pi 等 8 种 AI CLI，一处管理多终端多模型',
+      '任务生命周期：Todo/In Progress/Review/Done 四阶段看板，保留每次运行的事件、重试与交付物审阅',
+      '多面板对比：Web、CLI 与多个 Agent 输出并排比较，单独或批量发送指令，择优采纳',
+      '计划与自动化：单次计划任务 + Cron 定时（含时区与错过策略），关掉 App 也能续跑任务',
+      '记忆与知识沉淀：分层记忆（按人格/工作/项目语境）+ Markdown 知识文章（图谱/标签/全文搜索），跨 Agent 不割裂',
+      '消息通道接入：飞书/个人微信/企业微信/Telegram/WhatsApp 作统一入口，/agents、/use 切换 Agent 并保留独立会话'
+    ],
+    note: '真实体验笔记（基于官方站 agentos.aiutil.com、GitHub aiutil/agent-os、Product Hunt 发布的 Agent OS by AIUtil、掘金技术博客、SheepNav 工具档案 多源聚合，赵生尚未亲测）：解决 AI 工作散成一堆终端窗口、上下文追不回、关掉 App 任务就断的痛点——Agent OS 不替代任何模型或 CLI，而是给高频使用 AI 编程 Agent 的人补一层操作系统层：把 Claude/Codex/Gemini/Pi 等的会话、任务、运行记录、交付物收进同一桌面工作台，并排比较、人工审阅后再标记 Done，把可靠结论沉淀成分层记忆与 Markdown 知识。差异点：①库内已有 29+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH 等），其中 Nami 也是 Agent 工作台/调度层，但 Agent OS 明显更完整——额外补齐分层记忆图加 Markdown 知识库（带图谱/标签/全文搜索，长文不污染 Agent 上下文）、Cron 定时与错过策略（关 App 也能续跑）、交付物审阅门（结论进 Review 才允许标 Done）、授权远程 Runtime 托管（被托管端自行批准能力/目录，控制端仅方向性授权）、以及飞书/微信/Telegram/WhatsApp 消息通道直接下指令，是库内功能最全的元工作台；②与 Sai/Solid 的自主电脑舰队/资源所有权路线不同，Agent OS 专注你自己已有的 CLI 们怎么被统一管起来、记忆怎么沉淀，不自己开电脑也不自己花钱；③本地优先（会话/记忆/知识默认存本机）加 Apache-2.0 开源加三端全平台，透明可控。短板：仍是早期（v0.4.2、2026-07 才首个 AIUtil Release）、独立基准少；macOS 版未经 Apple 公证需手动放行并核对 SHA256；作者称其为编程 Agent 工作台（偏 dev），但消息通道加知识沉淀已超出纯 coding 场景，通用办公向仍需赵生亲测；国内大模型接入与中文支持待观察。'
   }
 
 ]
