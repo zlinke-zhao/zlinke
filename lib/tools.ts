@@ -2776,6 +2776,26 @@ export const tools: Tool[] = [
       '消息通道接入：飞书/个人微信/企业微信/Telegram/WhatsApp 作统一入口，/agents、/use 切换 Agent 并保留独立会话'
     ],
     note: '真实体验笔记（基于官方站 agentos.aiutil.com、GitHub aiutil/agent-os、Product Hunt 发布的 Agent OS by AIUtil、掘金技术博客、SheepNav 工具档案 多源聚合，赵生尚未亲测）：解决 AI 工作散成一堆终端窗口、上下文追不回、关掉 App 任务就断的痛点——Agent OS 不替代任何模型或 CLI，而是给高频使用 AI 编程 Agent 的人补一层操作系统层：把 Claude/Codex/Gemini/Pi 等的会话、任务、运行记录、交付物收进同一桌面工作台，并排比较、人工审阅后再标记 Done，把可靠结论沉淀成分层记忆与 Markdown 知识。差异点：①库内已有 29+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH 等），其中 Nami 也是 Agent 工作台/调度层，但 Agent OS 明显更完整——额外补齐分层记忆图加 Markdown 知识库（带图谱/标签/全文搜索，长文不污染 Agent 上下文）、Cron 定时与错过策略（关 App 也能续跑）、交付物审阅门（结论进 Review 才允许标 Done）、授权远程 Runtime 托管（被托管端自行批准能力/目录，控制端仅方向性授权）、以及飞书/微信/Telegram/WhatsApp 消息通道直接下指令，是库内功能最全的元工作台；②与 Sai/Solid 的自主电脑舰队/资源所有权路线不同，Agent OS 专注你自己已有的 CLI 们怎么被统一管起来、记忆怎么沉淀，不自己开电脑也不自己花钱；③本地优先（会话/记忆/知识默认存本机）加 Apache-2.0 开源加三端全平台，透明可控。短板：仍是早期（v0.4.2、2026-07 才首个 AIUtil Release）、独立基准少；macOS 版未经 Apple 公证需手动放行并核对 SHA256；作者称其为编程 Agent 工作台（偏 dev），但消息通道加知识沉淀已超出纯 coding 场景，通用办公向仍需赵生亲测；国内大模型接入与中文支持待观察。'
+  },
+  {
+    id: 'cua-spaces',
+    name: 'Cua Spaces（跨电脑 Agent 桌面环境）',
+    description: '给 AI Agent 一块可监督的隔离桌面：预装权限、Teleport 免登录搬运应用、双光标实时接管。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://spaces.cua.ai',
+    price: '本地/自有机器免费（source-available，FSL-1.1-MIT）；Pro/Teams 团队版即将推出，云端按云厂商计费。',
+    features: [
+      'Teleport 搬运：把应用的整段会话（标签页/资料/登录态）打包成 session bundle，经用户审批加 Touch ID 移入 Space，跳过重复登录',
+      '双光标监督：RCDP 协议（QUIC）让你与每个 Agent 在同一桌面各有独立光标，随时介入选座填表再交还',
+      '跨电脑桌面：一台 Mac、自有 Mac mini 或 Linux 盒、或自有云，统一列表面板，低延迟实时串流',
+      'Agent-ready 起步：每个 Space 预授权加预装工具，Agent 不再卡在权限弹窗；经 Cua MCP 接 Claude Code/Codex/Cursor/OpenClaw 等',
+      '密钥库：teleport 进来的会话锁在本地 Keyvault（默认锁定、按项审批），端到端密封，连 Cua 中转都看不到内容',
+      '开源底座：Cua Driver（MIT，28.3K 星）驱动真实 App 的点击键入与无障碍树，被 Hermes/Clicky/H Company/Factory Droid 采用'
+    ],
+    note: '真实体验笔记（基于官方站 spaces.cua.ai 与 cua.ai、Cua 文档、GitHub trycua/cua（28.3K 星）、RuntimeWire/AI Primer/Complete AI Training/ExplainX/HeadsUpAI/GenZ NewZ 多源聚合，赵生尚未亲测）：解决 computer-use Agent 最痛的两道墙——权限弹窗与登录墙。差异点：①库内已有 30+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH/Agent OS 等），多数要么自己就是一个 Agent、要么调度已有 Agent，Cua 不做 Agent 本身，而是做 Agent 待的那块桌面——把最难的基础设施（真实 GUI、权限态、会话连续、谁握光标）做成可监督的环境层；②Teleport 把已登录 App 会话（含 Cookie 与登录态）经用户审批搬进 Space，Agent 免登录直接干活，端到端密封加 SHA-256 校验加 Touch ID，比库内 Sai/ToDesk 的远程执行多了一层可审计的会话迁移；③人 Agent 双光标（RCDP over QUIC）是库内少见的实时监督加随时接管姿态，比 Highlight AI 的浮窗捕获更贴近同屏协作；④跨电脑：一台 Mac 加自有机器加自有云统一列表面板，和 Solid（Agent 自带电脑）路线互补（Cua 是你已有的电脑，Solid 是 Agent 自己的电脑）。短板：仅 macOS 首发（Apple Silicon 加 macOS 26 起，Linux 走容器，云可用），赵生 Windows 主环境暂不能直接装；早期 free/early access，Pro/Teams 未出；FSL-1.1-MIT 非纯 MIT（两年后转 MIT、禁竞品）；teleport 进来的会话本质是活的登录态，共享 Space 时需严守只 teleport 自己拥有的机器。需赵生后续亲测校准。'
+
   }
 
 ]
