@@ -585,13 +585,13 @@ export const tools: Tool[] = [
   {
     id: 'xunfei-zhiwen',
     name: '讯飞智文',
-    description: '科大讯飞推出的AI文档生成工具，支持一键生成PPT、Word文档，特别适合中文办公场景。',
+    description: '科大讯飞推出的AI文档生成工具，支持一键生成PPT、Word文档，特别适合中文办公场景，独有语音输入生成PPT能力。',
     category: 'AI办公效率',
     subCategory: 'AI生成PPT',
     rating: 4.2,
-    url: 'https://zw.xfyun.cn',
-    price: '免费 / Pro ¥99/月',
-    features: ['AI生成PPT', '中文优化', '语音输入', '模板丰富'],
+    url: 'https://zhiwen.xfyun.cn',
+    price: '免费 / Pro ¥169/24个月 / Ultra ¥549/24个月',
+    features: ['AI生成PPT', 'AI生成Word', '语音输入生成', '多语种(11种)', 'AI演示官数字人', '智能演练'],
   },
   {
     id: 'chatppt',
