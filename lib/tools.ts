@@ -2796,6 +2796,26 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官方站 spaces.cua.ai 与 cua.ai、Cua 文档、GitHub trycua/cua（28.3K 星）、RuntimeWire/AI Primer/Complete AI Training/ExplainX/HeadsUpAI/GenZ NewZ 多源聚合，赵生尚未亲测）：解决 computer-use Agent 最痛的两道墙——权限弹窗与登录墙。差异点：①库内已有 30+ 桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH/Agent OS 等），多数要么自己就是一个 Agent、要么调度已有 Agent，Cua 不做 Agent 本身，而是做 Agent 待的那块桌面——把最难的基础设施（真实 GUI、权限态、会话连续、谁握光标）做成可监督的环境层；②Teleport 把已登录 App 会话（含 Cookie 与登录态）经用户审批搬进 Space，Agent 免登录直接干活，端到端密封加 SHA-256 校验加 Touch ID，比库内 Sai/ToDesk 的远程执行多了一层可审计的会话迁移；③人 Agent 双光标（RCDP over QUIC）是库内少见的实时监督加随时接管姿态，比 Highlight AI 的浮窗捕获更贴近同屏协作；④跨电脑：一台 Mac 加自有机器加自有云统一列表面板，和 Solid（Agent 自带电脑）路线互补（Cua 是你已有的电脑，Solid 是 Agent 自己的电脑）。短板：仅 macOS 首发（Apple Silicon 加 macOS 26 起，Linux 走容器，云可用），赵生 Windows 主环境暂不能直接装；早期 free/early access，Pro/Teams 未出；FSL-1.1-MIT 非纯 MIT（两年后转 MIT、禁竞品）；teleport 进来的会话本质是活的登录态，共享 Space 时需严守只 teleport 自己拥有的机器。需赵生后续亲测校准。'
 
+  },
+
+  {
+    id: 'luci-desktop',
+    name: 'LUCI Desktop（Memories.ai 本地记忆层）',
+    description: '本地优先的屏幕与会议记忆层：把你的全天候活动喂给 Claude Code/Cursor/Codex 等智能体，100% 本机、免费。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://luci.memories.ai',
+    price: '免费（Mac Apple Silicon 与 Windows 10+ 均支持；100% 本机处理、加密存储、无订阅无云上传）。',
+    features: [
+      '本地屏幕记忆：被动录制屏幕并在设备端理解，把看过的文档、看板、视频转成可语义检索的视觉记忆',
+      '会议语音转录：本地转写每场通话，语音与屏幕同时间线，可回查会上某句话当时的画面',
+      'Agent Bridge 本地 MCP：Claude Code/Cursor/Codex/Gemini/Copilot/Windsurf/Zed 等经本地 MCP 直连，无需逐个配 OAuth 或 API',
+      '每日蒸馏：你的 Agent 把一天屏幕与会议提炼成 Life 文件夹里的纯文本记录，可读可删',
+      '隐私保护：端侧模型（Phi/Qwen/Llama/DeepSeek）理解、加密存储、卡号密码自动打码、可设 7/30/90 天自动删除',
+      '双模式检索：关键词（报错码、URL、文件名）加语义搜索，描述画面即可找回某个瞬间'
+    ],
+    note: '真实体验笔记（基于官方站 luci.memories.ai、Product Hunt（2026-09-29 发布、当日 #2 Product of the Day、357 upvotes、51 评论）、EIN Presswire 官方通稿、软硬新智 qifukexue 与 The Next Gen Tech Insider 多源聚合，赵生尚未亲测）：解决 AI 智能体「上下文失忆」这一最痛却被忽视的环节——你跟 Claude Code、Cursor、Codex 聊一次就清零，昨天开会拍板的结论、刚扫过一眼的网页、文档里某行细节，下次全得重新解释粘贴。LUCI 不自己当 Agent，而是做「贴着屏幕跑的本地记忆层」：在你设备端把全天屏幕画面与会议语音理解、转写、索引，再经本地 MCP 喂给任意已装 Agent（Claude Code/Cursor/Codex/Gemini/Copilot/Windsurf/Zed/opencode/Amp/Cline/Kilo Code/Warp/VS Code 等），Agent 直接检索「你刚才看的页面」「会上达成的结论」，无需逐个接 OAuth/API。差异点：①库内已有 30 余款桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH/Agent OS/Cua Spaces 等）几乎都是「自己动手干活的执行器」，LUCI 是少见的「Agent 记忆与上下文基础设施」——不抢活、只供血，与库内任何执行型 Agent 都互补而非重叠（历史备选 Omi 同属此类，但 LUCI 验证更充分：Product Hunt #2 背书、Mac 加 Windows 双端、明确永久免费）；②100% 本地优先是库内最克制的隐私姿态之一——屏幕理解、语音转写、每日摘要全在设备端跑（依托 Phi/Qwen/Llama/DeepSeek 等本地模型、走端侧 AI 加速器而非 CPU），加密存储、无云副本、卡号密码自动打码、可设 7/30/90 天自动删除，比库内多数云端记忆与笔记类更可信；③零连接器设计——直接读屏幕而非接 API，内部工具、私有文档、无 API 的桌面软件天然全覆盖，区别于库内需逐个配 OAuth 的集成派；④对标 OpenAI Codex Chronicle（仅 Mac、仅 Codex、每月 20 美元、烧 Codex 额度、明文存储）全面占优（全 Agent 兼容、Mac 加 Windows、免费、用你自己的模型额度、加密本地）。短板：本质偏「记忆层」非「执行体」，单独用不能替你干活（须配合已有 Agent）；持续录屏占用本机算力与磁盘（官方称 Apple Silicon 上影响极小、可设自动删除）；库内已收录的 willow-voice（语音）、otter（会议）只覆盖单一模态，LUCI 是首个把屏幕视觉加会议语音加跨 Agent 检索打通的本地一体化层，但仍需赵生后续亲测校准中文界面与国内可用性。'
   }
 
 ]
