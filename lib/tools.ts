@@ -601,7 +601,7 @@ export const tools: Tool[] = [
     subCategory: 'AI生成PPT',
     rating: 4.3,
     url: 'https://www.chatppt.cn',
-    price: '免费 / 年费VIP ¥199/年 / 四年SVIP ¥398（4年，买2送2）',
+    price: '免费 / 会员 ¥199/年（常有买一送一/优惠券）',
     features: ['多模态生成(主题/文档/网页/图片/大纲/演讲稿)', '单页与局部AI美化', '全流程闭环(演讲稿+动画+AI路演成片+音色克隆)', '自研图笏模型中文适配', '40万+模板', '五端同步'],
   },
   {
