@@ -2816,6 +2816,26 @@ export const tools: Tool[] = [
       '双模式检索：关键词（报错码、URL、文件名）加语义搜索，描述画面即可找回某个瞬间'
     ],
     note: '真实体验笔记（基于官方站 luci.memories.ai、Product Hunt（2026-09-29 发布、当日 #2 Product of the Day、357 upvotes、51 评论）、EIN Presswire 官方通稿、软硬新智 qifukexue 与 The Next Gen Tech Insider 多源聚合，赵生尚未亲测）：解决 AI 智能体「上下文失忆」这一最痛却被忽视的环节——你跟 Claude Code、Cursor、Codex 聊一次就清零，昨天开会拍板的结论、刚扫过一眼的网页、文档里某行细节，下次全得重新解释粘贴。LUCI 不自己当 Agent，而是做「贴着屏幕跑的本地记忆层」：在你设备端把全天屏幕画面与会议语音理解、转写、索引，再经本地 MCP 喂给任意已装 Agent（Claude Code/Cursor/Codex/Gemini/Copilot/Windsurf/Zed/opencode/Amp/Cline/Kilo Code/Warp/VS Code 等），Agent 直接检索「你刚才看的页面」「会上达成的结论」，无需逐个接 OAuth/API。差异点：①库内已有 30 余款桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/Open Science/Zinley/Tabbit/LumiChats/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH/Agent OS/Cua Spaces 等）几乎都是「自己动手干活的执行器」，LUCI 是少见的「Agent 记忆与上下文基础设施」——不抢活、只供血，与库内任何执行型 Agent 都互补而非重叠（历史备选 Omi 同属此类，但 LUCI 验证更充分：Product Hunt #2 背书、Mac 加 Windows 双端、明确永久免费）；②100% 本地优先是库内最克制的隐私姿态之一——屏幕理解、语音转写、每日摘要全在设备端跑（依托 Phi/Qwen/Llama/DeepSeek 等本地模型、走端侧 AI 加速器而非 CPU），加密存储、无云副本、卡号密码自动打码、可设 7/30/90 天自动删除，比库内多数云端记忆与笔记类更可信；③零连接器设计——直接读屏幕而非接 API，内部工具、私有文档、无 API 的桌面软件天然全覆盖，区别于库内需逐个配 OAuth 的集成派；④对标 OpenAI Codex Chronicle（仅 Mac、仅 Codex、每月 20 美元、烧 Codex 额度、明文存储）全面占优（全 Agent 兼容、Mac 加 Windows、免费、用你自己的模型额度、加密本地）。短板：本质偏「记忆层」非「执行体」，单独用不能替你干活（须配合已有 Agent）；持续录屏占用本机算力与磁盘（官方称 Apple Silicon 上影响极小、可设自动删除）；库内已收录的 willow-voice（语音）、otter（会议）只覆盖单一模态，LUCI 是首个把屏幕视觉加会议语音加跨 Agent 检索打通的本地一体化层，但仍需赵生后续亲测校准中文界面与国内可用性。'
+  },
+
+  {
+    id: 'onward-agent-workbench',
+    name: 'Onward Agent Workbench（OPPO 多智能体并行编程工作台）',
+    description: '桌面多智能体并行编程工作台：多个 Claude Code/Codex 同时写代码，你排 backlog、派活、逐任务看 Git Diff 审查。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://onward-agent-workbench.github.io',
+    price: '开源免费（Apache-2.0；提供 macOS .dmg/.zip 与 Windows .exe(NSIS)/.zip；未签名，macOS 需手动放行）。',
+    features: [
+      'Prompt Manager 指挥台：先排 backlog 再派活，可定时触发、颜色标签优先级、导入导出提示词库',
+      '多智能体并行：多个 Claude Code/Codex/Aider 等 CLI Agent 并排跑，网格布局（单/双/四/六），广播派发到选中 Agent',
+      '每 Agent 独立工作目录、上下文与历史，互不污染',
+      '任务级全功能编辑器：每个任务一块 Monaco 编辑器，内置 Git Diff 对比、提交历史、全局搜索、Markdown 预览',
+      '任意 CLI Agent 兼容：Claude Code/Codex/Aider 或自定义工具链，带来自己的订阅额度',
+      '本地优先：Electron 桌面端，提示词/设置/状态存本机 better-sqlite3，不上传'
+    ],
+    note: '真实体验笔记（基于官方站 onward-agent-workbench.github.io 与 GitHub OPPO-PersonalAI/Onward-Agent-Workbench 开源仓库、Electron 39/React 18 技术栈、GitHub Releases 多平台制品、Product Hunt 同期收录，赵生尚未亲测）：解决「多编程 Agent 并行时无人监督」的痛点——Claude Code/Codex 一起跑，谁改了什么、进度卡在哪、能不能安全合并，传统单 Agent 工具与 IDE 全看不到。Onward 是库内首款「多智能体并行编程工作台」：你当队长，Agent 当队员。差异点：①库内已有 30 余款桌面智能体，其中 Nami 与 Agent OS 同为「Agent 调度/工作台」元层，但二者偏通用任务编排（文档/研究/日常），Onward 是唯一把「多 Agent 并行写代码 + 逐任务 Git Diff 审查」做成产品级闭环的——Prompt Manager 当 backlog 排活、广播派发到多个 CLI Agent、每个 Agent 独立 worktree、跑完在 Monaco 里逐行看 diff 再合并，把「并行编码 + 可控审查」收进一个桌面窗，填补库内多 Agent 编程协作的空白（kimi-code-desktop/cursor 等都是单 Agent 编码，非编排）；②Editor last, agents first 反 IDE 哲学——传统 IDE 你打字 AI 辅助，Onward 反过来 Agent 写、你只规划与审查，对同时带多个 coding Agent 的重度用户是范式切换；③本地优先 + 开源（Apache-2.0、Electron 跨 macOS/Windows），提示词与状态存本机 better-sqlite3，不绑云、不锁厂商，比库内多数商业桌面 Agent 更透明；④与库内 Nami/Agent OS 互补而非重叠——Nami 是通用 Agent 面板调度、Agent OS 偏记忆沉淀与消息通道，Onward 专注 coding 多 Agent 并行与代码审查这一垂直场景。短板：本质是「编码 Agent 的指挥台」而非通用桌面 Agent，重度依赖你已装好 Claude Code/Codex 等 CLI 运行时与各自 API Key；macOS 未签名需手动放行（Windows .exe 同理）、早期开源项目、独立基准数据少；国内大模型 CLI 接入与中文界面待观察，需赵生后续亲测校准。'
   }
 
 ]
