@@ -2836,6 +2836,25 @@ export const tools: Tool[] = [
       '本地优先：Electron 桌面端，提示词/设置/状态存本机 better-sqlite3，不上传'
     ],
     note: '真实体验笔记（基于官方站 onward-agent-workbench.github.io 与 GitHub OPPO-PersonalAI/Onward-Agent-Workbench 开源仓库、Electron 39/React 18 技术栈、GitHub Releases 多平台制品、Product Hunt 同期收录，赵生尚未亲测）：解决「多编程 Agent 并行时无人监督」的痛点——Claude Code/Codex 一起跑，谁改了什么、进度卡在哪、能不能安全合并，传统单 Agent 工具与 IDE 全看不到。Onward 是库内首款「多智能体并行编程工作台」：你当队长，Agent 当队员。差异点：①库内已有 30 余款桌面智能体，其中 Nami 与 Agent OS 同为「Agent 调度/工作台」元层，但二者偏通用任务编排（文档/研究/日常），Onward 是唯一把「多 Agent 并行写代码 + 逐任务 Git Diff 审查」做成产品级闭环的——Prompt Manager 当 backlog 排活、广播派发到多个 CLI Agent、每个 Agent 独立 worktree、跑完在 Monaco 里逐行看 diff 再合并，把「并行编码 + 可控审查」收进一个桌面窗，填补库内多 Agent 编程协作的空白（kimi-code-desktop/cursor 等都是单 Agent 编码，非编排）；②Editor last, agents first 反 IDE 哲学——传统 IDE 你打字 AI 辅助，Onward 反过来 Agent 写、你只规划与审查，对同时带多个 coding Agent 的重度用户是范式切换；③本地优先 + 开源（Apache-2.0、Electron 跨 macOS/Windows），提示词与状态存本机 better-sqlite3，不绑云、不锁厂商，比库内多数商业桌面 Agent 更透明；④与库内 Nami/Agent OS 互补而非重叠——Nami 是通用 Agent 面板调度、Agent OS 偏记忆沉淀与消息通道，Onward 专注 coding 多 Agent 并行与代码审查这一垂直场景。短板：本质是「编码 Agent 的指挥台」而非通用桌面 Agent，重度依赖你已装好 Claude Code/Codex 等 CLI 运行时与各自 API Key；macOS 未签名需手动放行（Windows .exe 同理）、早期开源项目、独立基准数据少；国内大模型 CLI 接入与中文界面待观察，需赵生后续亲测校准。'
-  }
+  },
 
+  {
+    id: 'skales',
+    name: 'Skales（私有 AI 工作台 / 桌面智能体）',
+    description: '本地优先 AI 工作台：后台执行目标、298 工具、26 家模型，跨 Win/Mac/Linux/安卓/iOS。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://skales.app',
+    price: '个人免费（BSL-1.1 源可查、承诺 2030 转 Apache-2.0；商务/本地推理高级能力需授权或自带 Key）。',
+    features: [
+      '目标引擎：一句话设目标，规划到后台执行到完成，关掉聊天框仍续跑，重启后目标可恢复，多目标并行',
+      '桌面伙伴：屏幕角落浮窗吉祥物（小蜥蜴/水滴/水豚），本身是完整 agent，气泡内直接批准/拒绝每步操作',
+      'AIPointer 光标即问：把光标指向屏幕任意处提问，就地给答案，无需切换窗口',
+      '模型无关：内置 26 家供应商加任意 OpenAI 兼容端点，对话中可切换、断点自动回退，不锁定厂商',
+      '本地优先：Skales Local 自带推理服务器（56 模型目录、SHA-256 校验、含商用许可标识），不用先装 Ollama',
+      '多端协同：Swarm 把你的设备变一支劳动力；手机端是独立 agent（端侧模型、E2E 加密中继反向驱动桌面）'
+    ],
+    note: '真实体验笔记（基于官方站 skales.app、官方博客 getskales.app、GitHub skalesapp/skales、OpenClaw Radar 与 Linktree 多源聚合，赵生尚未亲测）：解决「装好本地 AI 智能体比用它还难」与「关掉窗口活就停了」两大痛点——Skales 把自己定位成包在任意模型外的「harness（执行层）」，双击安装、30 秒上手，不用 curl/Node/daemon/Docker，跑在你现有的电脑而非某家云上。差异点：①库内已有 30 余款桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH/Agent OS/Cua Spaces/LUCI Desktop/Onward 等），多数要留着聊天框或依赖终端/云，Skales 的「目标引擎」是少数把「你关掉窗口、它仍在后台把目标跑完、重启后续跑、多目标并行」做成产品级闭环的，比库内 Highlight AI（捕获层）、MOOGH（审批执行）、Solid/Sai（云端舰队）更贴近消费级「设个目标就去睡」的姿态；②「桌面伙伴」浮窗吉祥物（小蜥蜴/水滴/水豚）本身是完整 agent、气泡内直接批准/拒绝每步，加 AIPointer「光标指哪问哪」，是库内独一份的「贴屏交互」形态（库内 Sider Omni 是窗口内嵌侧栏、Highlight 是系统浮窗，但无吉祥物 agent / 光标指问）；③跨设备 Swarm（你的设备变一支劳动力）加真正独立的手机 Agent（端侧模型、E2E 加密中继反向驱动桌面 298 工具）补了库内「多端协同」空白（库内 Spectrion 有 Device Mesh 但偏 iOS+Mac）；④自带推理服务器 Skales Local（56 模型目录、SHA-256 校验、标注商用许可）区别于库内多数「本地优先等于先装 Ollama」的产品；⑤51.4K+ 安装量、1.9k 星、12 语言含中文，对赵生中文受众直接可用，且内置 Studio（图像/视频/语音/音乐创作）与 Iris 端侧唤醒词语音面，覆盖比多数纯文本 Agent 宽。短板：当前 BSL-1.1 源可查非完全开源（承诺 2030 转 Apache-2.0），由独立开发者 Mario Simic 主导、商务条款仍在定稿；部分高级能力（Business 席位/本地推理）需付费或自带 Key；国内可用性与中文界面需赵生后续亲测校准。'
+  }
 ]
