@@ -2856,5 +2856,26 @@ export const tools: Tool[] = [
       '多端协同：Swarm 把你的设备变一支劳动力；手机端是独立 agent（端侧模型、E2E 加密中继反向驱动桌面）'
     ],
     note: '真实体验笔记（基于官方站 skales.app、官方博客 getskales.app、GitHub skalesapp/skales、OpenClaw Radar 与 Linktree 多源聚合，赵生尚未亲测）：解决「装好本地 AI 智能体比用它还难」与「关掉窗口活就停了」两大痛点——Skales 把自己定位成包在任意模型外的「harness（执行层）」，双击安装、30 秒上手，不用 curl/Node/daemon/Docker，跑在你现有的电脑而非某家云上。差异点：①库内已有 30 余款桌面智能体（OpenClaw系/Clairvoyance/Naseem/MiMo Desktop/Highlight AI/实在Agent/AStudio/Spectrion/Meta Muse/Sider Omni/kimi-code/lapu-ai/Sai/AbacusAI Bot/Solid/Rabbit OS3/DeepSeek Harness/OpenAI Dots/ToDesk AI/Nami/MOOGH/Agent OS/Cua Spaces/LUCI Desktop/Onward 等），多数要留着聊天框或依赖终端/云，Skales 的「目标引擎」是少数把「你关掉窗口、它仍在后台把目标跑完、重启后续跑、多目标并行」做成产品级闭环的，比库内 Highlight AI（捕获层）、MOOGH（审批执行）、Solid/Sai（云端舰队）更贴近消费级「设个目标就去睡」的姿态；②「桌面伙伴」浮窗吉祥物（小蜥蜴/水滴/水豚）本身是完整 agent、气泡内直接批准/拒绝每步，加 AIPointer「光标指哪问哪」，是库内独一份的「贴屏交互」形态（库内 Sider Omni 是窗口内嵌侧栏、Highlight 是系统浮窗，但无吉祥物 agent / 光标指问）；③跨设备 Swarm（你的设备变一支劳动力）加真正独立的手机 Agent（端侧模型、E2E 加密中继反向驱动桌面 298 工具）补了库内「多端协同」空白（库内 Spectrion 有 Device Mesh 但偏 iOS+Mac）；④自带推理服务器 Skales Local（56 模型目录、SHA-256 校验、标注商用许可）区别于库内多数「本地优先等于先装 Ollama」的产品；⑤51.4K+ 安装量、1.9k 星、12 语言含中文，对赵生中文受众直接可用，且内置 Studio（图像/视频/语音/音乐创作）与 Iris 端侧唤醒词语音面，覆盖比多数纯文本 Agent 宽。短板：当前 BSL-1.1 源可查非完全开源（承诺 2030 转 Apache-2.0），由独立开发者 Mario Simic 主导、商务条款仍在定稿；部分高级能力（Business 席位/本地推理）需付费或自带 Key；国内可用性与中文界面需赵生后续亲测校准。'
+  },
+
+  {
+    id: 'atomic-agent',
+    name: 'Atomic Agent（AtomicBot 本地优先 AI 智能体）',
+    description: '本地优先开源 AI 智能体：本机运行、GBNF 约束工具调用、零 token 账单。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://atomicagent.io',
+    price: '免费开源（MIT；桌面端 macOS 14+/Windows x64·ARM64/Linux；本地模型零账单、可气隙运行）。',
+    features: [
+      '本地优先：控制循环、模型、记忆、任务、轨迹全部留在本机，默认零云上传、可气隙',
+      'GBNF 语法约束解码：强制造出结构合法的工具调用，小量化本地模型也能稳定干活',
+      'TurboQuant Q4 GGUF：在消费级 GPU 上塞进长上下文，fp16 约 24GB 降到 Q4 约 6.7GB',
+      'KV-cache 字节稳定前缀复用：每步只重算尾部，多步任务迭代成本极低，比 Hermes 快 1.6×',
+      'Fusion 模式：一个云端模型规划、一组本地 worker 并行执行，规划省钱、执行留本地',
+      '可扩展：MCP 接外部工具、skills 教工作流、Telegram 远程驱动、HTTP/Tauri 嵌入自有应用',
+      'GAIA L1 69.8%：同模型同硬件胜过 Hermes 58.5%（+11.3pp），53 任务解 37'
+    ],
+    note: '真实体验笔记（基于官方站 atomicagent.io、GitHub AtomicBot-ai/atomic-agent、OpenRouter 应用页（累计 2.69B tokens 生产流量、32 模型）、NVIDIA Inception（2026-08 入选）、promptquorum / agents-report / clawpit / ai.dosa 多源评测与 163 科技 2026-10-09「AtomicAgentDesktop」报道聚合，赵生尚未亲测）：解决「想用本地模型跑 Agent 却总翻车」的痛点——小量化模型一调工具就吐非法 JSON、长任务上下文爆显存、每步重算贵到肉痛。Atomic Agent 把「本地优先」做成硬默认而非可选项：控制循环、模型、记忆、轨迹全留本机，不配云就零账单、可气隙运行。差异点：①库内 30 余款桌面智能体多数依赖云端或自带算力计费（Sai 云端舰队 / Solid 余额 / OpenAI Dots 云电脑 / Meta Muse 安全 VM），Atomic Agent 是库内少见的「零云、零 token 账单、可气隙」纯本机路线，与 LumiChats Offline、Skales Local 同属本地派但更彻底（MIT 全开源、含权重与 traces）；②独门 GBNF 语法约束解码——强制每个工具调用符合 BNF 结构，连 9B 小模型都能稳定产出合法动作，这是它 GAIA L1 跑赢 Hermes 11.3pp 的关键（同类本地派鲜少有基准背书）；③TurboQuant Q4 GGUF 加 KV-cache 字节稳定前缀复用，把「小模型长上下文多步任务」的显存与成本门槛压到消费级 GPU（fp16 24GB 降到 Q4 约 6.7GB、每步只重算尾部），区别于库内靠云端大模型硬撑的 Agent；④Fusion 模式（一个云模型规划、一组本地 worker 并行执行）是库内少见的「云规划加本机执行」混合，兼顾省钱与本地隐私。短板：主力界面仍是终端 CLI/TUI（桌面 GUI 已开放下载但较新），Intel Mac 不支持；GAIA 分数为厂商自报、未独立复现；小模型能力边界有限、重度任务仍需较强 GPU；国内可用性与中文界面需赵生后续亲测校准。'
   }
 ]
