@@ -2878,4 +2878,26 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官方站 atomicagent.io、GitHub AtomicBot-ai/atomic-agent、OpenRouter 应用页（累计 2.69B tokens 生产流量、32 模型）、NVIDIA Inception（2026-08 入选）、promptquorum / agents-report / clawpit / ai.dosa 多源评测与 163 科技 2026-10-09「AtomicAgentDesktop」报道聚合，赵生尚未亲测）：解决「想用本地模型跑 Agent 却总翻车」的痛点——小量化模型一调工具就吐非法 JSON、长任务上下文爆显存、每步重算贵到肉痛。Atomic Agent 把「本地优先」做成硬默认而非可选项：控制循环、模型、记忆、轨迹全留本机，不配云就零账单、可气隙运行。差异点：①库内 30 余款桌面智能体多数依赖云端或自带算力计费（Sai 云端舰队 / Solid 余额 / OpenAI Dots 云电脑 / Meta Muse 安全 VM），Atomic Agent 是库内少见的「零云、零 token 账单、可气隙」纯本机路线，与 LumiChats Offline、Skales Local 同属本地派但更彻底（MIT 全开源、含权重与 traces）；②独门 GBNF 语法约束解码——强制每个工具调用符合 BNF 结构，连 9B 小模型都能稳定产出合法动作，这是它 GAIA L1 跑赢 Hermes 11.3pp 的关键（同类本地派鲜少有基准背书）；③TurboQuant Q4 GGUF 加 KV-cache 字节稳定前缀复用，把「小模型长上下文多步任务」的显存与成本门槛压到消费级 GPU（fp16 24GB 降到 Q4 约 6.7GB、每步只重算尾部），区别于库内靠云端大模型硬撑的 Agent；④Fusion 模式（一个云模型规划、一组本地 worker 并行执行）是库内少见的「云规划加本机执行」混合，兼顾省钱与本地隐私。短板：主力界面仍是终端 CLI/TUI（桌面 GUI 已开放下载但较新），Intel Mac 不支持；GAIA 分数为厂商自报、未独立复现；小模型能力边界有限、重度任务仍需较强 GPU；国内可用性与中文界面需赵生后续亲测校准。'
   }
+,
+  {
+    id: 'abu',
+    name: '阿布（Abu 本地优先 AI 桌面办公搭子）',
+    description: '本地优先开源桌面 AI 助手：自主执行、自进化技能、电脑操控、多 Agent 并行。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://myabu.cn',
+    price: '免费开源（数据本地、多模型可选；桌面端 macOS / Windows；支持本地 Ollama 与云端 API）。',
+    features: [
+      '本地优先：数据、API Key 全存本机，不上传第三方，OS 沙箱隔离加路径保护加命令检查',
+      '自进化技能：跑完复杂流程后主动提议「固化成技能」，一键生成草稿、审阅上架后可复用',
+      'Agent 自主执行：自主规划、调工具、读写文件、跑命令，完成整套复杂工作流',
+      '电脑操控：截屏识别加键鼠控制，直接操作桌面应用，像真人一样把活干完',
+      '多 Agent 并行：主 Agent 派发有界子任务、收集进度与结果，复杂任务并行推进',
+      '自动化与触发：Cron 定时加事件监听（HTTP / 文件变更 / 时间 / IM 消息）7×24 值守',
+      '计划模式：删除 / 覆盖 / 发送 / 安装等高风险步骤先出分步计划，确认后才执行',
+      'IM 渠道与 MCP：飞书 / 钉钉 / 企微 / Slack 直接 @Abu；MCP 接数据库、搜索、GitHub 等'
+    ],
+    note: '真实体验笔记（基于官方站 myabu.cn、GitHub PM-Shawn/Abu-Cowork、开源榜 kaiyuanbang 与 repositorystats 档案、一飞开源 2026-08-27 实测文、chuchuang.work 产品页聚合，赵生尚未亲测）：解决「想要一个真正动手干活的国产桌面 Agent，但库里多数同类要么只支持 Mac、要么偏云端」的痛点——Abu 是少见的「中国出品、Windows 也能直接装、中文界面加中文社区」的本地优先桌面智能体，对赵生 Windows 环境与中国读者直接可用。差异点：①库内 30 余款桌面智能体中，不少是 macOS 独占（Nami / Sider Omni / Clairvoyance / Naseem / Spectrion 等）或纯云端（OpenAI Dots / Meta Muse / Sai / Solid），Abu 同时支持 Windows 加 macOS 且开源免费，对中文 Windows 用户门槛最低；②独门「自进化技能」闭环——跑完一次流程它会主动提议把这套操作固化成技能、审阅后一键复用，把一次性任务沉淀为个人专属工作流，比库内多数「执行完即走」的 Agent 更贴合长期养成（相近思路仅 Skales 有流程固化，但 Abu 把「提议-草稿-上架」做成产品级默认）；③国产 IM 原生集成（飞书 / 钉钉 / 企微 / Slack 直接 @），区别于海外工具偏 Slack/Discord，对国内办公场景更直接；④计划模式加交互式提问加沙箱隔离，把高风险操作拦在确认前，安全姿态比库内裸执行派更克制。短板：GitHub 星数中等（约 390★、2026-03 创建），社区体量不及 OpenClaw 系；许可证 GitHub 标注 other（社区文章称 Apache-2.0），分发条款待确认；Electron 桌面端体量偏大、重度任务仍需自备模型额度；v0.50.0 仍属快速迭代早期，稳定性与中文文档完整度需赵生后续亲测校准。'
+  }
 ]
