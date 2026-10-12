@@ -2899,5 +2899,26 @@ export const tools: Tool[] = [
       'IM 渠道与 MCP：飞书 / 钉钉 / 企微 / Slack 直接 @Abu；MCP 接数据库、搜索、GitHub 等'
     ],
     note: '真实体验笔记（基于官方站 myabu.cn、GitHub PM-Shawn/Abu-Cowork、开源榜 kaiyuanbang 与 repositorystats 档案、一飞开源 2026-08-27 实测文、chuchuang.work 产品页聚合，赵生尚未亲测）：解决「想要一个真正动手干活的国产桌面 Agent，但库里多数同类要么只支持 Mac、要么偏云端」的痛点——Abu 是少见的「中国出品、Windows 也能直接装、中文界面加中文社区」的本地优先桌面智能体，对赵生 Windows 环境与中国读者直接可用。差异点：①库内 30 余款桌面智能体中，不少是 macOS 独占（Nami / Sider Omni / Clairvoyance / Naseem / Spectrion 等）或纯云端（OpenAI Dots / Meta Muse / Sai / Solid），Abu 同时支持 Windows 加 macOS 且开源免费，对中文 Windows 用户门槛最低；②独门「自进化技能」闭环——跑完一次流程它会主动提议把这套操作固化成技能、审阅后一键复用，把一次性任务沉淀为个人专属工作流，比库内多数「执行完即走」的 Agent 更贴合长期养成（相近思路仅 Skales 有流程固化，但 Abu 把「提议-草稿-上架」做成产品级默认）；③国产 IM 原生集成（飞书 / 钉钉 / 企微 / Slack 直接 @），区别于海外工具偏 Slack/Discord，对国内办公场景更直接；④计划模式加交互式提问加沙箱隔离，把高风险操作拦在确认前，安全姿态比库内裸执行派更克制。短板：GitHub 星数中等（约 390★、2026-03 创建），社区体量不及 OpenClaw 系；许可证 GitHub 标注 other（社区文章称 Apache-2.0），分发条款待确认；Electron 桌面端体量偏大、重度任务仍需自备模型额度；v0.50.0 仍属快速迭代早期，稳定性与中文文档完整度需赵生后续亲测校准。'
-  }
-]
+  },
+
+  {
+    id: 'irisgo',
+    name: 'IrisGo（AI 操作系统 · 演示即自动化）',
+    description: '桌面 AI 操作系统：看一次演示，跨所有应用自动重跑工作流。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://irisgo.ai',
+    price: '免费公开测试版（Windows 11 64 位 / Apple Silicon Mac；数据默认留本机，云端仅在授权时端到端加密处理）。',
+    features: [
+      'Watch & Learn：演示一次工作流，自动录屏并转成可复用自主技能',
+      '跨桌面应用运行：操作系统级自动化，不依赖 App 接口或 API 对接',
+      '本地优先：敏感流程与数据留本机，NPU/GPU 端侧推理保隐私',
+      '每日简报：从日历与邮件自动汇总当天待办与关键提醒',
+      '邮件分拣 Radar：从收件箱捞出账单、待办与截止期限',
+      '技能库：社区共享 ready-to-run 工作流，导入后微调即跑',
+      '事件驱动编排：工作流按事件触发、跨工具路由、持续优化',
+      'AI PC 生态：与 Intel/Acer 预装合作，Andrew Ng AI Fund 投资'
+    ],
+    note: '真实体验笔记（基于官方站 irisgo.ai、Product Hunt 2026-10-07 当日 #1（512+ 票）、TechCrunch/Fast Company/The Information 报道、Futurepedia/thistools/bestaitoolfinder 多源聚合，赵生尚未亲测）：解决「大多数 AI 只能回答问题、却干不了横跨多个 App 的真实苦力活」的痛点——传统自动化靠 API 对接（Zapier 类），没有接口就接不上；而 IrisGo 走操作系统级「看一遍就学会」路线，你手动做一遍，它把鼠标、切换、复制粘贴整套动作录成可复用技能，之后在任意桌面 App 里自动重跑，换张新收据也能套用。差异点：①库内 30 余款桌面智能体大多是「我现在命令你做」的指令式（OpenClaw 系/Clairvoyance/Skales/Abu 等）或 API 集成式 RPA，IrisGo 是库内少见的「演示学习（demonstration-based）」范式——零脚本、零接口对接，按人的行为而非按 API 边界来自动化，对没有现成集成的内部软件尤其有用；②本地优先姿态克制——敏感流程与数据默认留本机，NPU/GPU 端侧推理，云端仅在显式授权时端到端加密介入，比纯云 Agent 更护隐私；③产品化定位清晰面向「个体创业者/小生意主」的行政苦力（邮件分拣、费用报销、周报、会议纪要），自带每日简报加 Radar 收件箱分拣加社区技能库，开箱即用门槛低于多数要自己搭工作流的同类；④背靠 Andrew Ng 的 AI Fund（种子轮约 280-310 万美元）加 Intel/NVIDIA Inception/Acer 预装生态，团队含前 Apple Siri 工程师，可信度高于纯个人项目，且明确支持 Windows 11 64 位（赵生主环境直接可用）。短板：仍是公开测试版、界面与可靠性会有毛刺；演示式自动化在第三方 App 改版时可能失效；需广泛读取屏幕与数据才能工作，敏感任务须先核对结果；正式定价未公布。'
+  }]
