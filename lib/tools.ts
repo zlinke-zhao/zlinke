@@ -2921,4 +2921,49 @@ export const tools: Tool[] = [
       'AI PC 生态：与 Intel/Acer 预装合作，Andrew Ng AI Fund 投资'
     ],
     note: '真实体验笔记（基于官方站 irisgo.ai、Product Hunt 2026-10-07 当日 #1（512+ 票）、TechCrunch/Fast Company/The Information 报道、Futurepedia/thistools/bestaitoolfinder 多源聚合，赵生尚未亲测）：解决「大多数 AI 只能回答问题、却干不了横跨多个 App 的真实苦力活」的痛点——传统自动化靠 API 对接（Zapier 类），没有接口就接不上；而 IrisGo 走操作系统级「看一遍就学会」路线，你手动做一遍，它把鼠标、切换、复制粘贴整套动作录成可复用技能，之后在任意桌面 App 里自动重跑，换张新收据也能套用。差异点：①库内 30 余款桌面智能体大多是「我现在命令你做」的指令式（OpenClaw 系/Clairvoyance/Skales/Abu 等）或 API 集成式 RPA，IrisGo 是库内少见的「演示学习（demonstration-based）」范式——零脚本、零接口对接，按人的行为而非按 API 边界来自动化，对没有现成集成的内部软件尤其有用；②本地优先姿态克制——敏感流程与数据默认留本机，NPU/GPU 端侧推理，云端仅在显式授权时端到端加密介入，比纯云 Agent 更护隐私；③产品化定位清晰面向「个体创业者/小生意主」的行政苦力（邮件分拣、费用报销、周报、会议纪要），自带每日简报加 Radar 收件箱分拣加社区技能库，开箱即用门槛低于多数要自己搭工作流的同类；④背靠 Andrew Ng 的 AI Fund（种子轮约 280-310 万美元）加 Intel/NVIDIA Inception/Acer 预装生态，团队含前 Apple Siri 工程师，可信度高于纯个人项目，且明确支持 Windows 11 64 位（赵生主环境直接可用）。短板：仍是公开测试版、界面与可靠性会有毛刺；演示式自动化在第三方 App 改版时可能失效；需广泛读取屏幕与数据才能工作，敏感任务须先核对结果；正式定价未公布。'
-  }]
+  },
+
+  {
+    id: 'rool',
+    name: 'Rool（欧盟私有 AI 机器 · 持久工作台）',
+    description: '欧盟托管的私有 AI 机器：持久对象记忆、自托管模型、团队实时协作。',
+    category: 'AI工作台',
+    subCategory: '云端智能体',
+    rating: 4.4,
+    url: 'https://rool.dev',
+    price: '免费起步：Standard 永久免费（2 台 1GB 机器、240 AI 额度/日、无需绑卡）；Plus €9/月、Pro €25/月；数据托管欧盟，无广告、不卖数据、不用于训练。',
+    features: [
+      'Rool Machine：每台都是持久私有 Linux 虚拟机，文件/笔记/对话/记忆共存，跨任务保留上下文',
+      '对象记忆 Object Memory：对话/文件/想法变成可链接持久对象，隔周续做仍带完整上下文',
+      '自托管模型：AI 跑在欧盟自有 GPU 机房，按任务自动选型，无需 API Key 或第三方账号',
+      '真实文件操作：上传文档/图片/表格/代码/PDF/音视频，让 Agent 读写、转报告、跑计算、产出新文件',
+      '连接器与 MCP：内置连接器加自定义 MCP 服务器，把外部工具与数据接进同一工作台',
+      '团队共用一台机器：邀请他人进入同一 Machine，实时同步加撤销历史，不必来回传副本',
+      '多端可达：网页、iOS/Android 原生 App、可安装 PWA 都能进同一台机器',
+      '隐私合规：数据托管芬兰、受爱尔兰与欧盟法律保护，可随时导出或经 API 取走'
+    ],
+    note: '真实体验笔记（基于官方站 rool.dev 与 rool.dev/features、Google Play 应用页、Product Hunt 2026-10-07 上线、ProductCool 与 ChatGate 第三方深度评测多源聚合，赵生尚未亲测）：解决「主流 AI 都是一次性聊天框、文档和数据散落在别处、换天续做就失忆，且数据被拿去训练或打广告」的痛点——Rool 把整个工作区做成一台「你私有的云上机器」，AI 助手与你的文件、记忆住在同一个隔离虚拟机里，不是聊天窗套个壳。差异点：①库内 30 余款桌面智能体几乎都是本机 App 或纯云端聊天（OpenClaw 系/Sai/Solid/OpenAI Dots/Meta Muse 等），Rool 是少见的「持久私有机器加对象记忆」范式——它不把旧对话压成模糊摘要，而是把每次对话/文件/想法都变成可链接、可复用的持久对象，隔几周回到项目仍带着完整上下文，对长周期研究、写作、客户交付尤其有用；②数据主权立场最硬之一——机器/文件/对话全托管欧盟（芬兰机房、母公司 Lightpost One Ltd 注册于爱尔兰 Dublin、受 EU/GDPR 管辖），自托管模型、无 API Key、明确不卖数据、不投广告、不用于训练，并随时可导出或经 API 取走，对隐私敏感的专业人士（律师/顾问/研究者/创作者）是直接卖点；③自带团队协作——邀请他人进同一台 Machine，实时同步加撤销历史，多人共用同一份文件与记忆，区别于库内多为单人使用的桌面 Agent；④按小时回补的 AI 额度计费（Standard 永久免费、240 额度/日）比订阅聊天更贴近「按真实算力付费」。短板：本质是云端虚拟机而非本机桌面 Agent，重度任务不如本地跑模型省心、依赖网络与厂商机房；模型组合虽在成长但未必跟上 OpenAI 等一线新模型；单台存储 1-10GB 上限对大媒体/数据集偏紧；第三方评测指出尚无 SOC2/ISO27001 声明、支持人员可能接触机器数据、邮件内容存于美国，合规认证需求者需观望；国内直连与中文界面支持待赵生亲测校准。'
+  },
+
+  {
+    id: 'voyager',
+    name: 'Voyager（创意桌面 Agent · 类 Codex 的创意 harness）',
+    description: '本地桌面 harness：Claude/DeepSeek 驱动 Photoshop 等创作软件出成片。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://voyager.so',
+    price: '免费起步：自带 1,000 credits/月；或连接自有 Claude/ChatGPT/Codex 登录零订阅使用；付费 $19/月起加云生成与渲染；生成按模型原价计费不另加价。',
+    features: [
+      '创意 harness：把 Claude/Codex/DeepSeek 等模型变成操控创意软件的 Agent，定位「创意界的 Codex」',
+      '原生 App 直驱：优先走各软件脚本接口（Photoshop/AE/Illustrator/DaVinci Resolve/Premiere 脚本 API），无接口处在授权内直接控窗',
+      '覆盖 100+ 创作工具：Photoshop、After Effects、DaVinci Resolve、Blender、Unity、Ableton Live、Final Cut、Cinema 4D、Houdini 等',
+      '自带免费引擎：Voyager Design（矢量/位图/动效）、Voyager Video（时间线剪辑）、Voyager DAW（音乐），无水印、可导出 PSD/ProRes/Lottie',
+      '技能与 MCP：内置约 40 个技能、支持 MCP 服务器，并自动复用你为 Claude Code/Codex/Cursor 已装的 skills',
+      '产物可编辑：输出原生工程文件（PSD/OTIO/FCPXML/EDL），不是一次性片段，可回 Resolve/Premiere 继续精修',
+      '自带记忆：学习你偏好的工作方式与风格，跨会话保留；可自造技能或接自有工具与模型',
+      '平台：macOS 15 + Apple Silicon 已上线；Windows 11 与 Linux（AppImage/.deb）处于 alpha'
+    ],
+    note: '真实体验笔记（基于官方站 voyager.so、YC Launch 页、aicoder.com/explainx.ai/progressiverobot/zerogtalent 多源聚合，赵生尚未亲测）：解决「视频/动效/3D/音乐创作者面对一堆割裂的专业软件、AI 生成器只给一个提示框和不可编辑片段」的痛点——Voyager 把 Codex 那套「好 harness 套强模型」范式搬到了创意桌面：你描述想要的效果，Agent 直接在你好已有的 Photoshop/AE/DaVinci/Blender/Ableton 里动手做，产物是原生可编辑工程文件而非一次性片段。差异点：①库内 30 余款桌面智能体几乎都面向写代码或通用办公/电脑操作（OpenClaw 系/Claude Code/Cursor/IrisGo/Abu 等），Voyager 是库内首款、也是唯一的创意生产桌面 harness——专门驱动 Adobe/Blackmagic/Blender/Ableton 等创作软件，填补 AI 创作工具与可编辑成片之间的空白，对赵生内容创作者读者群直接对味；②开放 harness 姿态克制——不锁定模型也不代扣费，生成按提供商原价（1 credit=1 美分），可接自有 Claude/Codex/ChatGPT 登录或 fal/Gemini/ElevenLabs Key 零订阅使用，自带三个免费无水印引擎（Design/Video/DAW）让无 Adobe 订阅也能开工，比纯云生成器（Runway/Higgsfield）更可控、产出可进专业时间线继续改；③约 40 内置技能加 MCP 加复用 Claude Code/Codex/Cursor 的 skills，生态位接既有开发者习惯。短板：当前 macOS 15 加 Apple Silicon 才 GA，Windows 11 与 Linux 仅 alpha（赵生主环境需等 alpha 成熟或亲测）；应用为专有软件（官方 FAQ 明确非开源，开放指可自选模型与 Agent 与工具而非源码开放）；16M 美元融资与 10 万加 Moda 用户为创始人自述未独立核实；暂无标准化 benchmark，复杂工程稳定性待实测；国内直连与中文界面支持待赵生亲测校准。'
+  }
+  ]
