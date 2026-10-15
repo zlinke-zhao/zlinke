@@ -2965,5 +2965,26 @@ export const tools: Tool[] = [
       '平台：macOS 15 + Apple Silicon 已上线；Windows 11 与 Linux（AppImage/.deb）处于 alpha'
     ],
     note: '真实体验笔记（基于官方站 voyager.so、YC Launch 页、aicoder.com/explainx.ai/progressiverobot/zerogtalent 多源聚合，赵生尚未亲测）：解决「视频/动效/3D/音乐创作者面对一堆割裂的专业软件、AI 生成器只给一个提示框和不可编辑片段」的痛点——Voyager 把 Codex 那套「好 harness 套强模型」范式搬到了创意桌面：你描述想要的效果，Agent 直接在你好已有的 Photoshop/AE/DaVinci/Blender/Ableton 里动手做，产物是原生可编辑工程文件而非一次性片段。差异点：①库内 30 余款桌面智能体几乎都面向写代码或通用办公/电脑操作（OpenClaw 系/Claude Code/Cursor/IrisGo/Abu 等），Voyager 是库内首款、也是唯一的创意生产桌面 harness——专门驱动 Adobe/Blackmagic/Blender/Ableton 等创作软件，填补 AI 创作工具与可编辑成片之间的空白，对赵生内容创作者读者群直接对味；②开放 harness 姿态克制——不锁定模型也不代扣费，生成按提供商原价（1 credit=1 美分），可接自有 Claude/Codex/ChatGPT 登录或 fal/Gemini/ElevenLabs Key 零订阅使用，自带三个免费无水印引擎（Design/Video/DAW）让无 Adobe 订阅也能开工，比纯云生成器（Runway/Higgsfield）更可控、产出可进专业时间线继续改；③约 40 内置技能加 MCP 加复用 Claude Code/Codex/Cursor 的 skills，生态位接既有开发者习惯。短板：当前 macOS 15 加 Apple Silicon 才 GA，Windows 11 与 Linux 仅 alpha（赵生主环境需等 alpha 成熟或亲测）；应用为专有软件（官方 FAQ 明确非开源，开放指可自选模型与 Agent 与工具而非源码开放）；16M 美元融资与 10 万加 Moda 用户为创始人自述未独立核实；暂无标准化 benchmark，复杂工程稳定性待实测；国内直连与中文界面支持待赵生亲测校准。'
+  },
+
+  {
+    id: 'clippo',
+    name: 'Clippo（Windows 原生 · AI 智能体团队可视化指挥台）',
+    description: 'Windows 原生可视化画布：连线编排多个 AI 编程智能体并行干活。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://apps.microsoft.com/store/detail/9n7jgq8tzxd4',
+    price: '免费起步：完整工作区（无限终端/笔记/IDE/ClipSurf/Spaces）免费；跨多项目需 Clippo Pro 一次性买断（Microsoft Store）；要求 Windows 11 22H2+ x64；零账号、零登录、零追踪。',
+    features: [
+      '无限可视化画布：把 Claude Code/OpenCode/Codex/Aider/本地 Ollama·LM Studio 等 Agent 并排连线，像技术负责人一样指挥一支 AI 工程队',
+      '项目活页夹 Project Binder：用 Project/Plan/Walkthrough 三件套统一架构、路线图与交付报告，从便签拉一条线到终端即注入上下文',
+      'ClipSurf 内嵌浏览器：让无联网能力的 CLI Agent 也能搜文档、查方案、实时测试刚写好的本地 Web 应用',
+      '本地记忆省 token：设备端轻量模型记住架构决策与踩坑，跨会话保留上下文、降低重复计费',
+      'Clippo IDE：画布内可视化代码编辑器，Syntax 高亮看 Diff、改完一键提交，仓库始终在你手里',
+      '原生并行、零云零登录：WSL/Docker 开箱支持，文件/笔记/提示词不出本机，无账号无追踪',
+      '轻量高速：无臃肿 Web 壳，启动快、占内存少，把 CPU/内存留给编译与开发'
+    ],
+    note: '真实体验笔记（基于 Microsoft Store 官方页 apps.microsoft.com/store/detail/9n7jgq8tzxd4、Product Hunt 2026-10-07 发布（maker Thiago Grião）、微软官方页标题 Clippo - Windows官方下载 微软应用商店、AITNT/xinquji/nowfound 多源聚合，赵生尚未亲测）：解决同时开三四个终端 Agent（Claude Code/OpenCode/Codex 等）就陷入切窗口、重复交代上下文的混乱痛点——Clippo 把软件研发变成一块 Windows 上的可视化指挥室：你在无限画布上把多个 Agent 并排连线，各自认领后端/测试/前端任务并行写码，实时看谁在写谁写完。差异点：①库内已有 Nami/Agent OS/Onward 三款多 Agent 调度与工作台，但 Clippo 是少见的无限可视化画布加节点连线形态——从便签拉一条线到终端 Agent 立刻吸收上下文，无需重新提示，比 Nami 的面板调度、Agent OS 的看板、Onward 的多 worktree 更直观像作战室；②100% 本地、零云零登录零追踪，文件/笔记/提示词不出 PC，区别于库内多数要登云或要账号的协作型工作台，对隐私与离线更友好；③自带 Clippo IDE（看 Diff、改完一键提交）加 ClipSurf 内嵌浏览器（让无网 CLI Agent 也能查文档测本地应用）加设备端记忆省 token，把多 Agent 并行编码做成开箱即用的 Windows 原生一体包，而库内同类多为 Mac 优先或纯 Web；④Windows 11 原生（赵生主环境直接可用）、轻量不抢编译资源。短板：仅 Windows 11（22H2+ x64），macOS/Linux 暂不支持（赵生若换 Mac 环境不可用）；本质是已有 CLI Agent 的编排层、强依赖你已装好 Claude Code/Codex 等运行时；Microsoft Store 发行、由独立开发者 Thiago Grião 出品，生态与长期维护待观察；正式产品站较弱（主要靠 Store 分发），国内可用性待赵生亲测校准。'
   }
   ]
