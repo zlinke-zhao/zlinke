@@ -2985,6 +2985,27 @@ export const tools: Tool[] = [
       '原生并行、零云零登录：WSL/Docker 开箱支持，文件/笔记/提示词不出本机，无账号无追踪',
       '轻量高速：无臃肿 Web 壳，启动快、占内存少，把 CPU/内存留给编译与开发'
     ],
-    note: '真实体验笔记（基于 Microsoft Store 官方页 apps.microsoft.com/store/detail/9n7jgq8tzxd4、Product Hunt 2026-10-07 发布（maker Thiago Grião）、微软官方页标题 Clippo - Windows官方下载 微软应用商店、AITNT/xinquji/nowfound 多源聚合，赵生尚未亲测）：解决同时开三四个终端 Agent（Claude Code/OpenCode/Codex 等）就陷入切窗口、重复交代上下文的混乱痛点——Clippo 把软件研发变成一块 Windows 上的可视化指挥室：你在无限画布上把多个 Agent 并排连线，各自认领后端/测试/前端任务并行写码，实时看谁在写谁写完。差异点：①库内已有 Nami/Agent OS/Onward 三款多 Agent 调度与工作台，但 Clippo 是少见的无限可视化画布加节点连线形态——从便签拉一条线到终端 Agent 立刻吸收上下文，无需重新提示，比 Nami 的面板调度、Agent OS 的看板、Onward 的多 worktree 更直观像作战室；②100% 本地、零云零登录零追踪，文件/笔记/提示词不出 PC，区别于库内多数要登云或要账号的协作型工作台，对隐私与离线更友好；③自带 Clippo IDE（看 Diff、改完一键提交）加 ClipSurf 内嵌浏览器（让无网 CLI Agent 也能查文档测本地应用）加设备端记忆省 token，把多 Agent 并行编码做成开箱即用的 Windows 原生一体包，而库内同类多为 Mac 优先或纯 Web；④Windows 11 原生（赵生主环境直接可用）、轻量不抢编译资源。短板：仅 Windows 11（22H2+ x64），macOS/Linux 暂不支持（赵生若换 Mac 环境不可用）；本质是已有 CLI Agent 的编排层、强依赖你已装好 Claude Code/Codex 等运行时；Microsoft Store 发行、由独立开发者 Thiago Grião 出品，生态与长期维护待观察；正式产品站较弱（主要靠 Store 分发），国内可用性待赵生亲测校准。'
+    note: '真实体验笔记（基于 Microsoft Store 官方页 apps.microsoft.com/store/detail/9n7jgq8tzxd4、Product Hunt 2026-10-07 发布（maker Thiago Grião）、微软官方页标题 Clippo - Windows官方下载 微软应用商店、AITNT/xinquji/nowfound 多源聚合，赵生尚未亲测）：解决同时开三四个终端 Agent（Claude Code/OpenCode/Codex 等）就陷入切窗口、重复交代上下文的混乱痛点——Clippo 把软件研发变成一块 Windows 上的可视化指挥室：你在无限画布上把多个 Agent 并排连线，各自认领后端/测试/前端任务并行写码，实时看谁在写谁写完。差异点：①库内已有 Nami/Agent OS/Onward 三款多 Agent 调度与工作台，但 Clippo 是少见的无限可视化画布加节点连线形态——从便签拉一条线到终端 Agent 立刻吸收上下文，无需重新提示，比 Nami 的面板调度、Agent OS 的看板、Onward 的多 worktree 更直观像作战室；②100% 本地、零云零登录零追踪，文件/笔记/提示词不出 PC，区别于库内多数要登云或要账号的协作型工作台，对隐私与离线更友好；③自带 Clippo IDE（看 Diff、改完一键提交）加 ClipSurf 内嵌浏览器（让无网 CLI Agent 也能查文档测本地应用）加设备端记忆省 token，把多 Agent 并行编码做成开箱即用的 Windows 原生一体包，而库内同类多为 Mac 优先或纯 Web；④Windows 11 原生（赵生主环境直接可用）、轻量不抢编译资源。短板：仅 Windows 11（22H2+ x64），macOS/Linux 暂不支持（赵生若换 Mac 环境不可用）；本质是已有 CLI Agent 的编排层、强依赖你已装好 Claude Code/Codex 等运行时；Microsoft Store 发行、由独立开发者 Thiago Grião 出品，生态与长期维护待观察；正式产品站较弱（主要靠 Store 分发），    国内可用性待赵生亲测校准。'
+  },
+
+  {
+    id: 'cc-haha',
+    name: 'cc-haha（本地优先 · Claude Code / AI Agent 桌面工作台）',
+    description: '本地优先跨平台桌面工作台：多Agent协作、Git Worktree、Computer Use、微信/飞书/钉钉远程接入。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://cchaha.ai',
+    price: '免费开源（cc-haha Community Source License 1.0：允许个人非商业及企业内部自用，非标准 MIT）；模型服务自选供应商——Claude/ChatGPT/Grok 官方登录，DeepSeek/Kimi/智谱 GLM 等 API 预设，亦支持 LM Studio/Ollama 本地模型，按提供商计费，应用本身免费。',
+    features: [
+      '多会话工作台：标签页 + 项目切换 + 终端入口 + 会话历史集中管理，Cmd+K 跨所有会话全文搜索一键跳转',
+      'Agent Teams 协作台：可视化多 Agent 团队，成员/任务/通信流/依赖泳道一目了然，动态 Workflow 编排并发或流水线调度子代理，支持中断与断点续跑',
+      '改动逐个审阅：右侧列出本轮改动，点开即语法高亮 Diff，整轮可撤销；五档权限模式在桌面端审批危险命令与工具调用',
+      '模型自选：Claude/ChatGPT/Grok 官方账号直登，DeepSeek/Kimi/智谱 GLM 等第三方 API 现成预设，LM Studio/Ollama 本地模型也能接',
+      'Computer Use：授权后截图/点击/输入控制桌面应用，macOS 原生运行时不占用真实鼠标键盘',
+      'IM 远程接力：微信/飞书/钉钉/Telegram/WhatsApp/企业微信/QQ/Slack 远程对话、切项目、审权限；H5 扫码手机浏览器接入当前会话',
+      '技能市场 + 内置浏览器预览：图形化装 ClawHub/SkillHub 第三方技能；Agent 改完的页面在应用内真实渲染（带登录态 Cookie）；桌面宠物随任务状态换动作（默认关）'
+    ],
+    note: '真实体验笔记（基于官网 cchaha.ai、GitHub NanmiCoder/cc-haha README、Tenten/Reddit、agents-report、awesome-repositories、devlive 多源聚合，赵生尚未亲测）：解决「Claude Code 类 CLI Agent 散落多个终端窗口、跨应用操作靠人肉切屏、想在手机/微信上远程派活却进不去」的痛点——cc-haha 把 Claude Code 套上一层本地优先的跨平台桌面外壳（Electron + React + Bun），既是多会话工作台也是可视化多 Agent 协作指挥室。差异点：①库内 OpenClaw 系（autoclaw/arkclaw）、kimi-work、qoderwork、krowork、clippo、voyager 等同属桌面智能体，但 cc-haha 是库内鲜有的「原生中文 IM 远程接入」款——微信/飞书/钉钉/企业微信/QQ/Slack 直接远程对话、切项目、批权限，手机 H5 扫码接管会话，对赵生既做国内读者群又用企业微信的场景直接对口，是库内同类几乎不具备的能力；②多模型预设最贴合赵生既有习惯——DeepSeek/Kimi/智谱 GLM 现成预设 + LM Studio/Ollama 本地模型，比多数锁定单一云的 harness 更灵活；③Computer Use（动真实桌面应用）+ 动态 Workflow 编排（模型临时写脚本并发/流水调度子代理）把「桌面操作自动化」和「多 Agent 流水线」合到一个界面，桌面宠物是库内唯一见到的趣味化状态反馈；④Git Worktree 隔离 + 逐文件 Diff 审阅 + 五档权限审批，开发者向的掌控感对标 clippo 但覆盖 macOS/Linux/Windows 三端。短板：授权为 cc-haha Community Source License 1.0（个人非商业 + 企业内部自用，非完全开源），部分报道提示其作为 Claude Code 桌面封装存在版权下架风险、未签名、缺乏官方 SLA，不建议直接上生产；最近一次大版本约 2026-09-18，Star 约 14k 但更新节奏与长期维护待观察；多 Agent + Computer Use 的真实稳定性与国内直连/中文界面体验需赵生亲测校准后再定稿推荐。'
   }
   ]
