@@ -3007,5 +3007,24 @@ export const tools: Tool[] = [
       '技能市场 + 内置浏览器预览：图形化装 ClawHub/SkillHub 第三方技能；Agent 改完的页面在应用内真实渲染（带登录态 Cookie）；桌面宠物随任务状态换动作（默认关）'
     ],
     note: '真实体验笔记（基于官网 cchaha.ai、GitHub NanmiCoder/cc-haha README、Tenten/Reddit、agents-report、awesome-repositories、devlive 多源聚合，赵生尚未亲测）：解决「Claude Code 类 CLI Agent 散落多个终端窗口、跨应用操作靠人肉切屏、想在手机/微信上远程派活却进不去」的痛点——cc-haha 把 Claude Code 套上一层本地优先的跨平台桌面外壳（Electron + React + Bun），既是多会话工作台也是可视化多 Agent 协作指挥室。差异点：①库内 OpenClaw 系（autoclaw/arkclaw）、kimi-work、qoderwork、krowork、clippo、voyager 等同属桌面智能体，但 cc-haha 是库内鲜有的「原生中文 IM 远程接入」款——微信/飞书/钉钉/企业微信/QQ/Slack 直接远程对话、切项目、批权限，手机 H5 扫码接管会话，对赵生既做国内读者群又用企业微信的场景直接对口，是库内同类几乎不具备的能力；②多模型预设最贴合赵生既有习惯——DeepSeek/Kimi/智谱 GLM 现成预设 + LM Studio/Ollama 本地模型，比多数锁定单一云的 harness 更灵活；③Computer Use（动真实桌面应用）+ 动态 Workflow 编排（模型临时写脚本并发/流水调度子代理）把「桌面操作自动化」和「多 Agent 流水线」合到一个界面，桌面宠物是库内唯一见到的趣味化状态反馈；④Git Worktree 隔离 + 逐文件 Diff 审阅 + 五档权限审批，开发者向的掌控感对标 clippo 但覆盖 macOS/Linux/Windows 三端。短板：授权为 cc-haha Community Source License 1.0（个人非商业 + 企业内部自用，非完全开源），部分报道提示其作为 Claude Code 桌面封装存在版权下架风险、未签名、缺乏官方 SLA，不建议直接上生产；最近一次大版本约 2026-09-18，Star 约 14k 但更新节奏与长期维护待观察；多 Agent + Computer Use 的真实稳定性与国内直连/中文界面体验需赵生亲测校准后再定稿推荐。'
+  },
+  {
+    id: 'ekko-studio',
+    name: 'Ekko Studio（多 Agent 统一工作台 · 跨端控制面）',
+    description: '统一多 Agent 的跨端工作台：桌面/网页/手机一处调度，本地优先可自托管。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://ekkostudio.si',
+    price: '桌面端可免费下载使用；另设付费版（见官网 pricing）；支持 npm/Docker 自托管 Web 控制台，接入的各 Agent 按各自供应商计费，应用本身免费。',
+    features: [
+      '多 Agent 统一工作区：把 Claude Code/Codex/Cursor/Qwen Code/Kimi Code/ZCode 等 14+ 编程智能体收进同一桌面，单聊/群聊/可视化工作流统一管理',
+      '跨端一致：桌面 App（macOS/Win/Linux）+ 手机伴侣 App + 可自托管 Web 控制台（npm/Docker），会话/技能/自动化跨设备同步',
+      '可视化工作流 + 人工审批门：连线编排 Agent 步骤、定时任务、群聊房间、平台渠道与 MCP Server 接入',
+      '本地优先 + 自托管：Profile/会话/用量存本地 SQLite，可完全自托管控制台，数据不出本机或自管服务器',
+      '工作区工具箱：文件浏览器、Web 终端、桌面 Agent 浏览器、截图、语音输入/输出、设备发现、用量视图',
+      '自带 Ekko/Hermes Agent + 模型自选：默认 Ekko，可接 Claude/ChatGPT/Grok 登录或 DeepSeek/Kimi/智谱 等 API 与本地模型'
+    ],
+    note: '真实体验笔记（基于官网 ekkostudio.si、GitHub EKKOLearnAI/ekko-studio README、Hermes Atlas、RightAIChoice、npm ekko-studio 多源聚合，赵生尚未亲测）：解决「手里同时养着 Claude Code、Codex、Cursor、Kimi Code、ZCode 一堆 CLI Agent，却散落在各个终端、各自界面、换个设备就接不上、想让几个 Agent 协作还得人肉中转」的痛点——Ekko Studio 把自己定位成「所有 Agent 的统一控制面（One studio for all your agents）」：不取代你已有的 Agent，而是把它们收编进同一个本地优先工作台，桌面 App、手机伴侣、可自托管 Web 控制台三端共用一套会话/技能/自动化。差异点：①与库内 cc-haha（Claude Code 桌面壳 + 中文 IM 远程）、clippo（Windows 画布编排编码 Agent）最大的不同在于「聚合广度」——Ekko 把 14+ 第三方编程 Agent 当作一等公民直接接入（Claude Code/Codex/Cursor/Antigravity/OpenCode/Grok/Pi/DeepSeek Harness/Qwen Code/Kimi Code/CodeBuddy/Qoder/GitHub Copilot/ZCode），外加自家的 Ekko/Hermes Agent，库内几乎找不到第二款这样「不挑 Agent 品牌」的通用调度台；②真正的跨端一致性——桌面 App 管 macOS/Win/Linux，手机伴侣 App 远程续聊与语音，npm/Docker 起一个自托管 Web 控制台，三端会话/工作流/自动化实时同步，比 cc-haha 仅桌面、clippo 仅 Windows 的覆盖面更全，对赵生既用 Windows 又常手机查看的场景直接对味；③本地优先且可完全自托管——Profile/会话/用量存本地 SQLite，Web 控制台也能跑在你自己的服务器，数据不出本机或自管边界，隐私姿态比纯云协作台更克制；④可视化工作流带人工审批门 + 定时任务 + 群聊房间 + MCP Server 接入，把「多 Agent 编排」做成可复用、可治理的流水线，而非一次性聊天。短板：由 Hermes Studio 更名而来（旧 hermes-studio.ai 仍可用、npm 包曾名 hermes-web-ui，存量资料混用两名字，检索时需注意）；桌面端最新约 v0.7.36、仍处快速迭代期，正式授权与自托管控制台的稳定性/规模化表现待观察；技能与第三方 Agent 强依赖你本机已装好对应 CLI 运行时；国内直连、中文界面与模型可用性需赵生亲测校准后再定稿推荐。'
   }
   ]
