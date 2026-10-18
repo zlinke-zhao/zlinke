@@ -3026,5 +3026,24 @@ export const tools: Tool[] = [
       '自带 Ekko/Hermes Agent + 模型自选：默认 Ekko，可接 Claude/ChatGPT/Grok 登录或 DeepSeek/Kimi/智谱 等 API 与本地模型'
     ],
     note: '真实体验笔记（基于官网 ekkostudio.si、GitHub EKKOLearnAI/ekko-studio README、Hermes Atlas、RightAIChoice、npm ekko-studio 多源聚合，赵生尚未亲测）：解决「手里同时养着 Claude Code、Codex、Cursor、Kimi Code、ZCode 一堆 CLI Agent，却散落在各个终端、各自界面、换个设备就接不上、想让几个 Agent 协作还得人肉中转」的痛点——Ekko Studio 把自己定位成「所有 Agent 的统一控制面（One studio for all your agents）」：不取代你已有的 Agent，而是把它们收编进同一个本地优先工作台，桌面 App、手机伴侣、可自托管 Web 控制台三端共用一套会话/技能/自动化。差异点：①与库内 cc-haha（Claude Code 桌面壳 + 中文 IM 远程）、clippo（Windows 画布编排编码 Agent）最大的不同在于「聚合广度」——Ekko 把 14+ 第三方编程 Agent 当作一等公民直接接入（Claude Code/Codex/Cursor/Antigravity/OpenCode/Grok/Pi/DeepSeek Harness/Qwen Code/Kimi Code/CodeBuddy/Qoder/GitHub Copilot/ZCode），外加自家的 Ekko/Hermes Agent，库内几乎找不到第二款这样「不挑 Agent 品牌」的通用调度台；②真正的跨端一致性——桌面 App 管 macOS/Win/Linux，手机伴侣 App 远程续聊与语音，npm/Docker 起一个自托管 Web 控制台，三端会话/工作流/自动化实时同步，比 cc-haha 仅桌面、clippo 仅 Windows 的覆盖面更全，对赵生既用 Windows 又常手机查看的场景直接对味；③本地优先且可完全自托管——Profile/会话/用量存本地 SQLite，Web 控制台也能跑在你自己的服务器，数据不出本机或自管边界，隐私姿态比纯云协作台更克制；④可视化工作流带人工审批门 + 定时任务 + 群聊房间 + MCP Server 接入，把「多 Agent 编排」做成可复用、可治理的流水线，而非一次性聊天。短板：由 Hermes Studio 更名而来（旧 hermes-studio.ai 仍可用、npm 包曾名 hermes-web-ui，存量资料混用两名字，检索时需注意）；桌面端最新约 v0.7.36、仍处快速迭代期，正式授权与自托管控制台的稳定性/规模化表现待观察；技能与第三方 Agent 强依赖你本机已装好对应 CLI 运行时；国内直连、中文界面与模型可用性需赵生亲测校准后再定稿推荐。'
+  },
+  {
+    id: 'linda',
+    name: 'Linda（Mac 本地优先 AI 同事）',
+    description: '免费 Mac 原生 AI 同事：本地 MLX 模型运行，不可逆操作必审批，专家制工作流。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://getlinda.app',
+    price: '完全免费、无付费档、无账户；默认本地 MLX 模型免费跑，可接 Ollama/LM Studio 或填 OpenRouter/OpenAI/Anthropic/Google/DeepSeek 等 API Key 按用量付费（Key 存 macOS Keychain）。仅支持 macOS 26 + Apple Silicon（M1–M5）。',
+    features: [
+      '本地优先 AI 同事：SwiftUI 原生 Mac App，默认 MLX 在 Apple Silicon 跑开源模型（GLM/Qwen/Gemma/Granite），数据不出本机',
+      '专属浏览器 + 沙箱：在独立浏览器档案与项目文件夹内操作，绝不碰主浏览器/邮件，实时「计算机」列逐步可见、可随时接管',
+      '不可逆操作强制审批：发送/购买/删除/发布/提交个人信息前必弹审批卡，代码层硬锁不可绕过',
+      '专家（Specialists）系统：为研究员/簿记员等配置专属指令与技能开关（浏览器/文件/命令/记忆），任务归入项目共享文件夹',
+      '常驻语音 + 本地记忆：按住右 Option 语音输入（设备端识别、不上云），记忆存本机 Qdrant 向量库、可见可删',
+      '自动化例程 + 应用打通：一键把任务转日/周/月例程；集成 Outlook/Teams/Notes/Notion/Todoist/Linear/GitHub/Stripe 等，全部过审批'
+    ],
+    note: '真实体验笔记（基于官网 getlinda.app、Product Hunt 2026-10-07 发布页、ProductCool/Launly/NAVS 多源聚合，赵生尚未亲测）：解决「云端 AI 助手每月要 120–300 美元、还要把密码/邮件/文件交到别人服务器」的痛点——Linda 是一款完全免费、无账户、100% 本地优先的 Mac 原生 AI 同事，把思考、语音、记忆、文件全留在你的 Mac 上。差异点：①库内桌面智能体（OpenClaw 系/Clairvoyance/Naseem/cc-haha/ekko-studio/clippo/voyager 等）多为订阅制或 BYO Key 仍走云；Linda 是库内少见的「零云、零账户、永久免费」款，默认 MLX 直接在 Apple Silicon 跑开源模型，连语音识别和记忆都留在本机 Keychain/Qdrant，数据主权最彻底；②不可逆操作审批是代码层硬锁（任何设置/指令/specialist 都无法跳过），实时「计算机」列把每一步点选/导航/文件操作摊开给你看、可随时接管，透明度比多数桌面 Agent 更彻底；③专属浏览器档案隔离（不碰你的主浏览器/邮件）+ 专家(Specialists)+项目(Projects)+例程(Routines)三层组织，把重复办公活做成可复用工作流，比通用 computer-use 更安全可控；④对比库内同样 Swift 原生 Mac、同样每步批准的 Naseem：Linda 免费、且强调「本地模型免费跑 + 应用打通(Outlook/Teams/Notion 等) + 例程自动化」，Naseem 偏 Pro 买断与 iOS 模拟器自动化，两者互补不重叠。短板：仅 macOS 26 + Apple Silicon（M1–M5），赵生主环境是 Windows RTX 4060 笔记本，无法直接亲测、国内可用面受限；2026-10-07 初版、模型兼容/稳定性/中文界面与国内应用集成待观察；需授权麦克风与辅助功能权限。已如实标注，待赵生后续在 Mac 环境亲测校准。'
   }
   ]
