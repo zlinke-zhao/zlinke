@@ -3045,5 +3045,23 @@ export const tools: Tool[] = [
       '自动化例程 + 应用打通：一键把任务转日/周/月例程；集成 Outlook/Teams/Notes/Notion/Todoist/Linear/GitHub/Stripe 等，全部过审批'
     ],
     note: '真实体验笔记（基于官网 getlinda.app、Product Hunt 2026-10-07 发布页、ProductCool/Launly/NAVS 多源聚合，赵生尚未亲测）：解决「云端 AI 助手每月要 120–300 美元、还要把密码/邮件/文件交到别人服务器」的痛点——Linda 是一款完全免费、无账户、100% 本地优先的 Mac 原生 AI 同事，把思考、语音、记忆、文件全留在你的 Mac 上。差异点：①库内桌面智能体（OpenClaw 系/Clairvoyance/Naseem/cc-haha/ekko-studio/clippo/voyager 等）多为订阅制或 BYO Key 仍走云；Linda 是库内少见的「零云、零账户、永久免费」款，默认 MLX 直接在 Apple Silicon 跑开源模型，连语音识别和记忆都留在本机 Keychain/Qdrant，数据主权最彻底；②不可逆操作审批是代码层硬锁（任何设置/指令/specialist 都无法跳过），实时「计算机」列把每一步点选/导航/文件操作摊开给你看、可随时接管，透明度比多数桌面 Agent 更彻底；③专属浏览器档案隔离（不碰你的主浏览器/邮件）+ 专家(Specialists)+项目(Projects)+例程(Routines)三层组织，把重复办公活做成可复用工作流，比通用 computer-use 更安全可控；④对比库内同样 Swift 原生 Mac、同样每步批准的 Naseem：Linda 免费、且强调「本地模型免费跑 + 应用打通(Outlook/Teams/Notion 等) + 例程自动化」，Naseem 偏 Pro 买断与 iOS 模拟器自动化，两者互补不重叠。短板：仅 macOS 26 + Apple Silicon（M1–M5），赵生主环境是 Windows RTX 4060 笔记本，无法直接亲测、国内可用面受限；2026-10-07 初版、模型兼容/稳定性/中文界面与国内应用集成待观察；需授权麦克风与辅助功能权限。已如实标注，待赵生后续在 Mac 环境亲测校准。'
+  },
+  {
+    id: 'offstage',
+    name: 'Offstage（电脑操作 Agent 安全隔离舱）',
+    description: '给电脑操作 Agent 一个独立 Mac 账户，GUI 任务在隔离桌面跑，不抢占你的屏幕。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://offstage.viraat.dev',
+    price: '免费开源（MIT）：本机自托管，npx 或 npm 全局装 @viraatdas/offstage，无付费档；仅 macOS Apple Silicon + Node 20+，需一次性 sudo 建辅助账户。',
+    features: [
+      '专属 Mac 账户：为 Claude Code/Codex/opencode 创建一个隐藏的第二 macOS 用户，GUI 任务（模拟器/Xcode UI 测试/刚构建的 App）在该账户桌面跑，你的窗口键盘鼠标完全不受影响',
+      '命令智能路由到最便宜安全车道：GUI 命令（xcodebuild/xcrun simctl/open -a/osascript）进第二账户；有头浏览器进 Linux 容器虚拟显示；无头命令（npm test/vitest）原地跑；安装器（.pkg/.dmg/hdiutil）一律拒绝',
+      'MCP 一键接入：npx 注册 offstage-mcp，Claude Code 可作插件、Codex/opencode 走 MCP 配置，暴露 route/run/session_launch/session_screenshot/session_input 等工具',
+      '输入物理隔离：Swift 守护进程只向本会话发输入、绝不进全局输入流；一旦该会话成为控制台前台就硬停，从机制上杜绝抢占你的屏幕',
+      '零虚拟化零开销：不是 VM，辅助账户约 3GB、无需启动；文件夹按需只读共享（一次一个）、跑完即收回，数据留你本机'
+    ],
+    note: '真实体验笔记（基于官网 offstage.viraat.dev、Product Hunt 2026-10-07 发布页 77 票、veonib/clawpk/toolradar/productdirs/nowfound 多源聚合，赵生尚未亲测）：解决「电脑操作 Agent（computer-use）一干活就抢你屏幕」的真痛点——窗口乱跳、鼠标乱动、模拟器盖住你的表格。offstage 不做 Agent、也不调度 Agent，而是做「让电脑操作 Agent 安全跑的隔离基础设施」：在你的 Mac 上开一个隐藏的第二 macOS 账户，把 GUI 任务（模拟器/Xcode UI 测试/刚构建的 App）全拦在那块你根本看不到的桌面上跑，你的窗口键盘鼠标完全不受影响。差异点：①库内已有 40+ 桌面智能体/工作台（OpenClaw 系/Clairvoyance/Nami/Ekko/clippo/cc-haha/voyager/LUCI/IrisGo/Abu 等），它们要么自己是 Agent、要么调度已有 Agent 在你的本机或云上干活；offstage 是库内唯一覆盖「电脑操作 Agent 安全隔离」空白品类的工具，定位是基础设施而非执行体；②与库内 Sai/ToDesk/Cua 等「远程/跨机执行」路线不同——offstage 不把 Agent 搬到云端或别的机器，就在你这台 Mac 上开第二账户，零虚拟化、零启动开销、数据不出本机；③与库内「屏幕记忆/监督」类（LUCI 读屏、IrisGo 演示学习、Clippo/Onward 监督面板）正好相反——那些是让 Agent 用你的屏幕，offstage 是让 Agent 别用你的屏幕；④机制上比「后台跑」扎实：Swift 守护进程只向本会话发输入、绝不进全局输入流，且该会话一旦变成控制台前台就硬停，从根上杜绝抢占。短板：仅 macOS Apple Silicon + Node 20+（赵生 Windows RTX 4060 笔记本无法直接亲测，已如实标注）；需一次性 sudo 建辅助账户；纯 CLI/MCP、无 GUI 面板；定位偏开发者（运行 coding agent 者）。MIT 开源、完全免费、多源交叉验证充分，适合 Mac 上常跑 GUI 自动化测试的开发者做安全隔离。'
   }
   ]
