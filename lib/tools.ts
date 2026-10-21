@@ -3063,5 +3063,24 @@ export const tools: Tool[] = [
       '零虚拟化零开销：不是 VM，辅助账户约 3GB、无需启动；文件夹按需只读共享（一次一个）、跑完即收回，数据留你本机'
     ],
     note: '真实体验笔记（基于官网 offstage.viraat.dev、Product Hunt 2026-10-07 发布页 77 票、veonib/clawpk/toolradar/productdirs/nowfound 多源聚合，赵生尚未亲测）：解决「电脑操作 Agent（computer-use）一干活就抢你屏幕」的真痛点——窗口乱跳、鼠标乱动、模拟器盖住你的表格。offstage 不做 Agent、也不调度 Agent，而是做「让电脑操作 Agent 安全跑的隔离基础设施」：在你的 Mac 上开一个隐藏的第二 macOS 账户，把 GUI 任务（模拟器/Xcode UI 测试/刚构建的 App）全拦在那块你根本看不到的桌面上跑，你的窗口键盘鼠标完全不受影响。差异点：①库内已有 40+ 桌面智能体/工作台（OpenClaw 系/Clairvoyance/Nami/Ekko/clippo/cc-haha/voyager/LUCI/IrisGo/Abu 等），它们要么自己是 Agent、要么调度已有 Agent 在你的本机或云上干活；offstage 是库内唯一覆盖「电脑操作 Agent 安全隔离」空白品类的工具，定位是基础设施而非执行体；②与库内 Sai/ToDesk/Cua 等「远程/跨机执行」路线不同——offstage 不把 Agent 搬到云端或别的机器，就在你这台 Mac 上开第二账户，零虚拟化、零启动开销、数据不出本机；③与库内「屏幕记忆/监督」类（LUCI 读屏、IrisGo 演示学习、Clippo/Onward 监督面板）正好相反——那些是让 Agent 用你的屏幕，offstage 是让 Agent 别用你的屏幕；④机制上比「后台跑」扎实：Swift 守护进程只向本会话发输入、绝不进全局输入流，且该会话一旦变成控制台前台就硬停，从根上杜绝抢占。短板：仅 macOS Apple Silicon + Node 20+（赵生 Windows RTX 4060 笔记本无法直接亲测，已如实标注）；需一次性 sudo 建辅助账户；纯 CLI/MCP、无 GUI 面板；定位偏开发者（运行 coding agent 者）。MIT 开源、完全免费、多源交叉验证充分，适合 Mac 上常跑 GUI 自动化测试的开发者做安全隔离。'
+  },
+  {
+    id: 'inner-droid',
+    name: 'Inner Droid（本机 Agent 小队 · 审批闸）',
+    description: '本机运行的 AI Agent 小队：敏感操作先过审批闸，数据本地加密，自带邮件/日历/消息。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://innerdroid.com',
+    price: 'Beta 全免费（无卡、无试用倒计时）；macOS Apple Silicon / Windows x64 / Linux 三端可用；不内置模型，需自带 Claude/ChatGPT/OpenRouter/OpenAI API Key；整库 SQLCipher 本地加密。',
+    features: [
+      '本机 Agent 小队：邮件/文件/Shell/日历/消息等多 Agent 并行，心跳轮询后台持续干活，你离开也跑',
+      '审批闸 + 只追加账本：任何敏感动作（发信/改文件/Shell/付款）都停在闸口等你批准，带 #ref 入不可篡改账本，可一次性或长期授权且可随时撤销',
+      '本地优先隐私：整库 SQLCipher 磁盘加密、可选 PIN/Touch ID；无遥测；隐私过滤器发往云模型前把姓名/联系人/IBAN 换成占位符',
+      '内置 PIM 与连接器：智能邮件客户端、日历与提醒（Google/M365/iCloud/CalDAV）、WhatsApp/Discord/Telegram/Slack 消息读写',
+      '自带 LLM：不捆绑模型，接 Claude/ChatGPT/OpenRouter/OpenAI，只有工具显式发送的内容才出本机',
+      '远程接管：通过私有 Tailscale 网络用手机/平板浏览器配对（扫码+独立 PIN）远程对话、清审批、看邮件、传文件'
+    ],
+    note: '真实体验笔记（基于官网 innerdroid.com、Product Hunt 2026-10-01 发布页、nav-ai 评测、inite.ai/prori.ai 多源聚合，赵生尚未亲测）：解决「想让 AI 帮我管邮件、盯日历、回消息，又怕它乱发、乱改、乱花钱」的真痛点——Inner Droid 把整款产品建在「闸」上：你的 Agent 小队本机常驻、后台轮询干活，但凡发信、改文件、跑 Shell、付款这类敏感动作一律停在闸口等你拍板，每次带一个 #ref 写进只追加账本，既能一次性放行也能给长期授权、随时撤销。差异点：①库内电脑操作类（IrisGo/Abu/Incredible）做的是「在你的浏览器/App 里点按输入帮你干活」的 vibe computing；Inner Droid 不抢你屏幕点按，而是养一支「拥有你 PIM（邮件/日历/消息）」的常驻 Agent 小队跑后台例程，jobs 不同，安全模型也不同；②与库内编排/画布类（clippo/ekko/cc-haha/starkomand）比，那些调度的是「编码 Agent」，Inner Droid 调度的是「个人生产力 Agent（收件箱分流、日历、知识库、IM 应答）」，且安全优先；③与本地优先系（linda/offstage/atomic-agent）比，linda 是单 Mac 同事、offstage 是隔离基础设施、atomic 偏 CLI 壳，Inner Droid 是「整队 + 共享记忆 + 审批账本 + 内置 PIM + 远程接管」的更完整本地 Agent OS；④安全姿态是库内最硬的「人在回路」范本：整库 SQLCipher 加密（对比 OpenClaw/Hermes 明文本地文件）、每个敏感动作进只追加账本（对比仅元数据审计）、发往云模型前隐私过滤器把姓名/联系人/IBAN 换成占位符——对赵生这种既用 Windows 又常手机远程看进度的人直接对味，且 Windows x64 原生支持（赵生 RTX 4060 笔记本可直接装），弥补库内大量仅 macOS 的桌面 Agent 短板。短板：仍处 Beta、无长期规模化验证；不内置模型需自带 Key；远程访问依赖自配 Tailscale；「哪些自动做、哪些先问」边界需自己定；团队/企业级多用户治理待观察；国内应用（微信/飞书/企业微信）未覆盖，需赵生亲测校准后再定稿推荐。'
   }
   ]
