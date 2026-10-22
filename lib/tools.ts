@@ -3082,5 +3082,24 @@ export const tools: Tool[] = [
       '远程接管：通过私有 Tailscale 网络用手机/平板浏览器配对（扫码+独立 PIN）远程对话、清审批、看邮件、传文件'
     ],
     note: '真实体验笔记（基于官网 innerdroid.com、Product Hunt 2026-10-01 发布页、nav-ai 评测、inite.ai/prori.ai 多源聚合，赵生尚未亲测）：解决「想让 AI 帮我管邮件、盯日历、回消息，又怕它乱发、乱改、乱花钱」的真痛点——Inner Droid 把整款产品建在「闸」上：你的 Agent 小队本机常驻、后台轮询干活，但凡发信、改文件、跑 Shell、付款这类敏感动作一律停在闸口等你拍板，每次带一个 #ref 写进只追加账本，既能一次性放行也能给长期授权、随时撤销。差异点：①库内电脑操作类（IrisGo/Abu/Incredible）做的是「在你的浏览器/App 里点按输入帮你干活」的 vibe computing；Inner Droid 不抢你屏幕点按，而是养一支「拥有你 PIM（邮件/日历/消息）」的常驻 Agent 小队跑后台例程，jobs 不同，安全模型也不同；②与库内编排/画布类（clippo/ekko/cc-haha/starkomand）比，那些调度的是「编码 Agent」，Inner Droid 调度的是「个人生产力 Agent（收件箱分流、日历、知识库、IM 应答）」，且安全优先；③与本地优先系（linda/offstage/atomic-agent）比，linda 是单 Mac 同事、offstage 是隔离基础设施、atomic 偏 CLI 壳，Inner Droid 是「整队 + 共享记忆 + 审批账本 + 内置 PIM + 远程接管」的更完整本地 Agent OS；④安全姿态是库内最硬的「人在回路」范本：整库 SQLCipher 加密（对比 OpenClaw/Hermes 明文本地文件）、每个敏感动作进只追加账本（对比仅元数据审计）、发往云模型前隐私过滤器把姓名/联系人/IBAN 换成占位符——对赵生这种既用 Windows 又常手机远程看进度的人直接对味，且 Windows x64 原生支持（赵生 RTX 4060 笔记本可直接装），弥补库内大量仅 macOS 的桌面 Agent 短板。短板：仍处 Beta、无长期规模化验证；不内置模型需自带 Key；远程访问依赖自配 Tailscale；「哪些自动做、哪些先问」边界需自己定；团队/企业级多用户治理待观察；国内应用（微信/飞书/企业微信）未覆盖，需赵生亲测校准后再定稿推荐。'
+  },
+  {
+    id: 'incredible',
+    name: 'Incredible（语音指挥电脑 · Vibe Computing）',
+    description: '语音优先桌面 AI 助手：自然语言指令，直接在 App 内点按打字干活。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://incredible.one',
+    price: '免费起步（无需信用卡）；macOS + Windows 双端；目前受邀私测逐步开放；团队版含 SSO 与集中管理。',
+    features: [
+      '语音优先（Vibe Computing）：按激活键说自然语言，AI 把语音转成指令，直接在光标处打字或在 App 内点按，无需学命令语言',
+      '跨 App 实时操作：在浏览器 / Notion / Gmail / Slack / Google Docs Sheets / 桌面文件里直接干活，不另开聊天窗、不复制粘贴',
+      '屏幕上下文理解：用当前可见页面 / 消息 / 文档理解意图，从对话跳到对应 App 自动续上下文',
+      '人在回路审批：发信 / 改日历 / 提交表单等重要动作前暂停展示预览，可批准 / 改 / 停',
+      '实时听写（Live Dictation）：Alt+D 直接语音转润色文字落到任意输入框，号称比手打快 4 倍',
+      '企业级安全：GDPR 合规、声明不用于训练、隔离处理环境；SOC2 Type II 与 ISO 27001（Vanta 进行中）；已有 CellMark 等真实企业部署'
+    ],
+    note: '真实体验笔记（基于官网 incredible.one、融资公告博客、Product Hunt 2026-10-21 发布页、toolhunt.eu / seekmoreai 多源聚合，赵生尚未亲测）：解决「想少打字、少切窗口、让 AI 直接在正在用的 App 里把活干完」的真痛点——Incredible 走「语音优先 Vibe Computing」路线：按快捷键说话，它就在你当前 App（浏览器 / 邮件 / 表格 / 文档）里直接点按、打字、填表、发信，没有独立聊天框、没有复制粘贴循环，比「切去 chatbot 再贴回来」顺一大截。差异点：①库内电脑操作类里，IrisGo 是「看我操作 → 录屏转技能 → 日后自动重放」（录了再跑），Abu 是「文字 / IM 指令 + 本地优先 + 自进化技能」（打字派）；Incredible 是「开口即办」的实时语音驱动派，交互范式三者各管一摊不重叠；②库内大量桌面 Agent 偏本地优先 / 开源（OpenClaw 系 / linda / offstage / atomic-agent），Incredible 是少见的「云端模型 + 企业级 SaaS + 真实付费企业客户」路线——已有瑞典 CellMark（VP Global IT 背书、跨瑞典 / 法国 / 美国部署）、2.7M 美元种子前融资、团队版 SSO / 集中管理，商业化与可信度明显高于多数个人开发者作品；③多语言天然友好（可任意语言说话含翻译改写），对赵生国际化内容与英文读者群直接可用。短板：仍处受邀私测、公开下载可能需排期；非本地优先（数据经云模型处理，虽声明不训练 + 隔离 + GDPR）；SOC2 / ISO27001 为「进行中」非已获证；国内直连与中文支持待赵生亲测；语音驱动在嘈杂环境 / 专业术语下准确率需校准。整体：语音实时 Vibe Computing + 企业级背书，是库内该细分空白品类中可信度最高的候选，待公测开放后赵生亲测再定稿推荐。'
   }
   ]
