@@ -3101,5 +3101,24 @@ export const tools: Tool[] = [
       '企业级安全：GDPR 合规、声明不用于训练、隔离处理环境；SOC2 Type II 与 ISO 27001（Vanta 进行中）；已有 CellMark 等真实企业部署'
     ],
     note: '真实体验笔记（基于官网 incredible.one、融资公告博客、Product Hunt 2026-10-21 发布页、toolhunt.eu / seekmoreai 多源聚合，赵生尚未亲测）：解决「想少打字、少切窗口、让 AI 直接在正在用的 App 里把活干完」的真痛点——Incredible 走「语音优先 Vibe Computing」路线：按快捷键说话，它就在你当前 App（浏览器 / 邮件 / 表格 / 文档）里直接点按、打字、填表、发信，没有独立聊天框、没有复制粘贴循环，比「切去 chatbot 再贴回来」顺一大截。差异点：①库内电脑操作类里，IrisGo 是「看我操作 → 录屏转技能 → 日后自动重放」（录了再跑），Abu 是「文字 / IM 指令 + 本地优先 + 自进化技能」（打字派）；Incredible 是「开口即办」的实时语音驱动派，交互范式三者各管一摊不重叠；②库内大量桌面 Agent 偏本地优先 / 开源（OpenClaw 系 / linda / offstage / atomic-agent），Incredible 是少见的「云端模型 + 企业级 SaaS + 真实付费企业客户」路线——已有瑞典 CellMark（VP Global IT 背书、跨瑞典 / 法国 / 美国部署）、2.7M 美元种子前融资、团队版 SSO / 集中管理，商业化与可信度明显高于多数个人开发者作品；③多语言天然友好（可任意语言说话含翻译改写），对赵生国际化内容与英文读者群直接可用。短板：仍处受邀私测、公开下载可能需排期；非本地优先（数据经云模型处理，虽声明不训练 + 隔离 + GDPR）；SOC2 / ISO27001 为「进行中」非已获证；国内直连与中文支持待赵生亲测；语音驱动在嘈杂环境 / 专业术语下准确率需校准。整体：语音实时 Vibe Computing + 企业级背书，是库内该细分空白品类中可信度最高的候选，待公测开放后赵生亲测再定稿推荐。'
+  },
+  {
+    id: 'dodaios',
+    name: 'Dodaios（本地 Agent OS · 语音指挥桌面）',
+    description: '开源本地 Agent OS：语音唤醒、多编码 Agent 同屏、电脑操作与 40+ 插件，数据不出本机。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://dodaios.ai',
+    price: '免费开源（Apache-2.0）：本机自托管，一行命令安装，无账户无云；模型 Key/订阅登录存于 OS 凭据管理器；Windows / macOS / Linux 三端可用，无需 GPU。',
+    features: [
+      'Agentic IDE：Claude Code / Codex / OpenCode / Kimi Code / GLM / Grok Build / Cursor CLI 等编码 Agent 在实时终端分屏并行跑，每条命令带风险分级（safe/monitor/ask/block），删除仓库等危险操作事前拒绝',
+      '常驻 Agent 小队：每个 Agent 有独立聊天、模型、浏览器与日程，互相派活、需你确认才外发，记忆写入本地 wiki 可引用回溯',
+      '语音优先：自定义唤醒词、实时对话、向任意 App 听写、电话；本地 Whisper 识别 + Piper 合成可完全离线',
+      '电脑操作：在本机桌面与浏览器点按、输入、读屏，权限由你定；Appshots 两键把当前窗口喂给 Agent',
+      '插件市场 40+：GitHub / Google Workspace / Notion / Slack / Linear / Spotify / Home Assistant 等一键接入；任意模型（OpenAI/Anthropic/Gemini/Ollama/本地/Claude·ChatGPT 订阅）',
+      '例行任务与 3D Verse：晨报、收件箱清扫等定时 Routine；Agents 在 3D 世界走动展示当前在做什么'
+    ],
+    note: '真实体验笔记（基于官网 dodaios.ai、GitHub Dodaios/Dodaios 仓库、TheNextGenTechInsider 报道、agentspace.cc/bittide 多源聚合，赵生尚未亲测）：解决「电脑上 AI 工具各管一摊——聊天归聊天、编码 Agent 各开各的终端、语音又要另装——彼此不连、数据还往云上送」的痛点。Dodaios 把自己定位成「你与 AI Agent 之间的那层」——一个开源、无账户、无云的本地 Agent OS：语音唤醒一句话，它要么自己干小事（开 App、改设置、动鼠标），要么把真活派给隔离副本里的编码 Agent 干完回来。差异点：①库内 OpenClaw 系只是「个人 Agent 开源本体/框架」，Dodaios 是开箱即用的「全栈本地 Agent OS」——内置 Agentic IDE 多编码 Agent 同屏并行、常驻 Agent 小队、唤醒词语音、电脑操作、本地记忆 wiki、40+ 插件市场、定时 Routine、甚至 3D Verse 可视化，覆盖面比单 Agent 桌面工具（linda/offstage/inner-droid/incredible）宽得多；②与库内「屏幕监督/录屏重放」类（LUCI/IrisGo）和「语音 vibe computing」类（Incredible）不同：Dodaios 不抢你屏幕点按、也不只做语音，而是「语音 + 多 Agent 编排 + 电脑操作 + 插件」的本地中枢，且每个动作都过风险闸（safe/monitor/ask/block），删除仓库等危险命令事前拒绝；③与库内开源本地系比，Dodaios 跨 Windows/macOS/Linux 三端（赵生 RTX 4060 笔记本 Windows 直接可用，弥补大量仅 macOS 桌面 Agent 短板），且「无需 GPU、一行命令装、不绑账户」上手门槛最低；④前身 Personal Jarvis、Apache-2.0、6000+ commits 活跃维护，把 Hermes/OpenClaw 等运行时也纳为可调度后端，是库内少见的「能跑别人 Agent 的 Agent 工作台」。短板：仍偏开发者/Power User，视觉打磨不如商业产品；语音与本地小模型在中文/专业术语准确率待赵生亲测；macOS dmg 未公证需手动放行、Windows 安装包待 SignPath 签名；"formerly Personal Jarvis" 更名过渡期，旧资料仍混用两名字。整体：开源本地全栈 Agent OS，是库内 "Agent 工作台" 主线中覆盖面最广、平台最友好、上手最轻的候选，待赵生在 Windows 环境亲测校准后定稿推荐。'
   }
   ]
