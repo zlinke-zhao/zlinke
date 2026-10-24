@@ -3120,5 +3120,24 @@ export const tools: Tool[] = [
       '例行任务与 3D Verse：晨报、收件箱清扫等定时 Routine；Agents 在 3D 世界走动展示当前在做什么'
     ],
     note: '真实体验笔记（基于官网 dodaios.ai、GitHub Dodaios/Dodaios 仓库、TheNextGenTechInsider 报道、agentspace.cc/bittide 多源聚合，赵生尚未亲测）：解决「电脑上 AI 工具各管一摊——聊天归聊天、编码 Agent 各开各的终端、语音又要另装——彼此不连、数据还往云上送」的痛点。Dodaios 把自己定位成「你与 AI Agent 之间的那层」——一个开源、无账户、无云的本地 Agent OS：语音唤醒一句话，它要么自己干小事（开 App、改设置、动鼠标），要么把真活派给隔离副本里的编码 Agent 干完回来。差异点：①库内 OpenClaw 系只是「个人 Agent 开源本体/框架」，Dodaios 是开箱即用的「全栈本地 Agent OS」——内置 Agentic IDE 多编码 Agent 同屏并行、常驻 Agent 小队、唤醒词语音、电脑操作、本地记忆 wiki、40+ 插件市场、定时 Routine、甚至 3D Verse 可视化，覆盖面比单 Agent 桌面工具（linda/offstage/inner-droid/incredible）宽得多；②与库内「屏幕监督/录屏重放」类（LUCI/IrisGo）和「语音 vibe computing」类（Incredible）不同：Dodaios 不抢你屏幕点按、也不只做语音，而是「语音 + 多 Agent 编排 + 电脑操作 + 插件」的本地中枢，且每个动作都过风险闸（safe/monitor/ask/block），删除仓库等危险命令事前拒绝；③与库内开源本地系比，Dodaios 跨 Windows/macOS/Linux 三端（赵生 RTX 4060 笔记本 Windows 直接可用，弥补大量仅 macOS 桌面 Agent 短板），且「无需 GPU、一行命令装、不绑账户」上手门槛最低；④前身 Personal Jarvis、Apache-2.0、6000+ commits 活跃维护，把 Hermes/OpenClaw 等运行时也纳为可调度后端，是库内少见的「能跑别人 Agent 的 Agent 工作台」。短板：仍偏开发者/Power User，视觉打磨不如商业产品；语音与本地小模型在中文/专业术语准确率待赵生亲测；macOS dmg 未公证需手动放行、Windows 安装包待 SignPath 签名；"formerly Personal Jarvis" 更名过渡期，旧资料仍混用两名字。整体：开源本地全栈 Agent OS，是库内 "Agent 工作台" 主线中覆盖面最广、平台最友好、上手最轻的候选，待赵生在 Windows 环境亲测校准后定稿推荐。'
+  },
+  {
+    id: 'underdog',
+    name: 'Underdog（本地私有个人AI · Conway Research）',
+    description: '100%本地运行的个人AI助手：自研端侧模型、永久免费、可代办采购。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://underdog.ai',
+    price: '免费：邮件、日历、笔记与AI永久免费，无广告无订阅；推理全跑本机，厂商无云端算力账单。收入来自替你采购时经 Stripe 一次性虚拟卡抽取的极小比例手续费（约省下金额的零头）。Mac（Apple Silicon）已上线，Windows 公测中，iPhone/iPad/Linux/Android 在路上。',
+    features: [
+      '100% 本地推理：自研 Woof 4B / Saluki 27B / Underdog 27B 三档端侧模型，Underdog 27B 在 Artificial Analysis 智能指数上超过 Claude Opus 4.6 Max，全部跑在你自己电脑',
+      '邮件与日历：直连 Gmail / Outlook，AI 处理全在本地；自动整理、起草、会议纪要与新闻邮件一键退订',
+      '会议记录与听写：本地实时转写与听写，录音、笔记与文本存本机，可随时查看、编辑或删除',
+      '代办与采购（Agentic Commerce）：经 Stripe 一次性虚拟卡替你比价下单，厂商只抽极小手续费，账号密钥锁在本机独立保险库',
+      '隐私与安全姿态：每账户独立保险库且密钥不出本机、远程图片/脚本/追踪像素即剥即弃、Naval 模式一键断网；已通过 Leviathan Security（App Defense Alliance）20 项评估、获 Google 批准读取 Gmail / Calendar',
+      '自研推理引擎 Husky：M5 Max 上 Woof 4B 函数编辑任务峰值达 MLX 的 4.5 倍生成速度；另有 Bark 3.0 语音模型（163MB 反超 Whisper large-v3）'
+    ],
+    note: '真实体验笔记（基于官网 underdog.ai、conway.tech、a16z 官方投资公告、TechCrunch、woshipm、腾讯新闻、recodex.pro 多源聚合，赵生尚未亲测）：解决「个人AI助理要真正替你管生活，就要把邮箱、日历、笔记、甚至银行卡都交给某家公司的服务器」这一隐私死结。Underdog 的答案是把 AI 整个搬到你自己的设备：模型在本地跑，连内容都不发去云端AI服务，只与你的邮件提供商直接同步。差异点：①库内云侧个人智能体（Meta Muse 安全虚拟机、OpenAI Dots 云电脑、Zinley 数字分身）再怎么隔离，推理仍在别人机房；Underdog 是 100% 端侧、且用自家调过的专用小模型而非调用 Claude/OpenAI，做到真正没有云端AI碰过你的数据；②库内大量本地优先智能体（OpenClaw 系/Dodaios/Atomic Agent/Linda/Offstage/Abu/IrisGo 等）多是通用电脑操控/编码/自动化工具，靠你自带云端或本地大模型API；Underdog 是少见的面向普通人的消费级个人助理，预装专为邮件/日历/听写/代办调优的端侧模型，开箱即用、口碑墙（Ben Horowitz/Naval/Rauch 等）背书，且靠替你采购抽极小手续费的代理商务模式实现永久免费、无广告无订阅，这一组合在库内空白；③自研 Husky 推理引擎与 Bark 3.0 语音模型（163MB 反超 Whisper large-v3）体现端侧效率硬实力，Underdog 27B 在 Artificial Analysis 智能指数上压过 Claude Opus 4.6 Max，是有真基准的端侧派。背书极强：a16z 领投种子轮（Khosla、Hummingbird、Anthologyfund 与 Anthropic 合作、SV Angel），天使含 Stripe 创始人 Patrick Collison、Naval、Vercel 的 Guillermo Rauch、OpenAI 的 Noam Brown；创始人 Sigil Wen 是 Thiel Fellow、曾把 GPT-2 跑在 Apple Watch 上。短板：仍邀请制测试、Mac（Apple Silicon）优先、Windows 仅公测、Linux/iOS/Android 待发；27B 模型需要较新设备（Saluki 27B 量化版 7.89GB 可塞进 16GB 笔记本，但完整版吃配置）；端侧模型能力上限低于云端前沿；国内直连与中文支持待赵生亲测；永久免费的可持续性取决于采购抽成规模。整体：100% 端侧加自研模型加永久免费加代理商务，是库内个人智能体品类里隐私姿态最彻底、模式最特别的候选，待公测开放后赵生亲测再定稿推荐。'
   }
   ]
