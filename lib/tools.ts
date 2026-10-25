@@ -3139,5 +3139,24 @@ export const tools: Tool[] = [
       '自研推理引擎 Husky：M5 Max 上 Woof 4B 函数编辑任务峰值达 MLX 的 4.5 倍生成速度；另有 Bark 3.0 语音模型（163MB 反超 Whisper large-v3）'
     ],
     note: '真实体验笔记（基于官网 underdog.ai、conway.tech、a16z 官方投资公告、TechCrunch、woshipm、腾讯新闻、recodex.pro 多源聚合，赵生尚未亲测）：解决「个人AI助理要真正替你管生活，就要把邮箱、日历、笔记、甚至银行卡都交给某家公司的服务器」这一隐私死结。Underdog 的答案是把 AI 整个搬到你自己的设备：模型在本地跑，连内容都不发去云端AI服务，只与你的邮件提供商直接同步。差异点：①库内云侧个人智能体（Meta Muse 安全虚拟机、OpenAI Dots 云电脑、Zinley 数字分身）再怎么隔离，推理仍在别人机房；Underdog 是 100% 端侧、且用自家调过的专用小模型而非调用 Claude/OpenAI，做到真正没有云端AI碰过你的数据；②库内大量本地优先智能体（OpenClaw 系/Dodaios/Atomic Agent/Linda/Offstage/Abu/IrisGo 等）多是通用电脑操控/编码/自动化工具，靠你自带云端或本地大模型API；Underdog 是少见的面向普通人的消费级个人助理，预装专为邮件/日历/听写/代办调优的端侧模型，开箱即用、口碑墙（Ben Horowitz/Naval/Rauch 等）背书，且靠替你采购抽极小手续费的代理商务模式实现永久免费、无广告无订阅，这一组合在库内空白；③自研 Husky 推理引擎与 Bark 3.0 语音模型（163MB 反超 Whisper large-v3）体现端侧效率硬实力，Underdog 27B 在 Artificial Analysis 智能指数上压过 Claude Opus 4.6 Max，是有真基准的端侧派。背书极强：a16z 领投种子轮（Khosla、Hummingbird、Anthologyfund 与 Anthropic 合作、SV Angel），天使含 Stripe 创始人 Patrick Collison、Naval、Vercel 的 Guillermo Rauch、OpenAI 的 Noam Brown；创始人 Sigil Wen 是 Thiel Fellow、曾把 GPT-2 跑在 Apple Watch 上。短板：仍邀请制测试、Mac（Apple Silicon）优先、Windows 仅公测、Linux/iOS/Android 待发；27B 模型需要较新设备（Saluki 27B 量化版 7.89GB 可塞进 16GB 笔记本，但完整版吃配置）；端侧模型能力上限低于云端前沿；国内直连与中文支持待赵生亲测；永久免费的可持续性取决于采购抽成规模。整体：100% 端侧加自研模型加永久免费加代理商务，是库内个人智能体品类里隐私姿态最彻底、模式最特别的候选，待公测开放后赵生亲测再定稿推荐。'
-  }
+  },
+  {
+    id: 'juggler',
+    name: 'Juggler（可视化分支编码工作台）',
+    description: '可视化编码 Agent 工作台：会话即树、可分支可编辑，模型直连无中转。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.4,
+    url: 'https://juggler.studio',
+    price: '免费开源：应用 AGPLv3、扩展 SDK Apache-2.0，无账户、无自有模型、不卖 token；流量从你机器直达所选提供商，无 Juggler 服务器、无代码云索引。macOS 14+ Apple Silicon（已签名）、Windows x64（未签名、SmartScreen 会告警）、Linux x64/arm64、可无头跑；自带 Claude Code/Codex/Copilot/Gemini/DeepSeek/Kimi/GLM/Ollama 等，或本地 Ollama/LM Studio/llama.cpp。',
+    features: [
+      '会话即树非日志：任意点分支出子线程、可递归深入，fork/回退/对比/编辑均不污染主对话',
+      'Miller 列导航：工具调用、上下文、线程结构、原始请求 JSON 各自开视图，长会话可钻取',
+      '处处可检视：打开任一模型事务看 system prompt、工具定义、token、缓存、计时与 stop reason',
+      '模型直连无中转：请求从你机器直达所选提供商，绝不代理、不读不改、不云索引你的代码',
+      '多提供商中立：Claude Code/Codex/Copilot/Gemini/Mistral/DeepSeek/Kimi/GLM/Ollama 等，对话中可随时换模型',
+      '一切皆扩展：读/写/bash 等内置工具经公开 SDK 可替换；Go 原生后端、类型检查 JS 前端、明确不用 Electron'
+    ],
+    note: '真实体验笔记（基于官网 juggler.studio、GitHub juggler-ai/juggler、andrew.ooo 评测、AlternativeTo、Hacker News 2026-07-14 登顶多源聚合，赵生尚未亲测）：解决「Claude Code / OpenCode / Codex 这类编码 Agent 只有一个线性滚动日志——试错要手动 fork、方向跑偏只能 /compact 或重开丢上下文」的真痛点。Juggler 把整段编码会话重构成一棵可分支、可检视、可编辑、可回退的树（底层 Yjs CRDT），用 macOS Finder 式 Miller 列把工具调用、上下文、线程结构、甚至发给模型的原始请求 JSON 都摊开成独立视图，让你「看穿黑盒」。差异点：①库内桌面智能体/工作台多走「单 Agent 执行」或「多 Agent 调度/画布」路线（OpenClaw 系/Ekko/clippo/cc-haha/Dodaios/starkomand 等），Juggler 是库内唯一聚焦「编码会话本身的可视化与可编辑性」的树状工作台，范式上把线性 transcript 换成可分支文档，与 clippo/ekko 的画布编排、onward 的终端并行都不重叠；②技术姿态亮眼——Go 原生后端加类型检查 JS 前端、明确不用 Electron、会话是状态机而非 while-loop、断线或退出后磁盘持久化可续，工程品味来自作者 Julian Storer（JUCE 框架、Tracktion DAW、Cmajor DSP 语言缔造者，30 年开发者工具经验），2026-07-14 登顶 Hacker News；③供应商中立最彻底——不卖 token、不抽成、无自有模型，流量从你机器直达所选提供商、绝不代理也不云索引你的代码库，对话中可随时换提供商/模型/思考层级，比库内多数「自带 Key 仍走云」的产品更干净。短板：仍偏开发者/Power User、非普通消费者工具；Windows 安装包未签名（SmartScreen 会警告）、macOS Intel 需源码构建；AGPLv3 应用，官方二进制附加 WAN（P2P / Cloudflare Tunnel）模式；国内直连与中文界面待赵生亲测；团队/企业级多用户治理未涉及。整体：把「编码 Agent 黑盒」打开成可分支可检视的树，是库内 Agent 工作台主线中可视化范式最独特、工程 credibility 最高、供应商中立最干净的候选，待赵生在 Windows x64 亲测（需容忍 SmartScreen 告警）后定稿推荐。'
+  },
   ]
