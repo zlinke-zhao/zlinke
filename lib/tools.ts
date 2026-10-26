@@ -3159,4 +3159,23 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官网 juggler.studio、GitHub juggler-ai/juggler、andrew.ooo 评测、AlternativeTo、Hacker News 2026-07-14 登顶多源聚合，赵生尚未亲测）：解决「Claude Code / OpenCode / Codex 这类编码 Agent 只有一个线性滚动日志——试错要手动 fork、方向跑偏只能 /compact 或重开丢上下文」的真痛点。Juggler 把整段编码会话重构成一棵可分支、可检视、可编辑、可回退的树（底层 Yjs CRDT），用 macOS Finder 式 Miller 列把工具调用、上下文、线程结构、甚至发给模型的原始请求 JSON 都摊开成独立视图，让你「看穿黑盒」。差异点：①库内桌面智能体/工作台多走「单 Agent 执行」或「多 Agent 调度/画布」路线（OpenClaw 系/Ekko/clippo/cc-haha/Dodaios/starkomand 等），Juggler 是库内唯一聚焦「编码会话本身的可视化与可编辑性」的树状工作台，范式上把线性 transcript 换成可分支文档，与 clippo/ekko 的画布编排、onward 的终端并行都不重叠；②技术姿态亮眼——Go 原生后端加类型检查 JS 前端、明确不用 Electron、会话是状态机而非 while-loop、断线或退出后磁盘持久化可续，工程品味来自作者 Julian Storer（JUCE 框架、Tracktion DAW、Cmajor DSP 语言缔造者，30 年开发者工具经验），2026-07-14 登顶 Hacker News；③供应商中立最彻底——不卖 token、不抽成、无自有模型，流量从你机器直达所选提供商、绝不代理也不云索引你的代码库，对话中可随时换提供商/模型/思考层级，比库内多数「自带 Key 仍走云」的产品更干净。短板：仍偏开发者/Power User、非普通消费者工具；Windows 安装包未签名（SmartScreen 会警告）、macOS Intel 需源码构建；AGPLv3 应用，官方二进制附加 WAN（P2P / Cloudflare Tunnel）模式；国内直连与中文界面待赵生亲测；团队/企业级多用户治理未涉及。整体：把「编码 Agent 黑盒」打开成可分支可检视的树，是库内 Agent 工作台主线中可视化范式最独特、工程 credibility 最高、供应商中立最干净的候选，待赵生在 Windows x64 亲测（需容忍 SmartScreen 告警）后定稿推荐。'
   },
+  {
+    id: 'openmuse',
+    name: 'OpenMuse（开源自托管个人 Agent）',
+    description: '开源自托管个人 Agent OS：浏览器+终端+文件，兼容任意 Harness。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://github.com/CopilotKit/openmuse',
+    price: '开源 MIT，自托管免费（需自备 CopilotKit Intelligence Key 接模型与持久线程；Rich Threads 云端部分非 MIT）。Node 24 + pnpm 11，一键 Deploy to Render；移动端 iOS/Android/Web 三端共享 UI，本地样例模式免模型/Google/Docker 即可跑；可选 Docker Linux 容器做 Agent computer、Chromium worker 做浏览器接管。',
+    features: [
+      '自带 Agent computer：持久 Chromium 浏览器 + 可选隔离 Linux 终端，可随时 Take control 接管同一会话',
+      '目标追踪与里程碑：给定目标自动拆解、跨周期监控网页变更/价格阈值并去重告警',
+      '兼容任意 Agent Harness：基于 AG-UI 协议，Claude Code/Codex/Cursor 等任意兼容前端可替换，模型后端可换 OpenAI/Anthropic/Google',
+      '人在回路审批：发邮件、建日历、填 PDF 表单等敏感动作均经存储式审阅门，可暂停/恢复/取消/重试',
+      '移动+Web 双端实时同步：iOS/Android/Web 共享 UI，出门在外也能协作、会话状态多端一致',
+      '自托管数据主权：PGlite/PostgreSQL 存本机或你自己的服务器，Google 凭据静态加密，遥测可关'
+    ],
+    note: '真实体验笔记（基于 GitHub CopilotKit/openmuse 官方仓库 README/SECURITY/VERIFICATION/docs，以及 tycp.xyz、okyn.com、chattools.top、博客园、腾讯云开发者社区多源独立评测聚合，赵生尚未亲测）：解决「想要一个真正私有、可改源码、不被厂商锁定的个人 AI 助理，但市面要么是闭源云（Meta Muse/OpenAI Dots）、要么只跑本地模型（Underdog）」的中间空白——OpenMuse 是 CopilotKit（AG-UI 协议缔造者、知名真实公司）官方开源的个人 Agent 应用，MIT 许可、整套可自托管，数据在你的服务器或本机，会话/文件不离开你掌控。差异点：①库内个人智能体两极分化——云侧（Meta Muse 安全 VM、OpenAI Dots 云电脑、Zinley 数字分身）推理在别人机房，本机派（Underdog/Linda/Atomic/LumiChats）多靠本地模型且偏通用操控；OpenMuse 是库内唯一「开源可自托管 + 兼容任意 Agent Harness（AG-UI）+ 目标追踪」三者合一的个人 Agent 应用，介于二者之间且可二开；②AG-UI 协议中立最彻底——任意兼容 AG-UI 的 agent 与前端都能替换，模型后端可换 OpenAI/Anthropic/Google Key，不被单家模型或前端绑定，区别于库内多数锁模型或锁运行时的产品；③Take control 接管浏览器会话是库内少见的真交互设计——Agent 跑完浏览器/终端结果内联卡片展示，你需要时一键接管同一个会话继续操作，而非只给一段文本；④目标追踪（Goals and Tracking）把「提一个项目、Agent 拆解、长期监控、复盘告警」做成产品级闭环，区别于库内多数手动派活 Agent，对长周期个人 OKR/项目管理直接有用；⑤移动+Web 双端实时同步，比库内大量仅桌面（Mac/Windows）的 Agent 多了一层随身协作。短板：仍 alpha（官方明说适合自托管与二开、非生产工具）；Rich Threads 持久化依赖 CopilotKit Intelligence 云服务（需 project key、该部分不在 MIT 内）；遥测默认全量（PostHog、可关）；单用户设计（共享 access key、非多租户）；图形桌面与自动下单仍在路线图；需 Node 24 加 pnpm 11 自部署门槛，对纯小白略高；国内直连与中文支持待赵生亲测。整体：开源自托管、AG-UI 中立、目标追踪、移动 Web 双端，是库内个人 Agent 品类里最「可拥有、可改写、不被锁定」的候选，适合想自建个人 Agent 的开发者 fork 改造，待赵生自部署亲测后定稿推荐。'
+  }
   ]
