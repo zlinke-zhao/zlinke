@@ -3177,5 +3177,24 @@ export const tools: Tool[] = [
       '自托管数据主权：PGlite/PostgreSQL 存本机或你自己的服务器，Google 凭据静态加密，遥测可关'
     ],
     note: '真实体验笔记（基于 GitHub CopilotKit/openmuse 官方仓库 README/SECURITY/VERIFICATION/docs，以及 tycp.xyz、okyn.com、chattools.top、博客园、腾讯云开发者社区多源独立评测聚合，赵生尚未亲测）：解决「想要一个真正私有、可改源码、不被厂商锁定的个人 AI 助理，但市面要么是闭源云（Meta Muse/OpenAI Dots）、要么只跑本地模型（Underdog）」的中间空白——OpenMuse 是 CopilotKit（AG-UI 协议缔造者、知名真实公司）官方开源的个人 Agent 应用，MIT 许可、整套可自托管，数据在你的服务器或本机，会话/文件不离开你掌控。差异点：①库内个人智能体两极分化——云侧（Meta Muse 安全 VM、OpenAI Dots 云电脑、Zinley 数字分身）推理在别人机房，本机派（Underdog/Linda/Atomic/LumiChats）多靠本地模型且偏通用操控；OpenMuse 是库内唯一「开源可自托管 + 兼容任意 Agent Harness（AG-UI）+ 目标追踪」三者合一的个人 Agent 应用，介于二者之间且可二开；②AG-UI 协议中立最彻底——任意兼容 AG-UI 的 agent 与前端都能替换，模型后端可换 OpenAI/Anthropic/Google Key，不被单家模型或前端绑定，区别于库内多数锁模型或锁运行时的产品；③Take control 接管浏览器会话是库内少见的真交互设计——Agent 跑完浏览器/终端结果内联卡片展示，你需要时一键接管同一个会话继续操作，而非只给一段文本；④目标追踪（Goals and Tracking）把「提一个项目、Agent 拆解、长期监控、复盘告警」做成产品级闭环，区别于库内多数手动派活 Agent，对长周期个人 OKR/项目管理直接有用；⑤移动+Web 双端实时同步，比库内大量仅桌面（Mac/Windows）的 Agent 多了一层随身协作。短板：仍 alpha（官方明说适合自托管与二开、非生产工具）；Rich Threads 持久化依赖 CopilotKit Intelligence 云服务（需 project key、该部分不在 MIT 内）；遥测默认全量（PostHog、可关）；单用户设计（共享 access key、非多租户）；图形桌面与自动下单仍在路线图；需 Node 24 加 pnpm 11 自部署门槛，对纯小白略高；国内直连与中文支持待赵生亲测。整体：开源自托管、AG-UI 中立、目标追踪、移动 Web 双端，是库内个人 Agent 品类里最「可拥有、可改写、不被锁定」的候选，适合想自建个人 Agent 的开发者 fork 改造，待赵生自部署亲测后定稿推荐。'
+  },
+  {
+    id: 'busabase',
+    name: 'Busabase（Agent 系统记录库 · 开源本地优先）',
+    description: '面向AI Agent的开源数据库与工作区：写入留痕、可审可复核。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://busabase.com',
+    price: '开源 MIT，免费：本地 Desktop（数据存本机文件夹、离线可用、无使用追踪）与 Docker 自托管（数据不离公司内网）完全免费；可选 Busabase Cloud，Free 档 $0（1 space/3 坐席/5000 记录），Plus $10/坐席·月、Pro $20/坐席·月按年付送两月。',
+    features: [
+      'Agent 系统记录库：每次写入都带「谁改的、改了什么、完整历史」，关键写入可挂起等人复核才合并',
+      '四类底座合一：Data Base 类型化表格、Knowledge Base 带源知识库、Apps Base 内部应用、Skills Base 可复用技能',
+      '本地优先三形态：Desktop 数据存本机文件夹离线可用、Docker 自托管、Cloud 同一引擎可选',
+      '模型无关：自身不带 LLM，经 Agent Skills / MCP / OpenAPI / CLI 接入 Claude Code、Codex、Cursor、n8n、OpenClaw、WorkBuddy 等 40+ 外部 Agent',
+      '复用不归零：下一个 Agent、同事或内部 App 读同一份数据；被拒改动不入正式数据，每次决定都留痕可追',
+      'Playbook 与权限门：团队做法写成 Playbook，Agent 每次任务前照读；写权限决定即时合并或等人审'
+    ],
+    note: '真实体验笔记（基于官网 busabase.com、GitHub busabase/busabase 仓库、clauday.com 报道、dev.to 开发者自述、openalternative 多源聚合，赵生尚未亲测）：解决「AI Agent 干完活，产出散落在各自聊天窗口，人一走活也带走；换个 Agent 或同事又要从头讲背景」这一知识蒸发死结。Busabase 把自己定位成「Agent 的系统记录库（system of record）」——一个开源、本地优先的工作区，让 Agent 和人读写同一套带类型的记录、文档、技能与应用，且每一次写入都带作者、字段级 diff 与历史，关键改动挂起等人复核才合并。差异点：①库内已收录 40+「会干活的 Agent」（OpenClaw 系/Dodaios/Underdog/OpenMuse/Incredible/Linda/Offstage/Atomic 等），但它们多是「执行层」——聊天、编码、操控电脑；Busabase 是库内唯一专注「执行之后的沉淀与治理层」的工具：把 Agent 产出落库、版本化、带审批闸，与那些执行型 Agent 不重叠、反而互补（OpenMuse/OpenClaw 等都可把结果写回 Busabase）；②写入时治理（write-time curation）是库内独有范式——每笔改动带 who/what/history，被拒内容不入正式数据，对应本月 agent 记忆研究从「往里塞」转向「准入控制」的趋势；③本地优先三选一——Desktop 数据存本机文件夹离线可用、Docker 自托管数据不离内网、Cloud 同一引擎可选，与库内 Underdog/OpenMuse 的本地主权取向一致，但 Busabase 不绑任何模型（自身无 LLM），靠 Agent Skills/MCP/OpenAPI/CLI 接 40+ Agent（含库内 WorkBuddy、OpenClaw、Hermes），中立最彻底；④#1 Product Hunt（354 赞）、GitHub 445 星、MIT 开源、六月起静默打磨四月，团队有真实交付背书。短板：仍是年轻产品、企业治理成熟度待验证；自托管需 Docker/Node 上手门槛；「多一处数据存放地」的接受度是未知数；国内直连与中文支持待赵生亲测。整体：Agent 系统记录库加写入留痕加审批闸加本地优先，是库内 Agent 工作台主线中「沉淀与治理层」的空白填补，与一众执行型 Agent 形成互补而非重复，待赵生在 Windows 本地优先场景亲测后定稿推荐。'
   }
-  ]
+]
