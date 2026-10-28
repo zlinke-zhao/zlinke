@@ -3196,5 +3196,24 @@ export const tools: Tool[] = [
       'Playbook 与权限门：团队做法写成 Playbook，Agent 每次任务前照读；写权限决定即时合并或等人审'
     ],
     note: '真实体验笔记（基于官网 busabase.com、GitHub busabase/busabase 仓库、clauday.com 报道、dev.to 开发者自述、openalternative 多源聚合，赵生尚未亲测）：解决「AI Agent 干完活，产出散落在各自聊天窗口，人一走活也带走；换个 Agent 或同事又要从头讲背景」这一知识蒸发死结。Busabase 把自己定位成「Agent 的系统记录库（system of record）」——一个开源、本地优先的工作区，让 Agent 和人读写同一套带类型的记录、文档、技能与应用，且每一次写入都带作者、字段级 diff 与历史，关键改动挂起等人复核才合并。差异点：①库内已收录 40+「会干活的 Agent」（OpenClaw 系/Dodaios/Underdog/OpenMuse/Incredible/Linda/Offstage/Atomic 等），但它们多是「执行层」——聊天、编码、操控电脑；Busabase 是库内唯一专注「执行之后的沉淀与治理层」的工具：把 Agent 产出落库、版本化、带审批闸，与那些执行型 Agent 不重叠、反而互补（OpenMuse/OpenClaw 等都可把结果写回 Busabase）；②写入时治理（write-time curation）是库内独有范式——每笔改动带 who/what/history，被拒内容不入正式数据，对应本月 agent 记忆研究从「往里塞」转向「准入控制」的趋势；③本地优先三选一——Desktop 数据存本机文件夹离线可用、Docker 自托管数据不离内网、Cloud 同一引擎可选，与库内 Underdog/OpenMuse 的本地主权取向一致，但 Busabase 不绑任何模型（自身无 LLM），靠 Agent Skills/MCP/OpenAPI/CLI 接 40+ Agent（含库内 WorkBuddy、OpenClaw、Hermes），中立最彻底；④#1 Product Hunt（354 赞）、GitHub 445 星、MIT 开源、六月起静默打磨四月，团队有真实交付背书。短板：仍是年轻产品、企业治理成熟度待验证；自托管需 Docker/Node 上手门槛；「多一处数据存放地」的接受度是未知数；国内直连与中文支持待赵生亲测。整体：Agent 系统记录库加写入留痕加审批闸加本地优先，是库内 Agent 工作台主线中「沉淀与治理层」的空白填补，与一众执行型 Agent 形成互补而非重复，待赵生在 Windows 本地优先场景亲测后定稿推荐。'
+  },
+  {
+    id: 'craft-agents',
+    name: 'Craft Agents（开源自托管 Agent 桌面工作台）',
+    description: 'Craft 团队开源的 Agent 原生桌面应用，文档式中台、会话收件箱、内置浏览器。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.6,
+    url: 'https://agents.craft.do',
+    price: '开源 Apache-2.0，桌面端免费自托管：macOS/Windows/Linux 一键安装包；可源码构建（需 Bun + Electron）或 Docker 跑无头服务端；自带 CLI 与远程 WebSocket 服务，重型任务可丢到服务器续跑。模型自带 Key（Anthropic/OpenAI/Google/Codex/Ollama 等任意 OpenAI 兼容端点），免费档无订阅。',
+    features: [
+      '收件箱式会话管理：把 Agent 对话当工作项，自定义状态、标记、归档、后台续跑',
+      '连接一切：说一句「加 Linear 为来源」即自动读 API/MCP、取凭据配置；也支持粘贴 MCP JSON、OpenAPI、本地文件与 Git',
+      '内置 Chromium 浏览器：Agent 直接登录网站、填表、点按、抽取结构化数据，无 API 老系统也能浏览器模拟',
+      '权限三段式：Explore 只读 / Ask to Edit 审批 / Auto 自动，每会话独立定档；VS Code 式多文件 diff 审阅改动',
+      '可复用技能与自动化：Claude Code 技能一键导入、@ 唤起；按标签/排程/工具事件触发 Agent 会话',
+      '自托管与隐私：桌面端数据留本机或跑远程服务端，凭据加密，开源可改可 fork'
+    ],
+    note: '真实体验笔记（基于官网 agents.craft.do 与官方博客、GitHub craft-ai-agents/craft-agents-oss 仓库 7.3k 星 / Apache-2.0 / v0.15.6、Product Hunt 2026-10-17 当日 #7（114 upvotes）、vibeleaderboard / gongke.net / temp.jaylab.io 多源评测聚合；赵生尚未亲测）：解决「Claude Code / Codex 这类编码 Agent 只有黑乎乎的终端，多会话切换、改动审阅、后台续跑都很别扭」的痛点，同时把知识工作者也拉进 Agent 工作流。Craft Agents 是知名文档应用 Craft（craft.do，Apple 设计奖团队、创始人 Balint Orosz）官方开源的「Agent 原生」桌面中台，底层用 Claude Agent SDK 加 Pi SDK，但用 Electron 桌面应用替代终端，把对话当邮件一样管。差异点：①库内桌面智能体 / 工作台两极分化——OpenClaw 系是框架、Ekko / clippo / juggler / onward 偏编码画布、Underdog / Linda 偏本地模型隐私、Busabase 偏执行后沉淀；Craft Agents 是库内少见的「由真实成熟生产力公司出品、设计级 UX 加文档式中台」的 Agent 工作台，目标用户不限于开发者（Craft 内部财务 / 市场 / 客服团队都在用），与库内偏极客产品形成互补；②独门「用自然语言接来源」——说一句加 Linear 为来源就自动找 API / MCP、读文档、取凭据、配好，无需 config 文件，比库内多数要手填 MCP JSON 的更顺；③会话收件箱加 Explore / Ask / Auto 三段权限加 VS Code 式多文件 diff，把多任务并行、改动前可审、后台续跑做成产品级默认，比库内单 Agent 聊天框更像可管理的工单系统；④内置 Chromium 浏览器让 Agent 直接登录网站干活，无 API 老系统也能浏览器模拟，与库内 Sai / ToDesk 远程执行、OpenMuse 接管浏览器思路相近但更深（登录态加表单加抽取一体）；⑤开源 Apache-2.0、可自托管、可 fork 改 UI，Claude Code 技能一键导入，中立度高于商业桌面 Agent。短板：本质是 Claude Code / Codex 的漂亮壳加编排层，强依赖外部模型 Key（无本地模型时仍走云）；团队 / 企业级多租户治理未涉及；国内直连与中文界面待赵生亲测；源码构建需 Bun 生态，对纯小白门槛略高。整体：设计级、文档式、公司级背书的 Agent 原生桌面工作台，是库内 Agent 工作台主线中 UX 与通用性最突出的候选，待赵生在 Windows x64 亲测（安装包已含 Windows）后定稿推荐。'
   }
 ]
