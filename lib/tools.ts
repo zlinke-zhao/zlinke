@@ -3216,4 +3216,24 @@ export const tools: Tool[] = [
     ],
     note: '真实体验笔记（基于官网 agents.craft.do 与官方博客、GitHub craft-ai-agents/craft-agents-oss 仓库 7.3k 星 / Apache-2.0 / v0.15.6、Product Hunt 2026-10-17 当日 #7（114 upvotes）、vibeleaderboard / gongke.net / temp.jaylab.io 多源评测聚合；赵生尚未亲测）：解决「Claude Code / Codex 这类编码 Agent 只有黑乎乎的终端，多会话切换、改动审阅、后台续跑都很别扭」的痛点，同时把知识工作者也拉进 Agent 工作流。Craft Agents 是知名文档应用 Craft（craft.do，Apple 设计奖团队、创始人 Balint Orosz）官方开源的「Agent 原生」桌面中台，底层用 Claude Agent SDK 加 Pi SDK，但用 Electron 桌面应用替代终端，把对话当邮件一样管。差异点：①库内桌面智能体 / 工作台两极分化——OpenClaw 系是框架、Ekko / clippo / juggler / onward 偏编码画布、Underdog / Linda 偏本地模型隐私、Busabase 偏执行后沉淀；Craft Agents 是库内少见的「由真实成熟生产力公司出品、设计级 UX 加文档式中台」的 Agent 工作台，目标用户不限于开发者（Craft 内部财务 / 市场 / 客服团队都在用），与库内偏极客产品形成互补；②独门「用自然语言接来源」——说一句加 Linear 为来源就自动找 API / MCP、读文档、取凭据、配好，无需 config 文件，比库内多数要手填 MCP JSON 的更顺；③会话收件箱加 Explore / Ask / Auto 三段权限加 VS Code 式多文件 diff，把多任务并行、改动前可审、后台续跑做成产品级默认，比库内单 Agent 聊天框更像可管理的工单系统；④内置 Chromium 浏览器让 Agent 直接登录网站干活，无 API 老系统也能浏览器模拟，与库内 Sai / ToDesk 远程执行、OpenMuse 接管浏览器思路相近但更深（登录态加表单加抽取一体）；⑤开源 Apache-2.0、可自托管、可 fork 改 UI，Claude Code 技能一键导入，中立度高于商业桌面 Agent。短板：本质是 Claude Code / Codex 的漂亮壳加编排层，强依赖外部模型 Key（无本地模型时仍走云）；团队 / 企业级多租户治理未涉及；国内直连与中文界面待赵生亲测；源码构建需 Bun 生态，对纯小白门槛略高。整体：设计级、文档式、公司级背书的 Agent 原生桌面工作台，是库内 Agent 工作台主线中 UX 与通用性最突出的候选，待赵生在 Windows x64 亲测（安装包已含 Windows）后定稿推荐。'
   }
+,
+  {
+    id: 'xiryn',
+    name: 'Xiryn（开源本地个人 AI 智能体）',
+    description: '开源本地个人 AI 智能体：每个 Agent 拥有独立 Docker 桌面，Telegram 远程控制，数据全留本机。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.6,
+    url: 'https://xiryn.com',
+    price: '开源 MIT、免费：一条命令安装（自动装 Git/Node/Docker），本地模型（Ollama/LM Studio）完全离线免费跑；云端 11 家模型（OpenAI/Anthropic/Gemini/xAI/DeepSeek 等）按用量自付，可设月度预算上限。',
+    features: [
+      '每个 Agent 拥有独立 Linux 桌面（Docker 容器内 Xvfb+Chromium），后台干活不占你屏幕',
+      'Telegram 远程控制：扫码配对、手机收进度截图、一键审批支付或接管屏幕',
+      '本地优先隐私：无账号无遥测，对话/记忆/密钥存本机单文件，卡密 AES-256-GCM 加密保险库',
+      '11 家模型任选（含 Ollama/LM Studio 本地），每 Agent 独立模型与额度预算',
+      'Squads 多 Agent 协作 + 常驻 Routines 定时任务（关掉浏览器也跑）+ 16 个预置 Agent 模板',
+      '支付需逐笔人工批准：卡号对 Agent 不可见，仅在批准站点由 Xiryn 代填'
+    ],
+    note: '真实体验笔记（基于官网 xiryn.com、GitHub SouravBeraAkaSpeed/xiryn 仓库 MIT/300+ 星、Product Hunt 2026-10-13 当日 #21（90 upvotes）、dev.to/aifrontierpost/aiboss88/amazingindex 多源评测聚合；赵生尚未亲测）：解决「大厂个人 Agent（Meta Muse / xAI Grok Bot / OpenAI Dots）虽强，却跑在别人云服务器上、对话/登录/卡号都交给厂商」这一隐私与归属痛点。Xiryn 把同一套「拥有自己电脑的个人 Agent」思路搬回本机——每个 Agent 在 Docker 容器里跑一套独立 Linux 桌面（Xvfb 画屏 + 真实 Chromium），在你笔记本后台并行工作，永不移动你的鼠标、不读你的文件、不打断你。差异点：①与库内云端占机 Agent（Meta Muse 安全 VM / Sai 自主电脑舰队 / Solid 自有账号预算 / OpenAI Dots）最清晰的分野是「数据与控制全留本机」——无账号、无遥测、对话记忆密钥单文件落地、卡密 AES-256-GCM 加密且 Agent 永不可见卡号，每笔支付逐次人工批准；②与库内本地执行型桌面 Agent（OpenClaw 系 / Naseem / 实在 Agent 等靠接管你真实屏幕或鼠标干活）不同，Xiryn 在平行的沙箱桌面里操作，关掉浏览器、合上笔记本它仍在跑，你本机工作流零打扰；③独门 Telegram 异步控制层——扫码配对、手机收实时进度截图、一键批准或接管，无需公网地址/端口转发，是库内少见的「手机即遥控器」形态；④Squads 多 Agent 按工种交接 + 常驻 Routines 定时任务 + 16 个预置 Agent 模板，把个人 Agent 从「单聊框」升级成可编排的小团队；⑤MIT 开源、一条命令装好、本地模型免费离线，中立度与门槛优于多数商业桌面 Agent。短板：仍极新（v0.6）、单一维护者、强依赖 Docker（约 4GB 磁盘、本地模型吃内存）；多 Agent 并行对机器资源消耗未经验证；国内模型接入与中文支持待赵生亲测。整体：库内个人 Agent 主线里「本地 Docker 沙箱 + 手机异步遥控 + 逐笔支付审批」的隐私优先范式空白填补，与云端占机 Agent 及屏幕接管型 Agent 均形成互补而非重复，待赵生在 Windows 本地优先场景亲测后定稿推荐。'
+  }
 ]
