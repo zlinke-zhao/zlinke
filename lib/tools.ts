@@ -3235,5 +3235,24 @@ export const tools: Tool[] = [
       '支付需逐笔人工批准：卡号对 Agent 不可见，仅在批准站点由 Xiryn 代填'
     ],
     note: '真实体验笔记（基于官网 xiryn.com、GitHub SouravBeraAkaSpeed/xiryn 仓库 MIT/300+ 星、Product Hunt 2026-10-13 当日 #21（90 upvotes）、dev.to/aifrontierpost/aiboss88/amazingindex 多源评测聚合；赵生尚未亲测）：解决「大厂个人 Agent（Meta Muse / xAI Grok Bot / OpenAI Dots）虽强，却跑在别人云服务器上、对话/登录/卡号都交给厂商」这一隐私与归属痛点。Xiryn 把同一套「拥有自己电脑的个人 Agent」思路搬回本机——每个 Agent 在 Docker 容器里跑一套独立 Linux 桌面（Xvfb 画屏 + 真实 Chromium），在你笔记本后台并行工作，永不移动你的鼠标、不读你的文件、不打断你。差异点：①与库内云端占机 Agent（Meta Muse 安全 VM / Sai 自主电脑舰队 / Solid 自有账号预算 / OpenAI Dots）最清晰的分野是「数据与控制全留本机」——无账号、无遥测、对话记忆密钥单文件落地、卡密 AES-256-GCM 加密且 Agent 永不可见卡号，每笔支付逐次人工批准；②与库内本地执行型桌面 Agent（OpenClaw 系 / Naseem / 实在 Agent 等靠接管你真实屏幕或鼠标干活）不同，Xiryn 在平行的沙箱桌面里操作，关掉浏览器、合上笔记本它仍在跑，你本机工作流零打扰；③独门 Telegram 异步控制层——扫码配对、手机收实时进度截图、一键批准或接管，无需公网地址/端口转发，是库内少见的「手机即遥控器」形态；④Squads 多 Agent 按工种交接 + 常驻 Routines 定时任务 + 16 个预置 Agent 模板，把个人 Agent 从「单聊框」升级成可编排的小团队；⑤MIT 开源、一条命令装好、本地模型免费离线，中立度与门槛优于多数商业桌面 Agent。短板：仍极新（v0.6）、单一维护者、强依赖 Docker（约 4GB 磁盘、本地模型吃内存）；多 Agent 并行对机器资源消耗未经验证；国内模型接入与中文支持待赵生亲测。整体：库内个人 Agent 主线里「本地 Docker 沙箱 + 手机异步遥控 + 逐笔支付审批」的隐私优先范式空白填补，与云端占机 Agent 及屏幕接管型 Agent 均形成互补而非重复，待赵生在 Windows 本地优先场景亲测后定稿推荐。'
+  },
+  {
+    id: 'pilotdeck',
+    name: 'PilotDeck 2.0（清华开源 AI Agent 工作台）',
+    description: '清华THUNLP等开源AI Agent工作台：白盒记忆可改、按难度路由模型与成本追踪。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://pilotdeck.openbmb.cn',
+    price: '完全开源、模型自由选：自带 Windows/macOS/Linux 一键桌面安装包与 Web/CLI/IM 多端一致体验；模型需自备 API Key（Qwen/Claude/GLM 等任意 OpenAI 兼容端点）或接本地模型，无订阅、无内置付费模型。',
+    features: [
+      '项目空间级隔离：每项目独立文件系统/记忆/技能，多项目并行互不干扰，检索有界、技能自然沉淀',
+      '白盒可追溯记忆：记忆生成/抽取/存储/检索端到端可见，记错可定位并直接编辑单条，支持一键回滚',
+      '智能路由与成本优化：任务难度自动识别，简单任务不烧旗舰模型；按任务分项追踪 token 成本',
+      'Always-on 常驻：人离机后工作继续推进，Agent 主动发现值得做的事、汇报进展、把成果落地为文件',
+      '原生 MCP 支持 + Word/Excel/PPT 办公 Skills：一键交付办公成果；2000 条交互消息长任务稳定续跑',
+      '多前端一致 + 完全开源：Web/CLI/IM 行为一致，清华 THUNLP/面壁智能/OpenBMB 联合研发'
+    ],
+    note: '真实体验笔记（基于官网 pilotdeck.openbmb.cn、GitHub OpenBMB/PilotDeck 仓库、量子位/QbitAI 2026-10-17 报道、AI Native Foundation 产业洞察、WorkBuddy Bench 基准多源聚合，赵生尚未亲测）：解决「长周期、多项目并行的 Agent 生产里，记忆是黑盒、成本不可见、简单任务也烧旗舰模型」这三类老大难。PilotDeck 2.0 是清华大学 THUNLP 实验室联合面壁智能（ModelBest）、OpenBMB、AI9Stars 共同开源的智能体操作系统 / Agent 工作台，以 WorkSpace（项目空间）为基本单元，配白盒记忆、智能路由、Always-on 三大支柱，原生支持 MCP，Web/CLI/IM 多前端一致。差异点：①库内已收录 40+ 执行型 / 桌面型 Agent（OpenClaw 系、Xiryn、Craft Agents、OpenMuse、MindsHub、Busabase 等），它们多聚焦把任务跑完，记忆与成本基本黑盒；PilotDeck 是库内唯一把记忆治理加成本治理做成产品级能力的 Agent OS——白盒记忆让你看见每一条记忆的生成/抽取/存储/检索全链路，AI 记错了能直接定位并编辑那一条、一键回滚，而不是重开会话；②智能路由按任务难度自动选模型、按任务分项追踪 token 成本，简单活不浪费旗舰模型，后台常驻推进才经济可行，是库内独有范式；③项目空间级隔离（每项目独立文件系统/记忆/技能）从源头消除全局上下文污染，与库内多数全局共享记忆的产品分野清晰；④基准背书硬：在 WorkBuddy Bench 上用 Qwen3.6-35B-A3B 跑出 79.1，高于 WorkBuddy 74.7 与 Claude Code 77.3，清华加面壁加 OpenBMB 背书可信度高、完全开源模型自由选。与库内相邻工具的关系：Busabase 是执行之后的沉淀与记录库，PilotDeck 是执行之中的治理与操作系统，二者互补不重叠；MindsHub 是跑可换 Harness 的 Agent 工作区，PilotDeck 额外补了白盒记忆与成本路由。短板：仍年轻（2026-05 首开源、10-15 发 2.0）；模型需自备 API Key 或本地模型，无免费内置模型；英文文档与海外社区成熟度不及国内；国内 .cn 域名、国际化待验证；人离机后的主动发现能力依赖所接模型与权限配置。整体：库内 Agent 工作台主线里白盒记忆可改加按任务成本路由模型的治理型范式空白填补，由顶级学术与开源团队背书、完全开源，适合想自建可审计 Agent 工作流的开发者与团队，待赵生在 Windows x64 桌面端亲测（已有 Windows 安装包）后定稿推荐。'
   }
 ]
