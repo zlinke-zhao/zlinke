@@ -3254,5 +3254,24 @@ export const tools: Tool[] = [
       '多前端一致 + 完全开源：Web/CLI/IM 行为一致，清华 THUNLP/面壁智能/OpenBMB 联合研发'
     ],
     note: '真实体验笔记（基于官网 pilotdeck.openbmb.cn、GitHub OpenBMB/PilotDeck 仓库、量子位/QbitAI 2026-10-17 报道、AI Native Foundation 产业洞察、WorkBuddy Bench 基准多源聚合，赵生尚未亲测）：解决「长周期、多项目并行的 Agent 生产里，记忆是黑盒、成本不可见、简单任务也烧旗舰模型」这三类老大难。PilotDeck 2.0 是清华大学 THUNLP 实验室联合面壁智能（ModelBest）、OpenBMB、AI9Stars 共同开源的智能体操作系统 / Agent 工作台，以 WorkSpace（项目空间）为基本单元，配白盒记忆、智能路由、Always-on 三大支柱，原生支持 MCP，Web/CLI/IM 多前端一致。差异点：①库内已收录 40+ 执行型 / 桌面型 Agent（OpenClaw 系、Xiryn、Craft Agents、OpenMuse、MindsHub、Busabase 等），它们多聚焦把任务跑完，记忆与成本基本黑盒；PilotDeck 是库内唯一把记忆治理加成本治理做成产品级能力的 Agent OS——白盒记忆让你看见每一条记忆的生成/抽取/存储/检索全链路，AI 记错了能直接定位并编辑那一条、一键回滚，而不是重开会话；②智能路由按任务难度自动选模型、按任务分项追踪 token 成本，简单活不浪费旗舰模型，后台常驻推进才经济可行，是库内独有范式；③项目空间级隔离（每项目独立文件系统/记忆/技能）从源头消除全局上下文污染，与库内多数全局共享记忆的产品分野清晰；④基准背书硬：在 WorkBuddy Bench 上用 Qwen3.6-35B-A3B 跑出 79.1，高于 WorkBuddy 74.7 与 Claude Code 77.3，清华加面壁加 OpenBMB 背书可信度高、完全开源模型自由选。与库内相邻工具的关系：Busabase 是执行之后的沉淀与记录库，PilotDeck 是执行之中的治理与操作系统，二者互补不重叠；MindsHub 是跑可换 Harness 的 Agent 工作区，PilotDeck 额外补了白盒记忆与成本路由。短板：仍年轻（2026-05 首开源、10-15 发 2.0）；模型需自备 API Key 或本地模型，无免费内置模型；英文文档与海外社区成熟度不及国内；国内 .cn 域名、国际化待验证；人离机后的主动发现能力依赖所接模型与权限配置。整体：库内 Agent 工作台主线里白盒记忆可改加按任务成本路由模型的治理型范式空白填补，由顶级学术与开源团队背书、完全开源，适合想自建可审计 Agent 工作流的开发者与团队，待赵生在 Windows x64 桌面端亲测（已有 Windows 安装包）后定稿推荐。'
+  },
+  {
+    id: 'deepcell',
+    name: 'DeepCell（AI 办公套件）',
+    description: '智能办公套件：用 .deepcell 格式把文档/表格/幻灯片原生互链，一处改动全局同步。',
+    category: 'AI办公效率',
+    subCategory: 'AI办公套件',
+    rating: 4.6,
+    url: 'https://deepcell.net',
+    price: '免费起步：个人 $0、无需账号即可用；团队/企业版（SSO、私有云或本地部署）按档计费；CLI、MCP server 与 Claude Code 插件均免费可用。',
+    features: [
+      '.deepcell 原生格式：文档、表格、幻灯片互链，改一处全局联动',
+      '一句话生成可交付文档/表格/幻灯片，附来源说明与 cheat sheet',
+      '自描述数字：每个数值可追溯来源、可审计、可重算',
+      'Agent 原生：CLI、MCP server、Claude Code 插件，免账号驱动',
+      '纯文本 .deepcell 文件可自管可版本化，支持 Excel/PPT 导出',
+      'Web 应用 + macOS/Windows/Linux CLI，中英文界面'
+    ],
+    note: '真实体验笔记（基于官网 deepcell.net、GitHub deepcell-ai/deepcell-plugins、Product Hunt 2026-10-22 当日 #1（341 upvotes / 76 comments）、aixlist / kongchang / navs.site / nav-ai.net 多源评测聚合；赵生尚未亲测）：解决「deadline 型办公任务（建模、销售复盘、预算预测、月报）往往同一次任务要产出多份互不相干的文档/表格/幻灯片，改一个数字得手动同步三处、极易对不上」这一痛点。DeepCell 是库内首个以「跨模态互链」为核心范式的 AI 办公套件——自研 .deepcell 格式把文档、电子表格、幻灯片原生绑在同一套数据模型上，改一个假设（如增长率 15% 到 20%）三处数字与叙述同步刷新；每个数值都「自描述」（知道它是什么、从哪来），可审计可重算，特别对财务/汇报场景友好。与库内 Gamma（仅 PPT）、chatppt / 讯飞智文（偏 PPT/Word 生成）、Notion AI（嵌入笔记的写写摘要）最大分野：①它不是单点生成器，而是「任务包」生产器，把叙述/数据/演示用同一真相源串起来；②agent 原生——提供 CLI、MCP server（deepcell.net/mcp）与符合 Agent Plugins Spec v1.0.0 的 Claude Code 插件，第三方/自定义 agent 可直接读写 .deepcell（库内办公工具多是给人点的 SaaS，鲜少给 agent 当工具）；③纯文本 .deepcell 文件可自管可版本化，不锁死在黑盒项目格式里。短板：.deepcell 与既有 Excel/PPT 的互导入/导出成熟度待验证（账号后才能 Excel/PPT 导出）；产品极新（2026-10 PH 首发）、团队与融资背景披露少；中大型团队的协作/SSO 仍 coming soon。整体：库内 AI办公效率 品类从「单点生成」补到「跨模态互链 + agent 原生」一块空白，对赵生常写评测报告、做数据复盘的内容创作者直接对味，待赵生用真实月报/建模场景亲测后定稿推荐。'
   }
 ]
