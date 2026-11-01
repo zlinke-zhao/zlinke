@@ -3272,6 +3272,25 @@ export const tools: Tool[] = [
       '纯文本 .deepcell 文件可自管可版本化，支持 Excel/PPT 导出',
       'Web 应用 + macOS/Windows/Linux CLI，中英文界面'
     ],
-    note: '真实体验笔记（基于官网 deepcell.net、GitHub deepcell-ai/deepcell-plugins、Product Hunt 2026-10-22 当日 #1（341 upvotes / 76 comments）、aixlist / kongchang / navs.site / nav-ai.net 多源评测聚合；赵生尚未亲测）：解决「deadline 型办公任务（建模、销售复盘、预算预测、月报）往往同一次任务要产出多份互不相干的文档/表格/幻灯片，改一个数字得手动同步三处、极易对不上」这一痛点。DeepCell 是库内首个以「跨模态互链」为核心范式的 AI 办公套件——自研 .deepcell 格式把文档、电子表格、幻灯片原生绑在同一套数据模型上，改一个假设（如增长率 15% 到 20%）三处数字与叙述同步刷新；每个数值都「自描述」（知道它是什么、从哪来），可审计可重算，特别对财务/汇报场景友好。与库内 Gamma（仅 PPT）、chatppt / 讯飞智文（偏 PPT/Word 生成）、Notion AI（嵌入笔记的写写摘要）最大分野：①它不是单点生成器，而是「任务包」生产器，把叙述/数据/演示用同一真相源串起来；②agent 原生——提供 CLI、MCP server（deepcell.net/mcp）与符合 Agent Plugins Spec v1.0.0 的 Claude Code 插件，第三方/自定义 agent 可直接读写 .deepcell（库内办公工具多是给人点的 SaaS，鲜少给 agent 当工具）；③纯文本 .deepcell 文件可自管可版本化，不锁死在黑盒项目格式里。短板：.deepcell 与既有 Excel/PPT 的互导入/导出成熟度待验证（账号后才能 Excel/PPT 导出）；产品极新（2026-10 PH 首发）、团队与融资背景披露少；中大型团队的协作/SSO 仍 coming soon。整体：库内 AI办公效率 品类从「单点生成」补到「跨模态互链 + agent 原生」一块空白，对赵生常写评测报告、做数据复盘的内容创作者直接对味，待赵生用真实月报/建模场景亲测后定稿推荐。'
+    note: '真实体验笔记（基于官网 deepcell.net、GitHub deepcell-ai/deepcell-plugins、Product Hunt 2026-10-22 当日 #1（341 upvotes / 76 comments）、aixlist / kongchang / navs.site / nav-ai.net 多源评测聚合；赵生尚未亲测）：解决「deadline 型办公任务（建模、销售复盘、预算预测、月报）往往同一次任务要产出多份互不相干的文档/表格/幻灯片，改一个数字得手动同步三处、极易对不上」这一痛点。DeepCell 是库内首个以「跨模态互链」为核心范式的 AI 办公套件——自研 .deepcell 格式把文档、电子表格、幻灯片原生绑在同一套数据模型上，改一个假设（如增长率 15% 到 20%）三处数字与叙述同步刷新；每个数值都「自描述」（知道它是什么、从哪来），可审计可重算，特别对财务/汇报场景友好。与库内 Gamma（仅 PPT）、chatppt / 讯飞智文（偏 PPT/Word 生成）、Notion AI（嵌入笔记的写写摘要）最大分野：①它不是单点生成器，而是「任务包」生产器，把叙述/数据/演示用同一真相源串起来；②agent 原生——提供 CLI、MCP server（deepcell.net/mcp）与符合 Agent Plugins Spec v1.0.0 的 Claude Code 插件，第三方/自定义 agent 可直接读写 .deepcell（库内办公工具多是给人点的 SaaS，鲜少给 agent 当工具）；③纯文本 .deepcell 文件可自管可版本化，不锁死在黑盒项目格式里。短板：.deepcell 与既有 Excel/PPT 的互导入/导出成熟度待验证（账号后才能 Excel/PPT 导出）；产品极新（2026-10 PH 首发）、团队与融资背景披露少；中大型团队的协作/SSO 仍 coming soon。整体：库内 AI办公效率 品类从「单点生成」补到「跨模态互链 + agent 原生」一块空白，对赵生常写评测报告、做数据复盘的内容创作者直接对味，待赵生用真实月报/建模场景亲测后定稿推荐。',
+  },
+  {
+    id: 'kiko-workbench',
+    name: 'Kiko Workbench（Agent 能力自进化桌面工作台）',
+    description: '开源桌面工作台：让任意 Agent 现场造插件自进化能力，即插即用（MIT）。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.2,
+    url: 'https://github.com/wwaa321/kiko-workbench',
+    price: '开源 MIT、免费自托管：Electron 桌面端（Node ≥22、pnpm ≥9 本地构建）或 headless 无头服务形态；任何能发网络请求的 Agent 经 JSON-RPC over WebSocket/HTTP + Token 接入，另附 stdio 形态 MCP 适配器让 Claude Desktop 等即插即用；无订阅、无内置付费模型，模型与凭据由接入方自带。',
+    features: [
+      'Agent 能力自进化：内置 Plugin SDK Distributor，Agent 五步 WS 调用（写文件→构建→部署→重扫→验证）即可现场造出新能力并注册可用',
+      '任何 Agent 即插即用：标准 JSON-RPC/WebSocket + Token 认证，Claude/Cursor/自定义脚本几分钟接入；附 MCP 适配器兼容 Claude Desktop',
+      '插件化能力执行：每插件跑独立子进程，懒启动、崩溃自动指数退避重启、3 次熔断，单插件挂掉不拖垮工作台',
+      '声明式能力清单：manifest + capabilities 纯数据注册，主进程不加载插件 JS 即可发现与校验，插件只面向官方 SDK 编程、禁止反向依赖',
+      '微应用双向桥：插件可声明 UI 经 kiko-plugin:// 加载本地前端，源隔离+CSP，用户操作直达插件后端落盘、Agent 经能力调用读写同一数据源',
+      '内置插件与中文规范：文件读写、docx 生成、长任务参考、SDK 自举、待办清单、宿主窗口控制；附 docs/插件开发规范.md 完整指南'
+    ],
+    note: '真实体验笔记（基于 GitHub wwaa321/kiko-workbench 官方开源仓库 README/LICENSE/提交记录（初开源 2026-09-09、末次提交 09-16、MIT）、jxxy.net 觉醒学院独立评测、conduid.com 第三方 MCP 注册、maker 公众号/今日头条多源聚合；赵生尚未亲测）：解决「主流桌面 Agent（WorkBuddy/OpenClaw 等）遇到需求就现场写 Python 脚本——pip install、改路径、报错、几万 Token 烧光还交付不稳、且不可复用」这一真痛点。Kiko Workbench 把自己定位成「Agent 能力执行平台」而非又一个 Agent：它让智能体从『学编程』升级成『用成熟能力』甚至『造能力』。差异点：①库内已收录 40+ 桌面智能体/工作台（OpenClaw 系、Craft Agents、PilotDeck、Xiryn、Dodaios 等），它们全都是『Agent 产品本身』——自己接模型、自己干活；Kiko 是库内唯一不替代任何 Agent、而是给所有 Agent 当『能力底座』的元层工具：WorkBuddy/OpenClaw/Codex/Claude 经 JSON-RPC 或 MCP 零改造接入，把『现场写代码』换成『调用稳定插件』，Token 用在思考决策而非 Debug；②独门 Plugin SDK Distributor 让 Agent 按业务缺口自主开发、部署、注册新插件（五步 WS 调用完成自进化闭环），能力边界不再由人类排期决定——这是库内任何 Agent 产品都不具备的『自我迭代』范式；③安全与可观测设计亮眼——插件跑独立子进程、懒启动+崩溃指数退避重启+3 次熔断、声明式能力清单让主进程不加载插件 JS 即可校验、微应用双向桥带 256KB 上限+令牌桶限频+CSP 源隔离，比库内多数『给 Agent 直接 shell』的 harness 更克制；④对企业 IT 也有价值——所有 Agent 的执行权限、审计日志、资源消耗统一在 Workbench 管理，能力有边界、执行可追溯。短板（必须如实标注）：仍极早期——初开源 2026-09-09、末次提交 09-16、GitHub 仅个位数星、单一维护者；官方产品主页为 http（非 https，已用 GitHub 仓库作为权威源）；本地构建需 Node ≥22 + pnpm ≥9，对纯小白门槛略高；尚未登陆 Product Hunt/HN，独立第三方背书较弱（目前靠觉醒学院评测 + conduid MCP 注册 + maker 自述）；『Agent 自主写插件』的安全边界依赖使用者的模型与配置，需谨慎授权。整体：库内 Agent 工作台主线里「能力执行平台 / 自进化元层」的空白填补，与一众执行型 Agent 形成互补而非竞争——它不是又一个会干活的 Agent，而是让所有 Agent 干得更稳、可复用的底座，对赵生这种同时跑 WorkBuddy/OpenClaw 多 Agent 的场景尤其对味，待赵生在 Windows 本地构建亲测（Electron 桌面端已含）后定稿推荐。'
   }
 ]
