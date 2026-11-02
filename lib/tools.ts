@@ -3292,5 +3292,24 @@ export const tools: Tool[] = [
       '内置插件与中文规范：文件读写、docx 生成、长任务参考、SDK 自举、待办清单、宿主窗口控制；附 docs/插件开发规范.md 完整指南'
     ],
     note: '真实体验笔记（基于 GitHub wwaa321/kiko-workbench 官方开源仓库 README/LICENSE/提交记录（初开源 2026-09-09、末次提交 09-16、MIT）、jxxy.net 觉醒学院独立评测、conduid.com 第三方 MCP 注册、maker 公众号/今日头条多源聚合；赵生尚未亲测）：解决「主流桌面 Agent（WorkBuddy/OpenClaw 等）遇到需求就现场写 Python 脚本——pip install、改路径、报错、几万 Token 烧光还交付不稳、且不可复用」这一真痛点。Kiko Workbench 把自己定位成「Agent 能力执行平台」而非又一个 Agent：它让智能体从『学编程』升级成『用成熟能力』甚至『造能力』。差异点：①库内已收录 40+ 桌面智能体/工作台（OpenClaw 系、Craft Agents、PilotDeck、Xiryn、Dodaios 等），它们全都是『Agent 产品本身』——自己接模型、自己干活；Kiko 是库内唯一不替代任何 Agent、而是给所有 Agent 当『能力底座』的元层工具：WorkBuddy/OpenClaw/Codex/Claude 经 JSON-RPC 或 MCP 零改造接入，把『现场写代码』换成『调用稳定插件』，Token 用在思考决策而非 Debug；②独门 Plugin SDK Distributor 让 Agent 按业务缺口自主开发、部署、注册新插件（五步 WS 调用完成自进化闭环），能力边界不再由人类排期决定——这是库内任何 Agent 产品都不具备的『自我迭代』范式；③安全与可观测设计亮眼——插件跑独立子进程、懒启动+崩溃指数退避重启+3 次熔断、声明式能力清单让主进程不加载插件 JS 即可校验、微应用双向桥带 256KB 上限+令牌桶限频+CSP 源隔离，比库内多数『给 Agent 直接 shell』的 harness 更克制；④对企业 IT 也有价值——所有 Agent 的执行权限、审计日志、资源消耗统一在 Workbench 管理，能力有边界、执行可追溯。短板（必须如实标注）：仍极早期——初开源 2026-09-09、末次提交 09-16、GitHub 仅个位数星、单一维护者；官方产品主页为 http（非 https，已用 GitHub 仓库作为权威源）；本地构建需 Node ≥22 + pnpm ≥9，对纯小白门槛略高；尚未登陆 Product Hunt/HN，独立第三方背书较弱（目前靠觉醒学院评测 + conduid MCP 注册 + maker 自述）；『Agent 自主写插件』的安全边界依赖使用者的模型与配置，需谨慎授权。整体：库内 Agent 工作台主线里「能力执行平台 / 自进化元层」的空白填补，与一众执行型 Agent 形成互补而非竞争——它不是又一个会干活的 Agent，而是让所有 Agent 干得更稳、可复用的底座，对赵生这种同时跑 WorkBuddy/OpenClaw 多 Agent 的场景尤其对味，待赵生在 Windows 本地构建亲测（Electron 桌面端已含）后定稿推荐。'
+  },
+  {
+    id: 'everyagent',
+    name: 'Every Agent（自托管远程 AI 智能体控制平台）',
+    description: '自托管远程 AI Agent 平台：本机执行任务、手机随时接管，免公网 IP。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.5,
+    url: 'https://github.com/qinhaiqinshui/everyagent',
+    price: '开源 Apache-2.0、免费自托管：桌面版（Windows x64 安装包/便携版）开箱即用，或 Docker 三件套（hub+worker+web）自托管，或源码构建（JDK 25 + Node.js）；模型接任意 OpenAI 兼容端点，无订阅、无内置付费模型。',
+    features: [
+      '本机执行 + 出站 WebSocket 反向连接：手机/平板/任意浏览器遥控，无需公网 IP 或端口转发',
+      '数据不出本机：hub 纯中转不落盘，日志/文件/密钥存本地 ~/.everyagent/，双道鉴权隔离',
+      '系统级真沙箱：仿 OpenAI Codex 双账户 + 受限令牌，OS 层剥夺工作区外写权限',
+      '断线续播 + AI 全程可视化：实时增量推送、重连补齐，子 Agent 树状展示工具调用',
+      '插件化架构：26 个内置插件、15 后端 + 12 前端扩展点，.eap 一键安装不改宿主代码',
+      '模型随便换 + 容灾：任意 OpenAI 兼容端点，模型池主备自动故障转移'
+    ],
+    note: '真实体验笔记（基于 GitHub qinhaiqinshui/everyagent 官方仓库 README/LICENSE（Apache-2.0，v1.7.0 / 2026-10-23）、jxxy.net 觉醒学院独立评测、Maven Central 同步（io.github.qinhaiqinshui:every-agent* @1.6.0）多源聚合；赵生尚未亲测）：解决「想在外面用手机查看/接管家里电脑上跑了一半的 AI 长任务，传统方案要公网 IP、端口转发，安全风险高且麻烦」这一痛点。Every Agent 是库内少见的把「远程控制」做成核心范式而非附属功能的自托管 Agent 平台——执行单元（worker）在你自己的 PC 上跑，主动向外发起一条 WebSocket 加密长连接打到自建 hub，全球任何浏览器（手机/平板/办公机）访问 hub 即可遥控，全程无需公网 IP、无需端口转发、数据不出本机。差异点：①库内已收录 40+ 本地/桌面 Agent（OpenClaw 系、Xiryn、Craft Agents、OpenMuse、PilotDeck、Dodaios 等），它们多数默认「在本人机器上同屏干活」，离开本机就失联；Every Agent 的独门是「反向 WebSocket 隧道」让本机 Agent 永远可被远程接管——合上笔记本、换手机、跨 NAT 都能续上，且断线续播保证进度零丢失，是库内唯一把「远程可达 + 数据主权」同时做扎实的；②系统级真沙箱区别于多数 coding agent 的路径前缀软隔离——参考 OpenAI Codex 用独立低权限账户 + WRITE_RESTRICTED 令牌 + Capability SID，从 OS 层剥夺工作区外写权限，WSL2 后端则彻底隐藏宿主盘，安全底盘比同赛道产品更硬；③故意不做用户账号体系、仅用双道 apiKey 鉴权，方便企业 SSO/OA/企微在接入层映射身份，对赵生做私有化/团队集成有实际意义；④26 内置插件 + 15 后端 12 前端扩展点、.eap 一键装，模型池主备自动容灾，且 Windows x64 有桌面版开箱即用（对赵生主环境直接对口）。短板（如实标注）：极年轻（仓库 LICENSE init 2026-09-08、v1.7.0 仅 2026-10-23）、单一维护者、Java 25/Spring AI 技术栈对轻量部署不友好；hub 作为公网中转节点存在可用性/安全运维负担（自托管需自管一台服务器）；中文社区与主站文档成熟度低、独立第三方背书目前主要靠觉醒学院一篇评测；与库内「本机同屏型」桌面 Agent 相比，它更偏「远程控制基础设施」而非开箱即用的个人助理。整体：库内 Agent 工作台主线里「本机执行 + 公网可达 + 数据不出家」的远程控制范式空白填补，与云端占机 Agent 及同屏桌面 Agent 均互补，对赵生「外出手机接管本地长任务」场景直接对味，待赵生在 Windows 桌面版亲测后定稿推荐。'
   }
 ]
