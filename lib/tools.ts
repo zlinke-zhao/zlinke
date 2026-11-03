@@ -3311,5 +3311,24 @@ export const tools: Tool[] = [
       '模型随便换 + 容灾：任意 OpenAI 兼容端点，模型池主备自动故障转移'
     ],
     note: '真实体验笔记（基于 GitHub qinhaiqinshui/everyagent 官方仓库 README/LICENSE（Apache-2.0，v1.7.0 / 2026-10-23）、jxxy.net 觉醒学院独立评测、Maven Central 同步（io.github.qinhaiqinshui:every-agent* @1.6.0）多源聚合；赵生尚未亲测）：解决「想在外面用手机查看/接管家里电脑上跑了一半的 AI 长任务，传统方案要公网 IP、端口转发，安全风险高且麻烦」这一痛点。Every Agent 是库内少见的把「远程控制」做成核心范式而非附属功能的自托管 Agent 平台——执行单元（worker）在你自己的 PC 上跑，主动向外发起一条 WebSocket 加密长连接打到自建 hub，全球任何浏览器（手机/平板/办公机）访问 hub 即可遥控，全程无需公网 IP、无需端口转发、数据不出本机。差异点：①库内已收录 40+ 本地/桌面 Agent（OpenClaw 系、Xiryn、Craft Agents、OpenMuse、PilotDeck、Dodaios 等），它们多数默认「在本人机器上同屏干活」，离开本机就失联；Every Agent 的独门是「反向 WebSocket 隧道」让本机 Agent 永远可被远程接管——合上笔记本、换手机、跨 NAT 都能续上，且断线续播保证进度零丢失，是库内唯一把「远程可达 + 数据主权」同时做扎实的；②系统级真沙箱区别于多数 coding agent 的路径前缀软隔离——参考 OpenAI Codex 用独立低权限账户 + WRITE_RESTRICTED 令牌 + Capability SID，从 OS 层剥夺工作区外写权限，WSL2 后端则彻底隐藏宿主盘，安全底盘比同赛道产品更硬；③故意不做用户账号体系、仅用双道 apiKey 鉴权，方便企业 SSO/OA/企微在接入层映射身份，对赵生做私有化/团队集成有实际意义；④26 内置插件 + 15 后端 12 前端扩展点、.eap 一键装，模型池主备自动容灾，且 Windows x64 有桌面版开箱即用（对赵生主环境直接对口）。短板（如实标注）：极年轻（仓库 LICENSE init 2026-09-08、v1.7.0 仅 2026-10-23）、单一维护者、Java 25/Spring AI 技术栈对轻量部署不友好；hub 作为公网中转节点存在可用性/安全运维负担（自托管需自管一台服务器）；中文社区与主站文档成熟度低、独立第三方背书目前主要靠觉醒学院一篇评测；与库内「本机同屏型」桌面 Agent 相比，它更偏「远程控制基础设施」而非开箱即用的个人助理。整体：库内 Agent 工作台主线里「本机执行 + 公网可达 + 数据不出家」的远程控制范式空白填补，与云端占机 Agent 及同屏桌面 Agent 均互补，对赵生「外出手机接管本地长任务」场景直接对味，待赵生在 Windows 桌面版亲测后定稿推荐。'
+  },
+  {
+    id: 'boss-console',
+    name: 'BOSS Console（常驻智能体操作系统）',
+    description: '开源常驻智能体工作台：浏览器/终端/编辑器合一，跨设备接管、人Agent同页交接。',
+    category: 'AI工作台',
+    subCategory: '桌面智能体',
+    rating: 4.3,
+    url: 'https://bossconsole.ai',
+    price: '免费开源（Apache-2.0 核心；macOS/Windows/Linux 一键安装，brew install --cask boss；商业早期接入另谈）。模型接你已有的 Claude Code/Codex/Gemini CLI/OpenCode 或内置 Fluck Agent，无平台订阅费。',
+    features: [
+      '常驻工作区：浏览器+终端+编辑器+笔记本同屏，Agent 在真实环境操作，页面/命令/文件并排可见',
+      '人Agent同页交接：暂停 Agent，直接接管它正在用的同一浏览器页面或终端，再交还续跑',
+      '自带或接入 Agent：内置 Fluck Agent，或经 MCP 接入 Claude Code/Codex/Gemini CLI/OpenCode',
+      '跨设备续连：本机常驻运行，手机/其他电脑经 fluck.ai、cli.risaboss.com 远程查看与接管',
+      '200+ MCP 工具与插件：Toolbox 插件商店热重载，角色权限+插件门控+用户级密钥精细化管控',
+      '原生跨平台：JVM/Kotlin 原生（非 Electron），macOS/Windows/Linux 一键安装'
+    ],
+    note: '真实体验笔记（基于官网 bossconsole.ai 产品页/插件目录/安全模型页、GitHub risa-labs-inc/BossConsole（Apache-2.0，初始公开版 2026-07-21、v9.5.45 2026-10-16）、Product Hunt 2026-10-16 发布（94 upvotes、#14 当日榜）、chatgate.ai / completeaitraining / vibed-lab / skillsllm 多源评测与档案聚合；赵生尚未亲测）：解决「Agent 在各处散成一摊——浏览器一个窗口、终端一个、编辑器一个、上下文对不上、关掉就断」的协作断层。BOSS Console（Risa Labs 出品）把常驻 Agent 的「工作间」做成一个原生操作系统级控制台：浏览器+终端+编辑器+笔记本同屏合一，Agent 在真实环境里干活的每一步你都看得到、还能随时插手。差异点：①库内已收录 40+ 桌面智能体/工作台（Nami、Agent OS、Onward Agent Workbench、PilotDeck、Xiryn、Craft 等），其中 Nami/Agent OS/Onward 多为「把别的 Agent 的输出排进面板」或「调度编排」，BOSS 的独门是「人Agent同页交接」——你能暂停 Agent，直接接管它正在用的那个浏览器页面或终端，改完再交还续跑，库内无同类；②跨设备续连最彻底——本机常驻跑，手机/其他电脑经 fluck.ai 与 cli.risaboss.com 实时查看并接管同一工作区，比库内多数「本机同屏」Agent 更贴合外出场景；③200+ MCP 工具 + Toolbox 热重载插件 + 角色权限/插件门控/用户级密钥，把工具治理做成产品级；④原生 JVM/Kotlin（非 Electron）跨 macOS/Windows/Linux 一键装，轻量且对赵生 Windows 主环境直接可用。短板（必须如实标注）：仍早期——初始公开版 2026-07、v9.5.45 仅 2026-10-16，社区与文档尚薄；安全模型有边界（chatgate 指出 BOSS 的权限只管「经过 BOSS 调用的工具」，不沙箱外部 Agent、插件跑在宿主进程、关掉工具不等于撤销已授权工作、授权页/工具拿到密钥仍可能外泄），需用户自设最小权限；thetesserapress 曾评其为「pitch 多于 product」——但 GitHub 开源仓库、官网实质产品页、PH 94 upvotes 与多家工具目录交叉验证其确为真实可下载产品，并非空壳落地页。整体：库内 Agent 工作台主线里「常驻 Agent 的统一可接管工作区 + 人Agent同页交接」范式空白填补，与编排型工作台（Nami/Agent OS/Onward）互补，对赵生「多工具同屏、外出接管、Windows 原生」场景直接对味，待赵生在 Windows 装包亲测后定稿推荐。'
   }
 ]
